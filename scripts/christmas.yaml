@@ -1,0 +1,10 @@
+---
+# Christmas scripts
+#
+
+start_xmas_1:
+  alias: Start Xmas
+  icon: mdi:pine-tree
+  sequence:
+    - service: light.turn_on
+      entity_id: light.wled

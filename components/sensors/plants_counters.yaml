@@ -1,0 +1,16 @@
+#####
+# Plant problem counters
+#
+#####
+
+- platform: template
+  sensors:
+    plants_w_problem:
+      friendly_name: "Plants with problems"
+      unit_of_measurement: "problem"
+      value_template: >
+        {% set lights = [
+          states.plant.plant_1,
+          states.plant.plant_2,
+          ] %}
+        {{ lights | selectattr('state','eq','problem') | list | count }}

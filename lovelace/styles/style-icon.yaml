@@ -1,0 +1,34 @@
+card:
+  - background: inherit
+  - box-shadow: none
+  - height: 80px
+  - width: 80px
+  - transition: none
+
+custom_fields:
+  icon_hue:
+    - top: 5%
+    - left: 6%
+    - width: 68px
+    - position: absolute
+
+  temp:
+    - display: none
+
+  sd1:
+    - display: none
+
+  sd2:
+    - display: none
+
+  sd3:
+    - display: none
+
+  sd4:
+    - display: none
+
+  sd5:
+    - display: none
+
+  sd6:
+    - display: none

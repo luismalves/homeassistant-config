@@ -1,0 +1,10 @@
+#####
+# Living room lights
+# https://www.home-assistant.io/integrations/light.group/
+#####
+
+- platform: group
+  name: Luz Mesa
+  entities:
+    - light.luz_mesa_1
+    - light.luz_mesa_2

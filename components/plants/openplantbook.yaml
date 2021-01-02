@@ -1,0 +1,8 @@
+#####
+# Custom Plant component
+# https://github.com/Olen/homeassistant-plant
+#####
+
+openplantbook:
+  client_id: !secret plantbook_client_id
+  secret: !secret plantbook_secret

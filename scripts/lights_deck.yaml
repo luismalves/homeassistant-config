@@ -1,0 +1,29 @@
+---
+# Lights group control - deck
+#
+
+turn_off_deck:
+  alias: Turn off lights of Deck
+  sequence:
+    - service: light.turn_off
+      entity_id: light.mi_lamp
+    - service: light.turn_off
+      entity_id: light.led_strip_deck
+    - service: light.turn_off
+      entity_id: light.luz_deck
+    - service: light.turn_off
+      entity_id: light.mi_lamp_pro
+  mode: single
+
+turn_on_deck:
+  alias: Turn on lights of Deck
+  sequence:
+    - service: light.turn_on
+      entity_id: light.mi_lamp
+    - service: light.turn_on
+      entity_id: light.led_strip_deck
+    - service: light.turn_on
+      entity_id: light.luz_deck
+    - service: light.turn_on
+      entity_id: light.mi_lamp_pro
+  mode: single

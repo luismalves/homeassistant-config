@@ -1,0 +1,12 @@
+#####
+# Plants entities customization
+# https://www.home-assistant.io/docs/configuration/customizing-devices/
+#####
+
+plant.plant_1:
+  name: Plantomana borracheira
+  friendly_name: Plantomana borracheira
+
+plant.plant_2:
+  name: Plantomana nova
+  friendly_name: Plantomana nova

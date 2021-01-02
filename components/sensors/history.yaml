@@ -1,0 +1,41 @@
+#####
+# Door sensors history
+#
+#####
+
+- platform: template
+  sensors:
+    door_open_for:
+      friendly_name: "Main door open for"
+      unit_of_measurement: "minutes"
+      #entity_id:
+      #  - sensor.time
+      #  - binary_sensor.door_openclose
+      value_template: >
+        {% set t = 0 if states('binary_sensor.door_openclose') == 'off' else now().timestamp() - states.binary_sensor.door_openclose.last_changed.timestamp() %}
+        {{ t | timestamp_custom('%M', false) }}
+
+- platform: template
+  sensors:
+    door_open_last:
+      friendly_name: "Main door lastly open"
+      unit_of_measurement: "minutes"
+      #entity_id:
+      #  - sensor.time
+      #  - binary_sensor.door_openclose
+      value_template: >
+        {% set t = 0 if states('binary_sensor.door_openclose') == 'on' else now().timestamp() - states.binary_sensor.door_openclose.last_changed.timestamp() %}
+        {% set h = t | timestamp_custom('%H', false) | int %}
+        {% set m = t | timestamp_custom('%M', false) | int %}
+        {{ h * 60 + m }}
+
+- platform: template
+  sensors:
+    door_show_time:
+      friendly_name: "Show door times in frontend"
+      value_template: >-
+        {% if states('sensor.door_open_last') | int < 60 or states('sensor.door_open_for') | int > 0 %}
+          on
+        {% else %}
+          off
+        {% endif %}

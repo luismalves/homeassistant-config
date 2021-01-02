@@ -1,0 +1,27 @@
+---
+# Set cover action based on state
+#
+
+toggle_cover_right:
+  sequence:
+    - service_template:
+        "{% if is_state('cover.shelly_roller_right', 'opening') %}\
+        cover.stop_cover{% elif is_state('cover.shelly_roller_right', 'closing')\
+        \ %}  cover.stop_cover{% elif is_state('cover.shelly_roller_right', 'open')\
+        \ %}  cover.close_cover{% else %}  cover.open_cover{% endif %}"
+      entity_id: cover.shelly_roller_right
+  mode: single
+  alias: Toggle Shelly Cover Right
+  icon: mdi:window-shutter
+
+toggle_cover_left:
+  sequence:
+    - service_template:
+        "{% if is_state('cover.shelly_roller_left', 'opening') %}\
+        \  cover.stop_cover{% elif is_state('cover.shelly_roller_left', 'closing')\
+        \ %}  cover.stop_cover{% elif is_state('cover.shelly_roller_left', 'open')\
+        \ %}  cover.close_cover{% else %}  cover.open_cover{% endif %}"
+      entity_id: cover.shelly_roller_left
+  mode: single
+  alias: Toggle Shelly Cover Left
+  icon: mdi:window-shutter

@@ -1,0 +1,57 @@
+#####
+# Lights on counters
+#
+#####
+
+- platform: template
+  sensors:
+    lights_on_deck:
+      friendly_name: "Luzes ligadas no Deck"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.light.led_strip_deck,
+          states.light.mi_lamp,
+          states.light.luz_deck,
+          states.light.mi_lamp_pro,
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_living_room:
+      friendly_name: "Luzes ligadas na Sala"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.light.led_strip_living_room,
+          states.light.luz_mesa,
+          states.light.luz_sala,
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_kitchen:
+      friendly_name: "Luzes ligadas na Cozinha"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.light.luz_entrada,
+          states.switch.shelly_kitchen_light,
+          states.switch.shelly_kitchen_led_left,
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_bedroom:
+      friendly_name: "Luzes ligadas no Quarto"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.light.luz_quarto,
+          states.light.luz_quarto_esquerda,
+          states.light.luz_quarto_direita,
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}

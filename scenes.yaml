@@ -1,0 +1,79 @@
+#####
+# Living room
+#####
+
+- name: Movie time
+  icon: mdi:theater
+  entities:
+    light.shelly_kitchen_light: "off"
+    light.shelly_kitchen_led_left: "off"
+    light.shelly_table_light: "off"
+    light.led_strip_living_room:
+      state: "on"
+    light.luz_quarto_esquerda: "off"
+    light.luz_quarto_direita: "off"
+    light.luz_quarto: "off"
+
+#####
+# Kitchen
+#####
+
+- name: Meal time
+  icon: mdi:food-fork-drink
+  entities:
+    light.shelly_kitchen_led_left: "off"
+    light.shelly_kitchen_light: "off"
+    light.shelly_living_room_light: "off"
+    light.shelly_table_light: "on"
+    light.luz_mesa:
+      state: "on"
+      brightness: 254
+    light.led_strip_living_room: "off"
+    light.led_strip_deck: "off"
+    light.luz_deck: "off"
+    light.mi_lamp: "off"
+    light.mi_lamp_pro: "off"
+
+- name: Cooking time
+  icon: mdi:pasta
+  entities:
+    light.shelly_kitchen_led_left: "on"
+    light.shelly_kitchen_light: "on"
+    light.shelly_table_light: "off"
+
+#####
+# Deck
+#####
+
+- name: Hooby time
+  icon: mdi:gamepad-variant-outline
+  entities:
+    light.led_strip_deck: "on"
+    light.mi_lamp: "on"
+
+#####
+# Bedroom
+#####
+
+- name: Reading
+  icon: mdi:gamepad-variant-outline
+  entities:
+    light.luz_quarto_direita:
+      state: "on"
+      brightness: 254
+    light.luz_quarto_esquerda:
+      state: "on"
+      brightness: 254
+    light.luz_quarto: "off"
+
+- name: S-FM
+  icon: mdi:radio
+  entities:
+    light.luz_quarto_direita:
+      state: "off"
+    light.luz_quarto_esquerda:
+      state: "off"
+    light.led_strip_deck:
+      state: "on"
+      rgb_color: [0, 190, 255]
+      brightness: 255

@@ -1,0 +1,65 @@
+#####
+# Door sensors
+#
+#####
+- platform: template
+  sensors:
+    door_openclose:
+      friendly_name: "Main door status"
+      value_template: >-
+        {% if is_state('binary_sensor.door_openclose', 'on') %}
+          Aberta
+        {% elif is_state('binary_sensor.door_openclose', 'off') %}
+          Fechada
+        {% else %}
+          Erro
+        {% endif %}
+
+#####
+# Presence detection
+#
+#####
+
+- platform: template
+  sensors:
+    presence_kitchen:
+      friendly_name: "Kitchen motion status"
+      value_template: >-
+        {% if is_state('binary_sensor.presence_kitchen', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.presence_kitchen', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- platform: template
+  sensors:
+    presence_living_room:
+      friendly_name: "Kitchen motion status"
+      value_template: >-
+        {% if is_state('binary_sensor.presence_living_room', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.presence_living_room', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+#####
+# Water leakage
+#
+#####
+
+- platform: template
+  sensors:
+    water_sensor:
+      friendly_name: "Water leak status"
+      value_template: >-
+        {% if is_state('binary_sensor.water_sensor', 'off') %}
+          OK
+        {% elif is_state('binary_sensor.water_sensor', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}

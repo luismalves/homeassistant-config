@@ -1,0 +1,16 @@
+############################################################
+#
+# Logger  You can filter anything betwen the []'s in the logger.
+#
+############################################################
+
+# Log Severities: notset, debug, info, warn, warning, error, fatal, critical
+
+default: info
+logs:
+  homeassistant.core: error
+  homeassistant.helpers.script: info
+  homeassistant.helpers.entity: critical
+  homeassistant.exceptions: info
+  py.warnings: error
+  root: warn

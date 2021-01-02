@@ -1,0 +1,118 @@
+title: Quarto
+path: bedroom
+panel: true
+#icon: mdi:bed-empty
+background: 'linear-gradient(315deg, #efecec 0%, #f9aba4 74%)'
+
+cards:
+  - cards:
+      - cards:
+          - height: 40
+            size: 30
+            type: 'custom:gap-card'
+          - height: 40
+            size: 30
+            type: 'custom:gap-card'
+          - height: 40
+            size: 30
+            type: 'custom:gap-card'
+        type: horizontal-stack
+      - cards:
+          - template: title
+            type: 'custom:decluttering-card'
+            variables:
+              - content: Quarto
+        type: horizontal-stack
+        
+      - cards:
+        - type: markdown
+          style: >
+            ha-card {
+              box-shadow: none;
+              height: 100%;
+              background: none;
+              font-family: San Francisco;
+              font-weight: 700;
+              font-size: 1.2em;
+              color: #555;
+              margin-left: -15px;
+              margin-top: -17px;
+              margin-bottom: 0px;
+            }
+          content: >
+            {% if states.sensor.lights_on_bedroom.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_bedroom.state == "1" %} {{states.sensor.lights_on_bedroom.state}} luz ligada. {% else %} {{states.sensor.lights_on_bedroom.state}} luzes ligadas. {% endif %}
+        type: horizontal-stack
+        
+      - break
+    
+      - cards:
+          - template: es-light
+            type: 'custom:decluttering-card'
+            variables:
+              - template: light-bedroom
+              - entity-1: light.luz_quarto_direita
+              - name-1: 'Luz Esquerda'
+              - state-1: 'on'
+              - state-2: 'off'
+              - circle-1: entity.attributes.brightness
+              - circle-2: (254 / 100)
+              - circle-3: 'on'
+              - circle-4: brightness
+          - template: es-light
+            type: 'custom:decluttering-card'
+            variables:
+              - template: light-pendant
+              - entity-1: light.luz_quarto
+              - name-1: 'Luz Quarto'
+              - state-1: 'on'
+              - state-2: 'off'
+              - circle-1: entity.attributes.brightness
+              - circle-2: (254 / 100)
+              - circle-3: 'on'
+              - circle-4: brightness
+          - template: es-light
+            type: 'custom:decluttering-card'
+            variables:
+              - template: light-bedroom
+              - entity-1: light.luz_quarto_esquerda
+              - name-1: 'Luz Direita'
+              - state-1: 'on'
+              - state-2: 'off'
+              - circle-1: entity.attributes.brightness
+              - circle-2: (254 / 100)
+              - circle-3: 'on'
+              - circle-4: brightness
+        type: horizontal-stack     
+
+      - cards:
+          - height: 10
+            size: 30
+            type: 'custom:gap-card'
+          - height: 10
+            size: 30
+            type: 'custom:gap-card'
+          - height: 10
+            size: 30
+            type: 'custom:gap-card'
+        type: horizontal-stack
+
+      - cards:
+          - template: scene
+            type: 'custom:decluttering-card'
+            variables:
+              - template: scene-reading
+              - scene-1: scene.reading
+              - entity-1: scene.reading
+          - height: 30
+            size: 30
+            type: 'custom:gap-card'
+          - height: 30
+            size: 30
+            type: 'custom:gap-card'
+        type: horizontal-stack         
+
+    column_width: 90%
+    justify_content: center
+    layout: horizontal
+    max_width: 350px
+    type: 'custom:layout-card'

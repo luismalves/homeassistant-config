@@ -1,0 +1,26 @@
+---
+# Desktop Computer
+#
+
+turn_on_desktop:
+  alias: Turn on Desktop Computer
+  sequence:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret desktop_pc_mac
+
+turn_off_desktop:
+  alias: Turn off Desktop Computer
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: iotlink/workgroup/luis-desktop/commands/shutdown
+        payload: ""
+
+sleep_desktop:
+  alias: Put Desktop into Sleep
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: iotlink/workgroup/luis-desktop/commands/suspend
+        payload: ""

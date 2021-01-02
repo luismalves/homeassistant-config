@@ -1,0 +1,15 @@
+#####
+# Plant component
+# https://www.home-assistant.io/integrations/plant/
+# https://github.com/Olen/homeassistant-plant
+#####
+
+plant_1:
+  species: ficus elastica
+  image: /local/images/plants/ficus_elastica_1
+  sensors:
+    moisture: sensor.moisture_vegtrue_1
+    #    battery: sensor.my_sensor_battery
+    temperature: sensor.temperature_vegtrue_1
+    conductivity: sensor.conductivity_vegtrue_1
+    brightness: sensor.illuminance_vegtrue_1

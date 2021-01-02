@@ -1,0 +1,7 @@
+alert: >
+  [[[ if (states['sensor.current_version'].state != states['sensor.latest_version'].state) 
+      return `<ha-icon
+      icon="mdi:alert-decagram"
+      style="width: 22px; height: 22px; color:red">
+      </ha-icon>`;
+  ]]]

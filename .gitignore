@@ -1,0 +1,33 @@
+# Example .gitignore file for your config dir.
+# An * ensures that everything will be ignored.
++
+# Whitelist files/folders with !, these will not be ignored:
+!*.yaml
+!.gitignore
+!*.md
+!www/css/fonts.css
+
+# Ignore folders:
+.storage
+.cloud
+.google.token
+blueprints
+node-red
+esphome
+custom_components
+www/*
+
+# Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
+ip_bans.yaml
+secrets.yaml
+known_devices.yaml
+service-account*.json
+
+# Ignores font binaries because of copywrite
+*.woff
+
+# Ignore log files
+*.log
+
+# Ignore database
+*.db

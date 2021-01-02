@@ -1,0 +1,601 @@
+##########################################################################
+#                                                                        #
+#                              * TEMPLATES *.                            #
+#                                                                        #
+##########################################################################
+
+button_card_templates:
+  house:
+    custom_fields: !include lovelace/icons/house.yaml
+
+  plants:
+    custom_fields: !include lovelace/icons/plants.yaml
+
+  light-spot:
+    custom_fields: !include lovelace/icons/light-spot.yaml
+
+  light-pendant:
+    custom_fields: !include lovelace/icons/light-pendant.yaml
+
+  light-strip:
+    custom_fields: !include lovelace/icons/light-strip.yaml
+
+  light-desk:
+    custom_fields: !include lovelace/icons/light-desk.yaml
+
+  light-outdoor:
+    custom_fields: !include lovelace/icons/light-outdoor.yaml
+
+  light-bedroom:
+    custom_fields: !include lovelace/icons/light-bedroom.yaml
+
+  light-xmas:
+    custom_fields: !include lovelace/icons/light-xmas.yaml
+
+  shutter:
+    custom_fields: !include lovelace/icons/shutter.yaml
+
+  speaker:
+    custom_fields: !include lovelace/icons/speaker.yaml
+
+  switch:
+    custom_fields: !include lovelace/icons/switch.yaml
+
+  tv:
+    custom_fields: !include lovelace/icons/tv.yaml
+
+  path-shutter:
+    custom_fields: !include lovelace/icons/path-shutter.yaml
+
+  path-lights:
+    custom_fields: !include lovelace/icons/path-lights.yaml
+
+  path-devices:
+    custom_fields: !include lovelace/icons/path-devices.yaml
+
+  #path-sensors:
+  #custom_fields:
+  #!include lovelace/icons/path-sensors.yaml
+
+  person-girl:
+    custom_fields: !include lovelace/icons/person-girl.yaml
+
+  person-kid:
+    custom_fields: !include lovelace/icons/person-kid.yaml
+
+  person-man:
+    custom_fields: !include lovelace/icons/person-man.yaml
+
+  sensors-version:
+    custom_fields: !include lovelace/sensors/sensors-version.yaml
+
+  sensors-hacs:
+    custom_fields: !include lovelace/sensors/sensors-hacs.yaml
+
+  sensors-kitchen:
+    custom_fields: !include lovelace/sensors/sensors-kitchen.yaml
+
+  sensors-living_room:
+    custom_fields: !include lovelace/sensors/sensors-living_room.yaml
+
+  scene-kitchen:
+    custom_fields: !include lovelace/icons/scene-kitchen.yaml
+
+  scene-movie:
+    custom_fields: !include lovelace/icons/scene-movie.yaml
+
+  scene-meal:
+    custom_fields: !include lovelace/icons/scene-meal.yaml
+
+  scene-cooking:
+    custom_fields: !include lovelace/icons/scene-cooking.yaml
+
+  scene-hobby:
+    custom_fields: !include lovelace/icons/scene-hobby.yaml
+
+  scene-reading:
+    custom_fields: !include lovelace/icons/scene-reading.yaml
+
+  scene-christmas:
+    custom_fields: !include lovelace/icons/scene-christmas.yaml
+
+  toggle:
+    custom_fields: !include lovelace/icons/toggle.yaml
+
+  auto-brightness:
+    custom_fields: !include lovelace/icons/auto-brightness.yaml
+
+  brightness:
+    custom_fields: !include lovelace/icons/brightness.yaml
+
+decluttering_templates:
+  header:
+    card:
+      style: >
+        ha-card {
+          box-shadow: none;
+          height: 100%;
+          background: none;
+          font-family: San Francisco;
+          font-weight: 700;
+          font-size: 3em;
+          line-height: 1em;
+          color: #333;
+          text-rendering: optimizeLegibility;
+          margin-left: -15px;
+        }
+      type: markdown
+      content: |
+        [[content]]
+    default: null
+
+  subheader:
+    card:
+      style: >
+        ha-card {
+          box-shadow: none;
+          height: 100%;
+          background: none;
+          font-family: San Francisco;
+          font-weight: 700;
+          font-size: 2em;
+          line-height: 1em;
+          color: #575757;
+          text-rendering: optimizeLegibility;
+          margin-left: -15px;
+          margin-top: -20px;
+          margin-bottom: -20px;
+        }
+      type: markdown
+      content: |
+        [[content]]
+    default: null
+
+  title:
+    card:
+      style: >
+        ha-card {
+          box-shadow: none;
+          height: 100%;
+          background: none;
+          font-family: San Francisco;
+          font-weight: 700;
+          font-size: 1.65em;
+          color: #111;
+          text-rendering: optimizeLegibility;
+          margin-left: -15px;
+          margin-top: -20px;
+          margin-bottom: -15px;
+        }
+      type: markdown
+      content: |
+        [[content]]
+    default: null
+
+  title-white:
+    card:
+      style: >
+        ha-card {
+          box-shadow: none;
+          height: 100%;
+          background: none;
+          font-family: San Francisco;
+          font-weight: 700;
+          font-size: 1.65em;
+          color: #FFF;
+          text-rendering: optimizeLegibility;
+          margin-left: -15px;
+          margin-top: -20px;
+          margin-bottom: -15px;
+        }
+      type: markdown
+      content: |
+        [[content]]
+    default: null
+
+  subtitle:
+    card:
+      style: >
+        ha-card {
+          box-shadow: none;
+          height: 100%;
+          background: none;
+          font-family: San Francisco;
+          font-weight: 500;
+          font-size: 1.2em;
+          color: #333;
+          text-rendering: optimizeLegibility;
+          margin-left: -15px;
+          margin-top: -20px;
+          margin-bottom: -10px;
+        }
+      type: markdown
+      content: |
+        [[content]]
+    default: null
+
+  subtitle-white:
+    card:
+      style: >
+        ha-card {
+          box-shadow: none;
+          height: 100%;
+          background: none;
+          font-family: San Francisco;
+          font-weight: 500;
+          font-size: 1.2em;
+          color: #FFF;
+          text-rendering: optimizeLegibility;
+          margin-left: -15px;
+          margin-top: -20px;
+          margin-bottom: -10px;
+        }
+      type: markdown
+      content: |
+        [[content]]
+    default: null
+
+  device:
+    card:
+      style: >
+        ha-card {
+          box-shadow: none;
+          height: 100%;
+          background: none;
+          font-family: San Francisco;
+          font-weight: 700;
+          font-size: 13px;
+          color: #fff;
+          text-rendering: optimizeLegibility;
+          text-align: center;
+          position: static;
+          margin-top: -20px;
+          margin-bottom: -25px;
+        }
+      type: markdown
+      content: |
+        [[content]]
+    default: null
+
+  #---------------------#
+  # Entity state cards
+  #---------------------#
+  es-icon:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: false
+      show_name: false
+      styles: !include lovelace/styles/style-icon.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  path:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: navigate
+        navigation_path: "[[navigation_path]]"
+      show_icon: false
+      show_state: false
+      styles: !include lovelace/styles/style-card-path.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  scene:
+    card:
+      entity: "[[scene-1]]"
+      name: "[[[ return entity.attributes.friendly_name ]]]"
+      tap_action:
+        action: call-service
+        service: scene.turn_on
+        service_data:
+          entity_id: "[[scene-1]]"
+      show_icon: false
+      show_state: false
+      styles: !include lovelace/styles/style-card-centered.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es.yaml
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-scene:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: call-service
+        service: scene.turn_on
+        service_data:
+          entity_id: "[[scene-1]]"
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-centered.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-script:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: call-service
+        service: script.turn_on
+        service_data:
+          entity_id: "[[script-1]]"
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-centered.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-person:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: true
+      tap_action:
+        action: none
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-small.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-config:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: false
+      tap_action:
+        action: toggle
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-small-one_half.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-dummy:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: true
+      tap_action:
+        action: none
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-centered.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-light:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es-lights.yaml
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  # Lights which only support white range of values. Changes in hold action.
+  es-light-white:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es-lights-white.yaml
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  # Lights which toggle based on a switch and colors are controlled from another entity
+  es-light-switch:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-switch]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es-lights.yaml
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-3:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es-3.yaml
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-switch:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-es.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-cover:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es-cover.yaml
+      tap_action:
+        action: call-service
+        service: "[[toggle-script]]"
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-one_half.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-speaker:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es-speaker.yaml
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-number:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: none
+      show_icon: false
+      show_state: true
+      styles: !include lovelace/styles/style-card-centered-one_half.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  #---------------------#
+  # Sensor cards
+  #---------------------#
+  sensor-kitchen:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: false
+      tap_action:
+        action: none
+      styles: !include lovelace/styles/style-card-sensors.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  sensor-living_room:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: false
+      tap_action:
+        action: none
+      styles: !include lovelace/styles/style-card-sensors-small.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  sensor-number-ext:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: url
+        url_path: "[[url-1]]"
+      show_icon: false
+      show_state: true
+      styles: !include lovelace/styles/style-card-centered-one_half.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  sensor-number-local:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: navigate
+        navigation_path: "[[url-1]]"
+      show_icon: false
+      show_state: true
+      styles: !include lovelace/styles/style-card-centered-one_half.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+##########################################################################
+#                                                                        #
+#                              * LOVELACE *                              #
+#                                                                        #
+##########################################################################
+
+title: Home Control
+
+swipe_nav:
+  wrap: false
+  animate: swipe
+  prevent_default: true
+  swipe_amount: 30
+
+views:
+  - !include lovelace/views/start.yaml
+  - !include lovelace/views/living_room.yaml
+  - !include lovelace/views/deck.yaml
+  - !include lovelace/views/kitchen.yaml
+  - !include lovelace/views/bedroom.yaml
+  - !include lovelace/views/plants.yaml
+  - !include lovelace/views/info.yaml

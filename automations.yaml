@@ -1,0 +1,11 @@
+- id: '1608319105344'
+  alias: Run command on HA Start
+  description: ''
+  trigger:
+  - platform: homeassistant
+    event: start
+  condition: []
+  action:
+  - service: shell_command.ha_start
+    data: {}
+  mode: single

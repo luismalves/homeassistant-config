@@ -1,0 +1,61 @@
+---
+# Goobye script, to run when leaving the house
+#
+
+goodbye:
+  alias: Goodbye
+  sequence:
+    - type: turn_off
+      device_id: e1fa1900151811eb9a633f18e25a6743
+      entity_id: light.shelly_living_room_light
+      domain: light
+    - type: turn_off
+      device_id: e1fa1900151811eb9a633f18e25a6743
+      entity_id: light.shelly_table_light
+      domain: light
+    - type: turn_off
+      device_id: ee2e9a64151811ebaa43bb3718ebb30f
+      entity_id: light.shelly_kitchen_light
+      domain: light
+    - type: turn_off
+      device_id: ee2e9a64151811ebaa43bb3718ebb30f
+      entity_id: light.shelly_kitchen_led_left
+      domain: light
+    - type: turn_off
+      device_id: 507636d9fc5511ea931c417161d0ac14
+      entity_id: light.led_strip_deck
+      domain: light
+    - type: turn_off
+      device_id: d997ef79c6e8489494bebdcea08bdfc4
+      entity_id: light.mi_lamp
+      domain: light
+    - type: turn_off
+      device_id: 9857c579fc5511ea8a2395d464fa73ec
+      entity_id: light.led_strip_living_room
+      domain: light
+    - type: turn_off
+      device_id: c9111c1f29fd4bfa9a5e67899ecb6e64
+      entity_id: light.luz_quarto
+      domain: light
+    - type: turn_off
+      device_id: 664d1ffba84b42f4b2c3bca73d588533
+      entity_id: light.luz_quarto_esquerda
+      domain: light
+    - type: turn_off
+      device_id: 4bf01240472142069904c71d8ba0f385
+      entity_id: light.luz_quarto_direita
+      domain: light
+    - type: turn_off
+      device_id: e5da57053fd57f495794b0dc3832b8d2
+      entity_id: light.wled
+      domain: light
+    - type: turn_off
+      device_id: d997ef79c6e8489494bebdcea08bdfc4
+      entity_id: light.mi_lamp
+      domain: light
+    - type: turn_off
+      device_id: ea138ebd-5696-41c7-905a-e9e94eda2582
+      entity_id: light.mi_lamp_pro
+      domain: light
+  mode: single
+  icon: mdi:account-arrow-right-outline

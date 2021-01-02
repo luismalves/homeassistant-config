@@ -1,0 +1,8 @@
+device_tracker.finder_tag_black:
+  source_type: bluetooth
+
+device_tracker.finder_tag_blue:
+  source_type: bluetooth
+
+plant.miflora_1:
+  friendly_name: Plan number 1

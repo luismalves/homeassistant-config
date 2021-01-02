@@ -1,0 +1,70 @@
+title: Plantas
+path: plants
+panel: true
+visible: true
+icon: mdi:sprout
+background: center / cover linear-gradient(135deg, rgba(245, 246, 252, 1), rgba(53, 219, 146, 0.25)),url(/local/images/backgrounds/pink-leaf.jpg) 40% 25%
+
+cards:
+  - cards:
+      - cards:
+          - height: 40
+            size: 30
+            type: "custom:gap-card"
+          - height: 40
+            size: 30
+            type: "custom:gap-card"
+          - height: 40
+            size: 30
+            type: "custom:gap-card"
+        type: horizontal-stack
+      - cards:
+          - template: title
+            type: "custom:decluttering-card"
+            variables:
+              - content: Plantas
+        type: horizontal-stack
+
+      - cards:
+          - type: markdown
+            style: >
+              ha-card {
+                box-shadow: none;
+                height: 100%;
+                background: none;
+                font-family: San Francisco;
+                font-weight: 700;
+                font-size: 1.2em;
+                color: #555;
+                margin-left: -15px;
+                margin-top: -17px;
+                margin-bottom: 0px;
+              }
+            content: >
+              {% if states.sensor.plants_w_problem.state == "0" %} Tudo bem com as plantomanas.{% elif states.sensor.plants_w_problem.state == "1" %} {{states.sensor.plants_w_problem.state}} plantomana está com problemas :( {% else %} {{states.sensor.plants_w_problem.state}} plantomanas estão com problemas :( {% endif %}
+        type: horizontal-stack
+
+      - entity: plant.plant_1
+        type: "custom:flower-card"
+        species: teste
+        style: >
+          ha-card img {
+            height: 88px;
+            min-height: 88px;
+            object-fit: cover;
+          }
+
+      - entity: plant.plant_2
+        type: "custom:flower-card"
+        style: >
+          ha-card img {
+            height: 88px;
+            min-height: 88px;
+            object-fit: cover;
+          }
+
+    column_width: 90%
+    justify_content: center
+    layout: horizontal
+    max_width: 350px
+    type: "custom:layout-card"

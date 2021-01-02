@@ -1,0 +1,169 @@
+title: Cozinha
+path: kitchen
+panel: true
+#icon: mdi:silverware-fork-knife
+background: "linear-gradient(95deg, #d5fefd 0%, #fffcff 74%)"
+
+cards:
+  - cards:
+      - cards:
+          - height: 40
+            size: 30
+            type: "custom:gap-card"
+          - height: 40
+            size: 30
+            type: "custom:gap-card"
+          - height: 40
+            size: 30
+            type: "custom:gap-card"
+        type: horizontal-stack
+      - cards:
+          - template: title
+            type: "custom:decluttering-card"
+            variables:
+              - content: Cozinha
+        type: horizontal-stack
+
+      - cards:
+          - type: markdown
+            style: >
+              ha-card {
+                box-shadow: none;
+                height: 100%;
+                background: none;
+                font-family: San Francisco;
+                font-weight: 700;
+                font-size: 1.2em;
+                color: #555;
+                margin-left: -15px;
+                margin-top: -17px;
+                margin-bottom: 0px;
+              }
+            content: >
+              {% if states.sensor.lights_on_kitchen.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_kitchen.state == "1" %} {{states.sensor.lights_on_kitchen.state}} luz ligada. {% else %} {{states.sensor.lights_on_kitchen.state}} luzes ligadas. {% endif %}
+        type: horizontal-stack
+
+      - break
+
+      - cards:
+          - template: es-switch
+            type: "custom:decluttering-card"
+            variables:
+              - template: light-pendant
+              - entity-1: light.shelly_kitchen_light
+              - name-1: "Luz Cozinha"
+              - state-1: "on"
+              - state-2: "off"
+          - template: es-switch
+            type: "custom:decluttering-card"
+            variables:
+              - template: light-strip
+              - entity-1: light.shelly_kitchen_led_left
+              - name-1: "LED Strip"
+              - state-1: "on"
+              - state-2: "off"
+          - template: es-light
+            type: "custom:decluttering-card"
+            variables:
+              - template: light-outdoor
+              - entity-1: light.luz_entrada
+              - name-1: Luz entrada
+              - state-1: "on"
+              - state-2: "off"
+              - circle-1: entity.attributes.brightness
+              - circle-2: (254 / 100)
+              - circle-3: "on"
+              - circle-4: brightness
+        type: horizontal-stack
+
+      - cards:
+          - template: sensor-kitchen
+            type: "custom:decluttering-card"
+            variables:
+              - template: sensors-kitchen
+              - entity-1: sensor.presence_kitchen
+              - name-1: "Sensores"
+          - type: "custom:mini-graph-card"
+            entities:
+              - sensor.temperature_1
+            name: Temperatura
+            show:
+              name: false
+              icon: false
+            tap_action:
+              action: none
+            hours_to_show: 24
+            font_size: 65
+            points_per_hour: 4
+            color_thresholds:
+              - value: 15
+                color: "#BCF4F5"
+              - value: 19
+                color: "#5FBFF9"
+              - value: 21
+                color: "#EDEBA0"
+              - value: 23
+                color: "#E39774"
+            style: |
+              ha-card {
+                background: #FFF;
+                border-radius: 15px;
+                box-shadow: none;
+                font-family: San Francisco;
+                text-rendering: optimizeLegibility;
+              }
+              .states {
+                color: #111;
+                padding-bottom: 8px;
+                padding-left: 8px;
+              }
+        type: horizontal-stack
+
+      - cards:
+          - template: es-speaker
+            type: "custom:decluttering-card"
+            variables:
+              - template: speaker
+              - entity-1: media_player.nest_hub
+              - name-1: "Nest Hub"
+              - state-1: "playing"
+              - state-2: "paused"
+              - circle-1: entity.attributes.volume_level
+              - circle-2: 0.01
+              - circle-3: "playing"
+              - circle-4: volume_level
+        type: horizontal-stack
+
+      - cards:
+          - height: 10
+            size: 30
+            type: "custom:gap-card"
+          - height: 10
+            size: 30
+            type: "custom:gap-card"
+          - height: 10
+            size: 30
+            type: "custom:gap-card"
+        type: horizontal-stack
+
+      - cards:
+          - template: scene
+            type: "custom:decluttering-card"
+            variables:
+              - template: scene-cooking
+              - scene-1: scene.cooking_time
+          - template: scene
+            type: "custom:decluttering-card"
+            variables:
+              - template: scene-meal
+              - scene-1: scene.meal_time
+          - height: 30
+            size: 30
+            type: "custom:gap-card"
+        type: horizontal-stack
+
+    column_width: 90%
+    justify_content: center
+    layout: horizontal
+    max_width: 350px
+    type: "custom:layout-card"

@@ -1,0 +1,76 @@
+# Reference: https://gist.github.com/mcfrojd/9e6875e1db5c089b1e3ddeb7dba0f304
+
+# Control TV
+#
+turn_on_tv:
+  alias: Turn on TV
+  sequence:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret android_tv_mac
+
+turn_off_tv:
+  alias: Turn off TV
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.mi_tv
+        command: "SLEEP"
+
+# Start applications
+#
+start_netflix_tv:
+  alias: Start Netflix on TV
+  sequence:
+    - service: script.turn_on
+      entity_id: script.turn_on_tv
+    - delay: "15"
+    - service: androidtv.adb_command
+      entity_id: media_player.mi_tv
+      data:
+        command: "am start -a android.intent.action.VIEW -d -n com.netflix.ninja/.MainActivity"
+
+# Reference: https://stackoverflow.com/questions/27391326/how-to-change-the-volume-using-adb-shell-service-call-audio
+# Set TV Volume
+#
+volume_down_tv:
+  alias: Volume down tv
+  sequence:
+    - service: androidtv.adb_command
+      entity_id: media_player.mi_tv
+      data:
+        command: "input keyevent 24"
+
+volume_up_tv:
+  alias: Volume up tv
+  sequence:
+    - service: androidtv.adb_command
+      entity_id: media_player.mi_tv
+      data:
+        command: "input keyevent 25"
+
+set_volume_tv_x:
+  alias: Set volume to x
+  sequence:
+    - service: androidtv.adb_command
+      data:
+        entity_id: media_player.mi_tv
+        command: "service call audio 7 i32 3 i32 {{ volume }} i32 1"
+
+set_volume_tv_10:
+  alias: Set volume to 10
+  sequence:
+    - service: script.turn_on
+      entity_id: script.set_volume_tv_x
+      data:
+        variables:
+          volume: 10
+
+set_volume_tv_16:
+  alias: Set volume to 16
+  sequence:
+    - service: script.turn_on
+      entity_id: script.set_volume_tv_x
+      data:
+        variables:
+          volume: 16
