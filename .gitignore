@@ -29,5 +29,6 @@ service-account*.json
 # Ignore log files
 *.log
 
-# Ignore database
+# Ignore database and version info
 *.db
+*.HA_VERSION

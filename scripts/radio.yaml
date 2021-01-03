@@ -1,0 +1,52 @@
+---
+# Radio start script
+#
+
+radio_play:
+  alias: Play Radio on Chromecast Audio
+  sequence:
+    - service: media_player.play_media
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.chromecast_radio", "Sala") %} media_player.nest_hub
+          {% elif is_state("input_select.chromecast_radio", "Quarto") %} media_player.smart_clock
+          {% endif %}
+        media_content_id: >
+          {% if is_state("input_select.radio_station", "Orbital") %} http://stream.radio.com.pt/ROLI-ENC-401
+          {% elif is_state("input_select.radio_station", "Oxigénio") %}  http://stream.radio.com.pt/ROLI-ENC-498
+          {% elif is_state("input_select.radio_station", "Meo Sudoeste") %} http://stream.radio.com.pt/ROLI-ENC-495
+          {% elif is_state("input_select.radio_station", "Cidade FM") %} http://mcrscast.mcr.iol.pt/cidadefm
+          {% elif is_state("input_select.radio_station", "Comercial") %} http://mcrscast1.mcr.iol.pt/comercial.mp3
+          {% elif is_state("input_select.radio_station", "TSF") %} http://tsfdirecto.tsf.pt/tsfdirecto.mp3
+          {% elif is_state("input_select.radio_station", "Antena 1" ) %} http://stream.rawfm.com.au:8000/;stream.nsv
+          {% elif is_state("input_select.radio_station", "Antena 3") %} http://radiocast.rtp.pt/antena380a.mp3
+          {% elif is_state("input_select.radio_station", "M80") %} http://mcrscast.mcr.iol.pt/m80
+          {% elif is_state("input_select.radio_station", "Vodafone FM") %} http://195.23.102.207/vodafone
+          {% endif %}
+        media_content_type: "audio/mp4"
+
+radio_play_next:
+  alias: Play next Radio station on Chromecast Audio
+  sequence:
+    - service: input_select.select_next
+      entity_id: input_select.radio_station
+    - service: script.turn_on
+      entity_id: script.radio_play
+
+radio_play_previous:
+  alias: Play previous Radio station on Chromecast Audio
+  sequence:
+    - service: input_select.select_previous
+      entity_id: input_select.radio_station
+    - service: script.turn_on
+      entity_id: script.radio_play
+
+radio_stop:
+  alias: Stop Radio on Chromecast Audio
+  sequence:
+    - service: media_player.turn_off
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.chromecast_radio", "Sala") %} media_player.nest_hub
+          {% elif is_state("input_select.chromecast_radio", "Quarto") %} media_player.smart_clock
+          {% endif %}
