@@ -1,0 +1,49 @@
+title: "[[[ return entity.attributes.friendly_name ]]]"
+deviceID: this
+card:
+  cards:
+    - type: entities
+      show_header_toggle: false
+      entities:
+        - entity: "[[entity-1]]"
+          secondary_info: last-changed
+
+    - type: custom:layout-card
+      layout: vertical
+      column_width: 90%
+      cards:
+        - cards:
+            - template: radio
+              type: "custom:decluttering-card"
+              variables:
+                - template: plants
+                - radio: "Comercial"
+                - room: "[[room]]"
+            - template: radio
+              type: "custom:decluttering-card"
+              variables:
+                - template: plants
+                - radio: "TSF"
+                - room: "[[room]]"
+          columns: 3
+          type: grid
+
+        - cards:
+            - template: btn-script
+              type: "custom:decluttering-card"
+              variables:
+                - text: "Play"
+                - entity: "[[entity-1]]"
+                - script: script.radio_play
+            - template: btn-script
+              type: "custom:decluttering-card"
+              variables:
+                - text: "Stop"
+                - entity: "[[entity-1]]"
+                - script: script.radio_stop
+          type: horizontal-stack
+      style: >
+
+  type: vertical-stack
+style:
+  width: 400px;

@@ -1,0 +1,10 @@
+---
+# Text to speach script
+#
+
+tts_set:
+  alias: Set TTS variables
+  description: Used by NodeRed to trigger TTS. TTS is managed by NodeRed due to volume settings.
+  sequence:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.hearing_tts

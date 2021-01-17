@@ -1,0 +1,39 @@
+title: "[[[ return entity.attributes.friendly_name ]]]"
+deviceID: this
+card:
+  cards:
+    - type: custom:layout-card
+      layout: vertical
+      column_width: 90%
+      cards:
+        - cards:
+            - height: 10
+              type: "custom:gap-card"
+
+            - type: entities
+              show_header_toggle: false
+              entities:
+                - entity: input_text.google_home_tts_text
+              style: >
+                #paper-input {
+                  width: 100%;
+                }
+                .info {
+                  display: none;
+                }
+
+            - cards:
+                - template: btn-script
+                  type: "custom:decluttering-card"
+                  variables:
+                    - text: "Enviar"
+                    - entity: "[[entity-1]]"
+                    - script: script.tts_set
+              type: horizontal-stack
+
+            - height: 20
+              type: "custom:gap-card"
+          type: vertical-stack
+  type: vertical-stack
+style:
+  width: 400px;

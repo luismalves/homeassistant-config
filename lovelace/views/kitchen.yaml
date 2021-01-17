@@ -126,8 +126,7 @@ cards:
               - template: speaker
               - entity-1: media_player.nest_hub
               - name-1: "Nest Hub"
-              - state-1: "playing"
-              - state-2: "paused"
+              - room: "Sala"
               - circle-1: entity.attributes.volume_level
               - circle-2: 0.01
               - circle-3: "playing"

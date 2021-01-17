@@ -70,6 +70,9 @@ service_data:
           ha-card.--bg .cover {
             opacity: 1 !important;
           } 
+          ha-card.--inactive  {
+            display: none;
+          } 
           .entity__info__media {
             font-family: San Francisco !important;
           } 
@@ -105,6 +108,9 @@ service_data:
             font-family: San Francisco;
             margin-bottom: 0px !important;                                    
           }
+          ha-card.--inactive  {
+            display: none;
+          } 
           .entity__info {
             font-family: San Francisco !important;
             color: #fff !important;
@@ -138,115 +144,33 @@ service_data:
           }
         type: "custom:mini-media-player"
       - entities:
-          - actionSize: 50px
+          - actionSize: 65px
             actions:
               - icon: "mdi:cogs"
                 name: Einstellungen
-                service: browser_mod.popup
-                service_data:
-                  card:
-                    entities:
-                      - artwork: cover
-                        entity: "[[entity-1]]"
-                        group: true
-                        hide:
-                          controls: true
-                          icon: true
-                          info: true
-                          mute: true
-                          name: true
-                          play_pause: true
-                          play_stop: true
-                          power: true
-                          source: true
-                          volume: true
-                        info: short
-                        style: >
-                          ha-card {
-                            height: 170px;
-                            width: 150px !important;
-                            margin: 0 auto;
-                            border-radius: 20px;
-                            box-shadow: unset;
-                            width: 95%;
-                            margin: 0 auto;
-                            font-family: San Francisco;
-                            margin-bottom: 0px !important; 
-                            opacity: 1;
-                            '--ha-card-border-radius': transparent
-                          } 
-                          ha-card::before {
-                            opacity: 1;
-                          }
-                          #progressContainer {
-                            witdh: 50px !important;
-                          } 
-                          div > div > mmp__bg {
-                            border-radius: 0px !important;
-                          } 
-                          .mmp__bg {
-                            border-radius: 0px !important;
-                            margin-bottom: 20px !important;
-                            opacity: 1 !important;
-                          } 
-                          .cover {
-                            border-radius: 5px !important;
-                            opacity: 1 !important;
-                          } 
-                          .cover::before {
-                            opacity: 1 !important;
-                          } 
-                          ha-card.--has-artwork .cover,
-                          ha-card.--has-artwork[artwork="cover"]
-                          .cover::before, ha-card.--bg .cover {
-                            opacity: 1 !important;
-                          } 
-                          .entity__info__media {
-                            font-family: San Francisco !important;
-                          } 
-                          .entity__info__name {
-                            font-family: San Francisco !important;
-                          }
-                        type: "custom:mini-media-player"
-                      - entity: "[[playlist-1]]"
-                        name: "[[playlist-name-1]]"
-                    show_header_toggle: false
-                    type: entities
-                  deviceID: this
-                  style:
-                    "--ha-card-background": transparent
-                    "--ha-card-border-radius": transparent !important
-                    "--iron-icon-fill-color": "#fff"
-                    "--ha-card-box-shadow": 0px 5px '#000'
-                    box-shadow: 0px 11px '#000'
-                    background: "rgba(0, 0, 0, 0.95)"
-                    border-radius: 20px
-                    font-family: San Francisco !important
-                    font-weight: 700
-                    opacity: 1
-                  title: " "
+
               - icon: "mdi:speaker-wireless"
-                name: Einzeln
-                service: media_player.media_previous_track
-                service_data:
-                  entity_id: this
-              - icon: "mdi:speaker-multiple"
-                name: Gruppieren
-                service: media_player.media_play_pause
-                service_data:
-                  entity_id: this
+                name: Anunciar
+                service: browser_mod.popup
+                service_data: !include hold-action-tts.yaml
+
+              - icon: "mdi:radio"
+                name: Radio
+                service: browser_mod.popup
+                service_data: !include hold-action-radio.yaml
+
               - icon: "mdi:skip-previous"
-                name: Zurück
+                name: Anterior
                 service: media_player.media_previous_track
                 service_data:
                   entity_id: this
               - icon: "mdi:play-pause"
-                name: Play/Pause
+                name: Play/Pausa
                 service: media_player.media_play_pause
                 service_data:
                   entity_id: this
               - icon: "mdi:skip-next"
-                name: Weiter
+                name: Próxima
                 service: media_player.media_next_track
                 service_data:
                   entity_id: this
@@ -307,6 +231,9 @@ service_data:
               .action-holder {
                 margin-top: -195px !important;
               }
+              .range-holder {
+                width: 0px !important;
+              }
               #states {
                 box-shadow: transparent !important;
               } 
@@ -321,6 +248,7 @@ service_data:
                 cursor: pointer;
               }
               --ha-card-border-radius: transparent
+              --slider-width: 0
             type: "custom:media_player-popup-card"
         show_header_toggle: false
         type: entities

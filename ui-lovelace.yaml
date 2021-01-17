@@ -496,9 +496,24 @@ decluttering_templates:
       custom_fields: !include lovelace/circles/circle-x.yaml
       entity: "[[entity-1]]"
       name: "[[name-1]]"
+      tap_action: !include lovelace/holds/hold-action-es-speaker.yaml
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-es-speaker.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-tv:
+    card:
+      #custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
       hold_action: !include lovelace/holds/hold-action-es-speaker.yaml
       tap_action:
-        action: toggle
+        action: call-service
+        service: script.turn_on_tv
       show_icon: false
       show_state: true
       state: !include lovelace/states/state-x.yaml
@@ -574,6 +589,45 @@ decluttering_templates:
       show_state: true
       styles: !include lovelace/styles/style-card-centered-one_half.yaml
       template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  #---------------------#
+  # Radio cards
+  #---------------------#
+
+  radio:
+    card:
+      name: "[[radio]]"
+      tap_action:
+        action: call-service
+        service: script.radio_set
+        service_data:
+          chromecast_radio_option: "[[room]]"
+          radio_station_option: "[[radio]]"
+      show_icon: false
+      show_state: false
+      styles: !include lovelace/styles/style-card-centered.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  #---------------------#
+  # Buttons
+  #---------------------#
+
+  btn-script:
+    card:
+      name: "[[text]]"
+      tap_action:
+        action: call-service
+        service: script.turn_on
+        service_data:
+          entity_id: "[[script]]"
+      show_icon: false
+      show_state: false
+      styles: !include lovelace/styles/style-button-large.yaml
+      #template: "[[template]]"
       type: "custom:button-card"
     default: null
 

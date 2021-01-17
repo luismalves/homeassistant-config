@@ -1,0 +1,13 @@
+card:
+  - height: 40px
+  - font-family: "San Francisco"
+  - text-rendering: optimizeLegibility
+  - font-weight: 700
+  - color: "#666"
+  - font-size: 12px
+  - background-color: "rgba(255, 255, 255, 0.9)"
+  - border-radius: 15px
+  - box-shadow: none
+  - margin-bottom: 10px
+  - margin-top: 10px
+  - transition: none
