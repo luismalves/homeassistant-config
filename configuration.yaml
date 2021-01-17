@@ -29,10 +29,21 @@ browser_mod:
 
 wake_on_lan:
 
-nextcloud:
-  url: http://192.168.1.90:9321
-  username: !secret nextcloud_username
-  password: !secret nextcloud_password
+# nextcloud:
+#   url: http://192.168.1.90:9321
+#   username: !secret nextcloud_username
+#   password: !secret nextcloud_password
+
+proxmoxve:
+  - host: !secret proxmox_ip
+    username: !secret proxmox_user
+    password: !secret proxmox_pwd
+    verify_ssl: false
+    realm: pve
+    nodes:
+      - node: alpaca
+        vms:
+          - 100
 
 notify:
   - platform: nfandroidtv
@@ -48,7 +59,7 @@ tts:
     cache: true
     cache_dir: /tmp/tts
     time_memory: 300
-    base_url: http://192.168.1.90:8123
+    base_url: http://192.168.1.95:8123
     service_name: google_say
   - platform: google_cloud
     key_file: service-account-tts.json
@@ -56,6 +67,7 @@ tts:
     gender: male
     voice: pt-PT-Wavenet-B
     speed: 0.9
+    text_type: ssml
     profiles:
       - small-bluetooth-speaker-class-device
 
@@ -79,27 +91,27 @@ device_tracker:
 logger: !include logger.yaml
 recorder: !include recorder.yaml
 
-influxdb:
-  host: !secret influxdb_host
-  port: 8086
+# influxdb:
+#   host: !secret influxdb_host
+#   port: 8086
 
-  # Authentication credentials.
-  username: !secret influxdb_username
-  password: !secret influxdb_password
+#   # Authentication credentials.
+#   username: !secret influxdb_username
+#   password: !secret influxdb_password
 
-  # Max number of retries in case of a failure.
-  max_retries: 3
+#   # Max number of retries in case of a failure.
+#   max_retries: 3
 
-  # The list of attribute names which should be reported as tags
-  # and not fields to InfluxDB.
-  # I've added `device_class` tag.
-  tags_attributes:
-    - device_class
+#   # The list of attribute names which should be reported as tags
+#   # and not fields to InfluxDB.
+#   # I've added `device_class` tag.
+#   tags_attributes:
+#     - device_class
 
-  # I like to specify (whitelist) each thing I'd like to put
-  # into InfluxDB, to keep the database as clean as possible.
-  include:
-    entities: !include_dir_merge_list influxdb
+#   # I like to specify (whitelist) each thing I'd like to put
+#   # into InfluxDB, to keep the database as clean as possible.
+#   include:
+#     entities: !include_dir_merge_list influxdb
 
 # ########################################
 # ###              ENTITIES             ###
