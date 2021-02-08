@@ -10,8 +10,6 @@
 # Ignore folders:
 .storage
 .cloud
-.google.token
-blueprints
 node-red
 esphome
 custom_components
