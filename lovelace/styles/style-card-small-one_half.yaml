@@ -19,6 +19,10 @@ custom_fields:
     - justify-self: start
     - text-align: center
     - display: none
+  s:
+    - align-self: center
+    - justify-self: start
+    - text-align: left
 grid:
   - grid-template-areas: '"icon_hue n" "icon_hue s" "icon_hue sd1"'
   - grid-template-columns: 1fr 2fr
@@ -27,11 +31,10 @@ name:
   - align-self: center
   - justify-self: start
   - text-align: left
-  - padding-left: 0px
   - font-weight: bold
   - line-height: 1
   - font-size: 12px
-  - margin-top: 0px
+  - padding-right: 5px
   - text-overflow: none
   - white-space: initial
 state:

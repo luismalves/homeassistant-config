@@ -1,0 +1,302 @@
+title: Manutenção
+path: maintenance
+panel: true
+icon: mdi:cog-box
+visible: true
+background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+
+cards:
+  - cards:
+      - type: "custom:gap-card"
+        height: 40
+
+      - cards:
+          - template: title-white
+            type: "custom:decluttering-card"
+            variables:
+              - content: Maintenance
+        type: horizontal-stack
+
+      - type: "custom:gap-card"
+        height: 20
+
+      - type: "custom:layout-card"
+        layout: auto
+        min_columns: 1
+        max_columns: 2
+        column_width: 346px;
+        cards:
+          - type: vertical-stack
+            cards:
+              - cards:
+                  - template: subtitle-white
+                    type: "custom:decluttering-card"
+                    variables:
+                      - content: Bateria dos sensores
+                type: horizontal-stack
+              - type: "custom:auto-entities"
+                card:
+                  columns: 1
+                  height: 17px
+                  severity:
+                    - color: "#FF0000"
+                      from: 0
+                      to: 10
+                    - color: "#FF6600"
+                      from: 11
+                      to: 20
+                    - color: "#FF9933"
+                      from: 21
+                      to: 30
+                    - color: "#FFCC00"
+                      from: 31
+                      to: 40
+                    - color: "#FFDB60"
+                      from: 41
+                      to: 50
+                    - color: "#FFDB60"
+                      from: 51
+                      to: 60
+                    - color: "#FFDB60"
+                      from: 61
+                      to: 70
+                    - color: "#CCFF33"
+                      from: 71
+                      to: 80
+                    - color: "#66FF33"
+                      from: 81
+                      to: 90
+                    - color: "#279B37"
+                      from: 91
+                      to: 100
+                  positions:
+                    icon: "off"
+                    name: outside
+                  type: "custom:bar-card"
+                  unit_of_mesurement: "%"
+                  style: |-
+                    bar-card-row {
+                      margin-bottom: 0px !important;
+                    }
+                    ha-card {
+                      font-family: "San Francisco";
+                      text-rendering: optimizelegibility;
+                      font-weight: 700;
+                      color: rgba(87, 87, 87);
+                      font-size: 12px;
+                      border-radius: 15px;
+                      box-shadow: none;
+                      transition: none 0s ease 0s;
+                      background-color: rgba(255, 255, 255, 0.99);
+                    }
+                    bar-card-card {
+                      --bar-card-border-radius: 5px;
+                    }
+                    bar-card-value {
+                      color: rgba(0, 0, 0, 0.8);
+                      margin-right: auto;
+                      font-size: 12px;
+                      font-weight: bold;
+                      text-shadow: 1px 1px #0005;
+                    }
+                    bar-card-backgroundbar {
+                      opacity: 0.1;
+                    }
+                  width: 40%
+                sort:
+                  method: state
+                  numeric: true
+                filter:
+                  include:
+                    - attributes:
+                        device_class: battery
+                      domain: sensor
+                  exclude:
+                    - state: unknown
+                    - state: unavailable
+                    - name: "*[Oo]neplus*"
+                    - name: "*HUAWEI*"
+                    - name: "*[Mm]acbook*"
+
+              - type: "custom:gap-card"
+                height: 20
+
+          - type: vertical-stack
+            cards:
+              - cards:
+                  - template: subtitle-white
+                    type: "custom:decluttering-card"
+                    variables:
+                      - content: Dispositivos indisponíveis
+                type: horizontal-stack
+
+              - type: "custom:auto-entities"
+                card:
+                  type: glance
+                  columns: 3
+                  show_state: false
+                  show_icon: true
+                  style:
+                    .: |
+                      ha-card {
+                        font-family: "San Francisco";
+                        text-rendering: optimizelegibility;
+                        font-weight: 700;
+                        color: rgba(87, 87, 87);
+                        font-size: 12px;
+                        border-radius: 15px;
+                        box-shadow: none;
+                        transition: none 0s ease 0s;
+                        background-color: rgba(255, 255, 255, 0.99);
+                      }
+                    "div.entity":
+                      $:
+                        "state-badge": |
+                          $:
+                            :host {
+                              height: 30px;
+                              line-height: 30px;
+                            }
+                            state-badge {
+                              margin: 0px !important;
+                            }
+                sort:
+                  method: domain
+                filter:
+                  include:
+                    - state: unknown
+                    - state: unavailable
+                  exclude:
+                    - domain: device_tracker
+                    - domain: person
+                    - entity_id: "*nextcloud*"
+                    - entity_id: "*luis_desktop*"
+                    - attributes:
+                        type: browser_mod
+
+              - type: "custom:gap-card"
+                height: 20
+
+              - cards:
+                  - template: subtitle-white
+                    type: "custom:decluttering-card"
+                    variables:
+                      - content: Temperaturas
+                type: horizontal-stack
+
+              - type: "custom:mini-graph-card"
+                entities:
+                  - entity: sensor.cpu_temperature
+                    name: CPU Temp
+                    show_legend: true
+                    show_state: true
+                  - entity: sensor.disk_temperature
+                    name: SSD Temp
+                    show_legend: true
+                    show_state: true
+                name: Temperatura
+                show:
+                  name: false
+                  icon: false
+                tap_action:
+                  action: none
+                hours_to_show: 24
+                font_size: 65
+                points_per_hour: 4
+                # color_thresholds:
+                #   - value: 20
+                #     color: "#BCF4F5"
+                #   - value: 25
+                #     color: "#5FBFF9"
+                #   - value: 35
+                #     color: "#EDEBA0"
+                #   - value: 45
+                #     color: "#E39774"
+                style: |
+                  ha-card {
+                    background: #FFF;
+                    border-radius: 15px;
+                    box-shadow: none;
+                    color: rgba(0, 0, 0);
+                    font-family: San Francisco;
+                    text-rendering: optimizeLegibility;
+                  }
+                  .states {
+                    color: #111;
+                    padding-bottom: 2px;
+                    padding-left: 8px;
+                  }
+                  .graph .graph__legend {
+                      justify-content: space-between;
+                      padding: 0px 6px 0px !important;
+                  }
+
+              - type: "custom:gap-card"
+                height: 20
+
+              - type: horizontal-stack
+                cards:
+                  - template: subtitle-white
+                    type: "custom:decluttering-card"
+                    variables:
+                      - content: Storage
+
+              - type: horizontal-stack
+                cards:
+                  - template: sensor-number
+                    type: "custom:decluttering-card"
+                    variables:
+                      - template: sensors-version
+                      - entity-1: sensor.disk_use_percent_home
+                      - name-1: "HASS Disk Usage (%)"
+
+              - type: "custom:gap-card"
+                height: 20
+
+              - type: horizontal-stack
+                cards:
+                  - template: subtitle-white
+                    type: "custom:decluttering-card"
+                    variables:
+                      - content: Virtual Machines (Proxmox)
+
+              - type: grid
+                columns: 2
+                square: false
+                cards:
+                  - template: es-config
+                    type: "custom:decluttering-card"
+                    variables:
+                      - template: vm
+                      - entity-1: binary_sensor.alpaca_hassio_running
+                      - name-1: "Hassio"
+                      - state-1: "on"
+                      - state-2: "off"
+                  - template: es-config
+                    type: "custom:decluttering-card"
+                    variables:
+                      - template: vm
+                      - entity-1: binary_sensor.alpaca_ubuntu_server_running
+                      - name-1: "Ubuntu Server"
+                      - state-1: "on"
+                      - state-2: "off"
+                  - template: es-config
+                    type: "custom:decluttering-card"
+                    variables:
+                      - template: healthchecks
+                      - entity-1: binary_sensor.google_home_api_keys
+                      - name-1: "Google API Key"
+                      - state-1: "on"
+                      - state-2: "off"
+
+              - type: "custom:gap-card"
+                height: 20
+
+          - type: "custom:gap-card"
+            height: 20
+
+    column_width: 90%
+    justify_content: center
+    layout: horizontal
+    max_width: 700px
+    type: "custom:layout-card"

@@ -29,6 +29,13 @@ cards:
         height: 20
 
       - cards:
+          - template: subtitle-white
+            type: "custom:decluttering-card"
+            variables:
+              - content: Updates
+        type: horizontal-stack
+
+      - cards:
           - template: sensor-number-ext
             type: "custom:decluttering-card"
             variables:
@@ -40,7 +47,7 @@ cards:
           - template: sensor-number-ext
             type: "custom:decluttering-card"
             variables:
-              - template:
+              - template: sensors-version
               - entity-1: sensor.current_version
               - name-1: "Latest version"
               - url-1: https://www.home-assistant.io/blog/categories/release-notes/
@@ -54,50 +61,10 @@ cards:
               - entity-1: sensor.hacs
               - name-1: "HACS updates"
               - url-1: /hacs
-          - entity: sensor.disk_use_percent_home
-            name: Disk usage
-            type: entity
         type: horizontal-stack
 
-      - type: "custom:mini-graph-card"
-        entities:
-          - sensor.cpu_temp
-        name: CPU TEMP
-        tap_action:
-          action: none
-        hours_to_show: 6
-        height: 70
-        font_size: 70
-        points_per_hour: 10
-        color_thresholds:
-          - value: 40
-            color: "#f39c12"
-          - value: 45
-            color: "#d35400"
-          - value: 50
-            color: "#c0392b"
-        style: |
-          ha-card {
-            border-radius: 15px;
-            box-shadow: none;
-            font-family: San Francisco;
-            text-rendering: optimizeLegibility;
-          }
-          .header {
-            padding-bottom: 0px;
-          }
-
-      - cards:
-          - height: 25
-            size: 30
-            type: "custom:gap-card"
-          - height: 25
-            size: 30
-            type: "custom:gap-card"
-          - height: 25
-            size: 30
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 25
 
       - cards:
           - template: subtitle-white
@@ -129,6 +96,14 @@ cards:
               - template: auto-brightness
               - entity-1: input_boolean.enable_bedroom_light_automation
               - name-1: "Automação luz quarto"
+              - state-1: "on"
+              - state-2: "off"
+          - template: es-config
+            type: "custom:decluttering-card"
+            variables:
+              - template: auto-brightness
+              - entity-1: input_boolean.enable_deck_lights_automation
+              - name-1: "Automação luz deck"
               - state-1: "on"
               - state-2: "off"
           - template: es-config

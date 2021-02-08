@@ -44,6 +44,7 @@ proxmoxve:
       - node: alpaca
         vms:
           - 100
+          - 102
 
 notify:
   - platform: nfandroidtv
@@ -79,10 +80,10 @@ spotcast:
   sp_dc: !secret spotify_dc
   sp_key: !secret spotify_key
 
-device_tracker:
-  - platform: bluetooth_tracker
-    #new_device_defaults:
-    #  track_new_devices: false
+#device_tracker:
+#  - platform: bluetooth_tracker
+#new_device_defaults:
+#  track_new_devices: false
 
 # ########################################
 # ###              LOGGING             ###
@@ -123,6 +124,10 @@ media_player:
     host: !secret android_tv_ip
     adb_server_ip: 127.0.0.1
     adb_server_port: 5037
+
+binary_sensor:
+  - platform: workday
+    country: PT
 
 #input_boolean: !include_dir_merge_named components/input_boolean
 #input_datetime: !include_dir_merge_named components/input_datetime

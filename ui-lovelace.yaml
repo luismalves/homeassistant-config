@@ -108,6 +108,12 @@ button_card_templates:
   brightness:
     custom_fields: !include lovelace/icons/brightness.yaml
 
+  healthchecks:
+    custom_fields: !include lovelace/icons/healthchecks.yaml
+
+  vm:
+    custom_fields: !include lovelace/icons/vm.yaml
+
 decluttering_templates:
   header:
     card:
@@ -380,6 +386,18 @@ decluttering_templates:
       type: "custom:button-card"
     default: null
 
+  es-config-binary:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: false
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-small-one_half.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
   es-dummy:
     card:
       entity: "[[entity-1]]"
@@ -564,6 +582,17 @@ decluttering_templates:
       type: "custom:button-card"
     default: null
 
+  sensor-number:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: true
+      styles: !include lovelace/styles/style-card-centered-one_half.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
   sensor-number-ext:
     card:
       entity: "[[entity-1]]"
@@ -653,3 +682,4 @@ views:
   - !include lovelace/views/bedroom.yaml
   - !include lovelace/views/plants.yaml
   - !include lovelace/views/info.yaml
+  - !include lovelace/views/maintenance.yaml

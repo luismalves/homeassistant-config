@@ -47,6 +47,34 @@ cards:
       - break
 
       - cards:
+          - type: custom:auto-entities
+            show_empty: false
+            filter:
+              include:
+                - entity_id: "sensor.humidity_1"
+                  state: ">80.0"
+            card:
+              type: markdown
+              style: >
+                ha-card {
+                  box-shadow: none;
+                  height: 100%;
+                  background: rgb(255,103,0);
+                  font-family: San Francisco;
+                  font-weight: 700;
+                  font-size: 1.2em;
+                  color: #fff;
+                  margin-bottom: 0px;
+                }
+                ha-markdown {
+                  padding: 10px 16px !important;
+                }
+              content: Humidade muito elevada.
+        type: horizontal-stack
+
+      - break
+
+      - cards:
           - style: "ha-card { width: 10px; }"
             template: es-light
             type: "custom:decluttering-card"

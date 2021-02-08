@@ -6,10 +6,10 @@
 
 plant_2:
   species: ficus elastica
-  image: /local/images/plants/plant_1.jpg
+  image: /local/images/plants/ficus_elastica_2
   sensors:
-    moisture: sensor.moisture_vegtrue_2
+    moisture: sensor.xiaomi_flora_2_moisture
     #    battery: sensor.my_sensor_battery
-    temperature: sensor.temperature_vegtrue_2
-    conductivity: sensor.conductivity_vegtrue_2
-    brightness: sensor.illuminance_vegtrue_2
+    temperature: sensor.xiaomi_flora_2_temperature
+    conductivity: sensor.xiaomi_flora_2_soil_conductivity
+    brightness: sensor.xiaomi_flora_2_illuminance

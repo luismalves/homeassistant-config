@@ -33,6 +33,9 @@
     light.luz_deck: "off"
     light.mi_lamp: "off"
     light.mi_lamp_pro: "off"
+    light.luz_quarto_direita: "off"
+    light.luz_quarto_esquerda: "off"
+    light.luz_quarto: "off"
 
 - name: Cooking time
   icon: mdi:pasta
