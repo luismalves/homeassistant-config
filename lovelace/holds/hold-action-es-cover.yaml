@@ -1,6 +1,6 @@
-action: call-service
-service: browser_mod.popup
-service_data:
+action: fire-dom-event
+browser_mod:
+  command: popup
   card:
     cards:
       - type: custom:layout-card
@@ -74,7 +74,6 @@ service_data:
                 width: 10px;
                 cursor: pointer;
               }
-
               .action-holder .action .name {
                 font-size: 10px !important;
                 margin-top: 4px !important;
@@ -87,7 +86,6 @@ service_data:
           }
         type: entities
     type: vertical-stack
-  deviceID: this
   style:
     width: 400px;
   title: " "

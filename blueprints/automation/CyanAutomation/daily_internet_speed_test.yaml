@@ -1,0 +1,22 @@
+blueprint:
+  name: Running A Daily Internet Speed Test
+  description: This automation schedules and runs an internet speed test, at a convenient
+    time just once a day. Note that you will need to have the Speedtest integration
+    installed, and most importantly, and set to Disable auto update.
+  domain: automation
+  input:
+    run_time:
+      name: Test Run Time
+      description: This is the time that the speed test will run each day
+      selector:
+        time: {}
+      default: '23:30:00'
+  source_url: https://gist.github.com/CyanAutomation/c5e19814a4f5000b2a12162a24fc19da
+mode: single
+variables:
+  run_time: !input 'run_time'
+trigger:
+  platform: time
+  at: !input 'run_time'
+action:
+- service: speedtestdotnet.speedtest

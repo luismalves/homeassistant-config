@@ -5,7 +5,11 @@ panel: true
 background: "linear-gradient(315deg, white 0%, rgb(215,225,236) 74%)"
 
 cards:
-  - cards:
+  - type: custom:layout-card
+    layout_type: custom:vertical-layout
+    layout:
+      max_width: 350
+    cards:
       - cards:
           - height: 40
             size: 30
@@ -44,8 +48,6 @@ cards:
               {% if states.sensor.lights_on_deck.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_deck.state == "1" %} {{states.sensor.lights_on_deck.state}} luz ligada. {% else %} {{states.sensor.lights_on_deck.state}} luzes ligadas. {% endif %}
         type: horizontal-stack
 
-      - break
-
       - cards:
           - type: custom:auto-entities
             show_empty: false
@@ -71,8 +73,6 @@ cards:
                 }
               content: Humidade muito elevada.
         type: horizontal-stack
-
-      - break
 
       - cards:
           - template: es-light
@@ -187,10 +187,30 @@ cards:
               - template: scene-hobby
               - scene-1: scene.hooby_time
               - entity-1: scene.hooby_time
+          - template: scene
+            type: "custom:decluttering-card"
+            variables:
+              - template: scene-gamming
+              - scene-1: scene.gamming_time
+              - entity-1: scene.gamming_time
+          - type: conditional
+            conditions:
+              - entity: sensor.lights_on_deck
+                state_not: "0"
+            card:
+              template: script
+              type: "custom:decluttering-card"
+              variables:
+                - entity-1: sensor.lights_on_deck
+                - template: script-lights-off
+                - script: script.turn_off_deck
+                - name: "Desligar luzes"
+          - type: conditional
+            conditions:
+              - entity: sensor.lights_on_deck
+                state: "0"
+            card:
+              height: 10
+              size: 30
+              type: "custom:gap-card"
         type: horizontal-stack
-
-    column_width: 90%
-    justify_content: center
-    layout: horizontal
-    max_width: 350px
-    type: "custom:layout-card"

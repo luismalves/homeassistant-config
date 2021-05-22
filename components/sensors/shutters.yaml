@@ -1,0 +1,16 @@
+#####
+# Shutters
+#
+#####
+- platform: template
+  sensors:
+    shutters_status:
+      friendly_name: "Shutters status"
+      value_template: >-
+        {% if is_state('input_boolean.open_blinds_temporarly', 'on') %}
+          Temp. abertos
+        {% elif state_attr("cover.shelly_roller_left","current_position") == 0 and state_attr("cover.shelly_roller_right","current_position") == 0 %}
+          Fechados
+        {% else %}
+          Abertos
+        {% endif %}

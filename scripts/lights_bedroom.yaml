@@ -5,16 +5,10 @@
 turn_off_bedroom:
   alias: Turn off Bedroom
   sequence:
-  - type: turn_off
-    device_id: c9111c1f29fd4bfa9a5e67899ecb6e64
-    entity_id: light.luz_quarto
-    domain: light
-  - type: turn_off
-    device_id: 664d1ffba84b42f4b2c3bca73d588533
-    entity_id: light.luz_quarto_esquerda
-    domain: light
-  - type: turn_off
-    device_id: 4bf01240472142069904c71d8ba0f385
-    entity_id: light.luz_quarto_direita
-    domain: light
+    - service: light.turn_off
+      entity_id: light.luz_quarto
+    - service: light.turn_off
+      entity_id: light.luz_quarto_esquerda
+    - service: light.turn_off
+      entity_id: light.luz_quarto_direita
   mode: single

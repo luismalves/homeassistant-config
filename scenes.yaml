@@ -51,8 +51,30 @@
 - name: Hooby time
   icon: mdi:gamepad-variant-outline
   entities:
-    light.led_strip_deck: "on"
-    light.mi_lamp: "on"
+    light.led_strip_deck:
+      state: "on"
+      brightness: 255
+      white_value: 255
+    light.mi_lamp:
+      state: "on"
+      brightness: 185
+      rgb_color: [255, 255, 255]
+    light.mi_lamp_pro:
+      state: "on"
+      brightness: 255
+      color_temp: 270
+
+- name: Gamming time
+  icon: mdi:gamepad-variant-outline
+  entities:
+    light.led_strip_deck:
+      state: "on"
+      brightness: 255
+      rgb_color: [0, 16, 255]
+    light.mi_lamp_pro:
+      state: "on"
+      brightness: 148
+      color_temp: 208
 
 #####
 # Bedroom

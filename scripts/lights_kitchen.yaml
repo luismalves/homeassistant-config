@@ -5,11 +5,7 @@
 turn_off_kitchen:
   alias: Turn off lights of Kitchen
   sequence:
-    - type: turn_off
-      device_id: fbaeb9d7-05ef-48e2-8658-04e3159b7af7
+    - service: light.turn_off
       entity_id: light.shelly_kitchen_led_left
-      domain: light
-    - type: turn_off
-      device_id: 5eeeb003-944c-4672-9a29-2f95f651958b
+    - service: light.turn_off
       entity_id: light.shelly_kitchen_light
-      domain: light

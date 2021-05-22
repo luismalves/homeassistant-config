@@ -5,15 +5,11 @@
 turn_off_living_room:
   alias: Turn off lights of Living Room
   sequence:
-    - type: turn_off
-      device_id: 802b2e36-9c3d-4f61-b4af-5e04811b3118
+    - service: light.turn_off
       entity_id: light.shelly_table_light
-      domain: light
-    - type: turn_off
-      device_id: ba1dc6e0-2890-46bd-8bcd-c58d7419725f
+    - service: light.turn_off
       entity_id: light.shelly_living_room_light
-      domain: light
-    - type: turn_off
-      device_id: e12f6441-95bb-467c-a8fc-e62c2c29f259
+    - service: light.turn_off
       entity_id: light.wled
-      domain: light
+    - service: light.turn_off
+      entity_id: light.led_strip_living_room

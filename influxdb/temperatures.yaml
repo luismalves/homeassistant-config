@@ -5,5 +5,11 @@
 # to keep InfluxDB clean and small.
 #
 
+- sensor.temperature_1
+- sensor.temperature_2
+
+- sensor.humidity_1
+- sensor.humidity_2
+
 - sensor.shelly_roller_left_temperature
 - sensor.shelly_roller_right_temperature

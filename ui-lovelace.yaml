@@ -35,6 +35,9 @@ button_card_templates:
   shutter:
     custom_fields: !include lovelace/icons/shutter.yaml
 
+  shutter-temp:
+    custom_fields: !include lovelace/icons/shutter-temp.yaml
+
   speaker:
     custom_fields: !include lovelace/icons/speaker.yaml
 
@@ -69,6 +72,9 @@ button_card_templates:
   sensors-version:
     custom_fields: !include lovelace/sensors/sensors-version.yaml
 
+  sensors-empty:
+    custom_fields: !include lovelace/sensors/sensors-empty.yaml
+
   sensors-hacs:
     custom_fields: !include lovelace/sensors/sensors-hacs.yaml
 
@@ -93,11 +99,17 @@ button_card_templates:
   scene-hobby:
     custom_fields: !include lovelace/icons/scene-hobby.yaml
 
+  scene-gamming:
+    custom_fields: !include lovelace/icons/scene-gamming.yaml
+
   scene-reading:
     custom_fields: !include lovelace/icons/scene-reading.yaml
 
   scene-christmas:
     custom_fields: !include lovelace/icons/scene-christmas.yaml
+
+  script-lights-off:
+    custom_fields: !include lovelace/icons/script-lights-off.yaml
 
   toggle:
     custom_fields: !include lovelace/icons/toggle.yaml
@@ -308,6 +320,22 @@ decluttering_templates:
       type: "custom:button-card"
     default: null
 
+  script:
+    card:
+      entity: "[[script]]"
+      name: "[[name]]"
+      tap_action:
+        action: call-service
+        service: script.turn_on
+        service_data:
+          entity_id: "[[script]]"
+      show_icon: false
+      show_state: false
+      styles: !include lovelace/styles/style-card-centered.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
   es:
     card:
       custom_fields: !include lovelace/circles/circle-x.yaml
@@ -350,6 +378,20 @@ decluttering_templates:
         service: script.turn_on
         service_data:
           entity_id: "[[script-1]]"
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-centered.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-boolean:
+    card:
+      entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action:
+        action: toggle
       show_icon: false
       show_state: true
       state: !include lovelace/states/state-x.yaml
@@ -462,6 +504,24 @@ decluttering_templates:
       type: "custom:button-card"
     default: null
 
+  # Lights which toggle based on a switch and colors are controlled from another entity.
+  # Hold action controls each individual light connected to switch
+  es-light-switch-2:
+    card:
+      custom_fields: !include lovelace/circles/circle-x.yaml
+      entity: "[[entity-switch]]"
+      name: "[[name-1]]"
+      hold_action: !include lovelace/holds/hold-action-es-lights-2.yaml
+      tap_action:
+        action: toggle
+      show_icon: false
+      show_state: true
+      state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
   es-3:
     card:
       custom_fields: !include lovelace/circles/circle-x.yaml
@@ -528,10 +588,7 @@ decluttering_templates:
       #custom_fields: !include lovelace/circles/circle-x.yaml
       entity: "[[entity-1]]"
       name: "[[name-1]]"
-      hold_action: !include lovelace/holds/hold-action-es-speaker.yaml
-      tap_action:
-        action: call-service
-        service: script.turn_on_tv
+      tap_action: !include lovelace/holds/hold-action-es-tv.yaml
       show_icon: false
       show_state: true
       state: !include lovelace/states/state-x.yaml
@@ -655,10 +712,19 @@ decluttering_templates:
           entity_id: "[[script]]"
       show_icon: false
       show_state: false
-      styles: !include lovelace/styles/style-button-large.yaml
+      styles: !include lovelace/styles/style-btn-large.yaml
       #template: "[[template]]"
       type: "custom:button-card"
     default: null
+
+  btn-icon-text:
+    card:
+      type: "custom:button-card"
+      entity: "[[entity]]"
+      icon: "mdi:[[icon]]"
+      name: "[[name]]"
+      tap_action: "[[tap_action]]"
+      styles: !include lovelace/styles/style-btn-icon.yaml
 
 ##########################################################################
 #                                                                        #

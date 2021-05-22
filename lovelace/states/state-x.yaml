@@ -1,18 +1,25 @@
 - styles:
     card:
-      - background-color: 'rgba(255, 255, 255, 0.99)'
-      - '--button-card-light-color-no-temperature': '#57A8D7'
+      - background-color: "rgba(255, 255, 255, 0.99)"
       - overflow: hidden
     name:
-      - color: 'rgba(0, 0, 0, 1)'
+      - color: "rgba(0, 0, 0, 1)"
     state:
-      - color: 'rgba(0, 0, 0, 0.4)'
-  value: '[[state-1]]'
+      - color: "rgba(0, 0, 0, 0.4)"
+  value: "[[state-1]]"
 - styles:
     card:
-      - background-color: 'rgba(255, 255, 255, 0.65)'
+      - background-color: "rgba(255, 255, 255, 0.65)"
     name:
-      - color: 'rgba(0, 0, 0, 0.4)'
+      - color: "rgba(0, 0, 0, 0.4)"
     state:
-      - color: 'rgba(0, 0, 0, 0.2)'
-  value: '[[state-2]]'
+      - color: "rgba(0, 0, 0, 0.2)"
+  value: "[[state-2]]"
+- styles:
+    card:
+      - background-color: "rgba(255, 255, 255, 0.65)"
+    name:
+      - color: "rgba(0, 0, 0, 0.4)"
+    state:
+      - color: "rgba(0, 0, 0, 0.2)"
+  value: "[[state-3]]"

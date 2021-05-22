@@ -5,7 +5,11 @@ panel: true
 background: "linear-gradient(315deg, #efecec 0%, #f9aba4 74%)"
 
 cards:
-  - cards:
+  - type: custom:layout-card
+    layout_type: custom:vertical-layout
+    layout:
+      max_width: 350
+    cards:
       - cards:
           - height: 40
             size: 30
@@ -117,16 +121,24 @@ cards:
               - template: scene-reading
               - scene-1: scene.reading
               - entity-1: scene.reading
-          - height: 30
-            size: 30
-            type: "custom:gap-card"
-          - height: 30
-            size: 30
-            type: "custom:gap-card"
+          - type: conditional
+            conditions:
+              - entity: sensor.lights_on_bedroom
+                state_not: "0"
+            card:
+              template: script
+              type: "custom:decluttering-card"
+              variables:
+                - entity-1: sensor.lights_on_bedroom
+                - template: script-lights-off
+                - script: script.turn_off_bedroom
+                - name: "Desligar luzes"
+          - type: conditional
+            conditions:
+              - entity: sensor.lights_on_bedroom
+                state_not: "0"
+            card:
+              height: 10
+              size: 30
+              type: "custom:gap-card"
         type: horizontal-stack
-
-    column_width: 90%
-    justify_content: center
-    layout: horizontal
-    max_width: 350px
-    type: "custom:layout-card"

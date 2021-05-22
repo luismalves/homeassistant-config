@@ -9,3 +9,10 @@
   - service: shell_command.ha_start
     data: {}
   mode: single
+- id: '1612951793227'
+  alias: Running A Daily Internet Speed Test
+  description: ''
+  use_blueprint:
+    path: CyanAutomation/daily_internet_speed_test.yaml
+    input:
+      run_time: 07:30:00

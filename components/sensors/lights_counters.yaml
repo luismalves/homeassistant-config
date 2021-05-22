@@ -25,8 +25,8 @@
       value_template: >
         {% set lights = [
           states.light.led_strip_living_room,
-          states.light.luz_mesa,
-          states.light.luz_sala,
+          states.light.shelly_table_light,
+          states.light.shelly_living_room_light,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -38,8 +38,8 @@
       value_template: >
         {% set lights = [
           states.light.luz_entrada,
-          states.switch.shelly_kitchen_light,
-          states.switch.shelly_kitchen_led_left,
+          states.light.shelly_kitchen_light,
+          states.light.shelly_kitchen_led_left,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
