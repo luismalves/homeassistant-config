@@ -12,24 +12,34 @@ cards:
       max_width: 700
     cards:
       - type: "custom:gap-card"
-        height: 40
-
-      - cards:
-          - template: title-white
-            type: "custom:decluttering-card"
-            variables:
-              - content: Maintenance
-        type: horizontal-stack
-
-      - type: "custom:gap-card"
         height: 20
-
-      - type: "custom:layout-card"
-        layout: auto
-        min_columns: 1
-        max_columns: 2
-        column_width: 346px;
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          grid-template-columns: minmax(100px, 350px) minmax(100px, 350px)
+          grid-template-rows: auto
+          grid-gap: 30px
+          grid-template-areas: |
+            "header header"
+            "col1 col2"
+          mediaquery:
+            "(max-width: 700px)":
+              grid-template-columns: 100%
         cards:
+          - cards:
+              - template: title-white
+                type: "custom:decluttering-card"
+                variables:
+                  - content: Maintenance
+            type: horizontal-stack
+            view_layout:
+              grid-area: header
+
+          - type: "custom:gap-card"
+            height: 20
+            view_layout:
+              grid-area: header
+
           - type: vertical-stack
             cards:
               - cards:
@@ -124,6 +134,8 @@ cards:
 
               - type: "custom:gap-card"
                 height: 20
+            view_layout:
+              grid-area: col1
 
           - type: vertical-stack
             cards:
@@ -295,6 +307,5 @@ cards:
 
               - type: "custom:gap-card"
                 height: 20
-
-          - type: "custom:gap-card"
-            height: 20
+            view_layout:
+              grid-area: col2

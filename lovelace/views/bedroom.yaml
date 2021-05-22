@@ -47,8 +47,6 @@ cards:
               {% if states.sensor.lights_on_bedroom.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_bedroom.state == "1" %} {{states.sensor.lights_on_bedroom.state}} luz ligada. {% else %} {{states.sensor.lights_on_bedroom.state}} luzes ligadas. {% endif %}
         type: horizontal-stack
 
-      - break
-
       - cards:
           - template: es-light
             type: "custom:decluttering-card"

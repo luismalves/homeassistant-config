@@ -48,8 +48,6 @@ cards:
               {% if states.sensor.lights_on_living_room.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_living_room.state == "1" %} {{states.sensor.lights_on_living_room.state}} luz ligada. {% else %} {{states.sensor.lights_on_living_room.state}} luzes ligadas. {% endif %}
         type: horizontal-stack
 
-      - break
-
       - cards:
           - type: custom:auto-entities
             show_empty: false
@@ -75,8 +73,6 @@ cards:
                 }
               content: Humidade muito elevada.
         type: horizontal-stack
-
-      - break
 
       - cards:
           - style: "ha-card { width: 10px; }"
