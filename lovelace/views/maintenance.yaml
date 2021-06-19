@@ -10,6 +10,7 @@ cards:
     layout_type: custom:vertical-layout
     layout:
       max_width: 700
+      column_widths: 98%
     cards:
       - type: "custom:gap-card"
         height: 20
@@ -18,13 +19,17 @@ cards:
         layout:
           grid-template-columns: minmax(100px, 350px) minmax(100px, 350px)
           grid-template-rows: auto
-          grid-gap: 30px
+          grid-gap: 20px
           grid-template-areas: |
             "header header"
             "col1 col2"
           mediaquery:
             "(max-width: 700px)":
               grid-template-columns: 100%
+              grid-template-areas: |
+                "header"
+                "col1"
+                "col2"
         cards:
           - cards:
               - template: title-white
@@ -132,11 +137,6 @@ cards:
                     - name: "*HUAWEI*"
                     - name: "*[Mm]acbook*"
 
-              - type: "custom:gap-card"
-                height: 20
-            view_layout:
-              grid-area: col1
-
           - type: vertical-stack
             cards:
               - cards:
@@ -187,12 +187,12 @@ cards:
                     - domain: person
                     - entity_id: "*nextcloud*"
                     - entity_id: "*luis_desktop*"
+                    - entity_id: "browser_*"
                     - attributes:
                         type: browser_mod
 
-              - type: "custom:gap-card"
-                height: 20
-
+          - type: vertical-stack
+            cards:
               - cards:
                   - template: subtitle-white
                     type: "custom:decluttering-card"
@@ -247,16 +247,14 @@ cards:
                       padding: 0px 6px 0px !important;
                   }
 
-              - type: "custom:gap-card"
-                height: 20
-
+          - type: vertical-stack
+            cards:
               - type: horizontal-stack
                 cards:
                   - template: subtitle-white
                     type: "custom:decluttering-card"
                     variables:
                       - content: Storage
-
               - type: horizontal-stack
                 cards:
                   - template: sensor-number
@@ -266,16 +264,14 @@ cards:
                       - entity-1: sensor.disk_use_percent_home
                       - name-1: "HASS Disk Usage (%)"
 
-              - type: "custom:gap-card"
-                height: 20
-
+          - type: vertical-stack
+            cards:
               - type: horizontal-stack
                 cards:
                   - template: subtitle-white
                     type: "custom:decluttering-card"
                     variables:
                       - content: Virtual Machines (Proxmox)
-
               - type: grid
                 columns: 2
                 square: false
@@ -305,7 +301,5 @@ cards:
                       - state-1: "on"
                       - state-2: "off"
 
-              - type: "custom:gap-card"
-                height: 20
-            view_layout:
-              grid-area: col2
+      - type: "custom:gap-card"
+        height: 20

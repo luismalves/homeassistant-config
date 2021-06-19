@@ -4,8 +4,9 @@ browser_mod:
   command: popup
   card:
     type: custom:layout-card
-    layout: vertical
-    max_width: 95%
+    layout_type: custom:vertical-layout
+    layout:
+      column_widths: 95%
     cards:
       - type: grid
         square: false

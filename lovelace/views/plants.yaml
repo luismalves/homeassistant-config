@@ -10,6 +10,7 @@ cards:
     layout_type: custom:vertical-layout
     layout:
       max_width: 350
+      column_widths: 98%
     cards:
       - cards:
           - height: 40

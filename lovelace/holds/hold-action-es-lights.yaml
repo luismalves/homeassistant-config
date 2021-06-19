@@ -6,8 +6,9 @@ browser_mod:
   card:
     cards:
       - type: custom:layout-card
-        layout: vertical
-        column_width: 24%
+        layout_type: vertical-layout
+        layout:
+          grid-template-columns: auto
         cards:
           - template: es-icon
             type: "custom:decluttering-card"
@@ -15,6 +16,8 @@ browser_mod:
               - template: "[[template]]"
               - entity-1: "[[entity-1]]"
               - name-1: "[[[ return entity.attributes.friendly_name ]]]"
+            view_layout:
+              grid-area: icon
 
       - type: custom:hui-vertical-stack-card
         cards:
@@ -44,10 +47,12 @@ browser_mod:
                   entity_id: "[[entity-1]]"
                   rgb_color: [0, 191, 255]
                 color: "#00bfff"
-              - service: browser_mod.popup
-                service_data:
+              - action: fire-dom-event
+                browser_mod:
+                  command: popup
+                  style:
+                    width: 400px;
                   title: "[[[ return entity.attributes.friendly_name ]]]"
-                  deviceID: this
                   card:
                     type: entities
                     show_header_toggle: false

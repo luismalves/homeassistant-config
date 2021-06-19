@@ -1,0 +1,6 @@
+---
+# Scripts meant to execute node_red flows
+#
+
+delete_clock_alarms:
+  sequence:

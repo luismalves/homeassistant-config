@@ -7,15 +7,18 @@ browser_mod:
   card:
     cards:
       - type: custom:layout-card
-        layout: vertical
-        column_width: 24%
+        layout_type: vertical-layout
+        layout:
+          grid-template-columns: auto
         cards:
           - template: es-icon
             type: "custom:decluttering-card"
             variables:
               - template: "[[template]]"
-              - entity-1: "[[entity-1]]"
+              - entity-1: "[[entity-switch]]"
               - name-1: "[[[ return entity.attributes.friendly_name ]]]"
+            view_layout:
+              grid-area: icon
 
       - type: custom:hui-vertical-stack-card
         cards:
@@ -26,7 +29,8 @@ browser_mod:
               - content: "[[[ return entity.attributes.friendly_name ]]]"
 
       - entities:
-          - actionsInARow: 2
+          - type: "custom:light-popup-card"
+            actionsInARow: 2
             actionSize: 50px
             actions:
               - icon: mdi:lightbulb-outline
@@ -44,6 +48,7 @@ browser_mod:
             borderRadius: 20px
             brightnessHeight: 250px
             brightnessWidth: 100px
+            displayType: slider
             entity: "[[entity-1]]"
             fullscreen: false
             icon: true
@@ -78,7 +83,6 @@ browser_mod:
               .action-holder .action .color {
                 background-color: transparent !important;
               }
-            type: "custom:light-popup-card"
         show_header_toggle: false
         style: >
           #states {

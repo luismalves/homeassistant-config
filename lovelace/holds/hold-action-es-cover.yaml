@@ -4,8 +4,9 @@ browser_mod:
   card:
     cards:
       - type: custom:layout-card
-        layout: vertical
-        column_width: 24%
+        layout_type: vertical-layout
+        layout:
+          grid-template-columns: auto
         cards:
           - template: es-icon
             type: "custom:decluttering-card"
@@ -13,6 +14,8 @@ browser_mod:
               - template: "[[template]]"
               - entity-1: "[[entity-1]]"
               - name-1: "[[name-1]]"
+            view_layout:
+              grid-area: icon
 
       - type: custom:hui-vertical-stack-card
         cards:

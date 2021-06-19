@@ -17,6 +17,9 @@ button_card_templates:
   light-pendant:
     custom_fields: !include lovelace/icons/light-pendant.yaml
 
+  light-mosquitto:
+    custom_fields: !include lovelace/icons/light-mosquitto.yaml
+
   light-strip:
     custom_fields: !include lovelace/icons/light-strip.yaml
 

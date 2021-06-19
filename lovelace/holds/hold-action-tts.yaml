@@ -3,8 +3,9 @@ deviceID: this
 card:
   cards:
     - type: custom:layout-card
-      layout: vertical
-      column_width: 90%
+      layout_type: custom:vertical-layout
+      layout:
+        column_widths: 94%
       cards:
         - cards:
             - height: 10
