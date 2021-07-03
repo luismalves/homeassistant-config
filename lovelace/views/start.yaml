@@ -14,13 +14,10 @@ cards:
     cards:
       - cards:
           - height: 30
-            size: 30
             type: "custom:gap-card"
           - height: 30
-            size: 30
             type: "custom:gap-card"
           - height: 30
-            size: 30
             type: "custom:gap-card"
         type: horizontal-stack
       - cards:
@@ -138,13 +135,10 @@ cards:
 
       - cards:
           - height: 10
-            size: 30
             type: "custom:gap-card"
           - height: 10
-            size: 30
             type: "custom:gap-card"
           - height: 10
-            size: 30
             type: "custom:gap-card"
         type: horizontal-stack
 

@@ -2,7 +2,7 @@ title: Cozinha
 path: kitchen
 panel: true
 #icon: mdi:silverware-fork-knife
-background: "linear-gradient(95deg, #d5fefd 0%, #fffcff 74%)"
+background: "linear-gradient(95deg, #cdf7f6 0%, #ebf4f5 74%)"
 
 cards:
   - type: custom:layout-card
@@ -13,13 +13,10 @@ cards:
     cards:
       - cards:
           - height: 40
-            size: 30
             type: "custom:gap-card"
           - height: 40
-            size: 30
             type: "custom:gap-card"
           - height: 40
-            size: 30
             type: "custom:gap-card"
         type: horizontal-stack
       - cards:
@@ -176,13 +173,10 @@ cards:
 
       - cards:
           - height: 10
-            size: 30
             type: "custom:gap-card"
           - height: 10
-            size: 30
             type: "custom:gap-card"
           - height: 10
-            size: 30
             type: "custom:gap-card"
         type: horizontal-stack
 
@@ -215,6 +209,5 @@ cards:
                 state: "0"
             card:
               height: 10
-              size: 30
               type: "custom:gap-card"
         type: horizontal-stack

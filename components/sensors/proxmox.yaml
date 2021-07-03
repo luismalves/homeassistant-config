@@ -1,0 +1,13 @@
+#####
+# Proxmox scripts helper sensor
+#
+#####
+
+- platform: template
+  sensors:
+    proxmox_ip:
+      value_template: !secret proxmox_ip
+    proxmox_user:
+      value_template: !secret proxmox_user
+    proxmox_pwd:
+      value_template: !secret proxmox_pwd

@@ -48,11 +48,37 @@ proxmoxve:
         vms:
           - 100
           - 102
+          - 103
+
+python_script:
+
+# ########################################
+# ###          NOTIFICATIONS           ###
+# ########################################
+
+# telegram_bot:
+#   - platform: polling
+#     api_key: !secret telegram_bot_key
+#     allowed_chat_ids:
+#       - !secret telegram_chatid_luis
+#       - !secret telegram_chatid_margarida
 
 notify:
   - platform: nfandroidtv
     name: Android TV
     host: !secret android_tv_ip
+
+  - platform: discord
+    name: discord
+    token: !secret discord_bot_token
+
+  # - platform: telegram
+  #   name: Telegram Luis
+  #   chat_id: !secret telegram_chatid_luis
+
+  # - platform: telegram
+  #   name: Telegram Margarida
+  #   chat_id: !secret telegram_chatid_margarida
 
 # ########################################
 # ###             SERVICES             ###
@@ -138,7 +164,7 @@ binary_sensor:
 #input_datetime: !include_dir_merge_named components/input_datetime
 shell_command: !include_dir_merge_named components/shell_command
 sensor: !include_dir_merge_list components/sensors
-#switch: !include_dir_merge_list components/switches
+switch: !include_dir_merge_list components/switches
 light: !include_dir_merge_list components/lights
 #plant: !include_dir_merge_named components/plants
 
