@@ -2,7 +2,7 @@ title: Quarto
 path: bedroom
 panel: true
 #icon: mdi:bed-empty
-background: "linear-gradient(315deg, #efecec 0%, #f9aba4 74%)"
+background: "linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%)"
 
 cards:
   - type: custom:layout-card

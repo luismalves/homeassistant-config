@@ -4,9 +4,12 @@ browser_mod:
   card:
     cards:
       - type: custom:layout-card
-        layout_type: vertical-layout
+        layout_type: grid-layout
         layout:
-          grid-template-columns: auto
+          grid-template-columns: 1fr auto 1fr
+          grid-template-rows: auto
+          grid-template-areas: |
+            ". icon ."
         cards:
           - template: es-icon
             type: "custom:decluttering-card"
@@ -14,14 +17,6 @@ browser_mod:
               - template: "[[template]]"
               - entity-1: "[[entity-1]]"
               - name-1: "[[name-1]]"
-              - state-1: "open"
-              - state-2: "closed"
-              - circle-1: entity.attributes.current_position
-              - circle-2: 1
-              - circle-3: "open"
-              - circle-4: current_position
-              - scene-hell: "[[scene-hell]]"
-              - scene-relax: "[[scene-relax]]"
             view_layout:
               grid-area: icon
 

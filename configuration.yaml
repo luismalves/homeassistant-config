@@ -166,7 +166,7 @@ shell_command: !include_dir_merge_named components/shell_command
 sensor: !include_dir_merge_list components/sensors
 switch: !include_dir_merge_list components/switches
 light: !include_dir_merge_list components/lights
-#plant: !include_dir_merge_named components/plants
+plant: !include_dir_merge_named components/plants
 
 #group: !include_dir_merge_named groups
 #automation: !include_dir_merge_list automations

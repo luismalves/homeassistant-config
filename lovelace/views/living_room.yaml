@@ -147,7 +147,7 @@ cards:
             variables:
               - template: shutter
               - toggle-script: script.toggle_cover_left
-              - entity-1: cover.shelly_roller_right
+              - entity-1: cover.shelly_roller_left
               - name-1: Estores Esquerda
               - state-1: "open"
               - state-2: "closed"
@@ -160,7 +160,7 @@ cards:
             variables:
               - template: shutter
               - toggle-script: script.toggle_cover_right
-              - entity-1: cover.shelly_roller_left
+              - entity-1: cover.shelly_roller_right
               - name-1: Estores Direita
               - state-1: "open"
               - state-2: "closed"

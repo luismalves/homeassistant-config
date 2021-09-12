@@ -1,0 +1,132 @@
+2021-09-12 23:00:37 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration hacs which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-12 23:00:37 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration nodered which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-12 23:00:37 WARNING (SyncWorker_0) [homeassistant.loader] We found a custom integration google_home which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-12 23:00:37 WARNING (SyncWorker_1) [homeassistant.loader] We found a custom integration spotcast which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-12 23:00:37 WARNING (SyncWorker_2) [homeassistant.loader] We found a custom integration browser_mod which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-12 23:00:37 WARNING (SyncWorker_3) [homeassistant.loader] We found a custom integration healthchecksio which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-12 23:00:37 WARNING (SyncWorker_4) [homeassistant.loader] We found a custom integration plant which has not been tested by Home Assistant. This component might cause stability problems, be sure to disable it if you experience issues with Home Assistant
+2021-09-12 23:00:39 ERROR (MainThread) [homeassistant.components.websocket_api.http.connection] [140034968881664] Received invalid command: browser_mod/connect
+2021-09-12 23:00:43 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:00:43 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:00:43 ERROR (MainThread) [homeassistant] Error doing job: Task exception was never retrieved
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/hassio/ingress.py", line 250, in _websocket_forward
+    await ws_to.send_bytes(msg.data)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/web_ws.py", line 307, in send_bytes
+    await self._writer.send(data, binary=True, compress=compress)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/http_websocket.py", line 685, in send
+    await self._send_frame(message, WSMsgType.BINARY, compress)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/http_websocket.py", line 650, in _send_frame
+    self._write(header + message)
+  File "/usr/local/lib/python3.9/site-packages/aiohttp/http_websocket.py", line 660, in _write
+    raise ConnectionResetError("Cannot write to closing transport")
+ConnectionResetError: Cannot write to closing transport
+2021-09-12 23:00:43 WARNING (MainThread) [homeassistant.components.media_player] Platform androidtv not ready yet: None; Retrying in background in 30 seconds
+2021-09-12 23:00:44 ERROR (MainThread) [homeassistant.components.nfandroidtv.config_flow] Error connecting to device at 192.168.1.20
+2021-09-12 23:00:44 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_basic] The 'value_template' option is deprecated, please replace it with 'state_value_template'
+2021-09-12 23:00:44 WARNING (MainThread) [homeassistant.components.mqtt.light.schema_basic] The 'value_template' option is deprecated, please replace it with 'state_value_template'
+2021-09-12 23:00:44 INFO (MainThread) [pyipma.location] Using Oeiras / Vila Fria as weather station for Oeiras
+2021-09-12 23:00:46 ERROR (MainThread) [homeassistant.components.notify] Error setting up platform nfandroidtv
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 96, in create_connection
+    raise err
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/connection.py", line 86, in create_connection
+    sock.connect(sa)
+OSError: [Errno 113] Host is unreachable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 394, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 234, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.9/http/client.py", line 1257, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1303, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1252, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.9/http/client.py", line 1012, in _send_output
+    self.send(msg)
+  File "/usr/local/lib/python3.9/http/client.py", line 952, in send
+    self.connect()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 200, in connect
+    conn = self._new_conn()
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f5c63889160>: Failed to establish a new connection: [Errno 113] Host is unreachable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/usr/local/lib/python3.9/site-packages/urllib3/util/retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='192.168.1.20', port=7676): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f5c63889160>: Failed to establish a new connection: [Errno 113] Host is unreachable'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/notifications_android_tv/notifications.py", line 60, in __init__
+    requests.get(self.url, timeout=self.DEFAULT_TIMEOUT)
+  File "/usr/local/lib/python3.9/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/requests/sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/usr/local/lib/python3.9/site-packages/requests/sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "/usr/local/lib/python3.9/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='192.168.1.20', port=7676): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f5c63889160>: Failed to establish a new connection: [Errno 113] Host is unreachable'))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/src/homeassistant/homeassistant/components/notify/__init__.py", line 296, in async_setup_platform
+    notify_service = await platform.async_get_service(
+  File "/usr/src/homeassistant/homeassistant/components/nfandroidtv/notify.py", line 76, in async_get_service
+    notify = await hass.async_add_executor_job(Notifications, config.get(CONF_HOST))
+  File "/usr/local/lib/python3.9/concurrent/futures/thread.py", line 52, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "/usr/local/lib/python3.9/site-packages/notifications_android_tv/notifications.py", line 62, in __init__
+    raise ConnectError(err) from err
+notifications_android_tv.notifications.ConnectError: HTTPConnectionPool(host='192.168.1.20', port=7676): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f5c63889160>: Failed to establish a new connection: [Errno 113] Host is unreachable'))
+2021-09-12 23:00:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:00:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:01:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:01:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:03:23 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:03:23 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:05:23 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:05:23 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:07:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:07:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:10:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:10:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:13:41 ERROR (MainThread) [homeassistant.components.shelly] Timeout fetching Interruptor Persiana Direita data
+2021-09-12 23:13:41 ERROR (MainThread) [homeassistant.components.shelly] Timeout fetching Interruptor Entrada Direita data
+2021-09-12 23:13:41 ERROR (MainThread) [homeassistant.components.shelly] Timeout fetching Interruptor Persiana Esquerda data
+2021-09-12 23:13:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:13:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:16:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:16:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:19:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:19:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:22:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:22:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:25:33 ERROR (MainThread) [homeassistant.components.shelly] Timeout fetching Interruptor Persiana Esquerda data
+2021-09-12 23:25:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:25:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:28:53 WARNING (MainThread) [androidtv.adb_manager.adb_manager_async] Couldn't connect to 192.168.1.20:5555 via ADB server 127.0.0.1:5037 because the server is not connected to the device
+2021-09-12 23:28:53 WARNING (MainThread) [homeassistant.components.androidtv.media_player] Could not connect to Android TV at 192.168.1.20:5555 using ADB server at 127.0.0.1:5037
+2021-09-12 23:30:05 ERROR (MainThread) [homeassistant.components.hassio.handler] Timeout on /homeassistant/restart request
