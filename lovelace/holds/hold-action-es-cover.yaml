@@ -43,6 +43,11 @@ browser_mod:
                 service_data:
                   entity_id: "[[entity-1]]"
                   position: 0
+              - icon: "mdi:brightness-auto"
+                name: Auto
+                service: input_boolean.toggle
+                service_data:
+                  entity_id: input_boolean.enable_shutter_automation
             borderRadius: 20px
             brightnessHeight: 250px
             brightnessWidth: 100px

@@ -8,6 +8,7 @@ cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
+      width: 200
       max_width: 350
       column_widths: 98%
     cards:
@@ -27,50 +28,47 @@ cards:
               - content: Sala de estar
         type: horizontal-stack
 
-      - cards:
-          - type: markdown
-            style: >
-              ha-card {
-                box-shadow: none;
-                height: 100%;
-                background: none;
-                font-family: San Francisco;
-                font-weight: 700;
-                font-size: 1.2em;
-                color: #555;
-                margin-left: -15px;
-                margin-top: -17px;
-                margin-bottom: 0px;
-              }
-            content: >
-              {% if states.sensor.lights_on_living_room.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_living_room.state == "1" %} {{states.sensor.lights_on_living_room.state}} luz ligada. {% else %} {{states.sensor.lights_on_living_room.state}} luzes ligadas. {% endif %}
-        type: horizontal-stack
+      - type: markdown
+        style: >
+          ha-card {
+            box-shadow: none;
+            height: 100%;
+            background: none;
+            font-family: San Francisco;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #555;
+            margin-left: -15px;
+            margin-top: -17px;
+            margin-bottom: 0px;
+          }
+        content: >
+          {% if states.sensor.lights_on_living_room.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_living_room.state == "1" %} {{states.sensor.lights_on_living_room.state}} luz ligada. {% else %} {{states.sensor.lights_on_living_room.state}} luzes ligadas. {% endif %}
+        
 
-      - cards:
-          - type: custom:auto-entities
-            show_empty: false
-            filter:
-              include:
-                - entity_id: "sensor.humidity_1"
-                  state: ">80.0"
-            card:
-              type: markdown
-              style: >
-                ha-card {
-                  box-shadow: none;
-                  height: 100%;
-                  background: rgb(255,103,0);
-                  font-family: San Francisco;
-                  font-weight: 700;
-                  font-size: 1.2em;
-                  color: #fff;
-                  margin-bottom: 0px;
-                }
-                ha-markdown {
-                  padding: 10px 16px !important;
-                }
-              content: Humidade muito elevada.
-        type: horizontal-stack
+      - type: custom:auto-entities
+        show_empty: false
+        filter:
+          include:
+            - entity_id: "sensor.humidity_1"
+              state: ">80.0"
+        card:
+          type: markdown
+          style: >
+            ha-card {
+              box-shadow: none;
+              height: 100%;
+              background: rgb(255,103,0);
+              font-family: San Francisco;
+              font-weight: 700;
+              font-size: 1.2em;
+              color: #fff;
+              margin-bottom: 0px;
+            }
+            ha-markdown {
+              padding: 10px 16px !important;
+            }
+          content: Humidade muito elevada.
 
       - cards:
           - style: "ha-card { width: 10px; }"

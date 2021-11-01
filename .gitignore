@@ -26,6 +26,8 @@ service-account*.json
 
 # Ignore log files
 *.log
+*.log.1
+*.log.fault
 
 # Ignore database
 *.db

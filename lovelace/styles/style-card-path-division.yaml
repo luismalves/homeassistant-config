@@ -1,0 +1,51 @@
+card:
+  - width: 165px
+  - height: 70px
+  - letter-spacing: 0.1em;
+  - font-family: San Francisco
+  - text-rendering: optimizeLegibility
+  - font-weight: 700
+  - color: "rgba(87, 87, 87, 0.8)"
+  - font-size: 12px
+  - background-color: "rgb(255, 255, 255)"
+  - border-radius: 15px
+  - box-shadow: none
+  - transition: none
+custom_fields:
+  icon_hue:
+    - align-self: center
+    - padding: 18px 10px 18px 10px
+    - width: 30px
+  info:
+    - top: 0px
+    - left: 20px
+    - width: 40px
+    - position: absolute
+    - letter-spacing: 0.03vw
+  sd1:
+    - font-size: 12px
+    - justify-self: flex-start
+    - color: "rgba(0, 0, 0, 0.4)"
+  sd2:
+    - font-size: 12px
+    - justify-self: flex-start
+    - color: "rgba(0, 0, 0, 0.4)"
+  sd3:
+    - font-size: 12px
+    - justify-self: flex-start
+    - color: "rgba(0, 0, 0, 0.4)"
+  sd4:
+    - font-size: 12px
+    - justify-self: flex-start
+    - color: "rgba(0, 0, 0, 0.4)"
+grid:
+  - grid-template-areas: '"icon_hue n n ." "icon_hue sd1 sd2 ." "icon_hue sd3 sd4 ."' 
+  - grid-template-columns: min-content 1fr 1fr 8px
+  - grid-template-rows: 1.2fr min-content min-content
+name:
+  - color: black
+  - justify-self: start
+  - font-weight: bold
+  - font-size: 16px
+  - margin-bottom: 4px
+  - margin-top: 4px

@@ -75,6 +75,7 @@ browser_mod:
             brightnessHeight: 250px
             brightnessWidth: 100px
             entity: "[[entity-1]]"
+            displayType: slider
             fullscreen: false
             icon: true
             sliderColor: "#f8cd41"

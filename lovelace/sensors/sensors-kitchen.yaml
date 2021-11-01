@@ -39,26 +39,3 @@ sd3: >
       style="width: 10px; height: 10px;">
       </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.humidity_1'].state}%</span></span>`
   ]]]
-
-# sd4: >
-#   [[[
-#     return `<ha-icon
-#       icon="mdi:eye"
-#       style="width: 9px; height: 9px; color: '#8fce89';">
-#       </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.bewegungsmelder_5'].state} Lux</span></span>`
-#   ]]]
-
-# sd5: >
-#   [[[
-#     return `<ha-icon
-#       icon="mdi:smoke-detector"
-#       style="width: 9px; height: 9px; color: '#8fce89';">
-#       </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.kids_room_protect_co_status'].state}</span></span>`
-#   ]]]
-
-# sd6: >
-#   [[[
-#     return `<ha-icon
-#       icon="mdi:fire"
-#       style="width: 9px; height: 9px; color: '#8fce89';">
-#       </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.kids_room_protect_smoke_status'].state}</span></span>`

@@ -50,8 +50,6 @@ proxmoxve:
           - 102
           - 103
 
-python_script:
-
 # ########################################
 # ###          NOTIFICATIONS           ###
 # ########################################
@@ -64,10 +62,6 @@ python_script:
 #       - !secret telegram_chatid_margarida
 
 notify:
-  - platform: nfandroidtv
-    name: Android TV
-    host: !secret android_tv_ip
-
   - platform: discord
     name: discord
     token: !secret discord_bot_token

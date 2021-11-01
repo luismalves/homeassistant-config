@@ -9,6 +9,7 @@ cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
+      width: 200
       max_width: 350
       column_widths: 98%
     cards:

@@ -65,6 +65,7 @@ browser_mod:
             borderRadius: 20px
             brightnessHeight: 250px
             brightnessWidth: 100px
+            displayType: slider
             entity: "[[entity-1]]"
             fullscreen: false
             icon: true

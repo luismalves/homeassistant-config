@@ -8,6 +8,7 @@ cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
+      width: 200
       max_width: 350
       column_widths: 98%
     cards:
@@ -46,31 +47,29 @@ cards:
               {% if states.sensor.lights_on_deck.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_deck.state == "1" %} {{states.sensor.lights_on_deck.state}} luz ligada. {% else %} {{states.sensor.lights_on_deck.state}} luzes ligadas. {% endif %}
         type: horizontal-stack
 
-      - cards:
-          - type: custom:auto-entities
-            show_empty: false
-            filter:
-              include:
-                - entity_id: "sensor.humidity_2"
-                  state: ">80.0"
-            card:
-              type: markdown
-              style: >
-                ha-card {
-                  box-shadow: none;
-                  height: 100%;
-                  background: rgb(255,103,0);
-                  font-family: San Francisco;
-                  font-weight: 700;
-                  font-size: 1.2em;
-                  color: #fff;
-                  margin-bottom: 0px;
-                }
-                ha-markdown {
-                  padding: 10px 16px !important;
-                }
-              content: Humidade muito elevada.
-        type: horizontal-stack
+      - type: custom:auto-entities
+        show_empty: false
+        filter:
+          include:
+            - entity_id: "sensor.humidity_2"
+              state: ">80.0"
+        card:
+          type: markdown
+          style: >
+            ha-card {
+                box-shadow: none;
+                height: 100%;
+                background: rgb(255,103,0);
+                font-family: San Francisco;
+                font-weight: 700;
+                font-size: 1.2em;
+                color: #fff;
+                margin-bottom: 0px;
+            }
+            ha-markdown {
+              padding: 10px 16px !important;
+            }
+          content: Humidade muito elevada.
 
       - cards:
           - template: es-light
@@ -165,6 +164,16 @@ cards:
                 padding-left: 8px;
               }
         type: horizontal-stack
+
+
+      - type: horizontal-stack
+        cards:
+          - template: es-switch
+            type: "custom:decluttering-card"
+            variables:
+              - template: switch
+              - entity-1: switch.plug_xiaomi
+              - name-1: Tomada
 
       - cards:
           - height: 10
