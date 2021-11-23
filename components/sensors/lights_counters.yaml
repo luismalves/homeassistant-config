@@ -53,5 +53,6 @@
           states.light.luz_quarto,
           states.light.luz_quarto_esquerda,
           states.light.luz_quarto_direita,
+          states.light.wled_bed,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}

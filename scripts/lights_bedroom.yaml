@@ -11,4 +11,16 @@ turn_off_bedroom:
       entity_id: light.luz_quarto_esquerda
     - service: light.turn_off
       entity_id: light.luz_quarto_direita
+    - service: light.turn_off
+      entity_id: light.wled_bed
+  mode: single
+
+low_light_bedroom:
+  alias: Turn on low light on Bedroom
+  sequence:
+    - service: wled.preset
+      entity_id: light.wled_bed_master
+      data:
+        preset: >
+          {{ 3 if context.user_id == "3e6772dde48f4405b5c3a0ef42ed357d" else 2 }}
   mode: single
