@@ -1,0 +1,37 @@
+card:
+  - width: 340px
+  #- height: 55px
+  - font-family: "San Francisco"
+  - text-rendering: optimizeLegibility
+  - font-weight: 700
+  - color: rgba(0, 0, 0, 0.4)
+  - font-size: 10px
+  - background-color: "rgb(255, 255, 255)"
+  - padding: 0px
+  - box-shadow: none
+  - transition: none
+
+grid:
+  - grid-template-areas: '"icon_hue name name" "icon_hue sd1 sd2"'
+  - grid-template-columns: min-content 1fr 1fr
+  - grid-template-rows: 1fr 1fr
+  - grid-gap: 4px
+  - padding: 8px 4px
+
+name:
+  - font-weight: bold
+  - font-size: 16px
+  - color: "#111"
+  - grid-area: name
+  - justify-self: flex-start
+
+custom_fields:
+  sd1:
+    - grid-area: sd1
+    - font-size: 14px
+    - justify-self: flex-start
+
+  sd2:
+    - grid-area: sd2
+    - font-size: 14px
+    - justify-self: flex-start

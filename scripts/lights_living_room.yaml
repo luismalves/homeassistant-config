@@ -10,6 +10,6 @@ turn_off_living_room:
     - service: light.turn_off
       entity_id: light.shelly_living_room_light
     - service: light.turn_off
-      entity_id: light.wled
+      entity_id: light.wled_xmas
     - service: light.turn_off
       entity_id: light.led_strip_living_room

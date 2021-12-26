@@ -79,39 +79,39 @@ cards:
 
       - type: horizontal-stack
         cards:
-        - template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-living-room
-            - entity-1: input_boolean.home_ocuppied
-            - name-1: "Sala"
-            - navigation_path: /lovelace/sala
+          - template: path-division
+            type: "custom:decluttering-card"
+            variables:
+              - template: path-living-room
+              - entity-1: input_boolean.home_ocuppied
+              - name-1: "Sala"
+              - navigation_path: /lovelace/sala
 
-        - template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-kitchen
-            - entity-1: input_boolean.home_ocuppied
-            - name-1: "Cozinha"
-            - navigation_path: /lovelace/kitchen
+          - template: path-division
+            type: "custom:decluttering-card"
+            variables:
+              - template: path-kitchen
+              - entity-1: input_boolean.home_ocuppied
+              - name-1: "Cozinha"
+              - navigation_path: /lovelace/kitchen
 
       - type: horizontal-stack
         cards:
-        - template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-deck
-            - entity-1: input_boolean.home_ocuppied
-            - name-1: "Deck"
-            - navigation_path: /lovelace/deck
+          - template: path-division
+            type: "custom:decluttering-card"
+            variables:
+              - template: path-deck
+              - entity-1: input_boolean.home_ocuppied
+              - name-1: "Deck"
+              - navigation_path: /lovelace/deck
 
-        - template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-bedroom
-            - entity-1: input_boolean.home_ocuppied
-            - name-1: "Quarto"
-            - navigation_path: /lovelace/bedroom  
+          - template: path-division
+            type: "custom:decluttering-card"
+            variables:
+              - template: path-bedroom
+              - entity-1: input_boolean.home_ocuppied
+              - name-1: "Quarto"
+              - navigation_path: /lovelace/bedroom
 
       - cards:
           - height: 10
@@ -143,6 +143,61 @@ cards:
             font-weight: 700;
           }
 
+      - type: "custom:vertical-stack-in-card"
+        horizontal: false
+        style: |
+          ha-card {
+            background: #FFF;
+            border-radius: 15px;
+            box-shadow: none;
+            color: rgba(0, 0, 0);
+            font-family: San Francisco;
+            text-rendering: optimizeLegibility;
+          }
+        cards:
+          - template: sensor-energy
+            type: "custom:decluttering-card"
+            variables:
+              - name-1: Consumo energético
+              - template: sensors-energy
+
+          - type: "custom:mini-graph-card"
+            entities:
+              - entity: sensor.utm_diario_vazio
+                name: Energia diária
+                show_legend: false
+                show_state: false
+            show:
+              name: false
+              icon: false
+              state: false
+              graph: bar
+            tap_action:
+              action: none
+            hours_to_show: 168
+            aggregate_func: max
+            group_by: date
+            font_size: 65
+            # color_thresholds:
+            #   - value: 20
+            #     color: "#BCF4F5"
+            #   - value: 25
+            #     color: "#5FBFF9"
+            #   - value: 35
+            #     color: "#EDEBA0"
+            #   - value: 45
+            #     color: "#E39774"
+            style: |
+              ha-card {
+                background: #FFF;
+                border-radius: 15px;
+                box-shadow: none;
+                color: rgba(0, 0, 0);
+                font-family: San Francisco;
+                padding: 0;
+                text-rendering: optimizeLegibility;
+              }
+
       - cards:
           - height: 10
             size: 30
@@ -155,7 +210,8 @@ cards:
             type: "custom:gap-card"
         type: horizontal-stack
 
-      - cards:
+      - type: horizontal-stack
+        cards:
           - cards:
               - template: es-person
                 type: "custom:decluttering-card"
@@ -184,6 +240,18 @@ cards:
               - state-1: "on"
               - state-2: "off"
 
+          - template: es-script
+            type: "custom:decluttering-card"
+            variables:
+              - template: scene-christmas
+              - script-1: script.start_xmas_1
+              - entity-1: light.wled_xmas
+              - name-1: "É Natal!"
+              - state-1: "on"
+              - state-2: "off"
+
+      - type: horizontal-stack
+        cards:
           - template: es-boolean
             type: "custom:decluttering-card"
             variables:
@@ -193,7 +261,18 @@ cards:
               - state-1: "on"
               - state-2: "off"
 
-        type: horizontal-stack
+          - template: es-mood
+            type: "custom:decluttering-card"
+            variables:
+              - template: light-strip-3
+              #- script-1: script.start_xmas_1
+              #- entity-1: light.wled_xmas
+              - name-1: "Moods"
+              #- state-1: "on"
+
+          - height: 10
+            size: 30
+            type: "custom:gap-card"
 
       - cards:
           - height: 30

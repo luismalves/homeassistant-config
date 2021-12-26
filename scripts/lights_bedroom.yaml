@@ -12,7 +12,7 @@ turn_off_bedroom:
     - service: light.turn_off
       entity_id: light.luz_quarto_direita
     - service: light.turn_off
-      entity_id: light.wled_bed
+      entity_id: light.wled_bed_group
   mode: single
 
 low_light_bedroom:

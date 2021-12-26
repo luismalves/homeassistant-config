@@ -27,6 +27,7 @@
           states.light.led_strip_living_room,
           states.light.shelly_table_light,
           states.light.shelly_living_room_light,
+          states.light.wled_xmas
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -53,6 +54,6 @@
           states.light.luz_quarto,
           states.light.luz_quarto_esquerda,
           states.light.luz_quarto_direita,
-          states.light.wled_bed,
+          states.light.wled_bed_group,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}

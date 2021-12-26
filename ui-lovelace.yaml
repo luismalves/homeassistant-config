@@ -23,6 +23,12 @@ button_card_templates:
   light-strip:
     custom_fields: !include lovelace/icons/light-strip.yaml
 
+  light-strip-2:
+    custom_fields: !include lovelace/icons/light-strip-2.yaml
+
+  light-strip-3:
+    custom_fields: !include lovelace/icons/light-strip-3.yaml
+
   light-desk:
     custom_fields: !include lovelace/icons/light-desk.yaml
 
@@ -98,6 +104,9 @@ button_card_templates:
 
   sensors-living_room:
     custom_fields: !include lovelace/sensors/sensors-living_room.yaml
+
+  sensors-energy:
+    custom_fields: !include lovelace/sensors/sensors-energy.yaml
 
   scene-kitchen:
     custom_fields: !include lovelace/icons/scene-kitchen.yaml
@@ -609,7 +618,8 @@ decluttering_templates:
       show_icon: false
       show_state: true
       state: !include lovelace/states/state-x.yaml
-      styles: !include lovelace/styles/style-card-one_half.yaml
+      #styles: !include lovelace/styles/style-card-one_half.yaml
+      styles: !include lovelace/styles/style-card.yaml
       template: "[[template]]"
       type: "custom:button-card"
     default: null
@@ -638,6 +648,20 @@ decluttering_templates:
       show_state: true
       state: !include lovelace/states/state-x.yaml
       styles: !include lovelace/styles/style-card.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  es-mood:
+    card:
+      #custom_fields: !include lovelace/circles/circle-x.yaml
+      #entity: "[[entity-1]]"
+      name: "[[name-1]]"
+      tap_action: !include lovelace/holds/hold-action-mood.yaml
+      show_icon: false
+      show_state: false
+      #state: !include lovelace/states/state-x.yaml
+      styles: !include lovelace/styles/style-card-centered.yaml
       template: "[[template]]"
       type: "custom:button-card"
     default: null
@@ -680,6 +704,18 @@ decluttering_templates:
       tap_action:
         action: none
       styles: !include lovelace/styles/style-card-sensors-small.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
+  sensor-energy:
+    card:
+      name: "[[name-1]]"
+      show_icon: false
+      show_state: false
+      tap_action:
+        action: none
+      styles: !include lovelace/styles/style-card-energy.yaml
       template: "[[template]]"
       type: "custom:button-card"
     default: null
@@ -771,6 +807,26 @@ decluttering_templates:
       tap_action: "[[tap_action]]"
       styles: !include lovelace/styles/style-btn-icon.yaml
 
+  #---------------------#
+  # Script triggers
+  #---------------------#
+
+  script-mood-outline:
+    card:
+      entity: "[[script]]"
+      name: "[[name]]"
+      tap_action:
+        action: call-service
+        service: script.turn_on
+        service_data:
+          entity_id: "[[script]]"
+      show_icon: false
+      show_state: false
+      styles: !include lovelace/styles/style-card-centered-outline.yaml
+      template: "[[template]]"
+      type: "custom:button-card"
+    default: null
+
 ##########################################################################
 #                                                                        #
 #                              * LOVELACE *                              #
@@ -794,4 +850,4 @@ views:
   - !include lovelace/views/plants.yaml
   - !include lovelace/views/info.yaml
   - !include lovelace/views/maintenance.yaml
-  - !include lovelace/views/crypto.yaml
+  #- !include lovelace/views/crypto.yaml

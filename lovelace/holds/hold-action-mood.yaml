@@ -1,0 +1,32 @@
+action: fire-dom-event
+browser_mod:
+  title: "Moods com luzes"
+  command: popup
+  card:
+    type: custom:layout-card
+    layout_type: custom:vertical-layout
+    layout:
+      column_widths: 95%
+    cards:
+      - type: horizontal-stack
+        cards:
+          - template: script-mood-outline
+            type: "custom:decluttering-card"
+            variables:
+              - entity-1: sensor.lights_on_bedroom
+              - template: light-strip-2
+              - script: script.low_light_bedroom
+              - name: "Azul"
+          - template: script-mood-outline
+            type: "custom:decluttering-card"
+            variables:
+              - entity-1: sensor.lights_on_bedroom
+              - template: light-strip-2
+              - script: script.low_light_bedroom
+              - name: "Verde"
+              - color-1: "green"
+          - height: 10
+            type: "custom:gap-card"
+      - height: 10
+        size: 30
+        type: "custom:gap-card"

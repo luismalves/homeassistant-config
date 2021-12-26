@@ -1,7 +1,7 @@
 title: Info
 path: info
 panel: true
-icon: mdi:iframe-outline
+icon: mdi:application-brackets-outline
 visible: true
 background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
 

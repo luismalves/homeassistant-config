@@ -1,6 +1,6 @@
 action: fire-dom-event
 browser_mod:
-  title: " "
+  title: "Android TV"
   command: popup
   card:
     type: custom:layout-card

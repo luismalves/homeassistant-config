@@ -7,4 +7,4 @@ start_xmas_1:
   icon: mdi:pine-tree
   sequence:
     - service: light.turn_on
-      entity_id: light.wled
+      entity_id: light.wled_xmas

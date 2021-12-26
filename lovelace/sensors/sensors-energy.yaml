@@ -1,0 +1,21 @@
+icon_hue: >
+  [[[ return `<ha-icon
+      icon="mdi:home-lightning-bolt-outline"
+      style="width: 52px; height: 52px; color: #fed843">
+      </ha-icon>` ]]]
+
+sd1: >
+  [[[
+    return `<ha-icon
+      icon="mdi:lightning-bolt-outline"
+      style="width: 12px; height: 15px;">
+      </ha-icon><span>Potência: </span><span style="color:rgba(0, 0, 0, 0.4);">${states['sensor.shelly_em_channel_1_power'].state} W</span>`
+  ]]]
+
+sd2: >
+  [[[
+    return `<ha-icon
+      icon="mdi:wallet-outline"
+      style="width: 12px; height: 15px; margin-right: 2px">
+      </ha-icon><span>Custo: </span><span style="color:rgba(0, 0, 0, 0.4);">${states['sensor.endesa_5_75_kva_simples_ciclo_diario_cost'].state}€</span>`
+  ]]]
