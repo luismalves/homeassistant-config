@@ -125,7 +125,7 @@ cards:
             type: "custom:gap-card"
         type: horizontal-stack
 
-      - entity: weather.inicio
+      - entity: weather.home
         type: weather-forecast
         style: |
           .type-weather-forecast {
