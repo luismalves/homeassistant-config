@@ -7,6 +7,7 @@
   sensors:
     energy_bill:
       friendly_name: "Fatura Energia"
+      device_class: monetary
       value_template: >-
         {{ (float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.state) + float(states.sensor.sensor_utm_mensal_normal_cost.state)) | default(0) | round(2) }}
       unit_of_measurement: "€"
