@@ -171,8 +171,8 @@ cards:
               name: false
               icon: false
               state: false
-              labels: true
-              labels_secondary: true
+              #labels: true
+              #labels_secondary: true
               graph: bar
             tap_action:
               action: none

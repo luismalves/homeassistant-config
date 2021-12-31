@@ -51,7 +51,7 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: sensors-version
-              - entity-1: sensor.current_version
+              - entity-1: sensor.latest_version
               - name-1: "Latest version"
               - url-1: https://www.home-assistant.io/blog/categories/release-notes/
         type: horizontal-stack

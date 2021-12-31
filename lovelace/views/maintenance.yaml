@@ -234,7 +234,7 @@ cards:
                     background: #FFF;
                     border-radius: 15px;
                     box-shadow: none;
-                    color: rgba(0, 0, 0);
+                    color: rgba(255, 255, 255);
                     font-family: San Francisco;
                     text-rendering: optimizeLegibility;
                   }
@@ -244,6 +244,7 @@ cards:
                     padding-left: 8px;
                   }
                   .graph .graph__legend {
+                      color: rgb(0, 0, 0);
                       justify-content: space-between;
                       padding: 0px 6px 0px !important;
                   }
