@@ -3,11 +3,11 @@
 # From area: Master Bedroom
 #####
 
-# lights
+## lights
 - light.luz_quarto_esquerda
 - light.luz_quarto_direita
 - light.luz_quarto
 - light.wled_bed_group
 
-# Media
+## Media
 - media_player.smart_clock

@@ -3,11 +3,12 @@
 # From area: Living room
 #####
 
-# lights
+## lights
 - light.luz_sala
 - light.shelly_table_light
 - light.luz_mesa_1
 - light.luz_mesa_2
+- light.led_strip_living_room
 
-# Media
+## Media
 - media_player.mi_tv
