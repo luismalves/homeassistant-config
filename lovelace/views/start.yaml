@@ -125,7 +125,7 @@ cards:
             type: "custom:gap-card"
         type: horizontal-stack
 
-      - entity: weather.home
+      - entity: weather.inicio
         type: weather-forecast
         style: |
           .type-weather-forecast {
@@ -163,7 +163,7 @@ cards:
 
           - type: "custom:mini-graph-card"
             entities:
-              - entity: sensor.utm_diario_vazio
+              - entity: sensor.energy_bill
                 name: Energia diária
                 show_legend: false
                 show_state: false
@@ -171,28 +171,36 @@ cards:
               name: false
               icon: false
               state: false
+              labels: true
+              labels_secondary: true
               graph: bar
             tap_action:
               action: none
             hours_to_show: 168
-            aggregate_func: max
+            aggregate_func: delta
             group_by: date
             font_size: 65
-            # color_thresholds:
-            #   - value: 20
-            #     color: "#BCF4F5"
-            #   - value: 25
-            #     color: "#5FBFF9"
-            #   - value: 35
-            #     color: "#EDEBA0"
-            #   - value: 45
-            #     color: "#E39774"
+            color_thresholds:
+              - value: 1
+                color: "#417656"
+              - value: 1.2
+                color: "#579E72"
+              - value: 1.3
+                color: "#6EAF88"
+              - value: 1.35
+                color: "#D1B161"
+              - value: 1.4
+                color: "#C8A241"
+              - value: 1.5
+                color: "#7D1224"
+              - value: 1.8
+                color: "#590D1A"
             style: |
               ha-card {
                 background: #FFF;
                 border-radius: 15px;
                 box-shadow: none;
-                color: rgba(0, 0, 0);
+                color: rgba(255, 255, 255);
                 font-family: San Francisco;
                 padding: 0;
                 text-rendering: optimizeLegibility;

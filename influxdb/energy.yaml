@@ -1,0 +1,17 @@
+#####
+# Entities related to energy
+# to store into InfluxDB.
+#####
+
+## Shelly EM
+- sensor.shelly_em_channel_1_energy
+- sensor.shelly_em_channel_1_power
+
+## Cost calculations
+- sensor.sensor_utm_mensal_normal_cost
+- sensor.energy_bill
+
+## Power outlets
+- sensor.smart_plug_xiaomi_consumption
+- sensor.smart_plug_consumption
+#- sensor.smart_plug_2_consumption

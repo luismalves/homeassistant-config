@@ -1,7 +1,6 @@
+#####
 # Entities related to TV
 # to store into InfluxDB.
-#
-# Specify (whitelist) each entity to store,
-# to keep InfluxDB clean and small.
-#
+#####
+
 []

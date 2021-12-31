@@ -14,3 +14,14 @@ logs:
   homeassistant.exceptions: info
   py.warnings: error
   root: warn
+
+filters:
+  homeassistant:
+    # This can happen during restart having Ingress tabs open.
+    # I really don't care about it.
+    - "Error doing job: Task exception was never retrieved"
+
+  pychromecast.socket_client:
+    # Surpress to chatty Cast integration
+    - "Failed to connect to service ServiceInfo"
+    - "Error communicating with socket, resetting connection"

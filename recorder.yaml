@@ -1,25 +1,24 @@
 ############################################################
-# recorder
+# Recorder
 ############################################################
-#db_url: sqlite:///data/home-assistant_v2.db
+
 db_url: !secret recorder_db_url
 
 auto_purge: true
-purge_keep_days: 30
+purge_keep_days: 35
 
-#include:
-#  entities:
-#exclude:
-#  domains:
-#    - automations
-#    - groups
-#    - scenes
-#    - scripts
-#    - lights
-#  entities:
-#    - sensor.next_alarm
-#    - binary_sensor.updater
-#    - sensor.daylight
-#    - light.living_room
-#    - weather.home
-#    - sun.sun
+exclude:
+  domains:
+    - updater
+    - automation
+    - device_tracker
+    - group
+    - scene
+    - script
+    - sun
+  entity_globs:
+    - sensor.*uptime*
+    - sensor.*battery_level
+  entities:
+    - weather.inicio
+    - sun.sun

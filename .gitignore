@@ -23,6 +23,7 @@ ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 service-account*.json
+splitwise.conf
 
 # Ignores font binaries because of copywrite
 *.woff

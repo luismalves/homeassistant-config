@@ -1,0 +1,11 @@
+#####
+# List of entities that is exposed to Google Assistant
+# From area: Kitchen
+#####
+
+# lights
+- light.shelly_kitchen_led_left
+- light.shelly_kitchen_light
+
+# Media
+- media_player.nest_hub

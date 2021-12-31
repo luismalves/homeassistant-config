@@ -26,6 +26,9 @@ button_card_templates:
   light-strip-2:
     custom_fields: !include lovelace/icons/light-strip-2.yaml
 
+  light-strip-2-var:
+    custom_fields: !include lovelace/icons/light-strip-2-var.yaml
+
   light-strip-3:
     custom_fields: !include lovelace/icons/light-strip-3.yaml
 

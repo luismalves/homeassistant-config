@@ -17,5 +17,5 @@ sd2: >
     return `<ha-icon
       icon="mdi:wallet-outline"
       style="width: 12px; height: 15px; margin-right: 2px">
-      </ha-icon><span>Custo: </span><span style="color:rgba(0, 0, 0, 0.4);">${states['sensor.endesa_5_75_kva_simples_ciclo_diario_cost'].state}€</span>`
+      </ha-icon><span>Custo: </span><span style="color:rgba(0, 0, 0, 0.4);">${states['sensor.energy_bill'].state}€</span>`
   ]]]

@@ -1,0 +1,13 @@
+#####
+# List of entities that is exposed to Google Assistant
+# From area: Living room
+#####
+
+# lights
+- light.luz_sala
+- light.shelly_table_light
+- light.luz_mesa_1
+- light.luz_mesa_2
+
+# Media
+- media_player.mi_tv

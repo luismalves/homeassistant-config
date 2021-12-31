@@ -1,0 +1,17 @@
+#####
+# Splitwise custom plugin
+# https://github.com/sriramsv/custom_component_splitwise
+#####
+
+# Luis API connection
+# - platform: splitwise
+#   client_id: !secret splitwise-luis-client-id
+#   client_secret: !secret splitwise-luis-client-secret
+
+# - platform: template
+#   sensors:
+#     splitwise_sensor_projeto_ma_lu:
+#       friendly_name: "Saldo Luís no grupo Splitwise Projeto Ma Lu"
+#       value_template: >
+#         {{ state_attr('sensor.splitwise_sensor', 'projeto_ma_lu') }}
+#       unit_of_measurement: "€"

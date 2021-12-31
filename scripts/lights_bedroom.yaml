@@ -18,9 +18,31 @@ turn_off_bedroom:
 low_light_bedroom:
   alias: Turn on low light on Bedroom
   sequence:
-    - service: wled.preset
-      entity_id: light.wled_bed_master
-      data:
-        preset: >
-          {{ 3 if context.user_id == "3e6772dde48f4405b5c3a0ef42ed357d" else 2 }}
+    service: select.select_option
+    target:
+      entity_id: select.wled_bed_preset
+    data:
+      option: >
+        {{ "Left blue" if context.user_id == "3e6772dde48f4405b5c3a0ef42ed357d" else "Right blue" }}
   mode: single
+
+set_bedroom_lights_color:
+  alias: Set bedroom lights to color X
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.wled_bed_group
+        rgb_color: >
+          - "{{ red }}"
+          - "{{ blue }}"
+          - "{{ green }}"
+
+set_bedroom_lights_white:
+  sequence:
+    - service: script.turn_on
+      entity_id: script.set_bedroom_lights_color
+      data:
+        variables:
+          red: "255"
+          blue: "255"
+          green: "255"

@@ -1,9 +1,7 @@
+#####
 # Entities related to Temperatures
 # to store into InfluxDB.
-#
-# Specify (whitelist) each entity to store,
-# to keep InfluxDB clean and small.
-#
+#####
 
 - sensor.temperature_1
 - sensor.temperature_2
