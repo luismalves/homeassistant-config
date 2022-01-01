@@ -1,0 +1,12 @@
+#####
+# List of scenes that is exposed to Google Assistant
+#
+#####
+
+- scene.cooking_time
+- scene.gamming_time
+- scene.hooby_time
+- scene.meal_time
+- scene.movie_time
+- scene.reading
+- scene.s_fm

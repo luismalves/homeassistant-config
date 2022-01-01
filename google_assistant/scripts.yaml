@@ -1,0 +1,20 @@
+#####
+# List of scripts that is exposed to Google Assistant
+#
+#####
+
+- script.goodbye
+- script.goodnight
+- script.kitchen_ready
+- script.sleep_desktop
+
+- script.turn_on_tv
+- script.start_netflix_tv
+- script.start_xmas_1
+
+- script.turn_on_desktop
+- script.turn_off_desktop
+
+- script.turn_off_deck
+- script.turn_off_bedroom
+- script.turn_off_living_room
