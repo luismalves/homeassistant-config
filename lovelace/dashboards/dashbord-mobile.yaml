@@ -1,0 +1,11 @@
+#####
+# Lovelace Dashboard
+# For MOBILE usage
+#####
+
+dashboard-mobile:
+  mode: yaml
+  title: Home (Mobile)
+  #icon: fas:city
+  show_in_sidebar: false
+  filename: ui-lovelace-mobile.yaml

@@ -1,0 +1,152 @@
+#####
+# Button card templates for Lovelace
+# https://github.com/custom-cards/button-card#configuration-templates
+#####
+
+house:
+  custom_fields: !include ../icons/house.yaml
+
+plants:
+  custom_fields: !include ../icons/plants.yaml
+
+light-spot:
+  custom_fields: !include ../icons/light-spot.yaml
+
+light-pendant:
+  custom_fields: !include ../icons/light-pendant.yaml
+
+light-mosquitto:
+  custom_fields: !include ../icons/light-mosquitto.yaml
+
+light-strip:
+  custom_fields: !include ../icons/light-strip.yaml
+
+light-strip-2:
+  custom_fields: !include ../icons/light-strip-2.yaml
+
+light-strip-2-var:
+  custom_fields: !include ../icons/light-strip-2-var.yaml
+
+light-strip-3:
+  custom_fields: !include ../icons/light-strip-3.yaml
+
+light-desk:
+  custom_fields: !include ../icons/light-desk.yaml
+
+light-outdoor:
+  custom_fields: !include ../icons/light-outdoor.yaml
+
+light-bedroom:
+  custom_fields: !include ../icons/light-bedroom.yaml
+
+light-xmas:
+  custom_fields: !include ../icons/light-xmas.yaml
+
+shutter:
+  custom_fields: !include ../icons/shutter.yaml
+
+shutter-temp:
+  custom_fields: !include ../icons/shutter-temp.yaml
+
+speaker:
+  custom_fields: !include ../icons/speaker.yaml
+
+switch:
+  custom_fields: !include ../icons/switch.yaml
+
+tv:
+  custom_fields: !include ../icons/tv.yaml
+
+path-shutter:
+  custom_fields: !include ../icons/path-shutter.yaml
+
+path-lights:
+  custom_fields: !include ../icons/path-lights.yaml
+
+path-devices:
+  custom_fields: !include ../icons/path-devices.yaml
+
+path-living-room:
+  custom_fields: !include ../icons/path-living-room.yaml
+
+path-kitchen:
+  custom_fields: !include ../icons/path-kitchen.yaml
+
+path-deck:
+  custom_fields: !include ../icons/path-deck.yaml
+
+path-bedroom:
+  custom_fields: !include ../icons/path-bedroom.yaml
+
+#path-sensors:
+#custom_fields:
+#!include ../icons/path-sensors.yaml
+
+person-girl:
+  custom_fields: !include ../icons/person-girl.yaml
+
+person-kid:
+  custom_fields: !include ../icons/person-kid.yaml
+
+person-man:
+  custom_fields: !include ../icons/person-man.yaml
+
+sensors-version:
+  custom_fields: !include ../sensors/sensors-version.yaml
+
+sensors-empty:
+  custom_fields: !include ../sensors/sensors-empty.yaml
+
+sensors-hacs:
+  custom_fields: !include ../sensors/sensors-hacs.yaml
+
+sensors-kitchen:
+  custom_fields: !include ../sensors/sensors-kitchen.yaml
+
+sensors-living_room:
+  custom_fields: !include ../sensors/sensors-living_room.yaml
+
+sensors-energy:
+  custom_fields: !include ../sensors/sensors-energy.yaml
+
+scene-kitchen:
+  custom_fields: !include ../icons/scene-kitchen.yaml
+
+scene-movie:
+  custom_fields: !include ../icons/scene-movie.yaml
+
+scene-meal:
+  custom_fields: !include ../icons/scene-meal.yaml
+
+scene-cooking:
+  custom_fields: !include ../icons/scene-cooking.yaml
+
+scene-hobby:
+  custom_fields: !include ../icons/scene-hobby.yaml
+
+scene-gamming:
+  custom_fields: !include ../icons/scene-gamming.yaml
+
+scene-reading:
+  custom_fields: !include ../icons/scene-reading.yaml
+
+scene-christmas:
+  custom_fields: !include ../icons/scene-christmas.yaml
+
+script-lights-off:
+  custom_fields: !include ../icons/script-lights-off.yaml
+
+toggle:
+  custom_fields: !include ../icons/toggle.yaml
+
+auto-brightness:
+  custom_fields: !include ../icons/auto-brightness.yaml
+
+brightness:
+  custom_fields: !include ../icons/brightness.yaml
+
+healthchecks:
+  custom_fields: !include ../icons/healthchecks.yaml
+
+vm:
+  custom_fields: !include ../icons/vm.yaml

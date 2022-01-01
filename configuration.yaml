@@ -20,6 +20,7 @@ frontend:
 lovelace:
   mode: yaml
   resources: !include_dir_list lovelace/resources
+  dashboards: !include_dir_merge_named lovelace/dashboards
 
 browser_mod:
   prefix: "browser_"

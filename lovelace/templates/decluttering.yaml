@@ -1,0 +1,680 @@
+#####
+# Decluttering templates
+# https://github.com/custom-cards/decluttering-card
+#####
+
+header:
+  card:
+    style: >
+      ha-card {
+        box-shadow: none;
+        height: 100%;
+        background: none;
+        font-family: San Francisco;
+        font-weight: 700;
+        font-size: 3em;
+        line-height: 1em;
+        color: #333;
+        text-rendering: optimizeLegibility;
+        margin-left: -15px;
+      }
+    type: markdown
+    content: |
+      [[content]]
+  default: null
+
+subheader:
+  card:
+    style: >
+      ha-card {
+        box-shadow: none;
+        height: 100%;
+        background: none;
+        font-family: San Francisco;
+        font-weight: 700;
+        font-size: 2em;
+        line-height: 1em;
+        color: #575757;
+        text-rendering: optimizeLegibility;
+        margin-left: -15px;
+        margin-top: -20px;
+        margin-bottom: -20px;
+      }
+    type: markdown
+    content: |
+      [[content]]
+  default: null
+
+title:
+  card:
+    style: >
+      ha-card {
+        box-shadow: none;
+        height: 100%;
+        background: none;
+        font-family: San Francisco;
+        font-weight: 700;
+        font-size: 1.65em;
+        color: #111;
+        text-rendering: optimizeLegibility;
+        margin-left: -15px;
+        margin-top: -20px;
+        margin-bottom: -15px;
+      }
+    type: markdown
+    content: |
+      [[content]]
+  default: null
+
+title-white:
+  card:
+    style: >
+      ha-card {
+        box-shadow: none;
+        height: 100%;
+        background: none;
+        font-family: San Francisco;
+        font-weight: 700;
+        font-size: 1.65em;
+        color: #FFF;
+        text-rendering: optimizeLegibility;
+        margin-left: -15px;
+        margin-top: -20px;
+        margin-bottom: -15px;
+      }
+    type: markdown
+    content: |
+      [[content]]
+  default: null
+
+subtitle:
+  card:
+    style: >
+      ha-card {
+        box-shadow: none;
+        height: 100%;
+        background: none;
+        font-family: San Francisco;
+        font-weight: 500;
+        font-size: 1.2em;
+        color: #333;
+        text-rendering: optimizeLegibility;
+        margin-left: -15px;
+        margin-top: -20px;
+        margin-bottom: -10px;
+      }
+    type: markdown
+    content: |
+      [[content]]
+  default: null
+
+subtitle-white:
+  card:
+    style: >
+      ha-card {
+        box-shadow: none;
+        height: 100%;
+        background: none;
+        font-family: San Francisco;
+        font-weight: 500;
+        font-size: 1.2em;
+        color: #FFF;
+        text-rendering: optimizeLegibility;
+        margin-left: -15px;
+        margin-top: -20px;
+        margin-bottom: -10px;
+      }
+    type: markdown
+    content: |
+      [[content]]
+  default: null
+
+device:
+  card:
+    style: >
+      ha-card {
+        box-shadow: none;
+        height: 100%;
+        background: none;
+        font-family: San Francisco;
+        font-weight: 700;
+        font-size: 13px;
+        color: #fff;
+        text-rendering: optimizeLegibility;
+        text-align: center;
+        position: static;
+        margin-top: -20px;
+        margin-bottom: -25px;
+      }
+    type: markdown
+    content: |
+      [[content]]
+  default: null
+
+#---------------------#
+# Entity state cards
+#---------------------#
+es-icon:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: false
+    show_name: false
+    styles: !include ../styles/style-icon.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Navigation card
+path:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[navigation_path]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-path.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Navigation card for divisions
+path-division:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[navigation_path]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-path-division.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+scene:
+  card:
+    entity: "[[scene-1]]"
+    name: "[[[ return entity.attributes.friendly_name ]]]"
+    tap_action:
+      action: call-service
+      service: scene.turn_on
+      service_data:
+        entity_id: "[[scene-1]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+script:
+  card:
+    entity: "[[script]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      service_data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-scene:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: call-service
+      service: scene.turn_on
+      service_data:
+        entity_id: "[[scene-1]]"
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-script:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      service_data:
+        entity_id: "[[script-1]]"
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-boolean:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-person:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: true
+    tap_action:
+      action: none
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-small.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-config:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: toggle
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-small-one_half.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-config-binary:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-small-one_half.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-config-small:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: toggle
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-small-2.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-dummy:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: true
+    tap_action:
+      action: none
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-light:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es-lights.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Lights which only support white range of values. Changes in hold action.
+es-light-white:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es-lights-white.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Lights which toggle based on a switch and colors are controlled from another entity
+es-light-switch:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-switch]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es-lights.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Lights which toggle based on a switch and colors are controlled from another entity.
+# Hold action controls each individual light connected to switch
+es-light-switch-2:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-switch]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es-lights-2.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-3:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es-3.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-switch:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-es.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-cover:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es-cover.yaml
+    tap_action:
+      action: call-service
+      service: "[[toggle-script]]"
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    #styles: !include ../styles/style-card-one_half.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-speaker:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action: !include ../holds/hold-action-es-speaker.yaml
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-es-speaker.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-tv:
+  card:
+    #custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action: !include ../holds/hold-action-es-tv.yaml
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-mood:
+  card:
+    #custom_fields: !include ../circles/circle-x.yaml
+    #entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action: !include ../holds/hold-action-mood.yaml
+    show_icon: false
+    show_state: false
+    #state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+es-number:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: none
+    show_icon: false
+    show_state: true
+    styles: !include ../styles/style-card-centered-one_half.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+#---------------------#
+# Sensor cards
+#---------------------#
+sensor-kitchen:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: none
+    styles: !include ../styles/style-card-sensors.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+sensor-living_room:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: none
+    styles: !include ../styles/style-card-sensors-small.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+sensor-energy:
+  card:
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: none
+    styles: !include ../styles/style-card-energy.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+sensor-number:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: true
+    styles: !include ../styles/style-card-centered-one_half.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+sensor-number-ext:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: url
+      url_path: "[[url-1]]"
+    show_icon: false
+    show_state: true
+    styles: !include ../styles/style-card-centered-one_half.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+sensor-number-local:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[url-1]]"
+    show_icon: false
+    show_state: true
+    styles: !include ../styles/style-card-centered-one_half.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+#---------------------#
+# Radio cards
+#---------------------#
+
+radio:
+  card:
+    name: "[[radio]]"
+    tap_action:
+      action: call-service
+      service: script.radio_set
+      service_data:
+        chromecast_radio_option: "[[room]]"
+        radio_station_option: "[[radio]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+#---------------------#
+# Buttons
+#---------------------#
+
+btn-script:
+  card:
+    name: "[[text]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      service_data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-btn-large.yaml
+    #template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+btn-icon-text:
+  card:
+    type: "custom:button-card"
+    entity: "[[entity]]"
+    icon: "mdi:[[icon]]"
+    name: "[[name]]"
+    tap_action: "[[tap_action]]"
+    styles: !include ../styles/style-btn-icon.yaml
+
+#---------------------#
+# Script triggers
+#---------------------#
+
+script-mood-outline:
+  card:
+    entity: "[[script]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      service_data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-centered-outline.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
