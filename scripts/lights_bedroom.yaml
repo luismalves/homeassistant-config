@@ -3,7 +3,7 @@
 #
 
 turn_off_bedroom:
-  alias: Turn off Bedroom
+  alias: Turn off lights of Bedroom
   sequence:
     - service: light.turn_off
       entity_id: light.luz_quarto

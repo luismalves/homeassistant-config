@@ -5,16 +5,22 @@
 
 - script.goodbye
 - script.goodnight
-- script.kitchen_ready
-- script.sleep_desktop
-
-- script.turn_on_tv
-- script.start_netflix_tv
 - script.start_xmas_1
+- script.delete_clock_alarms
 
+## Android TV
+- script.turn_on_tv
+- script.turn_off_tv
+- script.start_netflix_tv
+
+## Desktop PC
 - script.turn_on_desktop
 - script.turn_off_desktop
+- script.sleep_desktop
 
+## Lights
 - script.turn_off_deck
 - script.turn_off_bedroom
 - script.turn_off_living_room
+- script.turn_off_kitchen
+- script.kitchen_ready

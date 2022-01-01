@@ -4,6 +4,7 @@
 #####
 
 ## lights
+- light.shelly_living_room_light
 - light.luz_sala
 - light.shelly_table_light
 - light.luz_mesa_1
@@ -12,3 +13,6 @@
 
 ## Media
 - media_player.mi_tv
+
+## Input booleans
+- input_boolean.open_blinds_temporarly
