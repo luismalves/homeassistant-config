@@ -21,14 +21,20 @@ Wondering what Home assistant is? Check [their homepage][home-assistant].
 
 **And I use the following hardware in my house:**
 
-- [Ikea tradfri][tradfri] lights - sveral E27 types
-- [Google Home][google_home]
-- Xiaomi Aqara [Temperature & Humidity Sensors][xiaomi_temp]
-- Xiaomi Aqara [Window Door Sensors][xiaomi_door]
-- Xiaomi Aqara [Motion Sensors][xiaomi_motion]
-- Xiaomi Aqara [Smart switch][xiaomi_switch]
-- Blitzwolf [BW-LT11][bw-lt11] led strips (Tasmota flashed)
-- Blitzwolf [BW-SHP13][bw-shp13] smart plugs
+- Ikea tradfri lights - sveral E27 types
+- Google Nest Hub
+- Lenovo Smart Clock Gen1 
+- Xiaomi Aqara Temperature & Humidity Sensors
+- Xiaomi Aqara Window Door Sensors
+- Xiaomi Aqara Motion Sensors
+- Xiaomi Aqara Smart switch
+- Xiaomi Mi Lamp
+- Xiaomi Mi Lamp Pro
+- Shelly 2.5
+- Shelly EM
+- Blitzwolf BW-LT11 led strips (Tasmota flashed)
+- Blitzwolf BW-SHP13 smart plugs
+- Many ESP32/ESP8266
 
 
 ## License
@@ -67,20 +73,3 @@ SOFTWARE.
 [intelnuc]: https://ark.intel.com/content/www/us/en/ark/products/126150/intel-nuc-kit-nuc8i3beh.html
 [conbee]: https://www.phoscon.de/en/conbee2
 [proxmox]: https://www.proxmox.com/en/
-
-<!-- Products 
-[xiaomi_temp]: https://www.banggood.com/Original-Xiaomi-Aqara-Atmos-Version-Temperature-Humidity-Sensor-Smart-Home-Thermometer-Hygrometer-p-1148666.html?rmmds=myorder&cur_warehouse=GWTR
-[xiaomi_door]: https://www.banggood.com/Original-Xiaomi-Aqara-Zig_Bee-Version-Window-Door-Sensor-Smart-Home-Kit-Remote-Alarm-p-1149705.html?rmmds=myorder&cur_warehouse=GWTR
-[harmony]: https://www.logitech.com/nl-nl/product/harmony-companion
-[google_home]: https://store.google.com/nl/product/google_home
-[xiaomi_curtains_track]: https://nl.aliexpress.com/item/3-5-M-Xiaomi-Super-Stille-Elektrische-Gordijn-Track-voor-Mijia-Aqara-Motor-Automatische-Gordijn-Rails/32922713008.html?spm=a2g0s.9042311.0.0.1cf94c4d06j07R
-[xiaomi_curtains_motor]: https://nl.aliexpress.com/item/Xiaomi-Aqara-Smart-Gordijn-Motor-Intelligente-Zigbee-Wifi-Voor-xiaomi-Smart-Home-Apparaat-Draadloze-Afstandsbediening-Via/32872671734.html?spm=a2g0s.9042311.0.0.1cf94c4d06j07R
-[xiaomi_motion]: https://www.banggood.com/Original-Aqara-Zig_Bee-Wireless-Human-Body-PIR-Sensor-Smart-Home-Kit-From-Xiaomi-Eco-System-p-1177007.html
-[xiaomi_switch]: https://www.banggood.com/Original-Xiaomi-Aqara-Smart-Wireless-Switch-Smart-Home-Kit-Remote-Control-Touch-Switch-p-1224921.html
-[opple_switch]: https://www.banggood.com/Aqara-x-OPPLE-ZigBee-3_0-HomeKit-Version-Wireless-Smart-Switch-Work-With-HomeKit-From-Eco-system-p-1590410.html
-[bw-lt11]: https://www.banggood.com/BlitzWolf-BW-LT11-2M5M-Smart-APP-Control-RGBW-LED-Light-Strip-Kit-Work-With-Amazon-Alexa-Google-Assistant-p-1390470.html?rmmds=search
-[bw-shp13]: https://www.banggood.com/BlitzWolf-BW-SHP13-Zigbee-3_0-Smart-WIFI-Socket-16A-EU-Plug-Electricity-Metering-APP-Remote-Controller-Timer-Work-with-Amazon-Alexa-Google-Home-p-1679992.html
-[xiaomi_light_sensor]: https://nl.aliexpress.com/item/4000476379615.html?spm=a2g0s.9042311.0.0.5cdf4c4dK3J0n2
-[xiaomi_d1_1way_switch]: https://www.banggood.com/Aqara-D1-1-Gang-or-2-Gang-ZigBee-Smart-Wireless-Switch-APP-Remote-Control-Timer-Work-with-APP-HomeKit-p-1644321.html?rmmds=search&ID=6265280&cur_warehouse=CN
-[tint_E27]: https://zigbee.blakadder.com/Muller_Licht_404000.html
-[glow]: https://github.com/klaasnicolaas/home-assistant-glow-->
