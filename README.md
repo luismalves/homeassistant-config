@@ -10,7 +10,8 @@
 This is my personal Home Assistant configuration, the base of all my smart home stuff.
 Wondering what Home assistant is? Check [their homepage][home-assistant].
 
-![header](/extras/img/love_ha_nuc.png "header")
+![header](/extras/img/love_ha_nuc.png "love_ha_nuc")
+
 
 ## Current setup
 
