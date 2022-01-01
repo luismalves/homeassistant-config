@@ -23,7 +23,7 @@ Wondering what Home assistant is? Check [their homepage][home-assistant].
 
 **And I use the following hardware in my house:**
 
-- Ikea tradfri lights - sveral E27 types
+- Ikea tradfri lights - several E27 types
 - Google Nest Hub
 - Lenovo Smart Clock Gen1 
 - Xiaomi Aqara Temperature & Humidity Sensors
