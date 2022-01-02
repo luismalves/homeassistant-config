@@ -123,15 +123,7 @@ cards:
             hours_to_show: 24
             font_size: 65
             points_per_hour: 4
-            color_thresholds:
-              - value: 15
-                color: "#BCF4F5"
-              - value: 19
-                color: "#5FBFF9"
-              - value: 21
-                color: "#EDEBA0"
-              - value: 23
-                color: "#E39774"
+            color_thresholds: !include ../graphs/temp-thresholds.yaml
             style: |
               ha-card {
                 background: #FFF;

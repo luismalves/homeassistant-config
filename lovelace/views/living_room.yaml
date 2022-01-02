@@ -70,8 +70,7 @@ cards:
           content: Humidade muito elevada.
 
       - cards:
-          - style: "ha-card { width: 10px; }"
-            template: es-light
+          - template: es-light
             type: "custom:decluttering-card"
             variables:
               - template: light-strip

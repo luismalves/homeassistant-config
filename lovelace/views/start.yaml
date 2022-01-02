@@ -65,17 +65,8 @@ cards:
           content: >
             {% if states.sensor.door_open_for.state | int > 0 %} Porta aberta à {{states.sensor.door_open_for.state}} minutos.{% else %} Porta foi aberta à {{states.sensor.door_open_last.state}} minutos.{% endif %}
 
-      - cards:
-          - height: 10
-            size: 30
-            type: "custom:gap-card"
-          - height: 10
-            size: 30
-            type: "custom:gap-card"
-          - height: 10
-            size: 30
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 10
 
       - type: horizontal-stack
         cards:
@@ -282,14 +273,5 @@ cards:
             size: 30
             type: "custom:gap-card"
 
-      - cards:
-          - height: 30
-            size: 30
-            type: "custom:gap-card"
-          - height: 30
-            size: 30
-            type: "custom:gap-card"
-          - height: 30
-            size: 30
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 30

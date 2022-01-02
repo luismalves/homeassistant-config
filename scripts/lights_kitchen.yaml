@@ -9,3 +9,5 @@ turn_off_kitchen:
       entity_id: light.shelly_kitchen_led_left
     - service: light.turn_off
       entity_id: light.shelly_kitchen_light
+    - service: light.turn_off
+      entity_id: light.luz_entrada

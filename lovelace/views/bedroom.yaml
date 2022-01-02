@@ -86,17 +86,6 @@ cards:
         type: horizontal-stack
 
       - cards:
-          - template: es-speaker
-            type: "custom:decluttering-card"
-            variables:
-              - template: speaker
-              - entity-1: media_player.smart_clock
-              - name-1: "Smart Clock"
-              - room: "Quarto"
-              - circle-1: entity.attributes.volume_level
-              - circle-2: 0.01
-              - circle-3: "playing"
-              - circle-4: volume_level
           - template: es-light
             type: "custom:decluttering-card"
             variables:
@@ -109,6 +98,17 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
+          - template: es-speaker
+            type: "custom:decluttering-card"
+            variables:
+              - template: speaker
+              - entity-1: media_player.smart_clock
+              - name-1: "Smart Clock"
+              - room: "Quarto"
+              - circle-1: entity.attributes.volume_level
+              - circle-2: 0.01
+              - circle-3: "playing"
+              - circle-4: volume_level
           - height: 10
             type: "custom:gap-card"
         type: horizontal-stack
