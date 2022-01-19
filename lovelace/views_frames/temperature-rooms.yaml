@@ -21,7 +21,7 @@
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.temperature_1
-          name: Temperatura
+              name: Temperatura
           show:
             name: true
             icon: true
@@ -71,7 +71,7 @@
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.temperature_2
-          name: Temperatura
+              name: Temperatura
           show:
             name: true
             icon: true
@@ -86,7 +86,7 @@
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.humidity_2
-          name: Humidade
+              name: Humidade
           show:
             name: true
             icon: true
@@ -121,7 +121,7 @@
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.cpu_temperature
-          name: Temperatura CPU
+              name: Temperatura CPU
           show:
             name: true
             icon: true
@@ -136,7 +136,7 @@
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.disk_temperature
-          name: Temperatura disco
+              name: Temperatura disco
           show:
             name: true
             icon: true
