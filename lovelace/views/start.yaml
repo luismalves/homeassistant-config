@@ -76,7 +76,7 @@ cards:
               - template: path-living-room
               - entity-1: input_boolean.home_ocuppied
               - name-1: "Sala"
-              - navigation_path: /lovelace/sala
+              - navigation_path: /dashboard-mobile/sala
 
           - template: path-division
             type: "custom:decluttering-card"
@@ -84,7 +84,7 @@ cards:
               - template: path-kitchen
               - entity-1: input_boolean.home_ocuppied
               - name-1: "Cozinha"
-              - navigation_path: /lovelace/kitchen
+              - navigation_path: /dashboard-mobile/kitchen
 
       - type: horizontal-stack
         cards:
@@ -94,7 +94,7 @@ cards:
               - template: path-deck
               - entity-1: input_boolean.home_ocuppied
               - name-1: "Deck"
-              - navigation_path: /lovelace/deck
+              - navigation_path: /dashboard-mobile/deck
 
           - template: path-division
             type: "custom:decluttering-card"
@@ -102,7 +102,7 @@ cards:
               - template: path-bedroom
               - entity-1: input_boolean.home_ocuppied
               - name-1: "Quarto"
-              - navigation_path: /lovelace/bedroom
+              - navigation_path: /dashboard-mobile/bedroom
 
       - cards:
           - height: 10

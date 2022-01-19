@@ -31,3 +31,12 @@
     state:
       - color: "rgba(0, 0, 0, 0.2)"
   value: "[[state-4]]"
+- styles:
+    card:
+      - background-color: "transparent"
+      - border: "2px solid rgba(0, 0, 0, 0.25)"
+    name:
+      - color: "rgba(0, 0, 0, 0.4)"
+    state:
+      - color: "rgba(0, 0, 0, 0.2)"
+  value: "[[state-outline-2]]"

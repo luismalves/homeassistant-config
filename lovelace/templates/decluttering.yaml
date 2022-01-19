@@ -470,8 +470,7 @@ es-cover:
     show_icon: false
     show_state: true
     state: !include ../states/state-x.yaml
-    #styles: !include ../styles/style-card-one_half.yaml
-    styles: !include ../styles/style-card.yaml
+    styles: !include ../styles/style-card-one_half.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null

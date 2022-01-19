@@ -2,7 +2,7 @@ title: Home
 path: home
 panel: true
 icon: mdi:home-circle
-background: "linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%)"
+background: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)"
 
 cards:
   - type: custom:layout-card
