@@ -1,0 +1,13 @@
+#####
+# Tasks entities customization
+# https://forum.cpha.pt/t/card-para-tarefas-rotineiras/5582
+#####
+
+sensor.task_manutencao_maq_roupa:
+  friendly_name: Manutenção máquina roupa
+
+sensor.task_verificar_baterias_drone:
+  friendly_name: Verificar nível das baterias do drone
+
+sensor.task_limpar_desktop:
+  friendly_name: Limpar computador fixo

@@ -22,3 +22,4 @@ views:
   - !include lovelace/views/plants.yaml
   - !include lovelace/views/info.yaml
   - !include lovelace/views/maintenance.yaml
+  - !include lovelace/views/debug.yaml

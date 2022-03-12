@@ -151,12 +151,12 @@ cards:
               - circle-2: 0.01
               - circle-3: "playing"
               - circle-4: volume_level
-          - template: es-switch
-            type: "custom:decluttering-card"
-            variables:
-              - template: light-mosquitto
-              - entity-1: switch.smart_plug_2
-              - name-1: Luz Azul
+          # - template: es-switch
+          #   type: "custom:decluttering-card"
+          #   variables:
+          #     - template: light-mosquitto
+          #     - entity-1: switch.smart_plug_2
+          #     - name-1: Luz Azul
           - height: 10
             size: 30
             type: "custom:gap-card"

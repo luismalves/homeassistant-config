@@ -5,6 +5,7 @@ card:
   - font-family: San Francisco
   - text-rendering: optimizeLegibility
   - font-weight: 700
+  - background: "rgb(255, 255, 255)"
   - color: "rgba(87, 87, 87, 0.8)"
   - font-size: 12px
   - border-radius: 15px

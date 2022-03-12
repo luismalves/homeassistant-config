@@ -13,20 +13,13 @@ cards:
       max_width: 350
       column_widths: 98%
     cards:
-      - cards:
-          - height: 40
-            type: "custom:gap-card"
-          - height: 40
-            type: "custom:gap-card"
-          - height: 40
-            type: "custom:gap-card"
-        type: horizontal-stack
-      - cards:
-          - template: title-white
-            type: "custom:decluttering-card"
-            variables:
-              - content: System
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 40
+
+      - type: "custom:decluttering-card"
+        template: title-white
+        variables:
+          - content: System
 
       - type: "custom:gap-card"
         height: 20

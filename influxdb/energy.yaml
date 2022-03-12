@@ -9,6 +9,7 @@
 
 ## Cost calculations
 - sensor.sensor_utm_mensal_normal_cost
+- sensor.endesa_5_75_kva_simples_ciclo_diario
 - sensor.energy_bill
 
 ## Power outlets

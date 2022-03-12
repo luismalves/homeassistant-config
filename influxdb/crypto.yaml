@@ -1,0 +1,9 @@
+#####
+# Entities related to Crypto
+# to store into InfluxDB.
+#####
+
+- sensor.basis_usd
+- sensor.rbasis_basis
+- sensor.my_wallet_rbasis
+- sensor.my_wallet_basis

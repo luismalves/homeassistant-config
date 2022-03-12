@@ -239,18 +239,16 @@ cards:
               - state-1: "on"
               - state-2: "off"
 
-          - template: es-script
-            type: "custom:decluttering-card"
-            variables:
-              - template: scene-christmas
-              - script-1: script.start_xmas_1
-              - entity-1: light.wled_xmas
-              - name-1: "É Natal!"
-              - state-1: "on"
-              - state-2: "off"
+          # - template: es-script
+          #   type: "custom:decluttering-card"
+          #   variables:
+          #     - template: scene-christmas
+          #     - script-1: script.start_xmas_1
+          #     - entity-1: light.wled_xmas
+          #     - name-1: "É Natal!"
+          #     - state-1: "on"
+          #     - state-2: "off"
 
-      - type: horizontal-stack
-        cards:
           - template: es-boolean
             type: "custom:decluttering-card"
             variables:
@@ -260,18 +258,16 @@ cards:
               - state-1: "on"
               - state-2: "off"
 
+      - type: horizontal-stack
+        cards:
           - template: es-mood
             type: "custom:decluttering-card"
             variables:
               - template: light-strip-3
-              #- script-1: script.start_xmas_1
-              #- entity-1: light.wled_xmas
               - name-1: "Moods"
-              #- state-1: "on"
 
-          - height: 10
-            size: 30
-            type: "custom:gap-card"
+          - type: "custom:gap-card"
+            height: 30
 
-      - type: "custom:gap-card"
-        height: 30
+          - type: "custom:gap-card"
+            height: 30

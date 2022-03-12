@@ -1,0 +1,10 @@
+icon_hue: >
+  [[[ if (entity.state == 'Vazio') 
+      return `<ha-icon
+      icon="mdi:alert-circle"">
+      </ha-icon>`;
+    else
+      return `<ha-icon
+      icon="mdi:alert-circle"">
+      </ha-icon>`;
+   ]]]

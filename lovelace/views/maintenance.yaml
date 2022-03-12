@@ -186,8 +186,11 @@ cards:
                   exclude:
                     - domain: device_tracker
                     - domain: person
+                    - domain: button
+                    - domain: scene
+                    - domain: select
+                    - domain: number
                     - entity_id: "*nextcloud*"
-                    - entity_id: "*luis_desktop*"
                     - entity_id: "browser_*"
                     - attributes:
                         type: browser_mod

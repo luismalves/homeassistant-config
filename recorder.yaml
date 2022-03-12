@@ -11,10 +11,7 @@ exclude:
   domains:
     - updater
     - automation
-    - device_tracker
     - group
-    - scene
-    - script
     - sun
   entity_globs:
     - sensor.*uptime*

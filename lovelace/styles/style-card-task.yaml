@@ -1,0 +1,30 @@
+card:
+  - width: 340px
+  - height: 34px
+  - letter-spacing: 0.1em;
+  - font-family: San Francisco
+  - font-weight: 700
+  - background: "transparent"
+  - font-size: 12px
+  - border: 2px solid white
+  - border-radius: 10px
+  - box-shadow: none
+  - padding: 4px 0px
+  - transition: none
+custom_fields:
+  icon_hue:
+    - color: "rgb(255, 216, 132)"
+    - margin: auto
+    - width: 20px
+
+grid:
+  - grid-template-areas: '"icon_hue name"'
+  - grid-template-columns: 40px 2fr
+  - grid-template-rows: 1fr
+
+name:
+  - color: "rgb(255, 255, 255)"
+  - font-weight: bold
+  - font-size: 12px
+  - grid-area: name
+  - justify-self: flex-start

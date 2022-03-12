@@ -1,0 +1,62 @@
+title: Tasks
+path: tasks
+panel: true
+#icon: mdi:cog-box
+visible: true
+background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+
+cards:
+  - type: custom:layout-card
+    layout_type: custom:vertical-layout
+    layout:
+      width: 200
+      max_width: 350
+      column_widths: 98%
+    cards:
+      - type: "custom:gap-card"
+        height: 40
+
+      - type: "custom:decluttering-card"
+        template: title-white
+        variables:
+          - content: Tarefas rotineiras
+
+      - type: "custom:gap-card"
+        height: 20
+
+      - type: "custom:decluttering-card"
+        template: subtitle-white
+        variables:
+          - content: Cozinha
+
+      - type: "custom:button-card"
+        template: task
+        entity: sensor.task_manutencao_maq_roupa
+        name: Manutenção Máquina Roupa
+        variables:
+          warning_before: 5
+          cycle_days: 60
+
+      - type: "custom:gap-card"
+        height: 20
+
+      - type: "custom:decluttering-card"
+        template: subtitle-white
+        variables:
+          - content: Outros
+
+      - type: "custom:button-card"
+        template: task
+        entity: sensor.task_verificar_baterias_drone
+        name: Verificar nivel baterias drone
+        variables:
+          warning_before: 3
+          cycle_days: 30
+
+      - type: "custom:button-card"
+        template: task
+        entity: sensor.task_limpar_desktop
+        name: Limpar pó do computador
+        variables:
+          warning_before: 3
+          cycle_days: 180
