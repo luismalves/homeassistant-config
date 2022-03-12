@@ -37,6 +37,14 @@ cards:
           warning_before: 5
           cycle_days: 60
 
+      - type: "custom:button-card"
+        template: task
+        entity: sensor.task_manutencao_maq_loica
+        name: Manutenção Máquina Loiça
+        variables:
+          warning_before: 5
+          cycle_days: 90
+
       - type: "custom:gap-card"
         height: 20
 

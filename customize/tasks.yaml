@@ -6,6 +6,9 @@
 sensor.task_manutencao_maq_roupa:
   friendly_name: Manutenção máquina roupa
 
+sensor.task_manutencao_maq_loica:
+  friendly_name: Manutenção máquina loiça - limpar ventoinhas
+
 sensor.task_verificar_baterias_drone:
   friendly_name: Verificar nível das baterias do drone
 
