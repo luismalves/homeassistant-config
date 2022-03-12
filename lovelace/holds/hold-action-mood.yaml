@@ -25,8 +25,14 @@ browser_mod:
               - script: script.low_light_bedroom
               - name: "Verde"
               - color: "green"
-          - height: 10
-            type: "custom:gap-card"
-      - height: 10
+          - template: script-mood-outline
+            type: "custom:decluttering-card"
+            variables:
+              - entity-1: sensor.lights_on_bedroom
+              - template: light-strip-2-var
+              - script: script.low_light_bedroom
+              - name: "Festa"
+              - color: "red"
+      - type: "custom:gap-card"
+        height: 10
         size: 30
-        type: "custom:gap-card"
