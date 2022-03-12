@@ -18,7 +18,7 @@ swipe_nav:
 
 ## Views
 views:
-  - !include lovelace/views/start.yaml
+  - !include lovelace/views/start-mobile.yaml
   - !include lovelace/views/living_room.yaml
   - !include lovelace/views/deck.yaml
   - !include lovelace/views/kitchen.yaml

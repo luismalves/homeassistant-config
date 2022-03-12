@@ -2,7 +2,8 @@ title: Clima
 path: temp
 panel: true
 #icon: mdi:silverware-fork-knife
-background: "linear-gradient(120deg, #fdfbfb 0%, #ebf4f5 100%)"
+#background: "linear-gradient(120deg, #fdfbfb 0%, #ebf4f5 100%)"
+background: "center / cover no-repeat url('/local/backgrounds/Wave_2.svg') fixed"
 
 cards:
   - type: custom:layout-card

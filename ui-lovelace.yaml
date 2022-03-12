@@ -14,11 +14,11 @@ title: Home Control
 views:
   - !include lovelace/views/start-desktop.yaml
   - !include lovelace/views/temperature.yaml
-  #  - !include lovelace/views/start.yaml
   - !include lovelace/views/living_room.yaml
   - !include lovelace/views/deck.yaml
   - !include lovelace/views/kitchen.yaml
   - !include lovelace/views/bedroom.yaml
+  - !include lovelace/views/tasks.yaml
   - !include lovelace/views/plants.yaml
   - !include lovelace/views/info.yaml
   - !include lovelace/views/maintenance.yaml
