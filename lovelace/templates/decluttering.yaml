@@ -505,14 +505,14 @@ es-tv:
 
 es-mood:
   card:
-    #custom_fields: !include ../circles/circle-x.yaml
-    #entity: "[[entity-1]]"
+    entity: "[[entity-1]]"
     name: "[[name-1]]"
-    tap_action: !include ../holds/hold-action-mood.yaml
+    tap_action:
+      action: toggle
     show_icon: false
     show_state: false
-    #state: !include ../states/state-x.yaml
-    styles: !include ../styles/style-card-centered.yaml
+    state: !include ../states/state-mood.yaml
+    styles: !include ../styles/style-card-centered-outline.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
@@ -657,6 +657,17 @@ btn-icon-text:
     name: "[[name]]"
     tap_action: "[[tap_action]]"
     styles: !include ../styles/style-btn-icon.yaml
+
+btn-moods:
+  card:
+    name: "[[name-1]]"
+    tap_action: !include ../holds/hold-action-mood.yaml
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
 
 #---------------------#
 # Script triggers

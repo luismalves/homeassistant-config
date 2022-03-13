@@ -1,0 +1,7 @@
+#####
+# List of helpers that is exposed to Google Assistant
+#
+#####
+
+## lights
+- input_boolean.enable_party_lights

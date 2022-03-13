@@ -32,6 +32,7 @@ set_bedroom_lights_color:
     - service: light.turn_on
       data:
         entity_id: light.wled_bed_group
+        effect: Solid
         rgb_color: >
           - "{{ red }}"
           - "{{ blue }}"
@@ -46,3 +47,12 @@ set_bedroom_lights_white:
           red: "255"
           blue: "255"
           green: "255"
+
+set_bedroom_lights_party:
+  alias: Set bedroom color lights to party mode
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id: light.wled_bed_group
+      data:
+        effect: Random Colors

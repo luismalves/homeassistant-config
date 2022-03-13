@@ -27,3 +27,14 @@ turn_on_deck:
     - service: light.turn_on
       entity_id: light.mi_lamp_pro
   mode: single
+
+set_deck_lights_party:
+  alias: Set deck color lights to party mode
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id: light.led_strip_deck
+      data:
+        color_name: green
+        effect: Cycle up
+        brightness_step: 255

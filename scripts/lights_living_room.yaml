@@ -13,3 +13,14 @@ turn_off_living_room:
     #  entity_id: light.wled_xmas
     - service: light.turn_off
       entity_id: light.led_strip_living_room
+
+set_living_room_lights_party:
+  alias: Set living room color lights to party mode
+  sequence:
+    - service: light.turn_on
+      target:
+        entity_id: light.led_strip_living_room
+      data:
+        color_name: green
+        effect: Cycle up
+        brightness_step: 255

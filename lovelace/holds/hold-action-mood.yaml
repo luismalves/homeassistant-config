@@ -13,25 +13,22 @@ browser_mod:
           - template: script-mood-outline
             type: "custom:decluttering-card"
             variables:
-              - entity-1: sensor.lights_on_bedroom
               - template: light-strip-2
               - script: script.low_light_bedroom
               - name: "Azul"
           - template: script-mood-outline
             type: "custom:decluttering-card"
             variables:
-              - entity-1: sensor.lights_on_bedroom
               - template: light-strip-2-var
               - script: script.low_light_bedroom
               - name: "Verde"
               - color: "green"
-          - template: script-mood-outline
+          - template: es-mood
             type: "custom:decluttering-card"
             variables:
-              - entity-1: sensor.lights_on_bedroom
+              - entity-1: input_boolean.enable_party_lights
               - template: light-strip-2-var
-              - script: script.low_light_bedroom
-              - name: "Festa"
+              - name-1: "Festa"
               - color: "red"
       - type: "custom:gap-card"
         height: 10
