@@ -1,0 +1,15 @@
+#####
+# Helpers
+#
+#####
+
+- platform: template
+  sensors:
+    any_mood_enabled:
+      friendly_name: "Is a mood toggle activated"
+      value_template: >
+        {% if is_state('input_select.lights_mood', 'none') %}
+          off
+        {% else %}
+          on
+        {% endif %}

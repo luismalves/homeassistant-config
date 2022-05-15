@@ -1,0 +1,39 @@
+#####
+# Network sensors
+#
+#####
+
+- platform: template
+  sensors:
+    mt_hap3_ports_in_use:
+      friendly_name: "Mikrotik hAP Ac^3 ports in use"
+      unit_of_measurement: "in use"
+      value_template: >
+        {% set switchs = [
+          states.switch.mt_hap3_port_ether1,
+          states.switch.mt_hap3_port_ether2,
+          states.switch.mt_hap3_port_ether3,
+          states.switch.mt_hap3_port_ether4,
+          states.switch.mt_hap3_port_ether5
+          ] %}
+        {{ switchs | selectattr('state','eq','on') | list | count }}
+
+    mt_hap3_uptime_friendly:
+      friendly_name: "Mikrotik hAP Ac^3 friedly Uptime"
+      value_template: >
+        {{ states("sensor.mt_hap3_uptime") | as_datetime | relative_time }}
+
+    mt_audience_ports_in_use:
+      friendly_name: "Mikrotik Audience ports in use"
+      unit_of_measurement: "in use"
+      value_template: >
+        {% set switchs = [
+          states.switch.mt_audience_port_ether_in,
+          states.switch.mt_audience_port_ether_out
+          ] %}
+        {{ switchs | selectattr('state','eq','on') | list | count }}
+
+    mt_audience_uptime_friendly:
+      friendly_name: "Mikrotik Audience friedly Uptime"
+      value_template: >
+        {{ states("sensor.mt_audience_uptime") | as_datetime | relative_time }}
