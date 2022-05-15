@@ -1,0 +1,109 @@
+####
+# SYSTEM
+# Intel NUC
+#
+####
+type: vertical-stack
+cards:
+  - type: "custom:gap-card"
+    height: 25
+
+  - type: "custom:decluttering-card"
+    template: subtitle-white
+    variables:
+      - content: Intel NUC
+
+  - type: entities
+    entities:
+      - entity: sensor.mt_hap3_uptime_friendly
+        name: Uptime
+        icon: mdi:timelapse
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+      - entity: sensor.mt_hap3_ports_in_use
+        name: Ports
+        icon: mdi:ethernet
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+      - entity: binary_sensor.mt_hap3_firmware_update
+        name: Firmware Update
+        icon: mdi:reload
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+    state_color: true
+    header:
+      type: picture
+      image: local/images/system/nuc.jpg
+      tap_action:
+        action: none
+      hold_action:
+        action: none
+      double_tap_action:
+        action: none
+    card_mod:
+      style: |
+        :host {
+          --ha-card-background: white;
+          --primary-text-color: rgba(0,0,0); 
+          font-family: "San Francisco";
+        }
+        #states > * {
+          margin: 0px !important;
+        }
+        .header {
+          padding: 35px 35px 5px 35px;
+        }
+
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      margin: 0
+      card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: 110px
+    cards:
+      - type: "custom:mini-graph-card"
+        entities:
+          - entity: sensor.cpu_temperature
+            name: CPU Temp
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 24
+        font_size: 65
+        points_per_hour: 4
+        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        style: !include ../styles/style-graph-thdetail.yaml
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - entity: sensor.disk_temperature
+            name: Disk temp
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 24
+        font_size: 65
+        points_per_hour: 4
+        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        style: !include ../styles/style-graph-thdetail.yaml
+
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        variables:
+          - template: sensors-empty
+          - entity-1: sensor.disk_use_percent_home
+          - name-1: "HASS Disk Usage (%)"

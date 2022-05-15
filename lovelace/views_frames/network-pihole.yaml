@@ -1,0 +1,49 @@
+####
+# Pi hole stats
+#
+####
+type: vertical-stack
+cards:
+  - type: "custom:gap-card"
+    height: 25
+
+  - type: "custom:decluttering-card"
+    template: subtitle-white
+    variables:
+      - content: Pi-hole DNS
+
+  - template: es-switch
+    type: "custom:decluttering-card"
+    variables:
+      - template: pihole
+      - entity-1: switch.pi_hole
+      - name-1: Pi hole
+
+  - type: entities
+    entities:
+      - entity: sensor.pi_hole_ads_blocked_today
+        name: Ads blocked today
+        icon: mdi:close-octagon-outline
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+      - entity: sensor.pi_hole_ads_percentage_blocked_today
+        name: Ads Percentage Blocked Today
+        icon: mdi:close-octagon-outline
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+    card_mod:
+      style: |
+        :host {
+          --ha-card-background: white;
+          --primary-text-color: rgba(0,0,0); 
+          font-family: "San Francisco";
+        }
+        #states > * {
+          margin: 0px !important;
+        }

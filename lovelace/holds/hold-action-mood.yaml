@@ -10,25 +10,29 @@ browser_mod:
     cards:
       - type: horizontal-stack
         cards:
-          - template: script-mood-outline
+          - template: es-mood
             type: "custom:decluttering-card"
             variables:
-              - template: light-strip-2
-              - script: script.low_light_bedroom
-              - name: "Azul"
-          - template: script-mood-outline
-            type: "custom:decluttering-card"
-            variables:
+              - entity: input_select.lights_mood
+              - option: Party
               - template: light-strip-2-var
-              - script: script.low_light_bedroom
+              - name: "Azul"
+              - color: "blue"
+          - template: es-mood
+            type: "custom:decluttering-card"
+            variables:
+              - entity: input_select.lights_mood
+              - option: Green
+              - template: light-strip-2-var
               - name: "Verde"
               - color: "green"
           - template: es-mood
             type: "custom:decluttering-card"
             variables:
-              - entity-1: input_boolean.enable_party_lights
+              - entity: input_select.lights_mood
+              - option: Party
               - template: light-strip-2-var
-              - name-1: "Festa"
+              - name: "Festa"
               - color: "red"
       - type: "custom:gap-card"
         height: 10

@@ -1,5 +1,5 @@
-title: Debug
-path: debug
+title: Network
+path: network
 panel: true
 #icon: mdi:cog-box
 visible: true
@@ -16,7 +16,7 @@ cards:
       - type: custom:layout-card
         layout_type: custom:masonry-layout
         layout:
-          grid-template-columns: 365px 356px
+          grid-template-columns: 350px 350px
           grid-template-rows: auto
           column-gap: 40px
         cards:

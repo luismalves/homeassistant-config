@@ -1,5 +1,5 @@
-title: Info
-path: info
+title: Config
+path: config
 panel: true
 icon: mdi:application-brackets-outline
 visible: true

@@ -116,7 +116,7 @@ slate_theme:
   lumo-tint-5pct: "#222222"
 
   # fix for device configuration screen
-  card-background-color: "var(--paper-card-background-color)"
+  # card-background-color: "var(--paper-card-background-color)"
 
   # Fix for Person Device Chooser - thanks to vajonam!
   material-background-color: "var(--paper-listbox-background-color)"

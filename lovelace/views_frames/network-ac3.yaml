@@ -1,0 +1,103 @@
+####
+# Mikrotik hAP AC3
+#
+####
+type: vertical-stack
+cards:
+  - type: "custom:gap-card"
+    height: 25
+
+  - type: "custom:decluttering-card"
+    template: subtitle-white
+    variables:
+      - content: Mikrotik hAP AC^3
+
+  - type: entities
+    entities:
+      - entity: sensor.mt_hap3_uptime_friendly
+        name: Uptime
+        icon: mdi:timelapse
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+      - entity: sensor.mt_hap3_ports_in_use
+        name: Ports
+        icon: mdi:ethernet
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+      - entity: binary_sensor.mt_hap3_firmware_update
+        name: Firmware Update
+        icon: mdi:reload
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
+    state_color: true
+    header:
+      type: picture
+      image: local/images/network/MT_AC3.png
+      tap_action:
+        action: none
+      hold_action:
+        action: none
+    card_mod:
+      style: |
+        :host {
+          --ha-card-background: white;
+          --primary-text-color: rgba(0,0,0); 
+          font-family: "San Francisco";
+        }
+        #states > * {
+          margin: 0px !important;
+        }
+
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      margin: 0
+      card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: 110px
+    cards:
+      - type: "custom:mini-graph-card"
+        entities:
+          - entity: sensor.mt_hap3_cpu_load
+            name: CPU
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 6
+        font_size: 65
+        points_per_hour: 6
+        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        style: !include ../styles/style-graph-thdetail.yaml
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - entity: sensor.mt_hap3_memory_usage
+            name: Memória
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 6
+        font_size: 65
+        points_per_hour: 6
+        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        style: !include ../styles/style-graph-thdetail.yaml
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        variables:
+          - template: sensor-movement
+          - entity-1: switch.mt_hap3_port_wifi_guest
+          - name-1: Wireless guest

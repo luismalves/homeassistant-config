@@ -1,0 +1,60 @@
+####
+# SYSTEM
+# Proxmox
+#
+####
+type: vertical-stack
+cards:
+  - type: "custom:gap-card"
+    height: 25
+
+  - type: horizontal-stack
+    cards:
+      - template: subtitle-white
+        type: "custom:decluttering-card"
+        variables:
+          - content: Virtual Machines (Proxmox)
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - template: es-config
+        type: "custom:decluttering-card"
+        variables:
+          - template: vm
+          - entity-1: binary_sensor.alpaca_hassio_running
+          - name-1: "Hassio"
+          - state-1: "on"
+          - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        variables:
+          - template: vm
+          - entity-1: binary_sensor.alpaca_ubuntu_server_running
+          - name-1: "Ubuntu Server"
+          - state-1: "on"
+          - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        variables:
+          - template: vm
+          - entity-1: binary_sensor.alpaca_ubuntu_desktop_running
+          - name-1: "Ubuntu (Minecraft)"
+          - state-1: "on"
+          - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        variables:
+          - template: vm
+          - entity-1: binary_sensor.alpaca_win10_running
+          - name-1: "Windows 10"
+          - state-1: "on"
+          - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        variables:
+          - template: healthchecks
+          - entity-1: binary_sensor.google_home_api_keys
+          - name-1: "Google API Key"
+          - state-1: "on"
+          - state-2: "off"

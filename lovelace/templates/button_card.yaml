@@ -109,6 +109,9 @@ sensors-living_room:
 sensors-energy:
   custom_fields: !include ../sensors/sensors-energy.yaml
 
+sensor-movement:
+  custom_fields: !include ../icons/sensor-movement.yaml
+
 scene-kitchen:
   custom_fields: !include ../icons/scene-kitchen.yaml
 
@@ -153,6 +156,9 @@ healthchecks:
 
 vm:
   custom_fields: !include ../icons/vm.yaml
+
+pihole:
+  custom_fields: !include ../icons/pihole.yaml
 
 #---------------------#
 # Tasks
