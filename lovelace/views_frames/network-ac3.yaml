@@ -30,6 +30,14 @@ cards:
             :host {
               --card-mod-icon-color:black; 
             }
+      - entity: sensor.mt_hap3_wireless_clients
+        name: Wireless clients
+        icon: mdi:access-point
+        card_mod:
+          style: |
+            :host {
+              --card-mod-icon-color:black; 
+            }
       - entity: binary_sensor.mt_hap3_firmware_update
         name: Firmware Update
         icon: mdi:reload

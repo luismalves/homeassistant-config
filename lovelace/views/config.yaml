@@ -1,7 +1,7 @@
 title: Config
 path: config
 panel: true
-icon: mdi:application-brackets-outline
+icon: mdi:cog-box
 visible: true
 background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
 
@@ -19,7 +19,7 @@ cards:
       - type: "custom:decluttering-card"
         template: title-white
         variables:
-          - content: System
+          - content: Definições
 
       - type: "custom:gap-card"
         height: 20
@@ -137,3 +137,5 @@ cards:
         type: grid
         columns: 2
         square: false
+
+      - !include ../views_frames/config-devices.yaml

@@ -72,6 +72,13 @@
         #     - circle-2: (254 / 100)
         #     - circle-3: "on"
         #     - circle-4: brightness
+        - template: es-switch
+          type: "custom:decluttering-card"
+          variables:
+            - template: light-mosquitto
+            - entity-1: switch.smart_plug_2
+            - name-1: Luz Azul
+
         - type: conditional
           conditions:
             - entity: sensor.lights_on_living_room

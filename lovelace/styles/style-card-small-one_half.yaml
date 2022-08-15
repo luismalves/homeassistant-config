@@ -1,5 +1,5 @@
 card:
-  - width: 160px
+  - width: 165px
   - height: 50px
   - letter-spacing: 0.1em;
   - font-family: San Francisco

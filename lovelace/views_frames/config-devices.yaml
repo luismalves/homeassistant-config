@@ -1,0 +1,101 @@
+####
+# CONFIG
+# HA devices
+#
+####
+type: vertical-stack
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:gap-card"
+        height: 25
+      - cards:
+          - template: subtitle-white
+            type: "custom:decluttering-card"
+            variables:
+              - content: Bateria dos sensores
+        type: horizontal-stack
+      - type: "custom:auto-entities"
+        card:
+          columns: 1
+          height: 17px
+          severity:
+            - color: "#FF0000"
+              from: 0
+              to: 10
+            - color: "#FF6600"
+              from: 11
+              to: 20
+            - color: "#FF9933"
+              from: 21
+              to: 30
+            - color: "#FFCC00"
+              from: 31
+              to: 40
+            - color: "#FFDB60"
+              from: 41
+              to: 50
+            - color: "#FFDB60"
+              from: 51
+              to: 60
+            - color: "#FFDB60"
+              from: 61
+              to: 70
+            - color: "#CCFF33"
+              from: 71
+              to: 80
+            - color: "#66FF33"
+              from: 81
+              to: 90
+            - color: "#279B37"
+              from: 91
+              to: 100
+          positions:
+            icon: "off"
+            name: outside
+          type: "custom:bar-card"
+          unit_of_mesurement: "%"
+          style: |-
+            bar-card-row {
+              margin-bottom: 0px !important;
+            }
+            ha-card {
+              font-family: "San Francisco";
+              text-rendering: optimizelegibility;
+              font-weight: 700;
+              color: rgba(87, 87, 87);
+              font-size: 12px;
+              border-radius: 15px;
+              box-shadow: none;
+              transition: none 0s ease 0s;
+              background-color: rgba(255, 255, 255, 0.99);
+            }
+            bar-card-card {
+              --bar-card-border-radius: 5px;
+            }
+            bar-card-value {
+              color: rgba(0, 0, 0, 0.8);
+              margin-right: auto;
+              font-size: 12px;
+              font-weight: bold;
+              text-shadow: 1px 1px #0005;
+            }
+            bar-card-backgroundbar {
+              opacity: 0.1;
+            }
+          width: 40%
+        sort:
+          method: state
+          numeric: true
+        filter:
+          include:
+            - attributes:
+                device_class: battery
+              domain: sensor
+              state: "<= 50"
+          exclude:
+            - name: "*[Oo]neplus*"
+            - name: "*HUAWEI*"
+            - name: "*[Mm]acbook*"
+            - name: "sensor.browser_*"
+            - name: "sensor.nexus_7_*"

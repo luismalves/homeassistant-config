@@ -130,6 +130,7 @@ cards:
                     - attributes:
                         device_class: battery
                       domain: sensor
+                      state: "<= 50"
                   exclude:
                     - state: unknown
                     - state: unavailable

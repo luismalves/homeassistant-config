@@ -15,7 +15,7 @@ cards:
 
   - type: entities
     entities:
-      - entity: sensor.mt_hap3_uptime_friendly
+      - entity: sensor.alpaca_uptime_friendly
         name: Uptime
         icon: mdi:timelapse
         card_mod:
@@ -23,17 +23,17 @@ cards:
             :host {
               --card-mod-icon-color:black; 
             }
-      - entity: sensor.mt_hap3_ports_in_use
-        name: Ports
-        icon: mdi:ethernet
+      - entity: sensor.alpaca_disk_total
+        name: Disco total
+        icon: mdi:harddisk
         card_mod:
           style: |
             :host {
               --card-mod-icon-color:black; 
             }
-      - entity: binary_sensor.mt_hap3_firmware_update
-        name: Firmware Update
-        icon: mdi:reload
+      - entity: sensor.alpaca_memory_total
+        name: Memória total
+        icon: mdi:memory
         card_mod:
           style: |
             :host {
@@ -73,6 +73,36 @@ cards:
     cards:
       - type: "custom:mini-graph-card"
         entities:
+          - entity: sensor.alpaca_memory_use_percent
+            name: Memory Usage
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 2
+        font_size: 65
+        points_per_hour: 15
+        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        style: !include ../styles/style-graph-thdetail.yaml
+
+      - type: "custom:mini-graph-card"
+        entities:
+          - entity: sensor.alpaca_disk_use_percent
+            name: Disk Usage
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 80
+        font_size: 65
+        points_per_hour: 1
+        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        style: !include ../styles/style-graph-thdetail.yaml
+
+      - type: "custom:mini-graph-card"
+        entities:
           - entity: sensor.cpu_temperature
             name: CPU Temp
         show:
@@ -100,10 +130,3 @@ cards:
         points_per_hour: 4
         color_thresholds: !include ../graphs/temp-thresholds.yaml
         style: !include ../styles/style-graph-thdetail.yaml
-
-      - template: sensor-number
-        type: "custom:decluttering-card"
-        variables:
-          - template: sensors-empty
-          - entity-1: sensor.disk_use_percent_home
-          - name-1: "HASS Disk Usage (%)"
