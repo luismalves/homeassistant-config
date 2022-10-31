@@ -1,5 +1,4 @@
 title: "[[[ return entity.attributes.friendly_name ]]]"
-deviceID: this
 card:
   cards:
     - type: custom:layout-card

@@ -13,6 +13,19 @@ default_config:
 # ###                GUI               ###
 # ########################################
 
+http:
+  ip_ban_enabled: true
+  login_attempts_threshold: 5
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 192.168.1.0/24
+    - 172.18.0.0/24
+    - 127.0.0.1
+    - ::1
+    - fe80::/64
+    - fe00::/64
+    - fd00::/64
+
 frontend:
   # We can define additional/custom themes for the frontend here.
   themes: !include_dir_merge_named themes
@@ -21,11 +34,6 @@ lovelace:
   mode: yaml
   resources: !include_dir_list lovelace/resources
   dashboards: !include_dir_merge_named lovelace/dashboards
-
-browser_mod:
-  prefix: "browser_"
-  disable:
-    - all
 
 # ########################################
 # ###           INTEGRATIONS           ###

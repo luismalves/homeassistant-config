@@ -14,6 +14,20 @@
           type: qemu
           vm: 103
           command: stop
+    proxmox_ubuntuserver_vm:
+      value_template: "{{ is_state('binary_sensor.alpaca_ubuntu_server_running', 'on') }}"
+      turn_on:
+        service: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 105
+          command: start
+      turn_off:
+        service: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 105
+          command: stop
     proxmox_win10_vm:
       value_template: "{{ is_state('binary_sensor.alpaca_win10_running', 'on') }}"
       turn_on:
