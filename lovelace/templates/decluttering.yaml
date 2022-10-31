@@ -442,22 +442,22 @@ es-light-switch-2:
     type: "custom:button-card"
   default: null
 
-# !! not being used !!
-es-3:
-  card:
-    custom_fields: !include ../circles/circle-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
-    hold_action: !include ../holds/hold-action-es-3.yaml
-    tap_action:
-      action: toggle
-    show_icon: false
-    show_state: true
-    state: !include ../states/state-x.yaml
-    styles: !include ../styles/style-card.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
+##!! not being used !!
+# es-3:
+#   card:
+#     custom_fields: !include ../circles/circle-x.yaml
+#     entity: "[[entity-1]]"
+#     name: "[[name-1]]"
+#     hold_action: !include ../holds/hold-action-es-3.yaml
+#     tap_action:
+#       action: toggle
+#     show_icon: false
+#     show_state: true
+#     state: !include ../states/state-x.yaml
+#     styles: !include ../styles/style-card.yaml
+#     template: "[[template]]"
+#     type: "custom:button-card"
+#   default: null
 
 es-switch:
   card:
