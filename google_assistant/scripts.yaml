@@ -24,3 +24,9 @@
 - script.turn_off_living_room
 - script.turn_off_kitchen
 - script.kitchen_ready
+
+## Covers
+- script.open_cover_right
+- script.open_cover_left
+- script.close_cover_left
+- script.close_cover_right

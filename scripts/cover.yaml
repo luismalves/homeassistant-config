@@ -25,3 +25,35 @@ toggle_cover_left:
   mode: single
   alias: Toggle Shelly Cover Left
   icon: mdi:window-shutter
+
+open_cover_right:
+  sequence:
+    - service: cover.open_cover
+      entity_id: cover.shelly_roller_right
+  mode: single
+  alias: Open Shelly Cover Right
+  icon: mdi:window-shutter
+
+open_cover_left:
+  sequence:
+    - service: cover.open_cover
+      entity_id: cover.shelly_roller_left
+  mode: single
+  alias: Open Shelly Cover Left
+  icon: mdi:window-shutter
+
+close_cover_right:
+  sequence:
+    - service: cover.close_cover
+      entity_id: cover.shelly_roller_right
+  mode: single
+  alias: Close Shelly Cover Right
+  icon: mdi:window-shutter
+
+close_cover_left:
+  sequence:
+    - service: cover.close_cover
+      entity_id: cover.shelly_roller_left
+  mode: single
+  alias: Close Shelly Cover Left
+  icon: mdi:window-shutter
