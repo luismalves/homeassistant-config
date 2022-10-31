@@ -1,125 +1,126 @@
 action: fire-dom-event
 browser_mod:
-  title: "Android TV"
-  command: popup
-  card:
-    type: custom:layout-card
-    layout_type: custom:vertical-layout
-    layout:
-      column_widths: 95%
-    cards:
-      - type: grid
-        square: false
-        cards:
-          ###################################################################################################
-          # 1 row - 3 Navigation Buttons using template: btn-icon-text
-          ###################################################################################################
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "ON"
-              - icon: power
-              - tap_action:
-                  action: call-service
-                  service: wake_on_lan.send_magic_packet
-                  service_data:
-                    mac: !secret android_tv_mac
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "CIMA"
-              - icon: arrow-up-bold
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: UP
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "OFF"
-              - icon: power-off
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: SLEEP
-          ###################################################################################################
-          # 2 row - 3 Navigation Buttons using template: btn-icon-text
-          ###################################################################################################
+  service: browser_mod.popup
+  data:
+    title: "Android TV"
+    content:
+      type: custom:layout-card
+      layout_type: custom:vertical-layout
+      layout:
+        column_widths: 95%
+      cards:
+        - type: grid
+          square: false
+          cards:
+            ###################################################################################################
+            # 1 row - 3 Navigation Buttons using template: btn-icon-text
+            ###################################################################################################
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "ON"
+                - icon: power
+                - tap_action:
+                    action: call-service
+                    service: wake_on_lan.send_magic_packet
+                    service_data:
+                      mac: !secret android_tv_mac
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "CIMA"
+                - icon: arrow-up-bold
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: UP
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "OFF"
+                - icon: power-off
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: SLEEP
+            ###################################################################################################
+            # 2 row - 3 Navigation Buttons using template: btn-icon-text
+            ###################################################################################################
 
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "ESQUERDA"
-              - icon: arrow-left-bold
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: LEFT
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "ENTER"
-              - icon: camera-control
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: ENTER
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "DIREITA"
-              - icon: arrow-right-bold
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: RIGHT
-          ###################################################################################################
-          # 3 row - 3 Navigation Buttons using template: btn-icon-text
-          ###################################################################################################
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "ESQUERDA"
+                - icon: arrow-left-bold
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: LEFT
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "ENTER"
+                - icon: camera-control
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: ENTER
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "DIREITA"
+                - icon: arrow-right-bold
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: RIGHT
+            ###################################################################################################
+            # 3 row - 3 Navigation Buttons using template: btn-icon-text
+            ###################################################################################################
 
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "BACK"
-              - icon: backburger
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: BACK
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "BAIXO"
-              - icon: arrow-down-bold
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: DOWN
-          - type: custom:decluttering-card
-            template: btn-icon-text
-            variables:
-              - name: "HOME"
-              - icon: home-circle
-              - tap_action:
-                  action: call-service
-                  service: androidtv.adb_command
-                  service_data:
-                    entity_id: media_player.mi_tv
-                    command: HOME
-      - height: 10
-        size: 30
-        type: "custom:gap-card"
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "BACK"
+                - icon: backburger
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: BACK
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "BAIXO"
+                - icon: arrow-down-bold
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: DOWN
+            - type: custom:decluttering-card
+              template: btn-icon-text
+              variables:
+                - name: "HOME"
+                - icon: home-circle
+                - tap_action:
+                    action: call-service
+                    service: androidtv.adb_command
+                    service_data:
+                      entity_id: media_player.mi_tv
+                      command: HOME
+        - height: 10
+          size: 30
+          type: "custom:gap-card"

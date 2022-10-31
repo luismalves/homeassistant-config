@@ -1,94 +1,96 @@
 action: fire-dom-event
 browser_mod:
-  command: popup
-  style:
-    width: 400px;
-  card:
-    cards:
-      - type: custom:layout-card
-        layout_type: grid-layout
-        layout:
-          grid-template-columns: 1fr auto 1fr
-          grid-template-rows: auto
-          grid-template-areas: |
-            ". icon ."
-        cards:
-          - template: es-icon
-            type: "custom:decluttering-card"
-            variables:
-              - template: "[[template]]"
-              - entity-1: "[[entity-1]]"
-              - name-1: "[[[ return entity.attributes.friendly_name ]]]"
-            view_layout:
-              grid-area: icon
+  service: browser_mod.popup
+  data:
+    title: " "
+    style:
+      width: 400px;
+    content:
+      cards:
+        - type: custom:layout-card
+          layout_type: grid-layout
+          layout:
+            grid-template-columns: 1fr auto 1fr
+            grid-template-rows: auto
+            grid-template-areas: |
+              ". icon ."
+          cards:
+            - template: es-icon
+              type: "custom:decluttering-card"
+              variables:
+                - template: "[[template]]"
+                - entity-1: "[[entity-1]]"
+                - name-1: "[[[ return entity.attributes.friendly_name ]]]"
+              view_layout:
+                grid-area: icon
 
-      - type: custom:hui-vertical-stack-card
-        cards:
-          - style: "ha-card { width: 10px; }"
-            template: device
-            type: "custom:decluttering-card"
-            variables:
-              - content: "[[[ return entity.attributes.friendly_name ]]]"
+        - type: custom:hui-vertical-stack-card
+          cards:
+            - style: "ha-card { width: 10px; }"
+              template: device
+              type: "custom:decluttering-card"
+              variables:
+                - content: "[[[ return entity.attributes.friendly_name ]]]"
 
-      - entities:
-          - actionsInARow: 2
-            actionSize: 4.5em
-            actions:
-              - service: light.turn_on
-                service_data:
-                  entity_id: "[[entity-1]]"
-                  effect: Solid
-                  white: 255
-                color: "#ffffff"
-              - service: light.turn_on
-                service_data:
-                  entity_id: "[[entity-1]]"
-                  rgb_color: [255, 164, 73]
-                  effect: Solid
-                color: "#f4a449"
-              - service: light.turn_on
-                service_data:
-                  entity_id: "[[entity-1]]"
-                  rgb_color: [0, 191, 255]
-                  effect: Solid
-                color: "#00bfff"
-              - action: fire-dom-event
-                browser_mod:
-                  command: popup
-                  style:
-                    width: 400px;
-                  title: "[[[ return entity.attributes.friendly_name ]]]"
-                  card:
-                    type: entities
-                    show_header_toggle: false
-                    entities:
-                      - entity: "[[entity-1]]"
-                        secondary_info: last-changed
-                      - type: custom:light-entity-card
-                        entity: "[[entity-1]]"
-                        brightness: false
-                        color_temp: true
-                        full_width_sliders: true
-                        hide_header: true
-                        show_slider_percent: true
-                        smooth_color_wheel: true
-                        consolidate_entities: true
-            borderRadius: 20px
-            brightnessHeight: 250px
-            brightnessWidth: 100px
-            entity: "[[entity-1]]"
-            displayType: slider
-            fullscreen: false
-            icon: true
-            sliderColor: "#f8cd41"
-            sliderTrackColor: "rgba(25, 25, 25, 0.9)"
-            style: !include ../styles/style-popup-light.yaml
-            type: "custom:light-popup-card"
-        show_header_toggle: false
-        style: >
-          #states {
-            background: var(--card-color);
-          }
-        type: entities
-    type: vertical-stack
-  title: " "
+        - entities:
+            - actionsInARow: 2
+              actionSize: 4.5em
+              actions:
+                - service: light.turn_on
+                  service_data:
+                    entity_id: "[[entity-1]]"
+                    effect: Solid
+                    white: 255
+                  color: "#ffffff"
+                - service: light.turn_on
+                  service_data:
+                    entity_id: "[[entity-1]]"
+                    rgb_color: [255, 164, 73]
+                    effect: Solid
+                  color: "#f4a449"
+                - service: light.turn_on
+                  service_data:
+                    entity_id: "[[entity-1]]"
+                    rgb_color: [0, 191, 255]
+                    effect: Solid
+                  color: "#00bfff"
+                - action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.popup
+                    data:
+                      style:
+                        width: 400px;
+                      title: "[[[ return entity.attributes.friendly_name ]]]"
+                      card:
+                        type: entities
+                        show_header_toggle: false
+                        entities:
+                          - entity: "[[entity-1]]"
+                            secondary_info: last-changed
+                          - type: custom:light-entity-card
+                            entity: "[[entity-1]]"
+                            brightness: false
+                            color_temp: true
+                            full_width_sliders: true
+                            hide_header: true
+                            show_slider_percent: true
+                            smooth_color_wheel: true
+                            consolidate_entities: true
+              borderRadius: 20px
+              brightnessHeight: 250px
+              brightnessWidth: 100px
+              entity: "[[entity-1]]"
+              displayType: slider
+              fullscreen: false
+              icon: true
+              sliderColor: "#f8cd41"
+              sliderTrackColor: "rgba(25, 25, 25, 0.9)"
+              style: !include ../styles/style-popup-light.yaml
+              type: "custom:light-popup-card"
+          show_header_toggle: false
+          style: >
+            #states {
+              background: var(--card-color);
+            }
+          type: entities
+      type: vertical-stack

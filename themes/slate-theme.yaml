@@ -143,6 +143,9 @@ slate_theme:
   input-disabled-ink-color: "var(--disabled-text-color)"
   input-dropdown-icon-color: "var(--primary-text-color)"
 
+  # Popups
+  popup-background-color: "black"
+
   ####################################################
   #                                                  #
   #                     CARD MOD                     #
