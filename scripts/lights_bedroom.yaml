@@ -26,6 +26,26 @@ low_light_bedroom:
         {{ "Left blue" if context.user_id == "3e6772dde48f4405b5c3a0ef42ed357d" else "Right blue" }}
   mode: single
 
+set_read_to_sleep_luis:
+  alias: Turn on low light on Bedroom on other side of Luis
+  sequence:
+    service: select.select_option
+    target:
+      entity_id: select.wled_bed_preset
+    data:
+      option: "Left blue"
+  mode: single
+
+set_read_to_sleep_margarida:
+  alias: Turn on low light on Bedroom on other side of Margarida
+  sequence:
+    service: select.select_option
+    target:
+      entity_id: select.wled_bed_preset
+    data:
+      option: "Right blue"
+  mode: single
+
 set_bedroom_lights_color:
   alias: Set bedroom lights to color X
   sequence:

@@ -390,13 +390,30 @@ es-light:
     type: "custom:button-card"
   default: null
 
-# Lights which only support white range of values. Changes in hold action.
-es-light-white:
+# Lights which only support white range of values as Tasmota. Changes in hold action.
+es-light-tasmota:
   card:
     custom_fields: !include ../circles/circle-x.yaml
     entity: "[[entity-1]]"
     name: "[[name-1]]"
-    hold_action: !include ../holds/hold-action-es-lights-white.yaml
+    hold_action: !include ../holds/hold-action-es-lights-tasmota.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Lights which only support color temperatures
+es-light-temperature:
+  card:
+    custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    hold_action: !include ../holds/hold-action-es-lights-temperature.yaml
     tap_action:
       action: toggle
     show_icon: false
@@ -413,7 +430,7 @@ es-light-switch:
     custom_fields: !include ../circles/circle-x.yaml
     entity: "[[entity-switch]]"
     name: "[[name-1]]"
-    hold_action: !include ../holds/hold-action-es-lights.yaml
+    hold_action: !include ../holds/hold-action-es-lights-temperature.yaml
     tap_action:
       action: toggle
     show_icon: false

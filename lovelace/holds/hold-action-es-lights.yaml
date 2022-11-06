@@ -40,7 +40,7 @@ browser_mod:
                   service_data:
                     entity_id: "[[entity-1]]"
                     effect: Solid
-                    white: 255
+                    rgb_color: [255, 255, 255]
                   color: "#ffffff"
                 - service: light.turn_on
                   service_data:
@@ -61,7 +61,7 @@ browser_mod:
                       style:
                         width: 400px;
                       title: "[[[ return entity.attributes.friendly_name ]]]"
-                      card:
+                      content:
                         type: entities
                         show_header_toggle: false
                         entities:

@@ -33,39 +33,45 @@ browser_mod:
                 - content: "[[[ return entity.attributes.friendly_name ]]]"
 
         - entities:
-            - actionsInARow: 3
+            - actionsInARow: 2
               actionSize: 4.5em
               actions:
                 - service: light.turn_on
                   service_data:
                     entity_id: "[[entity-1]]"
-                    rgb_color: [255, 255, 255]
-                    white_value: 0
+                    white: 255
                   color: "#ffffff"
                 - service: light.turn_on
                   service_data:
                     entity_id: "[[entity-1]]"
                     rgb_color: [255, 164, 73]
                   color: "#f4a449"
-                - service: browser_mod.popup
+                - service: light.turn_on
                   service_data:
-                    title: "[[[ return entity.attributes.friendly_name ]]]"
-                    deviceID: this
-                    card:
-                      type: entities
-                      show_header_toggle: false
-                      entities:
-                        - entity: "[[entity-1]]"
-                          secondary_info: last-changed
-                        - type: custom:light-entity-card
-                          entity: "[[entity-1]]"
-                          brightness: false
-                          color_temp: true
-                          full_width_sliders: true
-                          hide_header: true
-                          show_slider_percent: true
-                          smooth_color_wheel: true
-                          consolidate_entities: true
+                    entity_id: "[[entity-1]]"
+                    rgb_color: [0, 191, 255]
+                    effect: Solid
+                  color: "#00bfff"
+                - action: fire-dom-event
+                  browser_mod:
+                    service: browser_mod.popup
+                    data:
+                      title: "[[[ return entity.attributes.friendly_name ]]]"
+                      content:
+                        type: entities
+                        show_header_toggle: false
+                        entities:
+                          - entity: "[[entity-1]]"
+                            secondary_info: last-changed
+                          - type: custom:light-entity-card
+                            entity: "[[entity-1]]"
+                            brightness: false
+                            color_temp: true
+                            full_width_sliders: true
+                            hide_header: true
+                            show_slider_percent: true
+                            smooth_color_wheel: true
+                            consolidate_entities: true
               borderRadius: 20px
               brightnessHeight: 250px
               brightnessWidth: 100px

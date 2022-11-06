@@ -72,7 +72,7 @@ cards:
           content: Humidade muito elevada.
 
       - cards:
-          - template: es-light
+          - template: es-light-tasmota
             type: "custom:decluttering-card"
             variables:
               - template: light-strip
@@ -111,7 +111,7 @@ cards:
         type: horizontal-stack
 
       - cards:
-          - template: es-light
+          - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
               - template: light-desk

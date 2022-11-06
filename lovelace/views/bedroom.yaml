@@ -47,7 +47,7 @@ cards:
         type: horizontal-stack
 
       - cards:
-          - template: es-light
+          - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
               - template: light-bedroom
@@ -59,7 +59,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
-          - template: es-light
+          - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
               - template: light-pendant
@@ -71,7 +71,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
-          - template: es-light
+          - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
               - template: light-bedroom
