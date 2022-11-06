@@ -16,3 +16,4 @@
 
 ## Input booleans
 - input_boolean.open_blinds_temporarly
+- input_boolean.enable_high_tv_visibility
