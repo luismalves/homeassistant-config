@@ -33,7 +33,7 @@ set_read_to_sleep_luis:
     target:
       entity_id: select.wled_bed_preset
     data:
-      option: "Left blue"
+      option: "Right blue"
   mode: single
 
 set_read_to_sleep_margarida:
@@ -43,7 +43,7 @@ set_read_to_sleep_margarida:
     target:
       entity_id: select.wled_bed_preset
     data:
-      option: "Right blue"
+      option: "Left blue"
   mode: single
 
 set_bedroom_lights_color:
