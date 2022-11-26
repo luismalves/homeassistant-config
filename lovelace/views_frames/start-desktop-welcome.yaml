@@ -184,7 +184,7 @@
 
     - type: "custom:mini-graph-card"
       entities:
-        - entity: sensor.energy_bill
+        - entity: sensor.energy_bill_daily
           name: Energia diária
           show_legend: false
           show_state: false
@@ -198,23 +198,24 @@
       tap_action:
         action: none
       hours_to_show: 168
-      aggregate_func: delta
+      lower_bound: 0
+      aggregate_func: max
       group_by: date
       font_size: 65
       color_thresholds:
-        - value: 1
+        - value: 0.8
           color: "#417656"
-        - value: 1.2
+        - value: 1
           color: "#579E72"
-        - value: 1.3
+        - value: 1.1
           color: "#6EAF88"
-        - value: 1.35
+        - value: 1.2
           color: "#D1B161"
-        - value: 1.4
+        - value: 1.3
           color: "#C8A241"
-        - value: 1.5
+        - value: 1.4
           color: "#7D1224"
-        - value: 1.8
+        - value: 1.5
           color: "#590D1A"
       style: |
         ha-card {
@@ -264,16 +265,16 @@
         - entity-1: sensor.any_mood_enabled
         - name-1: "Moods"
 
-    - type: "custom:gap-card"
-      height: 10
+    # - type: "custom:gap-card"
+    #   height: 10
 
     # Disabled until next christmas
-    # - template: es-script
-    #   type: "custom:decluttering-card"
-    #   variables:
-    #     - template: scene-christmas
-    #     - script-1: script.start_xmas_1
-    #     - entity-1: light.wled_xmas
-    #     - name-1: "É Natal!"
-    #     - state-1: "on"
-    #     - state-2: "off"
+    - template: es-script
+      type: "custom:decluttering-card"
+      variables:
+        - template: scene-christmas
+        - script-1: script.start_xmas_1
+        - entity-1: light.wled_xmas
+        - name-1: "É Natal!"
+        - state-1: "on"
+        - state-2: "off"

@@ -151,6 +151,9 @@ auto-brightness:
 brightness:
   custom_fields: !include ../icons/brightness.yaml
 
+debug-code:
+  custom_fields: !include ../icons/debug-code.yaml
+
 healthchecks:
   custom_fields: !include ../icons/healthchecks.yaml
 
