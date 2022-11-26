@@ -4,15 +4,21 @@
 #####
 
 utm_mensal:
-  source: sensor.shelly_em_channel_1_energy #sensor in kwh
+  source: sensor.shelly_em_channel_1_energy #sensor in kWh
   cycle: monthly
   offset:
     days: 5
   tariffs:
     - Normal
 
+utm_semanal:
+  source: sensor.shelly_em_channel_1_energy #sensor in kWh
+  cycle: weekly
+  tariffs:
+    - Normal
+
 utm_diario:
-  source: sensor.shelly_em_channel_1_energy #sensor in kwh
+  source: sensor.shelly_em_channel_1_energy #sensor in kWh
   cycle: daily
   tariffs:
     - Normal

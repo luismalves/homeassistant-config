@@ -7,6 +7,9 @@
 - sensor.shelly_em_channel_1_energy
 - sensor.shelly_em_channel_1_power
 
+## Utility meters
+- sensor.utm_diario_normal
+
 ## Cost calculations
 - sensor.sensor_utm_mensal_normal_cost
 - sensor.endesa_5_75_kva_simples_ciclo_diario

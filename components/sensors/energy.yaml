@@ -1,6 +1,8 @@
 #####
 # Custos energia
 #
+# Old_
+# {{ (float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.state) + float(states.sensor.sensor_utm_mensal_normal_cost.state)) | default(0) | round(2) }}
 #####
 
 - platform: template
@@ -9,5 +11,14 @@
       friendly_name: "Fatura Energia"
       device_class: monetary
       value_template: >-
-        {{ (float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.state) + float(states.sensor.sensor_utm_mensal_normal_cost.state)) | default(0) | round(2) }}
+        {{ float((2.85 + 0.071 + float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.attributes.daily_power_cost * now().day) + float(states.sensor.utm_mensal_normal.state) * float(states.sensor.endesa_5_75_kva_simples_ciclo_diario.attributes.current_unitary_cost)) * 1.23) | default(0) | round(2) }}
+      unit_of_measurement: "€"
+
+- platform: template
+  sensors:
+    energy_bill_daily:
+      friendly_name: "Fatura Energia"
+      device_class: monetary
+      value_template: >-
+        {{ float((float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.attributes.daily_power_cost) + float(states.sensor.utm_diario_normal.state) * float(states.sensor.endesa_5_75_kva_simples_ciclo_diario.attributes.current_unitary_cost)) * 1.23) | default(0) | round(2) }}
       unit_of_measurement: "€"
