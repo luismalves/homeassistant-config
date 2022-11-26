@@ -3,4 +3,5 @@
 #
 
 delete_clock_alarms:
+  alias: Delete alarms from bed clock
   sequence:
