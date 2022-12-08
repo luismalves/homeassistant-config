@@ -38,14 +38,14 @@ cards:
             :host {
               --card-mod-icon-color:black; 
             }
-      - entity: binary_sensor.mt_hap3_firmware_update
-        name: Firmware Update
-        icon: mdi:reload
-        card_mod:
-          style: |
-            :host {
-              --card-mod-icon-color:black; 
-            }
+      # - entity: binary_sensor.mt_hap3_firmware_update
+      #   name: Firmware Update
+      #   icon: mdi:reload
+      #   card_mod:
+      #     style: |
+      #       :host {
+      #         --card-mod-icon-color:black; 
+      #       }
     state_color: true
     header:
       type: picture
