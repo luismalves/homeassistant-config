@@ -112,6 +112,12 @@ sensors-energy:
 sensor-movement:
   custom_fields: !include ../icons/sensor-movement.yaml
 
+sensor-desktop:
+  custom_fields: !include ../icons/sensor-desktop.yaml
+
+sensor-xbox:
+  custom_fields: !include ../icons/sensor-xbox.yaml
+
 scene-kitchen:
   custom_fields: !include ../icons/scene-kitchen.yaml
 
@@ -162,6 +168,9 @@ vm:
 
 pihole:
   custom_fields: !include ../icons/pihole.yaml
+
+tracker-desktop:
+  custom_fields: !include ../icons/tracker-desktop.yaml
 
 #---------------------#
 # Tasks

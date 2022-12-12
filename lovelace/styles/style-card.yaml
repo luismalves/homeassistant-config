@@ -23,6 +23,16 @@ custom_fields:
     - width: 40px
     - position: absolute
     - letter-spacing: 0.03vw
+  sd1:
+    - position: absolute
+    - top: 14px
+    - right: 12px
+  s:
+    - justify-self: start
+    - padding-left: 10px
+    - padding-bottom: 5px
+    - color: rgba(0, 0, 0, 0.2)
+
 extra_styles: >
   [[[ var radius = 20.5; 
 
@@ -34,8 +44,8 @@ extra_styles: >
   50% 50%; stroke-dasharray: " + circumference + "; stroke-dashoffset: "
   + (circumference - brightness / 100 * circumference) + ";}"; ]]]
 grid:
-  - grid-template-areas: '"i" "n" "s"'
-  - grid-template-columns: 1fr
+  - grid-template-areas: '"i sd1" "n n" "s s"'
+  - grid-template-columns: 1fr min-content
   - grid-template-rows: 1fr min-content min-content
 img_cell:
   - align-self: start

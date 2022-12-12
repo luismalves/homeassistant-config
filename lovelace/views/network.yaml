@@ -18,7 +18,7 @@ cards:
       - template: title-white
         type: "custom:decluttering-card"
         variables:
-          - content: Network
+          - content: Home network
 
       - type: custom:layout-card
         layout_type: custom:masonry-layout

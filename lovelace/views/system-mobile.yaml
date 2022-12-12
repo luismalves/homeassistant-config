@@ -1,4 +1,4 @@
-title: Host
+title: Server
 path: system
 panel: true
 #icon: mdi:cog-box
@@ -18,7 +18,7 @@ cards:
       - template: title-white
         type: "custom:decluttering-card"
         variables:
-          - content: System
+          - content: Home server
 
       - type: custom:layout-card
         layout_type: custom:masonry-layout

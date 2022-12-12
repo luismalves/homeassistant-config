@@ -163,14 +163,19 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: switch
-              - entity-1: switch.plug_xiaomi
+              - entity-1: switch.smart_plug_2
               - name-1: Tomada
+              - entity-power: sensor.smart_plug_2_power
+          - template: es-ping
+            type: "custom:decluttering-card"
+            variables:
+              - template: sensor-desktop
+              - entity-1: binary_sensor.windows_desktop_state
+              - name-1: Computador fixo
+          - height: 10
+            type: "custom:gap-card"
 
       - cards:
-          - height: 10
-            type: "custom:gap-card"
-          - height: 10
-            type: "custom:gap-card"
           - height: 10
             type: "custom:gap-card"
         type: horizontal-stack

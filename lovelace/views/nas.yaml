@@ -1,0 +1,116 @@
+title: NAS
+path: nas
+panel: true
+#icon: mdi:cog-box
+visible: true
+background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+
+cards:
+  - type: custom:layout-card
+    layout_type: custom:vertical-layout
+    layout:
+      width: 200
+      max_width: 350
+      column_widths: 98%
+    cards:
+      - type: "custom:gap-card"
+        height: 40
+
+      - type: "custom:decluttering-card"
+        template: title-white
+        variables:
+          - content: Network Attached Storage
+
+      - type: "custom:gap-card"
+        height: 25
+
+      - type: vertical-stack
+        cards:
+          - type: "custom:decluttering-card"
+            template: subtitle-white
+            variables:
+              - content: QNAP TS-233
+
+          - type: entities
+            entities:
+              - entity: sensor.mt_audience_wireless_clients
+                name: Status
+                icon: mdi:list-status
+                card_mod:
+                  style: |
+                    :host {
+                      --card-mod-icon-color:black; 
+                    }
+              - entity: sensor.alpaca_disk_total
+                name: Disco total
+                icon: mdi:harddisk
+                card_mod:
+                  style: |
+                    :host {
+                      --card-mod-icon-color:black; 
+                    }
+              - entity: sensor.alpaca_memory_total
+                name: Memória total
+                icon: mdi:memory
+                card_mod:
+                  style: |
+                    :host {
+                      --card-mod-icon-color:black; 
+                    }
+
+            state_color: true
+            header:
+              type: picture
+              image: local/images/network/NAS_TS233.png
+              tap_action:
+                action: none
+              hold_action:
+                action: none
+            card_mod:
+              style: |
+                :host {
+                  --ha-card-background: white;
+                  --primary-text-color: rgba(0,0,0); 
+                  font-family: "San Francisco";
+                }
+                #states > * {
+                  margin: 0px !important;
+                }
+
+          - type: custom:layout-card
+            layout_type: custom:grid-layout
+            layout:
+              margin: 0
+              card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
+              grid-template-columns: 1fr 1fr
+              grid-template-rows: 110px
+            cards:
+              - type: "custom:mini-graph-card"
+                entities:
+                  - entity: sensor.mt_audience_cpu_load
+                    name: CPU
+                show:
+                  name: true
+                  icon: true
+                tap_action:
+                  action: none
+                hours_to_show: 6
+                font_size: 65
+                points_per_hour: 6
+                color_thresholds: !include ../graphs/temp-thresholds.yaml
+                style: !include ../styles/style-graph-thdetail.yaml
+
+              - type: "custom:mini-graph-card"
+                entities:
+                  - entity: sensor.mt_audience_memory_usage
+                    name: Memória
+                show:
+                  name: true
+                  icon: true
+                tap_action:
+                  action: none
+                hours_to_show: 6
+                font_size: 65
+                points_per_hour: 6
+                color_thresholds: !include ../graphs/temp-thresholds.yaml
+                style: !include ../styles/style-graph-thdetail.yaml

@@ -476,6 +476,7 @@ es-light-switch-2:
 #     type: "custom:button-card"
 #   default: null
 
+# Wall plug devices
 es-switch:
   card:
     entity: "[[entity-1]]"
@@ -488,8 +489,26 @@ es-switch:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+    variables:
+      power_entity: "[[entity-power]]"
+  default: switch
 
+# Devices state obtained with ping integration
+es-ping:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: none
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-es.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: switch
+
+# Covers
 es-cover:
   card:
     custom_fields: !include ../circles/circle-x.yaml

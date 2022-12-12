@@ -1,0 +1,11 @@
+icon_hue: >
+  [[[ if (entity.state === 'home') return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M32.7 10.6h14.2v29.9H32.7V10.6z" fill="#3a5565"/><circle cx="39.8" cy="32.7" r="1.6" fill="#711018"/><path d="M35.8 13.8h7.9v6.3h-7.9v-6.3z" fill="#cde2dd"/><path d="M37.4 22.4H39V24h-1.6v-1.6zM40.5 22.4h1.6V24h-1.6v-1.6z" fill="#ffd884"/><path d="M35 40.5l2.4-3.2h4.7l2.4 3.2H35zM39 31.1V7.5H1.2v23.6H17v6.3h-4v3.2h14.2v-3.2h-3.9v-6.3H39z" fill="#7c9faf"/><path d="M1.2 7.5H39V28H1.2V7.5z" fill="#2bb3ce"/></svg>';
+  else return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path d="M32.7 10.6h14.2v29.9H32.7V10.6z" fill="rgb(158,160,162)"/><path d="M35 40.5l2.4-3.2h4.7l2.4 3.2H35zM39 31.1V7.5H1.2v23.6H17v6.3h-4v3.2h14.2v-3.2h-3.9v-6.3H39z" fill="rgb(158,160,162)"/><path d="M1.2 7.5H39V28H1.2V7.5z" fill="#e3e7e9"/></svg>';
+  ]]]
+
+s: >
+  [[[
+    if (entity.state === 'home')
+      return `<span style="color: rgba(0,0,0,0.4);">On</span>`;
+    else return `<span>Off</span>`;
+  ]]]

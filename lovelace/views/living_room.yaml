@@ -119,6 +119,7 @@ cards:
               - template: switch
               - entity-1: switch.smart_plug
               - name-1: Tomada TV
+              - entity-power: sensor.smart_plug_power
           - template: es-tv
             type: "custom:decluttering-card"
             variables:
@@ -179,12 +180,17 @@ cards:
               - circle-4: current_position
         type: horizontal-stack
 
+      - cards:
+          - template: es-ping
+            type: "custom:decluttering-card"
+            variables:
+              - template: sensor-xbox
+              - entity-1: binary_sensor.xbox_one_x_state
+              - name-1: XBOX
+        type: horizontal-stack
+
       - type: horizontal-stack
         cards:
-          - height: 10
-            type: "custom:gap-card"
-          - height: 10
-            type: "custom:gap-card"
           - height: 10
             type: "custom:gap-card"
 
