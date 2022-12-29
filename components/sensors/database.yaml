@@ -1,0 +1,13 @@
+#####
+# Home assistant database trackers
+# Based on: https://community.home-assistant.io/t/influxdb-is-big-how-to-manage-it/395523
+#####
+
+- platform: sql
+  db_url: !secret recorder_db_url
+  scan_interval: 300
+  queries:
+    - name: homeassistant_db Size
+      query: "SELECT table_schema AS 'homeassistant', ROUND(SUM( data_length + index_length ) / 1024 / 1024, 1) AS 'size_mb' FROM information_schema.TABLES WHERE table_schema='homeassistant'"
+      column: "size_mb"
+      unit_of_measurement: MB
