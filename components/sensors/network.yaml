@@ -10,11 +10,11 @@
       unit_of_measurement: "in use"
       value_template: >
         {% set switchs = [
-          states.switch.mt_hap3_port_ether1,
-          states.switch.mt_hap3_port_ether2,
-          states.switch.mt_hap3_port_ether3,
-          states.switch.mt_hap3_port_ether4,
-          states.switch.mt_hap3_port_ether5
+          states.switch.mt_hap3_ether1_port,
+          states.switch.mt_hap3_ether2_port,
+          states.switch.mt_hap3_ether3_port,
+          states.switch.mt_hap3_ether4_port,
+          states.switch.mt_hap3_ether5_port
           ] %}
         {{ switchs | selectattr('state','eq','on') | list | count }}
 
