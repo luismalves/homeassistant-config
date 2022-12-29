@@ -1,0 +1,32 @@
+#####
+# QNAP sensors
+# https://www.home-assistant.io/integrations/qnap/
+#####
+
+- platform: qnap
+  host: !secret nas_ip
+  username: !secret nas_user
+  password: !secret nas_pwd
+  monitored_conditions:
+    - status
+    - system_temp
+    - drive_smart_status
+    - drive_temp
+    - volume_size_free
+    - volume_size_used
+    - volume_percentage_used
+    - memory_percent_used
+    - cpu_usage
+
+- platform: template
+  sensors:
+    homedrive_uptime_friendly:
+      friendly_name: "Homedrive NAS Uptime"
+      value_template: >
+        {% set value = state_attr('sensor.homedrive_status','Uptime') %}
+        {% set dt = as_timestamp(strptime(value, "%dd %Hh %Mm")) | timestamp_custom('%-d') | int(default=0) %}
+        {% if dt > 1 %}
+          {{ dt }} days
+        {% else %}
+          {{ dt }} day
+        {% endif %}
