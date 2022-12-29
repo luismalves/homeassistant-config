@@ -21,5 +21,11 @@
       friendly_name: "Alpaca server friedly Uptime"
       value_template: >
         {% set d = states("sensor.alpaca_uptime") | int / 60 / 60 / 24 %}
-        {% set dt = d | round(0) %}
-        {{ dt }} days
+        {% set dt = d | round(0) | int %}
+        {% if dt > 1 %}
+          {{ dt }} days
+        {% else %}
+          {{ dt }} day
+        {% endif %}
+      availability_template: >
+        {{ states('sensor.alpaca_uptime')|is_number }}
