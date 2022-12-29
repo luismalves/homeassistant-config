@@ -108,7 +108,7 @@ cards:
                 hours_to_show: 6
                 font_size: 65
                 points_per_hour: 6
-                color_thresholds: !include ../graphs/temp-thresholds.yaml
+                color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
                 style: !include ../styles/style-graph-thdetail.yaml
 
               - type: "custom:mini-graph-card"
@@ -123,7 +123,7 @@ cards:
                 hours_to_show: 6
                 font_size: 65
                 points_per_hour: 6
-                color_thresholds: !include ../graphs/temp-thresholds.yaml
+                color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
                 style: !include ../styles/style-graph-thdetail.yaml
 
               - type: "custom:mini-graph-card"

@@ -1,8 +1,10 @@
-- value: 25
+- value: 24
   color: "#BCF4F5"
-- value: 28
+- value: 26
   color: "#5FBFF9"
-- value: 30
+- value: 28
   color: "#EDEBA0"
-- value: 32
+- value: 30
   color: "#E39774"
+- value: 32
+  color: "#EC0B43"

@@ -130,7 +130,7 @@
           hours_to_show: 24
           font_size: 65
           points_per_hour: 4
-          color_thresholds: !include ../graphs/temp-cpu-thresholds.yaml
+          color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
           style: !include ../styles/style-graph-thdetail.yaml
 
         - type: "custom:mini-graph-card"
@@ -145,5 +145,5 @@
           hours_to_show: 24
           font_size: 65
           points_per_hour: 4
-          color_thresholds: !include ../graphs/temp-disk-thresholds.yaml
+          color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
           style: !include ../styles/style-graph-thdetail.yaml
