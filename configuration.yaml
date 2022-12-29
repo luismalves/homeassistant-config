@@ -5,6 +5,7 @@ homeassistant:
   elevation: 0
   unit_system: metric
   time_zone: Europe/Lisbon
+  country: PT
   customize: !include_dir_merge_named customize
 
 default_config:
@@ -131,6 +132,7 @@ spotcast:
 # ########################################
 
 logger: !include logger.yaml
+logbook: !include logbook.yaml
 recorder: !include recorder.yaml
 
 influxdb:

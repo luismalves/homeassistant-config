@@ -1,0 +1,10 @@
+############################################################
+#
+# Logbook  You can filter anything betwen the []'s in the logbook.
+#
+############################################################
+
+exclude:
+  entity_globs:
+    - binary_sensor.*_browser*
+    - sensor.*_browser*
