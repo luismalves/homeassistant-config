@@ -60,8 +60,6 @@ cards:
               margin-bottom: 0px !important;
             }
             ha-card {
-              font-family: "San Francisco";
-              text-rendering: optimizelegibility;
               font-weight: 700;
               color: rgba(87, 87, 87);
               font-size: 12px;

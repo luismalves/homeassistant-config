@@ -34,7 +34,6 @@ cards:
                 box-shadow: none;
                 height: 100%;
                 background: none;
-                font-family: San Francisco;
                 font-weight: 700;
                 font-size: 1.2em;
                 color: #555;

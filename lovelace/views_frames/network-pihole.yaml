@@ -41,8 +41,7 @@ cards:
       style: |
         :host {
           --ha-card-background: white;
-          --primary-text-color: rgba(0,0,0); 
-          font-family: "San Francisco";
+          --primary-text-color: rgba(0,0,0);
         }
         #states > * {
           margin: 0px !important;

@@ -33,7 +33,7 @@ cards:
 
           - type: entities
             entities:
-              - entity: sensor.mt_audience_wireless_clients
+              - entity: sensor.homedrive_status
                 name: Status
                 icon: mdi:list-status
                 card_mod:
@@ -41,17 +41,29 @@ cards:
                     :host {
                       --card-mod-icon-color:black; 
                     }
-              - entity: sensor.alpaca_disk_total
-                name: Disco total
-                icon: mdi:harddisk
+              - entity: sensor.homedrive_uptime_friendly
+                name: Uptime
+                icon: mdi:timelapse
                 card_mod:
                   style: |
                     :host {
                       --card-mod-icon-color:black; 
                     }
-              - entity: sensor.alpaca_memory_total
+              - type: attribute
+                entity: sensor.homedrive_used_space_volume1
+                name: Disco total
+                icon: mdi:harddisk
+                attribute: Volume Size
+                card_mod:
+                  style: |
+                    :host {
+                      --card-mod-icon-color:black; 
+                    }
+              - type: attribute
+                entity: sensor.homedrive_memory_usage
                 name: Memória total
                 icon: mdi:memory
+                attribute: Memory Size
                 card_mod:
                   style: |
                     :host {
@@ -70,8 +82,7 @@ cards:
               style: |
                 :host {
                   --ha-card-background: white;
-                  --primary-text-color: rgba(0,0,0); 
-                  font-family: "San Francisco";
+                  --primary-text-color: rgba(0,0,0);
                 }
                 #states > * {
                   margin: 0px !important;
@@ -87,8 +98,8 @@ cards:
             cards:
               - type: "custom:mini-graph-card"
                 entities:
-                  - entity: sensor.mt_audience_cpu_load
-                    name: CPU
+                  - entity: sensor.homedrive_system_temperature
+                    name: System Temp
                 show:
                   name: true
                   icon: true
@@ -102,8 +113,8 @@ cards:
 
               - type: "custom:mini-graph-card"
                 entities:
-                  - entity: sensor.mt_audience_memory_usage
-                    name: Memória
+                  - entity: sensor.homedrive_temperature_drive_0_2
+                    name: Disk Temp
                 show:
                   name: true
                   icon: true
@@ -113,4 +124,19 @@ cards:
                 font_size: 65
                 points_per_hour: 6
                 color_thresholds: !include ../graphs/temp-thresholds.yaml
+                style: !include ../styles/style-graph-thdetail.yaml
+
+              - type: "custom:mini-graph-card"
+                entities:
+                  - entity: sensor.homedrive_volume_used_volume1
+                    name: Disk usage
+                show:
+                  name: true
+                  icon: true
+                tap_action:
+                  action: none
+                hours_to_show: 80
+                font_size: 65
+                points_per_hour: 1
+                color_thresholds: !include ../graphs/percentage-thresholds.yaml
                 style: !include ../styles/style-graph-thdetail.yaml

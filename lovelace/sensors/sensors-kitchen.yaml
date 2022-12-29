@@ -27,9 +27,9 @@ sd1: >
 sd2: >
   [[[
     return `<ha-icon
-      icon="mdi:brightness-6"
-      style="width: 8px; height: 10px;">
-      </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.lightlevel_kitchen'].state} lx</span></span>`
+      icon="mdi:water"
+      style="width: 10px; height: 10px;">
+      </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.water_sensor_2'].state}</span></span>`
   ]]]
 
 sd3: >
@@ -38,4 +38,12 @@ sd3: >
       icon="mdi:water-percent"
       style="width: 10px; height: 10px;">
       </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.humidity_1'].state}%</span></span>`
+  ]]]
+
+sd4: >
+  [[[
+    return `<ha-icon
+      icon="mdi:brightness-6"
+      style="width: 8px; height: 10px; margin: 0px 1px">
+      </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.lightlevel_kitchen'].state} lx</span></span>`
   ]]]

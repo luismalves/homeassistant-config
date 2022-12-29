@@ -44,7 +44,7 @@ cards:
       #   card_mod:
       #     style: |
       #       :host {
-      #         --card-mod-icon-color:black; 
+      #         --card-mod-icon-color:black;
       #       }
     state_color: true
     header:
@@ -59,7 +59,6 @@ cards:
         :host {
           --ha-card-background: white;
           --primary-text-color: rgba(0,0,0); 
-          font-family: "San Francisco";
         }
         #states > * {
           margin: 0px !important;
@@ -85,7 +84,7 @@ cards:
         hours_to_show: 6
         font_size: 65
         points_per_hour: 6
-        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        color_thresholds: !include ../graphs/percentage-thresholds.yaml
         style: !include ../styles/style-graph-thdetail.yaml
 
       - type: "custom:mini-graph-card"
@@ -100,12 +99,12 @@ cards:
         hours_to_show: 6
         font_size: 65
         points_per_hour: 6
-        color_thresholds: !include ../graphs/temp-thresholds.yaml
+        color_thresholds: !include ../graphs/percentage-thresholds.yaml
         style: !include ../styles/style-graph-thdetail.yaml
 
       - template: es-switch
         type: "custom:decluttering-card"
         variables:
           - template: sensor-movement
-          - entity-1: switch.mt_hap3_port_wifi_guest
+          - entity-1: switch.mt_audience_wifi_5g_guest_port
           - name-1: Wireless guest

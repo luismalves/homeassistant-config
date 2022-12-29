@@ -2,7 +2,7 @@ card:
   - width: 340px
   - height: 34px
   - letter-spacing: 0.1em;
-  - font-family: San Francisco
+  - font-family: "var(--paper-ha-card_-_font-family)"
   - font-weight: 700
   - background: "transparent"
   - font-size: 12px

@@ -66,7 +66,7 @@ browser_mod:
               style: >
                 #popup > div.action-holder > div > div {
                   margin: 1em 1em 1em 1em;
-                  font-family: 'San Francisco';
+                  font-family: 'Google Sans';
                   font-weight: 700;
                   font-size: 0.9em;
                   color: #fff;
@@ -77,7 +77,7 @@ browser_mod:
                   margin-bottom: 20px;
                   font-size: 10px;
                   font-weight: 700;
-                  font-family: 'San Francisco';
+                  font-family: 'Google Sans';
                   letter-spacing: 0.04em;
                 }  
                 #popup {

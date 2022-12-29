@@ -4,8 +4,7 @@ card:
   - background: "transparent"
   - border: "2px solid rgb(255, 255, 255)"
   - letter-spacing: 0.1em;
-  - font-family: San Francisco
-  - text-rendering: optimizeLegibility
+  - font-family: "var(--paper-ha-card_-_font-family)"
   - font-weight: 700
   - color: white
   - font-size: 12px

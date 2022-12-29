@@ -1,7 +1,6 @@
 card:
   - height: 40px
-  - font-family: "San Francisco"
-  - text-rendering: optimizeLegibility
+  - font-family: "var(--paper-ha-card_-_font-family)"
   - font-weight: 700
   - color: "#666"
   - font-size: 12px

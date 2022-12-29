@@ -55,10 +55,25 @@
   sensors:
     water_sensor:
       friendly_name: "Water leak status"
+      unique_id: sensor.water_sensor
       value_template: >-
         {% if is_state('binary_sensor.water_sensor', 'off') %}
           OK
         {% elif is_state('binary_sensor.water_sensor', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}
+
+- platform: template
+  sensors:
+    water_sensor:
+      friendly_name: "Water leak 2 status"
+      unique_id: sensor.water_sensor_2
+      value_template: >-
+        {% if is_state('binary_sensor.water_sensor_2', 'off') %}
+          OK
+        {% elif is_state('binary_sensor.water_sensor_2', 'on') %}
           ALERTA
         {% else %}
           Erro

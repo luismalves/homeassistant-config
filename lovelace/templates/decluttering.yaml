@@ -10,12 +10,11 @@ header:
         box-shadow: none;
         height: 100%;
         background: none;
-        font-family: San Francisco;
+        font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
         font-size: 3em;
         line-height: 1em;
         color: #333;
-        text-rendering: optimizeLegibility;
         margin-left: -15px;
       }
     type: markdown
@@ -30,12 +29,11 @@ subheader:
         box-shadow: none;
         height: 100%;
         background: none;
-        font-family: San Francisco;
+        font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
         font-size: 2em;
         line-height: 1em;
         color: #575757;
-        text-rendering: optimizeLegibility;
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -20px;
@@ -52,11 +50,10 @@ title:
         box-shadow: none;
         height: 100%;
         background: none;
-        font-family: San Francisco;
+        font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
         font-size: 1.65em;
         color: #111;
-        text-rendering: optimizeLegibility;
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -15px;
@@ -73,11 +70,10 @@ title-white:
         box-shadow: none;
         height: 100%;
         background: none;
-        font-family: San Francisco;
+        font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
         font-size: 1.65em;
         color: #FFF;
-        text-rendering: optimizeLegibility;
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -15px;
@@ -94,11 +90,10 @@ subtitle:
         box-shadow: none;
         height: 100%;
         background: none;
-        font-family: San Francisco;
+        font-family: var(--paper-ha-card_-_font-family);
         font-weight: 600;
         font-size: 1.25em;
         color: #333;
-        text-rendering: optimizeLegibility;
         margin-left: -15px;
         margin-top: -25px;
         margin-bottom: -15px;
@@ -115,11 +110,10 @@ subtitle-white:
         box-shadow: none;
         height: 100%;
         background: none;
-        font-family: San Francisco;
+        font-family: var(--paper-ha-card_-_font-family);
         font-weight: 500;
         font-size: 1.2em;
         color: #FFF;
-        text-rendering: optimizeLegibility;
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -10px;
@@ -136,11 +130,9 @@ device:
         box-shadow: none;
         height: 100%;
         background: none;
-        font-family: San Francisco;
         font-weight: 700;
         font-size: 13px;
         color: #fff;
-        text-rendering: optimizeLegibility;
         text-align: center;
         position: static;
         margin-top: -20px;

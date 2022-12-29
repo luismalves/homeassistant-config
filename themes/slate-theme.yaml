@@ -147,6 +147,21 @@ slate_theme:
   # Popups
   popup-background-color: "black"
 
+  #Fonts
+  paper-font-subhead_-_font-family: "Google Sans"
+  #paper-font-body1_-_font-family: "Google Sans"
+  #paper-font-body2_-_font-family: "Google Sans"
+  paper-font-caption_-_font-family: "Google Sans"
+  paper-font-button_-_font-family: "Google Sans"
+  paper-font-title_-_font-family: "Google Sans"
+  paper-font-display1_-_font-family: "Google Sans"
+  paper-font-display2_-_font-family: "Google Sans"
+  paper-font-display3_-_font-family: "Google Sans"
+  paper-font-display4_-_font-family: "Google Sans"
+  paper-font-display5_-_font-family: "Google Sans"
+  #paper-font-common-base_-_font-family: Google Sans
+  paper-ha-card_-_font-family: "Google Sans"
+
   ####################################################
   #                                                  #
   #                     CARD MOD                     #
@@ -167,10 +182,10 @@ slate_theme:
       background: none;
       box-shadow: none;
       border-radius: 0;
+      font-family: var(--paper-font-title_-_font-family);
     }
     .card-header {
       margin: -0.5em 0 1.1em 0.4em;
-      font-family: 'San Francisco';
       font-weight: 500;
       font-size: 1.5em;
     }
@@ -191,7 +206,6 @@ slate_theme:
       margin: 0.8em -1.9em -1.5em -0.8em;
     }
     ha-card.type-custom-hui-markdown-card {
-      font-family: San Francisco;
       line-height: 2.05vw;
       letter-spacing: 0.06vw;
       color: rgba(255, 255, 255, 0.9);
@@ -209,8 +223,8 @@ slate_theme:
       }
       .main-title {
         margin-top: 5px;
-        font-family: San Francisco;
         letter-spacing: 0.005em;
+        font-family: var(--paper-ha-card_-_font-family);
       }
 
     $: |

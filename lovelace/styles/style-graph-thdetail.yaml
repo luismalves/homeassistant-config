@@ -7,8 +7,6 @@
     background: #FFF;
     border-radius: 15px;
     box-shadow: none;
-    font-family: San Francisco;
-    text-rendering: optimizeLegibility;
     padding-top: 8px !important;
   }
   .header {

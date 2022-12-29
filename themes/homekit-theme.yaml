@@ -94,7 +94,18 @@ homekit_theme:
   markdown-code-background-color: rgb(23, 23, 23)
 
   # Font
-  paper-font-subhead_-_font-family: "San Francisco"
+  paper-font-subhead_-_font-family: "Google Sans"
+  paper-font-body1_-_font-family: "Google Sans"
+  paper-font-body2_-_font-family: "Google Sans"
+  paper-font-caption_-_font-family: "Google Sans"
+  paper-font-button_-_font-family: "Google Sans"
+  paper-font-title_-_font-family: "Google Sans"
+  paper-font-display1_-_font-family: "Google Sans"
+  paper-font-display2_-_font-family: "Google Sans"
+  paper-font-display3_-_font-family: "Google Sans"
+  paper-font-display4_-_font-family: "Google Sans"
+  paper-font-display5_-_font-family: "Google Sans"
+  paper-font-common-base_-_font-family: "Google Sans"
 
   # Popups
   popup-background-color: "black"
@@ -122,7 +133,7 @@ homekit_theme:
     }
     .card-header {
       margin: -0.5em 0 1.1em 0.4em;
-      font-family: 'San Francisco';
+      font-family: 'Google Sans';
       font-weight: 500;
       font-size: 1.5em;
     }
@@ -143,7 +154,7 @@ homekit_theme:
       margin: 0.8em -1.9em -1.5em -0.8em;
     }
     ha-card.type-custom-hui-markdown-card {
-      font-family: San Francisco;
+      font-family: 'Google Sans';
       line-height: 2.05vw;
       letter-spacing: 0.06vw;
       color: rgba(255, 255, 255, 0.9);
@@ -161,7 +172,7 @@ homekit_theme:
       }
       .main-title {
         margin-top: 5px;
-        font-family: San Francisco;
+        font-family: Google Sans;
         letter-spacing: 0.005em;
       }
 

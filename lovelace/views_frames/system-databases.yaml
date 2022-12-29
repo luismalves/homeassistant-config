@@ -1,0 +1,32 @@
+####
+# SYSTEM
+# Databases
+#
+####
+type: vertical-stack
+cards:
+  - type: "custom:gap-card"
+    height: 25
+
+  - type: horizontal-stack
+    cards:
+      - template: subtitle-white
+        type: "custom:decluttering-card"
+        variables:
+          - content: Databases
+  - type: grid
+    columns: 2
+    square: false
+    cards:
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        variables:
+          - template: sensors-version
+          - entity-1: sensor.homeassistant_db_size
+          - name-1: "HA MariaDB size"
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        variables:
+          - template: sensors-version
+          - entity-1: sensor.influxdb_ha_db_size
+          - name-1: "InfluxDB size"

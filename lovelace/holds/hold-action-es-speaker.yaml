@@ -47,7 +47,6 @@ browser_mod:
               box-shadow: unset;
               width: 95%;
               margin: 0 auto;
-              font-family: San Francisco;
               margin-bottom: 0px !important; 
               opacity: 1;
             }
@@ -83,10 +82,10 @@ browser_mod:
               display: none;
             } 
             .entity__info__media {
-              font-family: San Francisco !important;
+              font-family: Google Sans !important;
             } 
             .entity__info__name {
-              font-family: San Francisco !important;
+              font-family: Google Sans !important;
             }
           type: "custom:mini-media-player"
 
@@ -114,7 +113,6 @@ browser_mod:
               box-shadow: unset;
               width: 95%;
               margin: 0 auto;
-              font-family: San Francisco;
               margin-bottom: 0px !important;                                    
             }
             ha-card.--inactive  {
@@ -202,20 +200,17 @@ browser_mod:
                   border-radius: 1em;
                   background: rgba(0, 0, 0, 0.9);
                   padding: 20px;
-                  font-family: 'San Francisco';
                   font-weight: 700;
                 }
                 .card-header {
                   margin-left: 0.4em;
                   margin-bottom: 0.1em;
-                  font-family: 'San Francisco';
                   letter-spacing: 0.005em;
                   font-weight: 700;
                 }
 
                 #popup > div.action-holder > div > div {
                   margin: 0em 1em 1em 1em;
-                  font-family: 'San Francisco';
                   font-weight: 700;
                   font-size: 0.9em;
                   color: #fff;
@@ -225,7 +220,6 @@ browser_mod:
                   margin: -1.8em 0 0.7em 0;
                   font-size: 1.9em;
                   font-weight: 700;
-                  font-family: 'San Francisco';
                   letter-spacing: 0.04em;
                   margin-top: -20px !important;
                 }  
