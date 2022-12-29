@@ -25,5 +25,6 @@ cards:
         cards:
           - !include ../views_frames/system-nuc.yaml
           - !include ../views_frames/system-proxmox.yaml
+          - !include ../views_frames/system-databases.yaml
         view_layout:
           grid-area: main

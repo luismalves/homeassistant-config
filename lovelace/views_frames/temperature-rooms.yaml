@@ -147,3 +147,33 @@
           points_per_hour: 4
           color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
           style: !include ../styles/style-graph-thdetail.yaml
+
+        - type: "custom:mini-graph-card"
+          entities:
+            - entity: sensor.homedrive_system_temperature
+              name: Temperatura NAS
+          show:
+            name: true
+            icon: true
+          tap_action:
+            action: none
+          hours_to_show: 6
+          font_size: 65
+          points_per_hour: 6
+          color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
+          style: !include ../styles/style-graph-thdetail.yaml
+
+        - type: "custom:mini-graph-card"
+          entities:
+            - entity: sensor.homedrive_temperature_drive_0_2
+              name: Temperatura disco NAS
+          show:
+            name: true
+            icon: true
+          tap_action:
+            action: none
+          hours_to_show: 6
+          font_size: 65
+          points_per_hour: 6
+          color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
+          style: !include ../styles/style-graph-thdetail.yaml
