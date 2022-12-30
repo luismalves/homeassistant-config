@@ -2,15 +2,12 @@ card:
   - width: 340px
   - height: 34px
   - letter-spacing: 0.1em;
-  - font-family: "var(--paper-ha-card_-_font-family)"
   - font-weight: 700
   - background: "transparent"
   - font-size: 12px
   - border: 2px solid white
   - border-radius: 10px
-  - box-shadow: none
   - padding: 4px 0px
-  - transition: none
 custom_fields:
   icon_hue:
     - color: "rgb(255, 216, 132)"

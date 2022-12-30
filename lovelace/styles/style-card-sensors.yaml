@@ -1,15 +1,12 @@
 card:
   - width: 165px
   - height: 110px
-  - font-family: "var(--paper-ha-card_-_font-family)"
   - font-weight: 700
   - color: "#666"
   - font-size: 10px
   - background-color: "var(--ha-card-background-es-on)"
   - border-radius: 15px
   - padding: 0px
-  - box-shadow: none
-  - transition: none
 
 custom_fields:
   icon_hue:

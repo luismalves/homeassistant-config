@@ -64,6 +64,10 @@ browser_mod:
                       content:
                         type: entities
                         show_header_toggle: false
+                        style: |
+                          ha-card {
+                            background: rgba(0, 0, 0, 0.9);
+                          }
                         entities:
                           - entity: "[[entity-1]]"
                             secondary_info: last-changed
@@ -76,6 +80,10 @@ browser_mod:
                             show_slider_percent: true
                             smooth_color_wheel: true
                             consolidate_entities: true
+                            style: |
+                              .light-entity-card {
+                                background: rgba(0, 0, 0, 0.9);
+                              }
               borderRadius: 20px
               brightnessHeight: 250px
               brightnessWidth: 100px

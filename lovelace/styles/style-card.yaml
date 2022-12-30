@@ -7,8 +7,6 @@ card:
   - font-size: 12px
   - background-color: "rgba(115, 115, 115, 0.2)"
   - border-radius: 15px
-  - box-shadow: none
-  - transition: none
   - font-family: "var(--paper-ha-card_-_font-family)"
 custom_fields:
   icon_hue:

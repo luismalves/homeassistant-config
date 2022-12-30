@@ -1,12 +1,9 @@
 card:
   - height: 40px
-  - font-family: "var(--paper-ha-card_-_font-family)"
   - font-weight: 700
   - color: "#666"
   - font-size: 12px
   - background-color: "var(--ha-card-background-es-on)"
   - border-radius: 15px
-  - box-shadow: none
   - margin-bottom: 10px
   - margin-top: 10px
-  - transition: none

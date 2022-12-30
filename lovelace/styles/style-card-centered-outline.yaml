@@ -4,13 +4,10 @@ card:
   - background: "transparent"
   - border: "2px solid rgb(255, 255, 255)"
   - letter-spacing: 0.1em;
-  - font-family: "var(--paper-ha-card_-_font-family)"
   - font-weight: 700
   - color: white
   - font-size: 12px
   - border-radius: 15px
-  - box-shadow: none
-  - transition: none
   - --color-led: "[[color]]"
 
 custom_fields:

@@ -242,12 +242,18 @@ slate_theme:
   #       border-radius: 1em;
   #     }
 
-card-mod-card-yaml: |
-  /* * * * * * * * * * * * * * * * * *
-   *                                 *
-   *              TYPES              *
-   *                                 *
-   * * * * * * * * * * * * * * * * * */
-  ha-card.type-entities {
-    background: none;
-  }
+  card-mod-card: |
+    ha-card {
+      box-shadow: none;
+      font-family: var(--paper-ha-card_-_font-family);
+      transition: none;
+    }
+
+    /* * * * * * * * * * * * * * * * * *
+    *                                 *
+    *              TYPES              *
+    *                                 *
+    * * * * * * * * * * * * * * * * * */
+    ha-card.type-entities {
+      background: none;
+    }
