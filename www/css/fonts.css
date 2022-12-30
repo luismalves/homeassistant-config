@@ -1,6 +1,12 @@
 /** Bold */
 @font-face {
   font-family: "Google Sans";
+  font-weight: 700;
+  src: url("/local/fonts/google-sans.woff2");
+}
+
+@font-face {
+  font-family: "Google Sans";
   font-weight: 600;
   src: url("/local/fonts/google-sans.woff2");
 }
@@ -8,6 +14,12 @@
 @font-face {
   font-family: "Google Sans";
   font-weight: 400;
+  src: url("/local/fonts/google-sans.woff2");
+}
+
+@font-face {
+  font-family: "Google Sans";
+  font-weight: 300;
   src: url("/local/fonts/google-sans.woff2");
 }
 
