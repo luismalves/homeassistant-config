@@ -2,7 +2,8 @@ title: Home
 path: start
 panel: true
 icon: mdi:home-circle
-background: "linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%)"
+#background: "linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%)"
+background: "#F1F3F4"
 
 cards:
   - type: custom:layout-card
@@ -29,6 +30,7 @@ cards:
                 box-shadow: none;
                 height: 100%;
                 background: none;
+                font-family: var(--paper-ha-card_-_font-family);
                 font-weight: 700;
                 font-size: 3em;
                 line-height: 1em;
@@ -124,7 +126,7 @@ cards:
                       'name': state_attr(sensor.entity_id, 'friendly_name'),
                       'type': 'custom:button-card',
                       'template': 'tasks-action',
-                      'styles': {"card":[{"width":"336px"},{"height":"34px"},{"letter-spacing":"0.1em;"},{"font-family":"San Francisco"},{"font-weight":700},{"background":"transparent"},{"font-size":"12px"},{"border":"2px solid black"},{"border-radius":"10px"},{"box-shadow":"none"},{"padding":"4px 0px"},{"margin-bottom":"4px"},{"transition":"none"}],"custom_fields":{"icon_hue":[{"color":"#B95000"},{"margin":"auto"},{"width":"20px"}]},"grid":[{"grid-template-areas":"\"icon_hue name\""},{"grid-template-columns":"40px 2fr"},{"grid-template-rows":"1fr"}],"name":[{"color":"black"},{"font-weight":"bold"},{"font-size":"12px"},{"grid-area":"name"},{"justify-self":"flex-start"}]},
+                      'styles': {"card":[{"width":"336px"},{"height":"34px"},{"letter-spacing":"0.1em;"},{"font-family":"var(--paper-ha-card_-_font-family)"},{"font-weight":700},{"background":"transparent"},{"font-size":"12px"},{"border":"2px solid black"},{"border-radius":"10px"},{"box-shadow":"none"},{"padding":"4px 0px"},{"margin-bottom":"4px"},{"transition":"none"}],"custom_fields":{"icon_hue":[{"color":"#B95000"},{"margin":"auto"},{"width":"20px"}]},"grid":[{"grid-template-areas":"\"icon_hue name\""},{"grid-template-columns":"40px 2fr"},{"grid-template-rows":"1fr"}],"name":[{"color":"black"},{"font-weight":"bold"},{"font-size":"12px"},{"grid-area":"name"},{"justify-self":"flex-start"}]},
                       'tap_action': {'action': 'navigate', 'navigation_path': '/dashboard-mobile/tasks'},
                       'show_icon': false,
                       'show_state': false }

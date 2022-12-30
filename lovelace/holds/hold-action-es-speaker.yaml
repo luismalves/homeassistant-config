@@ -80,12 +80,6 @@ browser_mod:
             } 
             ha-card.--inactive  {
               display: none;
-            } 
-            .entity__info__media {
-              font-family: Google Sans !important;
-            } 
-            .entity__info__name {
-              font-family: Google Sans !important;
             }
           type: "custom:mini-media-player"
 
@@ -119,7 +113,6 @@ browser_mod:
               display: none;
             } 
             .entity__info {
-              font-family: San Francisco !important;
               color: #fff !important;
               width: 95% !important;
               position: absolute !important;
@@ -139,13 +132,11 @@ browser_mod:
               content: " " !important;
             }
             .entity__info__media {
-              font-family: San Francisco !important;
               color: #fff !important;
               text-align: center !important;
               display: contents !important;
             }
             .entity__info__name {
-              font-family: San Francisco !important;
               color: #fff !important;
               text-align: center !important;
             }
@@ -255,6 +246,4 @@ browser_mod:
               type: "custom:media_player-popup-card"
           show_header_toggle: false
           type: entities
-      #type: "custom:stack-in-card"
-      #mode: vertical
       type: vertical-stack

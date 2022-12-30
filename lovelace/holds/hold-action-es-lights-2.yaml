@@ -61,7 +61,6 @@ browser_mod:
               style: >
                 #popup > div.action-holder > div > div {
                   margin: 1em 1em 1em 1em;
-                  font-family: 'San Francisco';
                   font-weight: 700;
                   font-size: 0.9em;
                   color: #fff;
@@ -72,7 +71,6 @@ browser_mod:
                   margin-bottom: 20px;
                   font-size: 10px;
                   font-weight: 700;
-                  font-family: 'San Francisco';
                   color: #c7c7c7;
                 } 
                 #popup {

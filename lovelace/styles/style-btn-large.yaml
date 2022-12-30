@@ -4,7 +4,7 @@ card:
   - font-weight: 700
   - color: "#666"
   - font-size: 12px
-  - background-color: "rgba(255, 255, 255, 0.9)"
+  - background-color: "var(--ha-card-background-es-on)"
   - border-radius: 15px
   - box-shadow: none
   - margin-bottom: 10px

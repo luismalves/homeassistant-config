@@ -241,13 +241,8 @@ task:
       - font-size: 14px
       - justify-self: start
     card:
-      #      - letter-spacing: 0.1em;
-      #      - font-family: San Francisco
-      #      - text-rendering: optimizeLegibility
       - font-weight: 700
-      #      - color: "rgba(255, 255, 255, 0.3)"
       - font-size: 12px
-      #      - background-color: "rgba(115, 115, 115, 0.2)"
       - border-radius: 15px
       - box-shadow: none
       - padding: 4% 4% 4% 0

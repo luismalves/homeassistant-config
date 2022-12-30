@@ -104,7 +104,6 @@ cards:
                       border-radius: 15px;
                       box-shadow: none;
                       transition: none 0s ease 0s;
-                      background-color: rgba(255, 255, 255, 0.99);
                     }
                     bar-card-card {
                       --bar-card-border-radius: 5px;
@@ -161,7 +160,6 @@ cards:
                         border-radius: 15px;
                         box-shadow: none;
                         transition: none 0s ease 0s;
-                        background-color: rgba(255, 255, 255, 0.99);
                       }
                     "div.entity":
                       $:
@@ -235,7 +233,6 @@ cards:
                     border-radius: 15px;
                     box-shadow: none;
                     color: rgba(255, 255, 255);
-                    font-family: San Francisco;
                     text-rendering: optimizeLegibility;
                   }
                   .states {

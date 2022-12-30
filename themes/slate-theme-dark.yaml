@@ -6,7 +6,7 @@
 
 # Link: https://github.com/seangreen2/slate_theme
 
-slate_theme:
+slate_theme_dark:
   # Header:
   app-header-background-color: "rgb(23, 23, 23)"
 
@@ -46,10 +46,6 @@ slate_theme:
   ha-card-border-radius: "10px"
   ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
   ha-card-border-width: 0
-
-  # Cards custom
-  ha-card-background-es-off: rgba(255, 255, 255, 0.65)
-  ha-card-background-es-on: rgb(255, 255, 255)
 
   # Paper card
   paper-card-header-color: "#00d6c0"
@@ -173,81 +169,71 @@ slate_theme:
   #                                                  #
   ####################################################
 
-  card-mod-theme: slate_theme
+  card-mod-theme: slate_theme_dark
   card-color: rgba(0, 0, 0)
   card-header: rgba(0, 0, 0)
 
-  # card-mod-root: |
-  #   ha-app-layout {
-  #     background: var(--lovelace-background);
-  #   }
+  card-mod-root: |
+    ha-app-layout {
+      background: var(--lovelace-background);
+    }
 
-  # card-mod-card-yaml: |
-  #   .ha-card {
-  #     background: none;
-  #     box-shadow: none;
-  #     border-radius: 0;
-  #     font-family: var(--paper-font-title_-_font-family);
-  #   }
-  #   .card-header {
-  #     margin: -0.5em 0 1.1em 0.4em;
-  #     font-weight: 500;
-  #     font-size: 1.5em;
-  #   }
+  card-mod-card-yaml: |
+    .ha-card {
+      background: none;
+      box-shadow: none;
+      border-radius: 0;
+      font-family: var(--paper-font-title_-_font-family);
+    }
+    .card-header {
+      margin: -0.5em 0 1.1em 0.4em;
+      font-weight: 500;
+      font-size: 1.5em;
+    }
 
-  #   /* * * * * * * * * * * * * * * * * *
-  #    *                                 *
-  #    *              TYPES              *
-  #    *                                 *
-  #    * * * * * * * * * * * * * * * * * */
-  #   ha-card.type-entities {
-  #     background: none;
-  #     padding: 0.3em 1.25em 0.4em 0.5em;
-  #   }
-  #   ha-card.type-custom-stack-in-card {
-  #     background: none;
-  #   }
-  #   ha-card.type-history-graph {
-  #     margin: 0.8em -1.9em -1.5em -0.8em;
-  #   }
-  #   ha-card.type-custom-hui-markdown-card {
-  #     line-height: 2.05vw;
-  #     letter-spacing: 0.06vw;
-  #     color: rgba(255, 255, 255, 0.9);
-  #     pointer-events: none;
-  #   }
+    /* * * * * * * * * * * * * * * * * *
+     *                                 *
+     *              TYPES              *
+     *                                 *
+     * * * * * * * * * * * * * * * * * */
+    ha-card.type-entities {
+      background: none;
+      padding: 0.3em 1.25em 0.4em 0.5em;
+    }
+    ha-card.type-custom-stack-in-card {
+      background: none;
+    }
+    ha-card.type-history-graph {
+      margin: 0.8em -1.9em -1.5em -0.8em;
+    }
+    ha-card.type-custom-hui-markdown-card {
+      line-height: 2.05vw;
+      letter-spacing: 0.06vw;
+      color: rgba(255, 255, 255, 0.9);
+      pointer-events: none;
+    }
 
-  # card-mod-more-info-yaml: |
-  #   .: |
-  #     app-toolbar {
-  #       background: var(--card-color) !important;
-  #     }
-  #     mwc-icon-button {
-  #       margin-top: -3px;
-  #       color: #9e9e9e;
-  #     }
-  #     .main-title {
-  #       margin-top: 5px;
-  #       letter-spacing: 0.005em;
-  #       font-family: var(--paper-ha-card_-_font-family);
-  #     }
+  card-mod-more-info-yaml: |
+    .: |
+      app-toolbar {
+        background: var(--card-color) !important;
+      }
+      mwc-icon-button {
+        margin-top: -3px;
+        color: #9e9e9e;
+      }
+      .main-title {
+        margin-top: 5px;
+        letter-spacing: 0.005em;
+        font-family: var(--paper-ha-card_-_font-family);
+      }
 
-  #   $: |
-  #     .mdc-dialog {
-  #       backdrop-filter: blur(20px) brightness(70%);
-  #     }
-  #     .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-  #       background: var(--card-color);
-  #       box-shadow: none;
-  #       border-radius: 1em;
-  #     }
-
-card-mod-card-yaml: |
-  /* * * * * * * * * * * * * * * * * *
-   *                                 *
-   *              TYPES              *
-   *                                 *
-   * * * * * * * * * * * * * * * * * */
-  ha-card.type-entities {
-    background: none;
-  }
+    $: |
+      .mdc-dialog {
+        backdrop-filter: blur(20px) brightness(70%);
+      }
+      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+        background: var(--card-color);
+        box-shadow: none;
+        border-radius: 1em;
+      }
