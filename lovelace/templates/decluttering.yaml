@@ -7,7 +7,6 @@ header:
   card:
     style: >
       ha-card {
-        box-shadow: none;
         height: 100%;
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
@@ -26,7 +25,6 @@ subheader:
   card:
     style: >
       ha-card {
-        box-shadow: none;
         height: 100%;
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
@@ -47,7 +45,6 @@ title:
   card:
     style: >
       ha-card {
-        box-shadow: none;
         height: 100%;
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
@@ -67,7 +64,6 @@ title-white:
   card:
     style: >
       ha-card {
-        box-shadow: none;
         height: 100%;
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
@@ -87,7 +83,6 @@ subtitle:
   card:
     style: >
       ha-card {
-        box-shadow: none;
         height: 100%;
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
@@ -107,7 +102,6 @@ subtitle-white:
   card:
     style: >
       ha-card {
-        box-shadow: none;
         height: 100%;
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
@@ -127,7 +121,6 @@ device:
   card:
     style: >
       ha-card {
-        box-shadow: none;
         height: 100%;
         background: none;
         font-weight: 700;
