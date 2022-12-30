@@ -5,7 +5,7 @@ icon_hue: >
   shape-rendering="geometricPrecision"
   text-rendering="geometricPrecision"><style><![CDATA[#el0k5alfrd2e3
   {animation: el0k5alfrd2e3_c_o 1000ms linear infinite normal
-  forwards}@keyframes el0k5alfrd2e3_c_o { 0% {opacity: 0.500000} 50%
+  forwards}@keyframes el0k5alfrd2e3_c_o { 0% {opacity: 0.5} 50%
   {opacity: 1} 100% {opacity: 0.500000} }]]></style><path
   id="el0k5alfrd2e2"
   d="M2.790000,2.338000L20.923000,2.338000C21.241000,2.338000,21.495000,2.592000,21.495000,2.910000L21.495000,21.107000C21.495000,21.424000,21.241000,21.679000,20.923000,21.679000L2.790000,21.679000C2.472000,21.679000,2.218000,21.424000,2.218000,21.107000L2.218000,2.910000C2.218000,2.592000,2.472000,2.338000,2.790000,2.338000Z"
@@ -31,5 +31,5 @@ icon_hue: >
 sd1: >
   [[[
     if (variables.entity != "[[power_entity]]" && entity.state === 'on')
-      return `<div style="display:flex;align-items:center;justify-content:center;width:33px;height:33px;border-radius:20px;border: 1px solid #8d8e90"><span style="color: #8d8e90;font-size: 11px;">${states[variables.power_entity].state}W</span></div>`
+      return `<div style="display:flex;align-items:center;justify-content:center;width:33px;height:33px;border-radius:20px;border: 1px solid var(--el-state-circle-dash)"><span style="color:var(--el-state-circle-text);font-size: 11px;">${states[variables.power_entity].state}W</span></div>`
   ]]]

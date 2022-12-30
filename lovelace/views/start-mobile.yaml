@@ -26,14 +26,13 @@ cards:
           - type: markdown
             style: >
               ha-card {
-                box-shadow: none;
                 height: 100%;
                 background: none;
                 font-family: var(--paper-ha-card_-_font-family);
                 font-weight: 700;
                 font-size: 3em;
                 line-height: 1em;
-                color: #333;
+                color: var(--el-title-color);
                 margin-left: -15px;
               }
             content: |
@@ -49,7 +48,6 @@ cards:
           type: markdown
           style: >
             ha-card {
-              box-shadow: none;
               height: 100%;
               background: rgb(255,103,0);
               font-weight: 700;

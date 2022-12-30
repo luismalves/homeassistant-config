@@ -11,6 +11,7 @@ custom_fields:
     - width: 40px
     - position: absolute
   info:
+    - color: white
     - top: 10px
     - right: 10px
     - width: 40px

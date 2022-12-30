@@ -6,6 +6,6 @@ icon_hue: >
 s: >
   [[[
     if (entity.state === 'on')
-      return `<span style="color: rgba(0,0,0,0.4);">On</span>`;
+      return `<span>On</span>`;
     else return `<span>Off</span>`;
   ]]]

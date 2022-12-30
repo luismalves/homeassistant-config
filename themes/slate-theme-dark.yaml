@@ -40,7 +40,7 @@ slate_theme_dark:
   background-view-bedroom: "linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%)"
   background-view-deck: "linear-gradient(315deg, white 0%, rgb(215,225,236) 74%)"
   background-view-kitchen: "linear-gradient(95deg, #cdf7f6 0%, #ebf4f5 74%)"
-  background-view-living: "linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%)"
+  background-view-living: "#202125"
   background-view-config: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-system: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-tasks: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
@@ -54,20 +54,28 @@ slate_theme_dark:
 
   # Cards
   card-background-color: rgb(0, 0, 0)
-  ha-card-background: white
-  ha-card-border-radius: "10px"
+  ha-card-border-radius: "15px"
   ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
   ha-card-border-width: 0
 
   # Cards custom
+  #
   ha-card-background-es-off: "#303135"
   ha-card-background-es-on: "#424a57"
   ha-card-background-path: rgb(255, 255, 255)
 
-  a-card-color-state-on: rgba(0, 0, 0, 0.4)
-  ha-card-color-name-on: rgba(0, 0, 0, 1)
-  ha-card-color-state-off: "rgba(0, 0, 0, 0.2)"
-  ha-card-color-name-off: "rgba(0, 0, 0, 0.4)"
+  ha-card-color-state-on: "#ffffff"
+  ha-card-color-name-on: "#89b4f8"
+  ha-card-color-state-off: "#525559"
+  ha-card-color-name-off: "#81868c"
+
+  # Custom elements
+  #
+  el-title-color: "white"
+  el-title-color-inverted: "#333"
+
+  el-state-circle-dash: "#89b4f8"
+  el-state-circle-text: "#89b4f8"
 
   # Paper card
   paper-card-header-color: "#00d6c0"
@@ -191,71 +199,26 @@ slate_theme_dark:
   #                                                  #
   ####################################################
 
-  card-mod-theme: slate_theme_dark
+  card-mod-theme: slate_theme
   card-color: rgba(0, 0, 0)
   card-header: rgba(0, 0, 0)
 
-  card-mod-root: |
-    ha-app-layout {
-      background: var(--lovelace-background);
-    }
-
-  card-mod-card-yaml: |
-    .ha-card {
-      background: none;
+  card-mod-card: |
+    ha-card {
       box-shadow: none;
-      border-radius: 0;
-      font-family: var(--paper-font-title_-_font-family);
-    }
-    .card-header {
-      margin: -0.5em 0 1.1em 0.4em;
-      font-weight: 500;
-      font-size: 1.5em;
+      font-family: var(--paper-ha-card_-_font-family);
+      transition: none;
     }
 
     /* * * * * * * * * * * * * * * * * *
-     *                                 *
-     *              TYPES              *
-     *                                 *
-     * * * * * * * * * * * * * * * * * */
-    ha-card.type-entities {
-      background: none;
-      padding: 0.3em 1.25em 0.4em 0.5em;
-    }
-    ha-card.type-custom-stack-in-card {
-      background: none;
-    }
-    ha-card.type-history-graph {
-      margin: 0.8em -1.9em -1.5em -0.8em;
-    }
-    ha-card.type-custom-hui-markdown-card {
-      line-height: 2.05vw;
-      letter-spacing: 0.06vw;
-      color: rgba(255, 255, 255, 0.9);
-      pointer-events: none;
+    *                                 *
+    *              TYPES              *
+    *                                 *
+    * * * * * * * * * * * * * * * * * */
+    ha-card.type-custom-bar-card {
+      background: white;
     }
 
-  card-mod-more-info-yaml: |
-    .: |
-      app-toolbar {
-        background: var(--card-color) !important;
-      }
-      mwc-icon-button {
-        margin-top: -3px;
-        color: #9e9e9e;
-      }
-      .main-title {
-        margin-top: 5px;
-        letter-spacing: 0.005em;
-        font-family: var(--paper-ha-card_-_font-family);
-      }
-
-    $: |
-      .mdc-dialog {
-        backdrop-filter: blur(20px) brightness(70%);
-      }
-      .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
-        background: var(--card-color);
-        box-shadow: none;
-        border-radius: 1em;
-      }
+    ha-card.type-custom-mini-graph-card .state__value {
+      font-family: var(--paper-font-body1_-_font-family);
+    }

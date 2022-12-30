@@ -3,40 +3,44 @@
       - background-color: "var(--ha-card-background-es-on)"
       - overflow: hidden
     name:
-      - color: "rgba(0, 0, 0, 1)"
+      - color: "var(--ha-card-color-name-on)"
     state:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-state-on)"
   value: "[[state-1]]"
+
 - styles:
     card:
       - background-color: "var(--ha-card-background-es-off)"
     name:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-name-off)"
     state:
-      - color: "rgba(0, 0, 0, 0.2)"
+      - color: "var(--ha-card-color-state-off)"
   value: "[[state-2]]"
+
 - styles:
     card:
       - background-color: "var(--ha-card-background-es-off)"
     name:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-name-off)"
     state:
-      - color: "rgba(0, 0, 0, 0.2)"
+      - color: "var(--ha-card-color-state-off)"
   value: "[[state-3]]"
+
 - styles:
     card:
       - background-color: "var(--ha-card-background-es-off)"
     name:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-name-off)"
     state:
-      - color: "rgba(0, 0, 0, 0.2)"
+      - color: "var(--ha-card-color-state-off)"
   value: "[[state-4]]"
+
 - styles:
     card:
       - background-color: "transparent"
       - border: "2px solid rgba(0, 0, 0, 0.25)"
     name:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-name-on)"
     state:
-      - color: "rgba(0, 0, 0, 0.2)"
+      - color: "var(--ha-card-color-state-on)"
   value: "[[state-outline-2]]"

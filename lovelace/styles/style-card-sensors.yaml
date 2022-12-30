@@ -3,6 +3,7 @@ card:
   - height: 110px
   - color: "#666"
   - font-size: 10px
+  - font-weight: bold
   - background-color: "var(--ha-card-background-es-on)"
   - padding: 0px
 

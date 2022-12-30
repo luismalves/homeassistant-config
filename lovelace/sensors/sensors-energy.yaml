@@ -9,7 +9,7 @@ sd1: >
     return `<ha-icon
       icon="mdi:lightning-bolt-outline"
       style="width: 12px; height: 15px;">
-      </ha-icon><span>Potência: </span><span style="color:rgba(0, 0, 0, 0.4);">${states['sensor.shelly_em_channel_1_power'].state} W</span>`
+      </ha-icon><span>Potência: </span><span style="color:color:var(--ha-card-name-on);">${states['sensor.shelly_em_channel_1_power'].state} W</span>`
   ]]]
 
 sd2: >
@@ -17,5 +17,5 @@ sd2: >
     return `<ha-icon
       icon="mdi:wallet-outline"
       style="width: 12px; height: 15px; margin-right: 2px">
-      </ha-icon><span>Custo: </span><span style="color:rgba(0, 0, 0, 0.4);">${states['sensor.energy_bill'].state}€</span>`
+      </ha-icon><span>Custo: </span><span style="color:var(--ha-card-name-on);">${states['sensor.energy_bill'].state}€</span>`
   ]]]

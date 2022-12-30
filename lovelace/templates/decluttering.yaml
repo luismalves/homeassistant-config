@@ -13,7 +13,7 @@ header:
         font-weight: 700;
         font-size: 3em;
         line-height: 1em;
-        color: #333;
+        color: var(--el-title-color);
         margin-left: -15px;
       }
     type: markdown
@@ -31,7 +31,7 @@ subheader:
         font-weight: 700;
         font-size: 2em;
         line-height: 1em;
-        color: #575757;
+        color: var(--el-title-color);
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -20px;
@@ -50,7 +50,7 @@ title:
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
         font-size: 1.65em;
-        color: #111;
+        color: var(--el-title-color);
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -15px;
@@ -69,7 +69,7 @@ title-white:
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
         font-size: 1.65em;
-        color: #FFF;
+        color: var(--el-title-color-inverted);
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -15px;
@@ -88,7 +88,7 @@ subtitle:
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 600;
         font-size: 1.25em;
-        color: #333;
+        color: var(--el-title-color);
         margin-left: -15px;
         margin-top: -25px;
         margin-bottom: -15px;
@@ -107,7 +107,7 @@ subtitle-white:
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 500;
         font-size: 1.2em;
-        color: #FFF;
+        color: var(--el-title-color-inverted);
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -10px;

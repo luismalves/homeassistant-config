@@ -1,7 +1,6 @@
 - styles:
     card:
       - background-color: "transparent"
-      #- "--button-card-light-color-no-temperature": "#transparent"
       - overflow: hidden
     name:
       - color: "transparent"
