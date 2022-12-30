@@ -34,6 +34,18 @@ slate_theme_dark:
   table-row-background-color: "#292929"
   table-row-alternative-background-color: "#292929"
 
+  background-view-home: "#202125"
+  background-view-home-mobile: "#202125"
+  background-view-temp: "center / cover no-repeat url('/local/backgrounds/Wave_2.svg') fixed"
+  background-view-bedroom: "linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%)"
+  background-view-deck: "linear-gradient(315deg, white 0%, rgb(215,225,236) 74%)"
+  background-view-kitchen: "linear-gradient(95deg, #cdf7f6 0%, #ebf4f5 74%)"
+  background-view-living: "linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%)"
+  background-view-config: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+  background-view-system: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+  background-view-tasks: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+  background-view-network: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+
   # Nav Menu
   paper-listbox-color: "#777777"
   paper-listbox-background-color: "#141414"
@@ -46,6 +58,16 @@ slate_theme_dark:
   ha-card-border-radius: "10px"
   ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
   ha-card-border-width: 0
+
+  # Cards custom
+  ha-card-background-es-off: "#303135"
+  ha-card-background-es-on: "#424a57"
+  ha-card-background-path: rgb(255, 255, 255)
+
+  a-card-color-state-on: rgba(0, 0, 0, 0.4)
+  ha-card-color-name-on: rgba(0, 0, 0, 1)
+  ha-card-color-state-off: "rgba(0, 0, 0, 0.2)"
+  ha-card-color-name-off: "rgba(0, 0, 0, 0.4)"
 
   # Paper card
   paper-card-header-color: "#00d6c0"

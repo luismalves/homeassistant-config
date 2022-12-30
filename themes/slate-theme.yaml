@@ -55,13 +55,19 @@ slate_theme:
   # Cards
   card-background-color: rgb(0, 0, 0)
   #ha-card-background: white
-  ha-card-border-radius: "10px"
+  ha-card-border-radius: "15px"
   ha-card-box-shadow: 1px 1px 5px 0px rgb(12, 12, 14)
   ha-card-border-width: 0
 
   # Cards custom
   ha-card-background-es-off: rgba(255, 255, 255, 0.65)
   ha-card-background-es-on: rgb(255, 255, 255)
+  ha-card-background-path: rgb(255, 255, 255)
+
+  ha-card-color-state-on: rgba(0, 0, 0, 0.4)
+  ha-card-color-name-on: rgba(0, 0, 0, 1)
+  ha-card-color-state-off: "rgba(0, 0, 0, 0.2)"
+  ha-card-color-name-off: "rgba(0, 0, 0, 0.4)"
 
   # Paper card
   paper-card-header-color: "#00d6c0"

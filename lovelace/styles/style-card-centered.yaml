@@ -2,11 +2,10 @@ card:
   - width: 110px
   - height: 110px
   - background: "rgb(255, 255, 255)"
-  - letter-spacing: 0.1em;
   - font-weight: 700
   - color: "rgba(87, 87, 87, 0.8)"
   - font-size: 12px
-  - border-radius: 15px
+
 custom_fields:
   icon_hue:
     - top: 15%
@@ -25,13 +24,16 @@ custom_fields:
     - top: 79%
     - position: absolute
     - width: 100%
+
 grid:
   - grid-template-areas: '"i" "n" "s" "sd1 sd1"'
   - grid-template-columns: 1fr
   - grid-template-rows: 1fr min-content min-content
+
 img_cell:
   - align-self: start
   - text-align: start
+
 name:
   - align-self: center
   - text-align: center
@@ -41,12 +43,14 @@ name:
   - margin-bottom: "-2px"
   - font-size: 12px
   - margin-top: 50px
+
 state:
   - justify-self: start
   - padding-left: 20px
   - padding-bottom: 5px
   - color: "rgba(87, 87, 87, 0.5)"
   - display: none
+
 sd1:
   - align-self: center
   - text-align: center

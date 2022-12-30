@@ -1,12 +1,11 @@
 card:
   - width: 165px
   - height: 110px
-  - letter-spacing: 0.1em;
   - font-weight: 700
-  - color: 'rgba(255, 255, 255, 0.3)'
+  - color: "rgba(255, 255, 255, 0.3)"
   - font-size: 12px
-  - background-color: 'rgba(115, 115, 115, 0.2)'
-  - border-radius: 15px
+  - background-color: "rgba(115, 115, 115, 0.2)"
+
 custom_fields:
   icon_hue:
     - top: 10%
@@ -19,6 +18,7 @@ custom_fields:
     - width: 40px
     - position: absolute
     - letter-spacing: 0.03vw
+
 extra_styles: >
   [[[ var radius = 20.5; 
 
@@ -28,20 +28,24 @@ extra_styles: >
 
   return "#c_brightness { transform: rotate(-90deg); transform-origin:
   50% 50%; stroke-dasharray: " + circumference + "; stroke-dashoffset: "
-  + (circumference - brightness / 100 * circumference) + ";}"; ]]] 
+  + (circumference - brightness / 100 * circumference) + ";}"; ]]]
+
 grid:
   - grid-template-areas: '"i" "n" "s"'
   - grid-template-columns: 1fr
   - grid-template-rows: 1fr min-content min-content
+
 img_cell:
   - align-self: start
   - text-align: start
+
 name:
   - justify-self: start
   - padding-left: 10px
   - font-weight: bold
   - padding-bottom: 0px
-  - margin-bottom: '-2px'
+  - margin-bottom: "-2px"
+
 state:
   - justify-self: start
   - padding-left: 10px

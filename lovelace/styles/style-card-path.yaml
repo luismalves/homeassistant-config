@@ -1,11 +1,9 @@
 card:
   - width: 110px
   - height: 110px
-  - letter-spacing: 0.1em;
-  - font-weight: 700
   - color: "rgba(87, 87, 87, 0.8)"
   - font-size: 12px
-  - background-color: "rgb(255, 255, 255)"
+  - background-color: "var(--ha-card-background-path)"
   - border-radius: 15px
 custom_fields:
   icon_hue:

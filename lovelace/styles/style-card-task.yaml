@@ -1,11 +1,8 @@
 card:
   - width: 340px
   - height: 34px
-  - letter-spacing: 0.1em;
-  - font-weight: 700
-  - background: "black"
+  #- background: "black"
   - font-size: 12px
-  - border: 2px solid white
   - border-radius: 10px
   - padding: 4px 0px
 custom_fields:

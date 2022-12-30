@@ -17,8 +17,8 @@
       layout:
         grid-template-columns: min-content min-content min-content
         grid-template-rows: min-content
-        card_margin: 0px
-        margin: 0px
+        card_margin: 0
+        margin: 0
       cards:
         - template: es-light-tasmota
           type: "custom:decluttering-card"
@@ -111,8 +111,8 @@
       layout:
         grid-template-columns: min-content min-content min-content
         grid-template-rows: min-content
-        card_margin: 0px
-        margin: 0px
+        card_margin: 0
+        margin: 0
       cards:
         - template: es-switch
           type: "custom:decluttering-card"
@@ -174,8 +174,8 @@
       layout:
         grid-template-columns: min-content min-content min-content
         grid-template-rows: min-content
-        card_margin: 0px
-        margin: 0px
+        card_margin: 0
+        margin: 0
       cards:
         - template: es-light-tasmota
           type: "custom:decluttering-card"
@@ -257,8 +257,8 @@
       layout:
         grid-template-columns: min-content min-content min-content
         grid-template-rows: auto
-        card_margin: 0px
-        margin: 0px
+        card_margin: 0
+        margin: 0
       cards:
         - template: es-light-temperature
           type: "custom:decluttering-card"
