@@ -3,7 +3,7 @@ card:
   - height: 34px
   - letter-spacing: 0.1em;
   - font-weight: 700
-  - background: "transparent"
+  - background: "black"
   - font-size: 12px
   - border: 2px solid white
   - border-radius: 10px

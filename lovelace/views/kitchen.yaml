@@ -1,8 +1,7 @@
 title: Cozinha
 path: kitchen
 panel: true
-#icon: mdi:silverware-fork-knife
-background: "linear-gradient(95deg, #cdf7f6 0%, #ebf4f5 74%)"
+background: "var(--background-view-kitchen)"
 
 cards:
   - type: custom:layout-card

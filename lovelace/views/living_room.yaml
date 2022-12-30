@@ -1,8 +1,7 @@
 title: Sala
-path: sala
+path: living
 panel: true
-#icon: mdi:home-assistant
-background: "linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%)"
+background: "var(--background-view-living)"
 
 cards:
   - type: custom:layout-card

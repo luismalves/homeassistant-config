@@ -2,8 +2,7 @@ title: Home
 path: home
 panel: true
 icon: mdi:home-circle
-#background: "linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)"
-background: "center / cover no-repeat url('/local/backgrounds/Wave_1.svg') fixed"
+background: "var(--background-view-home)"
 
 cards:
   - type: custom:layout-card

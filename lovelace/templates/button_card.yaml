@@ -241,12 +241,11 @@ task:
       - font-size: 14px
       - justify-self: start
     card:
+      - background: black
       - font-weight: 700
       - font-size: 12px
       - border-radius: 15px
-      - box-shadow: none
       - padding: 4% 4% 4% 0
-      - transition: none
     custom_fields:
       days_left:
         - font-weight: 400

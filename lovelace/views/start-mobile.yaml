@@ -2,8 +2,7 @@ title: Home
 path: start
 panel: true
 icon: mdi:home-circle
-#background: "linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%)"
-background: "#F1F3F4"
+background: "var(--background-view-home-mobile)"
 
 cards:
   - type: custom:layout-card

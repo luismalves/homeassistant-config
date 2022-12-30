@@ -3,7 +3,7 @@ path: config
 panel: true
 icon: mdi:cog-box
 visible: true
-background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+background: "var(--background-view-config)"
 
 cards:
   - type: custom:layout-card

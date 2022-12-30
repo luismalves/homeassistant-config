@@ -1,8 +1,7 @@
 title: Deck
 path: deck
 panel: true
-# icon: mdi:briefcase-outline
-background: "linear-gradient(315deg, white 0%, rgb(215,225,236) 74%)"
+background: "var(--background-view-deck)"
 
 cards:
   - type: custom:layout-card
