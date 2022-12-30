@@ -9,6 +9,51 @@ house:
 plants:
   custom_fields: !include ../icons/plants.yaml
 
+toggle:
+  custom_fields: !include ../icons/toggle.yaml
+
+auto-brightness:
+  custom_fields: !include ../icons/auto-brightness.yaml
+
+brightness:
+  custom_fields: !include ../icons/brightness.yaml
+
+debug-code:
+  custom_fields: !include ../icons/debug-code.yaml
+
+healthchecks:
+  custom_fields: !include ../icons/healthchecks.yaml
+
+vm:
+  custom_fields: !include ../icons/vm.yaml
+
+pihole:
+  custom_fields: !include ../icons/pihole.yaml
+
+tracker-desktop:
+  custom_fields: !include ../icons/tracker-desktop.yaml
+
+shutter:
+  custom_fields: !include ../icons/shutter.yaml
+
+shutter-temp:
+  custom_fields: !include ../icons/shutter-temp.yaml
+
+speaker:
+  custom_fields: !include ../icons/speaker.yaml
+
+tv:
+  custom_fields: !include ../icons/tv.yaml
+
+#---------------------#
+# Switch
+#---------------------#
+switch:
+  custom_fields: !include ../icons/switch.yaml
+
+#---------------------#
+# Lights
+#---------------------#
 light-spot:
   custom_fields: !include ../icons/light-spot.yaml
 
@@ -42,21 +87,9 @@ light-bedroom:
 light-xmas:
   custom_fields: !include ../icons/light-xmas.yaml
 
-shutter:
-  custom_fields: !include ../icons/shutter.yaml
-
-shutter-temp:
-  custom_fields: !include ../icons/shutter-temp.yaml
-
-speaker:
-  custom_fields: !include ../icons/speaker.yaml
-
-switch:
-  custom_fields: !include ../icons/switch.yaml
-
-tv:
-  custom_fields: !include ../icons/tv.yaml
-
+#---------------------#
+# Paths
+#---------------------#
 path-shutter:
   custom_fields: !include ../icons/path-shutter.yaml
 
@@ -82,6 +115,9 @@ path-bedroom:
 #custom_fields:
 #!include ../icons/path-sensors.yaml
 
+#---------------------#
+# Persons
+#---------------------#
 person-girl:
   custom_fields: !include ../icons/person-girl.yaml
 
@@ -91,6 +127,9 @@ person-kid:
 person-man:
   custom_fields: !include ../icons/person-man.yaml
 
+#---------------------#
+# Sensors
+#---------------------#
 sensors-version:
   custom_fields: !include ../sensors/sensors-version.yaml
 
@@ -118,6 +157,9 @@ sensor-desktop:
 sensor-xbox:
   custom_fields: !include ../icons/sensor-xbox.yaml
 
+#---------------------#
+# Scene
+#---------------------#
 scene-kitchen:
   custom_fields: !include ../icons/scene-kitchen.yaml
 
@@ -142,39 +184,17 @@ scene-reading:
 scene-christmas:
   custom_fields: !include ../icons/scene-christmas.yaml
 
+#---------------------#
+# Scripts
+#---------------------#
 script-lights-off:
   custom_fields: !include ../icons/script-lights-off.yaml
-
-tasks-action:
-  custom_fields: !include ../icons/tasks-action.yaml
-
-toggle:
-  custom_fields: !include ../icons/toggle.yaml
-
-auto-brightness:
-  custom_fields: !include ../icons/auto-brightness.yaml
-
-brightness:
-  custom_fields: !include ../icons/brightness.yaml
-
-debug-code:
-  custom_fields: !include ../icons/debug-code.yaml
-
-healthchecks:
-  custom_fields: !include ../icons/healthchecks.yaml
-
-vm:
-  custom_fields: !include ../icons/vm.yaml
-
-pihole:
-  custom_fields: !include ../icons/pihole.yaml
-
-tracker-desktop:
-  custom_fields: !include ../icons/tracker-desktop.yaml
 
 #---------------------#
 # Tasks
 #---------------------#
+tasks-action:
+  custom_fields: !include ../icons/tasks-action.yaml
 
 task:
   label: |
