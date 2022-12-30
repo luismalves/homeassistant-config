@@ -141,6 +141,7 @@ browser_mod:
               text-align: center !important;
             }
           type: "custom:mini-media-player"
+
         - entities:
             - actionSize: 65px
               actions:
@@ -183,67 +184,67 @@ browser_mod:
               sliderHeight: 200px
               sliderWidth: 10px
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
-              style: |
-                ha-card {
-                  --ha-card-box-shadow: none !important;
-                  --ha-card-box-shadow: unset !important;
-                  box-shadow: 0px 5px rgba(0,0,0,1) !important;
-                  border-radius: 1em;
-                  background: rgba(0, 0, 0, 0.9);
-                  padding: 20px;
-                  font-weight: 700;
-                }
-                .card-header {
-                  margin-left: 0.4em;
-                  margin-bottom: 0.1em;
-                  letter-spacing: 0.005em;
-                  font-weight: 700;
-                }
-
-                #popup > div.action-holder > div > div {
-                  margin: 0em 1em 1em 1em;
-                  font-weight: 700;
-                  font-size: 0.9em;
-                  color: #fff;
-                }
-                div > div > h4 {
-                  color: rgba(255, 255, 255, 1);
-                  margin: -1.8em 0 0.7em 0;
-                  font-size: 1.9em;
-                  font-weight: 700;
-                  letter-spacing: 0.04em;
-                  margin-top: -20px !important;
-                }  
-                .action-row {
-                  padding-bottom: 0px !important;
-                }
-                .range-holder input[type="range"] {
-                  transform: rotate(360deg) !important;
-                  margin-top: -160px !important;
-                  --slider-thumb-color: #ec543f !important;
-                }
-                .action-holder {
-                  margin-top: -195px !important;
-                }
-                .range-holder {
-                  width: 0px !important;
-                }
-                #states {
-                  box-shadow: transparent !important;
-                } 
-                #popup {
-                  margin: 0 0 0.8em 0;
-                } 
-                #popup > div.range-holder >
-                input[type=range]::-webkit-slider-thumb {
-                  border: 100%
-                  height: 100%
-                  width: 10px;
-                  cursor: pointer;
-                }
-                --ha-card-border-radius: transparent
-                --slider-width: 0
               type: "custom:media_player-popup-card"
           show_header_toggle: false
           type: entities
+          style: |
+            ha-card {
+              --ha-card-box-shadow: none !important;
+              --ha-card-box-shadow: unset !important;
+              box-shadow: 0px 5px rgba(0,0,0,1) !important;
+              border-radius: 1em;
+              background: rgba(0, 0, 0, 0.9);
+              padding: 20px;
+              font-weight: 700;
+            }
+            .card-header {
+              margin-left: 0.4em;
+              margin-bottom: 0.1em;
+              letter-spacing: 0.005em;
+              font-weight: 700;
+            }
+
+            #popup > div.action-holder > div > div {
+              margin: 0em 1em 1em 1em;
+              font-weight: 700;
+              font-size: 0.9em;
+              color: #fff;
+            }
+            div > div > h4 {
+              color: rgba(255, 255, 255, 1);
+              margin: -1.8em 0 0.7em 0;
+              font-size: 1.9em;
+              font-weight: 700;
+              letter-spacing: 0.04em;
+              margin-top: -20px !important;
+            }  
+            .action-row {
+              padding-bottom: 0px !important;
+            }
+            .range-holder input[type="range"] {
+              transform: rotate(360deg) !important;
+              margin-top: -160px !important;
+              --slider-thumb-color: #ec543f !important;
+            }
+            .action-holder {
+              margin-top: -195px !important;
+            }
+            .range-holder {
+              width: 0px !important;
+            }
+            #states {
+              box-shadow: transparent !important;
+            } 
+            #popup {
+              margin: 0 0 0.8em 0;
+            } 
+            #popup > div.range-holder >
+            input[type=range]::-webkit-slider-thumb {
+              border: 100%
+              height: 100%
+              width: 10px;
+              cursor: pointer;
+            }
+            --ha-card-border-radius: transparent
+            --slider-width: 0
       type: vertical-stack
