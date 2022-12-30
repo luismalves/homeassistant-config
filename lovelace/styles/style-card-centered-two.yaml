@@ -1,0 +1,29 @@
+card:
+  - width: 230px
+  - height: 90px
+  - background: "rgb(255, 255, 255)"
+  - letter-spacing: 0.1em;
+  - font-family: "var(--paper-ha-card_-_font-family)"
+  - font-weight: 700
+  - color: "rgba(87, 87, 87, 0.8)"
+  - font-size: 12px
+  - border-radius: 15px
+  - box-shadow: none
+  - transition: none
+
+custom_fields:
+  alert:
+    - align-self: center
+
+grid:
+  - grid-template-areas: '"alert" "s" "n"'
+  - grid-template-columns: 1fr
+  - grid-template-rows: min-content 1fr min-content
+
+name:
+  - font-weight: bold
+  - padding-bottom: 10px
+
+state:
+  - align-self: center
+  - font-size: 28px

@@ -130,6 +130,9 @@ cards:
                 entities:
                   - entity: sensor.homedrive_volume_used_volume1
                     name: Disk usage
+                  - entity: sensor.homedrive_used_space_volume1
+                    show_state: true
+                    show_graph: false
                 show:
                   name: true
                   icon: true

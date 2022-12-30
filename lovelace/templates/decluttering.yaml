@@ -629,6 +629,17 @@ sensor-number:
     type: "custom:button-card"
   default: null
 
+sensor-number-big:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    show_icon: false
+    show_state: true
+    styles: !include ../styles/style-card-centered-two.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
 sensor-number-ext:
   card:
     entity: "[[entity-1]]"

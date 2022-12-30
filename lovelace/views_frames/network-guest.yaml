@@ -1,0 +1,42 @@
+####
+# Guest network
+#
+####
+type: vertical-stack
+cards:
+  - type: "custom:gap-card"
+    height: 25
+
+  - type: "custom:decluttering-card"
+    template: subtitle-white
+    variables:
+      - content: Rede guest
+
+  - type: "custom:decluttering-card"
+    template: es-switch
+    variables:
+      - template: sensor-movement
+      - entity-1: switch.mt_audience_wifi_5g_guest_port
+      - name-1: Wireless guest
+
+  - type: conditional
+    conditions:
+      - entity: switch.mt_audience_wifi_5g_guest_port
+        state: "on"
+    card:
+      type: picture
+      image: local/images/network/WiFi_Guest_qrcode.png
+      tap_action:
+        action: none
+      hold_action:
+        action: none
+      card_mod:
+        style: |
+          :host {
+            --ha-card-background: white;
+            --ha-card-box-shadow: none;
+            background: var( --ha-card-background, var(--card-background-color, white) );
+            border-radius: var(--ha-card-border-radius, 12px);
+            display: block;
+            padding: 28px;
+          }
