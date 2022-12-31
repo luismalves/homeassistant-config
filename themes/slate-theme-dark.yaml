@@ -38,7 +38,7 @@ slate_theme_dark:
   background-view-home-mobile: "#202125"
   background-view-temp: "center / cover no-repeat url('/local/backgrounds/Wave_2.svg') fixed"
   background-view-bedroom: "linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%)"
-  background-view-deck: "linear-gradient(315deg, white 0%, rgb(215,225,236) 74%)"
+  background-view-deck: "#202125"
   background-view-kitchen: "linear-gradient(95deg, #cdf7f6 0%, #ebf4f5 74%)"
   background-view-living: "#202125"
   background-view-config: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
@@ -63,19 +63,32 @@ slate_theme_dark:
   ha-card-background-es-off: "#303135"
   ha-card-background-es-on: "#424a57"
   ha-card-background-path: rgb(255, 255, 255)
+  ha-card-background-scene: "#3b6d76"
+  ha-card-background-energy: "#303135"
+  ha-card-background-alert: "#f4a7a7"
 
   ha-card-color-state-on: "#ffffff"
   ha-card-color-name-on: "#89b4f8"
   ha-card-color-state-off: "#525559"
   ha-card-color-name-off: "#81868c"
+  ha-card-border-off: "2px solid #303135"
+  ha-card-alert-text: black
 
   # Custom elements
   #
   el-title-color: "white"
   el-title-color-inverted: "#333"
 
+  el-text-color: "white"
+  el-text-color-inverted: "#333"
+
   el-state-circle-dash: "#89b4f8"
   el-state-circle-text: "#89b4f8"
+
+  el-scene-name-color: "#7ad8e9"
+  el-scene-hint-color: "#51919c"
+
+  el-person-svg-color: white
 
   # Paper card
   paper-card-header-color: "#00d6c0"

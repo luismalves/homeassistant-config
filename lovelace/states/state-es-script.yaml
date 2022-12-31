@@ -1,0 +1,19 @@
+- styles:
+    card:
+      - background-color: "var(--ha-card-background-scene)"
+    name:
+      - color: "var(--el-scene-name-color)"
+    custom_fields:
+      sd1:
+        - color: "var(--el-scene-hint-color)"
+  value: "on"
+
+- styles:
+    card:
+      - background-color: "var(--ha-card-background-es-off)"
+    name:
+      - color: "var(--ha-card-color-name-off)"
+    custom_fields:
+      sd1:
+        - color: "var(--ha-card-color-state-off)"
+  value: "off"

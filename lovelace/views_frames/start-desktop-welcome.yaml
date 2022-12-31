@@ -73,7 +73,7 @@
         - entity-1: input_boolean.margarida_home
         - name-1: "Ma"
         - state-1: "on"
-        - state-outline-2: "off"
+        - state-outline: "off"
     - template: es-person
       type: "custom:decluttering-card"
       variables:
@@ -81,7 +81,7 @@
         - entity-1: input_boolean.luis_home
         - name-1: "Lu"
         - state-1: "on"
-        - state-outline-2: "off"
+        - state-outline: "off"
     - type: "custom:gap-card"
       height: 10
 
@@ -108,7 +108,7 @@
                 'name': state_attr(sensor.entity_id, 'friendly_name'),
                 'type': 'custom:button-card',
                 'template': 'tasks-action',
-                'styles': {"card":[{"width":"336px"},{"height":"34px"},{"letter-spacing":"0.1em;"},{"font-family":"San Francisco"},{"font-weight":700},{"background":"transparent"},{"font-size":"12px"},{"border":"2px solid black"},{"border-radius":"10px"},{"box-shadow":"none"},{"padding":"4px 0px"},{"margin-bottom":"4px"},{"transition":"none"}],"custom_fields":{"icon_hue":[{"color":"#B95000"},{"margin":"auto"},{"width":"20px"}]},"grid":[{"grid-template-areas":"\"icon_hue name\""},{"grid-template-columns":"40px 2fr"},{"grid-template-rows":"1fr"}],"name":[{"color":"black"},{"font-weight":"bold"},{"font-size":"12px"},{"grid-area":"name"},{"justify-self":"flex-start"}]},
+                'styles': {"card":[{"width":"336px"},{"height":"34px"},{"letter-spacing":"0.1em;"},{"font-weight":"bold"},{"background":"transparent"},{"font-size":"12px"},{"border":"2px solid black"},{"border-radius":"10px"},{"box-shadow":"none"},{"padding":"4px 0px"},{"margin-bottom":"4px"},{"transition":"none"}],"custom_fields":{"icon_hue":[{"color":"#B95000"},{"margin":"auto"},{"width":"20px"}]},"grid":[{"grid-template-areas":"\"icon_hue name\""},{"grid-template-columns":"40px 2fr"},{"grid-template-rows":"1fr"}],"name":[{"color":"black"},{"font-weight":"bold"},{"font-size":"12px"},{"grid-area":"name"},{"justify-self":"flex-start"}]},
                 'tap_action': {'action': 'navigate', 'navigation_path': '/dashboard-mobile/tasks'},
                 'show_icon': false,
                 'show_state': false }
@@ -125,7 +125,7 @@
   type: weather-forecast
   style: |
     .type-weather-forecast {
-      color: rgb(0,0,0);
+      color: var(--el-text-color);
       background: transparent;
       font-family: var(--paper-ha-card_-_font-family);
       margin-top: 0px !important;

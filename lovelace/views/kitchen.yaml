@@ -35,7 +35,7 @@ cards:
                 background: none;
                 font-weight: 700;
                 font-size: 1.2em;
-                color: #555;
+                color: var(--el-title-color);
                 margin-left: -15px;
                 margin-top: -17px;
                 margin-bottom: 0px;
@@ -52,19 +52,7 @@ cards:
               state: ">80"
         card:
           type: markdown
-          style: >
-            ha-card {
-              box-shadow: none;
-              height: 100%;
-              background: rgb(255,103,0);
-              font-weight: 700;
-              font-size: 1.2em;
-              color: #fff;
-              margin-bottom: 0px;
-            }
-            ha-markdown {
-              padding: 10px 16px !important;
-            }
+          style: !include ../styles/style-card-alert.yaml
           content: Humidade muito elevada.
 
       - cards:

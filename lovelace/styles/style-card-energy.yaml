@@ -1,10 +1,9 @@
 card:
   - width: 340px
-  #- height: 55px
   - font-weight: 700
-  - color: rgba(0, 0, 0, 0.4)
+  - color: "var(--ha-card-color-name-off)"
   - font-size: 10px
-  - background-color: "rgb(255, 255, 255)"
+  - background-color: "var(--ha-card-background-energy)"
   - padding: 0px
 
 grid:
@@ -17,7 +16,7 @@ grid:
 name:
   - font-weight: bold
   - font-size: 16px
-  - color: "#111"
+  - color: "var(--el-text-color)"
   - grid-area: name
   - justify-self: flex-start
 

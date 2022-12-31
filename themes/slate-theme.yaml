@@ -63,19 +63,32 @@ slate_theme:
   ha-card-background-es-off: rgba(255, 255, 255, 0.6)
   ha-card-background-es-on: rgb(255, 255, 255)
   ha-card-background-path: rgb(255, 255, 255)
+  ha-card-background-scene: rgb(255, 255, 255)
+  ha-card-background-energy: rgb(255, 255, 255)
+  ha-card-background-alert: "linear-gradient(to left, rgba(255,103,0,0.7), rgba(255,103,0,1))"
 
   ha-card-color-state-on: rgba(0, 0, 0, 0.4)
   ha-card-color-name-on: rgba(0, 0, 0, 1)
   ha-card-color-state-off: rgba(0, 0, 0, 0.2)
   ha-card-color-name-off: rgba(0, 0, 0, 0.4)
+  ha-card-border-off: "2px solid rgba(0, 0, 0, 0.25)"
+  ha-card-alert-text: white
 
   # Custom elements
   #
   el-title-color: "#333"
   el-title-color-inverted: "white"
 
+  el-text-color: "#333"
+  el-text-color-inverted: "white"
+
   el-state-circle-dash: "#b2b2b2"
   el-state-circle-text: "#b2b2b2"
+
+  el-scene-name-color: "rgba(87, 87, 87, 0.8)"
+  el-scene-hint-color: "rgba(0, 0, 0, 0.3)"
+
+  el-person-svg-color: rgb(87,87,87)
 
   # Paper card
   paper-card-header-color: "#00d6c0"

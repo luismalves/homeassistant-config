@@ -192,6 +192,7 @@ scene:
         entity_id: "[[scene-1]]"
     show_icon: false
     show_state: false
+    state: !include ../states/state-scene.yaml
     styles: !include ../styles/style-card-centered.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -208,6 +209,7 @@ script:
         entity_id: "[[script]]"
     show_icon: false
     show_state: false
+    state: !include ../states/state-script.yaml
     styles: !include ../styles/style-card-centered.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -257,7 +259,7 @@ es-script:
         entity_id: "[[script-1]]"
     show_icon: false
     show_state: true
-    state: !include ../states/state-x.yaml
+    state: !include ../states/state-es-script.yaml
     styles: !include ../styles/style-card-centered.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -716,7 +718,7 @@ btn-moods:
     tap_action: !include ../holds/hold-action-mood.yaml
     show_icon: false
     show_state: true
-    state: !include ../states/state-es.yaml
+    state: !include ../states/state-es-script.yaml
     styles: !include ../styles/style-card-centered.yaml
     template: "[[template]]"
     type: "custom:button-card"

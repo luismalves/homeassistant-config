@@ -6,6 +6,9 @@
       - color: "var(--ha-card-color-name-on)"
     state:
       - color: "var(--ha-card-color-state-on)"
+    custom_fields:
+      sd1:
+        - color: "var(--ha-card-color-state-on)"
   value: "[[state-1]]"
 
 - styles:
@@ -38,9 +41,10 @@
 - styles:
     card:
       - background-color: "transparent"
-      - border: "2px solid rgba(0, 0, 0, 0.25)"
+      - border: "var(--ha-card-border-off)"
     name:
-      - color: "var(--ha-card-color-name-on)"
-    state:
-      - color: "var(--ha-card-color-state-on)"
-  value: "[[state-outline-2]]"
+      - color: "var(--ha-card-color-name-off)"
+    custom_fields:
+      sd1:
+        - color: "var(--ha-card-color-state-off)"
+  value: "[[state-outline]]"
