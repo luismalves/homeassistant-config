@@ -24,25 +24,8 @@ cards:
       - entity: sensor.pi_hole_ads_blocked_today
         name: Ads blocked today
         icon: mdi:close-octagon-outline
-        card_mod:
-          style: |
-            :host {
-              --card-mod-icon-color:black; 
-            }
       - entity: sensor.pi_hole_ads_percentage_blocked_today
         name: Ads Percentage Blocked Today
         icon: mdi:close-octagon-outline
-        card_mod:
-          style: |
-            :host {
-              --card-mod-icon-color:black; 
-            }
     card_mod:
-      style: |
-        :host {
-          --ha-card-background: white;
-          --primary-text-color: rgba(0,0,0);
-        }
-        #states > * {
-          margin: 0px !important;
-        }
+      style: !include ../styles/style-card-entities-img.yaml

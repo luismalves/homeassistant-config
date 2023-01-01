@@ -18,8 +18,7 @@ sd2: >
 sd3: >
   [[[
     let numlight = states['sensor.lights_on_deck'].state;
-    if (numlight == "0") return `<span style="color: white;">x</span>`;
-    if (numlight == "1") return `<span> ${states['sensor.lights_on_deck'].state} luz ligada</span>`;
-    else return `<span> ${states['sensor.lights_on_deck'].state} luzes ligadas</span>`;
+    if (numlight == "0") return `<span> </span>`;
+    if (numlight == "1") return `<span style="color: var(--el-es-static-text-color-light);"> ${states['sensor.lights_on_deck'].state} luz ligada</span>`;
+    else return `<span style="color: var(--el-es-static-text-color-light);"> ${states['sensor.lights_on_deck'].state} luzes ligadas</span>`;
   ]]]
-  

@@ -4,7 +4,6 @@ card:
   - color: "rgba(87, 87, 87, 0.8)"
   - font-size: 12px
   - background-color: "var(--ha-card-background-path)"
-  - border-radius: 15px
 custom_fields:
   icon_hue:
     - top: 15%

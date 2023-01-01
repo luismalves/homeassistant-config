@@ -124,7 +124,7 @@ cards:
             font_size: 65
             points_per_hour: 4
             color_thresholds: !include ../graphs/temp-thresholds.yaml
-            style: !include ../styles/style-card-minigraph.yaml
+            style: !include ../styles/style-graph-big.yaml
         type: horizontal-stack
 
       - type: horizontal-stack

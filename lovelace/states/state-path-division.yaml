@@ -1,0 +1,15 @@
+- styles:
+    card:
+      - background-color: "var(--ha-card-background-es-on)"
+    custom_fields:
+      sd3:
+        - color: "var(--ha-card-background-es-on)"
+  operator: ">"
+  value: 0
+
+- styles:
+    custom_fields:
+      sd3:
+        - color: "var(--ha-card-background-es-off)"
+  operator: "=="
+  value: 0

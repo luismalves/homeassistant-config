@@ -1,8 +1,8 @@
 card:
   - width: 110px
   - height: 50px
-  - font-weight: 700
-  - color: "rgba(87, 87, 87, 0.8)"
+  - font-weight: bold
+  - color: var(--el-text-color-light)
   - font-size: 12px
 
 custom_fields:

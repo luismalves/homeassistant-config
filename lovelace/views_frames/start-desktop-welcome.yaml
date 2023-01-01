@@ -123,38 +123,7 @@
 
 - entity: weather.home
   type: weather-forecast
-  style: |
-    .type-weather-forecast {
-      color: var(--el-text-color);
-      background: transparent;
-      font-family: var(--paper-ha-card_-_font-family);
-      margin-top: 0px !important;
-      border-radius: 10px;
-      box-shadow: none;
-      padding-top: 8px;
-    }
-
-    .forecast {
-      font-size: 13px;
-      padding-top: 10px;
-    }
-
-    .forecast > div > div:first-child,
-    .temp-attribute .temp,
-    .state {
-      font-weight: 700;
-    }
-
-    .forecast-image-icon > * {
-      width: 30px;
-      height: 30px;
-      --mdc-icon-size: 30px;
-    }
-
-    .forecast .temp {
-      font-size: 14px;
-      margin: 0;
-    }
+  style: !include ../styles/style-card-weather-transparent.yaml
 
 - type: "custom:gap-card"
   height: 10

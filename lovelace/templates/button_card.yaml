@@ -261,7 +261,7 @@ task:
       - font-size: 14px
       - justify-self: start
     card:
-      - background: black
+      - background: var(--ha-card-background-task)
       - font-weight: 700
       - font-size: 12px
       - border-radius: 15px

@@ -45,6 +45,7 @@ slate_theme:
   background-view-system: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-tasks: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-network: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+  background-view-nas: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
 
   # Nav Menu
   paper-listbox-color: "#777777"
@@ -62,7 +63,9 @@ slate_theme:
   #
   ha-card-background-es-off: rgba(255, 255, 255, 0.6)
   ha-card-background-es-on: rgb(255, 255, 255)
+  ha-card-background-es-static: rgb(255, 255, 255)
   ha-card-background-path: rgb(255, 255, 255)
+  ha-card-background-task: black
   ha-card-background-scene: rgb(255, 255, 255)
   ha-card-background-energy: rgb(255, 255, 255)
   ha-card-background-alert: "linear-gradient(to left, rgba(255,103,0,0.7), rgba(255,103,0,1))"
@@ -81,6 +84,7 @@ slate_theme:
 
   el-text-color: "#333"
   el-text-color-inverted: "white"
+  el-text-color-light: "#b0b0b0"
 
   el-state-circle-dash: "#b2b2b2"
   el-state-circle-text: "#b2b2b2"
@@ -88,7 +92,14 @@ slate_theme:
   el-scene-name-color: "rgba(87, 87, 87, 0.8)"
   el-scene-hint-color: "rgba(0, 0, 0, 0.3)"
 
-  el-person-svg-color: rgb(87,87,87)
+  el-es-static-text-color: "#333"
+  el-es-static-text-color-light: "rgba(0, 0, 0, 0.7)"
+
+  el-svg-main-color-on: rgb(87,87,87)
+  el-svg-main-color-off: rgb(87,87,87)
+
+  el-graph-title-color: "#333"
+  el-graph-state-color: "#333"
 
   # Paper card
   paper-card-header-color: "#00d6c0"

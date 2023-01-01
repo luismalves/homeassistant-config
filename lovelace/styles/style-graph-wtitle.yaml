@@ -1,28 +1,26 @@
 #####
 # Style for mini-graph-card
-# Temperature & Humidity
+# With titles inside
 #####
 |
   ha-card {
-    background: #FFF;
-    border-radius: 15px;
-    box-shadow: none;
+    background: var(--ha-card-background-es-static);
     padding-top: 8px !important;
   }
   .header {
-    padding: 0px 8px;
+    padding: 0px 4px 0px 8px;
   }
   .header .name > span {
-    color: #000;
+    color: var(--el-graph-title-color);
     font-size: 14px;
     font-weight: 600;
     opacity: unset;
   }
   .icon {
-    opacity: 0.5;
+    color: var(--ha-card-color-state-off) !important;
   }
   .states {
-    color: #111;
+    color: var(--el-graph-state-color);
     font-size: 8px;
     padding-bottom: 0px;
     padding-left: 8px;

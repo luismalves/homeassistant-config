@@ -1,9 +1,9 @@
 card:
   - width: 110px
   - height: 110px
-  #- background: "rgb(255, 255, 255)"
-  - font-weight: 700
-  - color: "rgba(87, 87, 87, 0.8)"
+  - background: var(--ha-card-background-es-static)
+  - font-weight: bold
+  - color: "var(--el-es-static-text-color-light)"
   - font-size: 12px
 
 custom_fields:

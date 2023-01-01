@@ -17,35 +17,15 @@ cards:
       - entity: sensor.mt_audience_uptime_friendly
         name: Uptime
         icon: mdi:timelapse
-        card_mod:
-          style: |
-            :host {
-              --card-mod-icon-color:black; 
-            }
       - entity: sensor.mt_audience_ports_in_use
         name: Ports
         icon: mdi:ethernet
-        card_mod:
-          style: |
-            :host {
-              --card-mod-icon-color:black; 
-            }
       - entity: sensor.mt_audience_wireless_clients
         name: Wireless clients
         icon: mdi:access-point
-        card_mod:
-          style: |
-            :host {
-              --card-mod-icon-color:black; 
-            }
       # - entity: binary_sensor.mt_audience_firmware_update
       #   name: Firmware Update
       #   icon: mdi:reload
-      #   card_mod:
-      #     style: |
-      #       :host {
-      #         --card-mod-icon-color:black;
-      #       }
     state_color: true
     header:
       type: picture
@@ -55,14 +35,7 @@ cards:
       hold_action:
         action: none
     card_mod:
-      style: |
-        :host {
-          --ha-card-background: white;
-          --primary-text-color: rgba(0,0,0);
-        }
-        #states > * {
-          margin: 0px !important;
-        }
+      style: !include ../styles/style-card-entities-img.yaml
 
   - type: custom:layout-card
     layout_type: custom:grid-layout
@@ -85,7 +58,7 @@ cards:
         font_size: 65
         points_per_hour: 6
         color_thresholds: !include ../graphs/percentage-thresholds.yaml
-        style: !include ../styles/style-graph-thdetail.yaml
+        style: !include ../styles/style-graph-wtitle.yaml
 
       - type: "custom:mini-graph-card"
         entities:
@@ -100,4 +73,4 @@ cards:
         font_size: 65
         points_per_hour: 6
         color_thresholds: !include ../graphs/percentage-thresholds.yaml
-        style: !include ../styles/style-graph-thdetail.yaml
+        style: !include ../styles/style-graph-wtitle.yaml

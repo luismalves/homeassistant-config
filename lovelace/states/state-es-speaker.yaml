@@ -3,9 +3,9 @@
       - background-color: "var(--ha-card-background-es-on)"
       - overflow: hidden
     name:
-      - color: "rgba(0, 0, 0, 1)"
+      - color: "var(--ha-card-color-name-on)"
     state:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-state-on)"
   value: "playing"
 
 - styles:
@@ -13,25 +13,25 @@
       - background-color: "var(--ha-card-background-es-on)"
       - overflow: hidden
     name:
-      - color: "rgba(0, 0, 0, 1)"
+      - color: "var(--ha-card-color-name-on)"
     state:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-state-on)"
   value: "paused"
 
 - styles:
     card:
       - background-color: "var(--ha-card-background-es-off)"
     name:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-name-off)"
     state:
-      - color: "rgba(0, 0, 0, 0.2)"
+      - color: "var(--ha-card-color-state-off)"
   value: "off"
 
 - styles:
     card:
       - background-color: "var(--ha-card-background-es-off)"
     name:
-      - color: "rgba(0, 0, 0, 0.4)"
+      - color: "var(--ha-card-color-name-off)"
     state:
-      - color: "rgba(0, 0, 0, 0.2)"
+      - color: "var(--ha-card-color-state-off)"
   value: "idle"

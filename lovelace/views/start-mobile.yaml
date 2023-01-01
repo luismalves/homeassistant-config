@@ -70,15 +70,15 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: path-living-room
-              - entity-1: input_boolean.home_ocuppied
+              - entity-1: sensor.lights_on_living_room
               - name-1: "Sala"
-              - navigation_path: /dashboard-mobile/sala
+              - navigation_path: /dashboard-mobile/living
 
           - template: path-division
             type: "custom:decluttering-card"
             variables:
               - template: path-kitchen
-              - entity-1: input_boolean.home_ocuppied
+              - entity-1: sensor.lights_on_kitchen
               - name-1: "Cozinha"
               - navigation_path: /dashboard-mobile/kitchen
 
@@ -88,7 +88,7 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: path-deck
-              - entity-1: input_boolean.home_ocuppied
+              - entity-1: sensor.lights_on_deck
               - name-1: "Deck"
               - navigation_path: /dashboard-mobile/deck
 
@@ -96,7 +96,7 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: path-bedroom
-              - entity-1: input_boolean.home_ocuppied
+              - entity-1: sensor.lights_on_bedroom
               - name-1: "Quarto"
               - navigation_path: /dashboard-mobile/bedroom
 
@@ -138,30 +138,10 @@ cards:
 
       - entity: weather.home
         type: weather-forecast
-        style: |
-          .type-weather-forecast {
-            color: rgb(0,0,0);
-            background: rgb(255,255,255);
-            margin-top: 0px !important;
-            border-radius: 10px;
-            box-shadow: none;
-          }
-
-          .forecast > div > div:first-child,
-          .temp-attribute .temp,
-          .state {
-            font-weight: 700;
-          }
+        style: !include ../styles/style-card-weather.yaml
 
       - type: "custom:vertical-stack-in-card"
         horizontal: false
-        style: |
-          ha-card {
-            background: #FFF;
-            border-radius: 15px;
-            box-shadow: none;
-            color: rgba(0, 0, 0);
-          }
         cards:
           - template: sensor-energy
             type: "custom:decluttering-card"
@@ -206,10 +186,7 @@ cards:
                 color: "#590D1A"
             style: |
               ha-card {
-                background: #FFF;
-                border-radius: 15px;
-                box-shadow: none;
-                color: rgba(255, 255, 255);
+                background: var(--ha-card-background-es-static);
                 padding: 0;
               }
 
@@ -235,7 +212,7 @@ cards:
                   - entity-1: input_boolean.margarida_home
                   - name-1: "Ma"
                   - state-1: "on"
-                  - state-2: "off"
+                  - state-outline: "off"
               - template: es-person
                 type: "custom:decluttering-card"
                 variables:
@@ -243,7 +220,7 @@ cards:
                   - entity-1: input_boolean.luis_home
                   - name-1: "Lu"
                   - state-1: "on"
-                  - state-2: "off"
+                  - state-outline: "off"
             type: vertical-stack
 
           - template: es-dummy

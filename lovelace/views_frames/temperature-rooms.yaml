@@ -31,7 +31,7 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/temp-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
@@ -46,7 +46,7 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/humidity-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml
 
 ####
 # Deck
@@ -81,7 +81,7 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/temp-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
@@ -96,7 +96,7 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/humidity-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml
 
 ####
 # Devices
@@ -131,7 +131,7 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
@@ -146,7 +146,7 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
@@ -161,7 +161,7 @@
           font_size: 65
           points_per_hour: 6
           color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
@@ -176,4 +176,4 @@
           font_size: 65
           points_per_hour: 6
           color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
-          style: !include ../styles/style-graph-thdetail.yaml
+          style: !include ../styles/style-graph-wtitle.yaml

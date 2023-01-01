@@ -109,17 +109,7 @@ cards:
             font_size: 65
             points_per_hour: 4
             color_thresholds: !include ../graphs/temp-thresholds.yaml
-            style: |
-              ha-card {
-                background: #FFF;
-                border-radius: 15px;
-                box-shadow: none;
-              }
-              .states {
-                color: #111;
-                padding-bottom: 8px;
-                padding-left: 8px;
-              }
+            style: !include ../styles/style-graph-small.yaml
         type: horizontal-stack
 
       - cards:

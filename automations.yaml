@@ -39,3 +39,21 @@
     data:
       name: slate_theme
   mode: single
+- id: '1672603720477'
+  alias: Theme change
+  description: Light/Dark theme change
+  trigger:
+  - platform: homeassistant
+    event: start
+  - platform: state
+    entity_id: sun.sun
+    to: above_horizon
+  - platform: state
+    entity_id: sun.sun
+    to: below_horizon
+  action:
+  - service: frontend.set_theme
+    data_template:
+      name: "{% if states.sun.sun.state == \"above_horizon\" %}\n  slate_theme\n{%
+        else %}\n  slate_theme_dark\n{% endif %}\n"
+  mode: single

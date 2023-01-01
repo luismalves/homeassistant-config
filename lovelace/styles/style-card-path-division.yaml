@@ -2,9 +2,9 @@ card:
   - width: 165px
   - height: 70px
   - font-weight: bold
-  - color: "rgba(87, 87, 87, 0.8)"
+  #- color: "var(--el-es-static-text-color)"
   - font-size: 12px
-  - background-color: "rgb(255, 255, 255)"
+  - background-color: "var(--ha-card-background-path)"
 
 custom_fields:
   icon_hue:
@@ -20,19 +20,19 @@ custom_fields:
   sd1:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "rgba(0, 0, 0, 0.4)"
+    - color: "var(--el-es-static-text-color-light)"
   sd2:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "rgba(0, 0, 0, 0.4)"
+    - color: "var(--el-es-static-text-color-light)"
   sd3:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "rgba(0, 0, 0, 0.4)"
+    - color: "var(--el-es-static-text-color-light)"
   sd4:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "rgba(0, 0, 0, 0.4)"
+    - color: "var(--el-es-static-text-color-light)"
 
 grid:
   - grid-template-areas: '"icon_hue n n ." "icon_hue sd1 sd2 ." "icon_hue sd3 sd4 ."'
@@ -40,7 +40,7 @@ grid:
   - grid-template-rows: 1.2fr min-content min-content
 
 name:
-  - color: black
+  - color: "var(--ha-card-color-name-on)"
   - justify-self: start
   - font-weight: bold
   - font-size: 16px

@@ -12,6 +12,5 @@ sd3: >
   [[[ 
     let numlight = states['sensor.lights_on_bedroom'].state;
     if (numlight == "0") return '';
-    else return `<span style="color: white;">x</span>`;
+    else return `<span>x</span>`;
   ]]]
-  

@@ -1,0 +1,14 @@
+|
+  :host {
+    --card-mod-icon-color:var(--el-text-color); 
+  }
+  ha-card {
+    background-color: var(--ha-card-background-es-static);
+    color: var(--el-es-static-text-color);
+  }
+  #states > * {
+    margin: 0px !important;
+  }
+  .header {
+    padding: 35px 35px 5px 35px;
+  }

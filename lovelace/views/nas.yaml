@@ -3,7 +3,7 @@ path: nas
 panel: true
 #icon: mdi:cog-box
 visible: true
-background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+background: "var(--background-view-nas)"
 
 cards:
   - type: custom:layout-card
@@ -36,40 +36,19 @@ cards:
               - entity: sensor.homedrive_status
                 name: Status
                 icon: mdi:list-status
-                card_mod:
-                  style: |
-                    :host {
-                      --card-mod-icon-color:black; 
-                    }
               - entity: sensor.homedrive_uptime_friendly
                 name: Uptime
                 icon: mdi:timelapse
-                card_mod:
-                  style: |
-                    :host {
-                      --card-mod-icon-color:black; 
-                    }
               - type: attribute
                 entity: sensor.homedrive_used_space_volume1
                 name: Disco total
                 icon: mdi:harddisk
                 attribute: Volume Size
-                card_mod:
-                  style: |
-                    :host {
-                      --card-mod-icon-color:black; 
-                    }
               - type: attribute
                 entity: sensor.homedrive_memory_usage
                 name: Memória total
                 icon: mdi:memory
                 attribute: Memory Size
-                card_mod:
-                  style: |
-                    :host {
-                      --card-mod-icon-color:black; 
-                    }
-
             state_color: true
             header:
               type: picture
@@ -79,14 +58,7 @@ cards:
               hold_action:
                 action: none
             card_mod:
-              style: |
-                :host {
-                  --ha-card-background: white;
-                  --primary-text-color: rgba(0,0,0);
-                }
-                #states > * {
-                  margin: 0px !important;
-                }
+              style: !include ../styles/style-card-entities-img.yaml
 
           - type: custom:layout-card
             layout_type: custom:grid-layout
@@ -109,7 +81,7 @@ cards:
                 font_size: 65
                 points_per_hour: 6
                 color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
-                style: !include ../styles/style-graph-thdetail.yaml
+                style: !include ../styles/style-graph-wtitle.yaml
 
               - type: "custom:mini-graph-card"
                 entities:
@@ -124,7 +96,7 @@ cards:
                 font_size: 65
                 points_per_hour: 6
                 color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
-                style: !include ../styles/style-graph-thdetail.yaml
+                style: !include ../styles/style-graph-wtitle.yaml
 
               - type: "custom:mini-graph-card"
                 entities:
@@ -142,4 +114,4 @@ cards:
                 font_size: 65
                 points_per_hour: 1
                 color_thresholds: !include ../graphs/percentage-thresholds.yaml
-                style: !include ../styles/style-graph-thdetail.yaml
+                style: !include ../styles/style-graph-wtitle.yaml

@@ -9,6 +9,8 @@
     custom_fields:
       sd1:
         - color: "var(--ha-card-color-state-on)"
+      s:
+        - color: "var(--ha-card-color-state-on)"
   value: "[[state-1]]"
 
 - styles:
@@ -18,6 +20,11 @@
       - color: "var(--ha-card-color-name-off)"
     state:
       - color: "var(--ha-card-color-state-off)"
+    custom_fields:
+      sd1:
+        - color: "var(--ha-card-color-state-off)"
+      s:
+        - color: "var(--ha-card-color-state-off)"
   value: "[[state-2]]"
 
 - styles:

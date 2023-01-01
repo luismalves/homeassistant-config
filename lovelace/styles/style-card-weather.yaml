@@ -1,0 +1,14 @@
+|
+  .type-weather-forecast {
+    color: var(--el-es-static-text-color);
+    background: var(--ha-card-background-es-static);
+    margin-top: 0px !important;
+    border-radius: 10px;
+    box-shadow: none;
+  }
+
+  .forecast > div > div:first-child,
+  .temp-attribute .temp,
+  .state {
+    font-weight: 700;
+  }

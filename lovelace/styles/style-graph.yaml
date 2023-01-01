@@ -1,0 +1,18 @@
+#####
+# Style for mini-graph-card
+# 1.5 normal card slots
+#####
+|
+  :host {
+    flex: 1.5 !important;
+  }
+  ha-card {
+    background: var(--ha-card-background-es-static);
+    border-radius: 15px;
+    box-shadow: none;
+  }
+  .states {
+    color: var(--el-graph-state-color);
+    padding-bottom: 8px;
+    padding-left: 8px;
+  }

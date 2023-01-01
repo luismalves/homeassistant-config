@@ -36,15 +36,16 @@ slate_theme_dark:
 
   background-view-home: "#202125"
   background-view-home-mobile: "#202125"
-  background-view-temp: "center / cover no-repeat url('/local/backgrounds/Wave_2.svg') fixed"
-  background-view-bedroom: "linear-gradient(-180deg, #BCC5CE 0%, #929EAD 98%), radial-gradient(at top left, rgba(255,255,255,0.30) 0%, rgba(0,0,0,0.30) 100%)"
+  background-view-temp: "#202125"
+  background-view-bedroom: "#202125"
   background-view-deck: "#202125"
-  background-view-kitchen: "linear-gradient(95deg, #cdf7f6 0%, #ebf4f5 74%)"
+  background-view-kitchen: "#202125"
   background-view-living: "#202125"
-  background-view-config: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
-  background-view-system: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
-  background-view-tasks: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
-  background-view-network: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+  background-view-config: "#202125"
+  background-view-system: "#202125"
+  background-view-tasks: "#202125"
+  background-view-network: "#202125"
+  background-view-nas: "#202125"
 
   # Nav Menu
   paper-listbox-color: "#777777"
@@ -62,8 +63,10 @@ slate_theme_dark:
   #
   ha-card-background-es-off: "#303135"
   ha-card-background-es-on: "#424a57"
-  ha-card-background-path: rgb(255, 255, 255)
-  ha-card-background-scene: "#3b6d76"
+  ha-card-background-es-static: "var(--ha-card-background-es-off)"
+  ha-card-background-path: "var(--ha-card-background-es-off)"
+  ha-card-background-task: "var(--ha-card-background-es-off)"
+  ha-card-background-scene: "var(--ha-card-background-es-off)"
   ha-card-background-energy: "#303135"
   ha-card-background-alert: "#f4a7a7"
 
@@ -77,18 +80,26 @@ slate_theme_dark:
   # Custom elements
   #
   el-title-color: "white"
-  el-title-color-inverted: "#333"
+  el-title-color-inverted: "white"
 
   el-text-color: "white"
   el-text-color-inverted: "#333"
+  el-text-color-light: "#d6d6d6"
 
   el-state-circle-dash: "#89b4f8"
   el-state-circle-text: "#89b4f8"
 
-  el-scene-name-color: "#7ad8e9"
-  el-scene-hint-color: "#51919c"
+  el-scene-name-color: "var(--ha-card-color-name-off)"
+  el-scene-hint-color: "var(--ha-card-color-state-off)"
 
-  el-person-svg-color: white
+  el-es-static-text: "var(--el-text-color-light)"
+  el-es-static-text-color-light: "var(--el-text-color-light)"
+
+  el-svg-main-color-on: "var(--el-text-color)"
+  el-svg-main-color-off: "var(--ha-card-color-state-off)"
+
+  el-graph-title-color: "var(--ha-card-color-name-off)"
+  el-graph-state-color: "var(--ha-card-color-name-off)"
 
   # Paper card
   paper-card-header-color: "#00d6c0"
@@ -229,7 +240,7 @@ slate_theme_dark:
     *                                 *
     * * * * * * * * * * * * * * * * * */
     ha-card.type-custom-bar-card {
-      background: white;
+      background: var(--ha-card-background-es-off);
     }
 
     ha-card.type-custom-mini-graph-card .state__value {

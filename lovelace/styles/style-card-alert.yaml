@@ -2,7 +2,7 @@
   ha-card {
     height: 100%;
     background: var(--ha-card-background-alert);
-    font-weight: 700;
+    font-weight: bold;
     font-size: 1.2em;
     color: var(--ha-card-alert-text);;
     margin-bottom: 20px;

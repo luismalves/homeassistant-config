@@ -16,6 +16,7 @@ custom_fields:
     - display: none
   s:
     - align-self: center
+    - font-weight: bold
     - justify-self: start
     - text-align: left
 
