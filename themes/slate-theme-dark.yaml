@@ -8,7 +8,7 @@
 
 slate_theme_dark:
   # Header:
-  app-header-background-color: "rgb(23, 23, 23)"
+  app-header-background-color: "#202125"
 
   # Main colors
   primary-color: "#00d6c0"
