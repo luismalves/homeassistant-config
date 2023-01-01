@@ -60,7 +60,7 @@ cards:
               margin-bottom: 0px !important;
             }
             ha-card {
-              background: var(--ha-card-background-es-off);
+              background: var(--ha-card-background-es-static);
               font-weight: bold;
               color: var(--el-es-static-text-color);
               font-size: 12px;
@@ -69,7 +69,7 @@ cards:
               --bar-card-border-radius: 5px;
             }
             bar-card-value {
-              color: rgba(0, 0, 0, 0.8);
+              color: var(--el-es-static-text-color);
               margin-right: auto;
               font-size: 12px;
               font-weight: bold;

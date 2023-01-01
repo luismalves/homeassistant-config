@@ -304,10 +304,6 @@ slate_theme:
     *              TYPES              *
     *                                 *
     * * * * * * * * * * * * * * * * * */
-    ha-card.type-custom-bar-card {
-      background: white;
-    }
-
     ha-card.type-custom-mini-graph-card .state__value {
       font-family: var(--paper-font-body1_-_font-family);
     }

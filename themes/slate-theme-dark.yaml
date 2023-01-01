@@ -98,7 +98,7 @@ slate_theme_dark:
   el-svg-main-color-on: "var(--el-text-color)"
   el-svg-main-color-off: "var(--ha-card-color-state-off)"
 
-  el-graph-title-color: "var(--ha-card-color-name-off)"
+  el-graph-title-color: "var(--el-es-static-text-color-light)"
   el-graph-state-color: "var(--ha-card-color-name-off)"
 
   # Paper card
@@ -239,10 +239,6 @@ slate_theme_dark:
     *              TYPES              *
     *                                 *
     * * * * * * * * * * * * * * * * * */
-    ha-card.type-custom-bar-card {
-      background: var(--ha-card-background-es-off);
-    }
-
     ha-card.type-custom-mini-graph-card .state__value {
       font-family: var(--paper-font-body1_-_font-family);
     }
