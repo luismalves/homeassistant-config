@@ -25,8 +25,8 @@ views:
   - !include lovelace/views/bedroom.yaml
   - !include lovelace/views/tasks.yaml
   #- !include lovelace/views/plants.yaml
+  - !include lovelace/views/security.yaml
   - !include lovelace/views/config.yaml
   - !include lovelace/views/system-mobile.yaml
   - !include lovelace/views/network-mobile.yaml
   - !include lovelace/views/nas.yaml
-  - !include lovelace/views/security.yaml
