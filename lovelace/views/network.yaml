@@ -14,6 +14,7 @@ cards:
     cards:
       - type: "custom:gap-card"
         height: 40
+
       - template: title-white
         type: "custom:decluttering-card"
         variables:

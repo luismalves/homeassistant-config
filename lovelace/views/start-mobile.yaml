@@ -12,14 +12,8 @@ cards:
       max_width: 350
       column_widths: 98%
     cards:
-      - cards:
-          - height: 25
-            type: "custom:gap-card"
-          - height: 25
-            type: "custom:gap-card"
-          - height: 25
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 25
 
       - type: horizontal-stack
         cards:
@@ -188,17 +182,8 @@ cards:
                 padding: 0;
               }
 
-      - cards:
-          - height: 10
-            size: 30
-            type: "custom:gap-card"
-          - height: 10
-            size: 30
-            type: "custom:gap-card"
-          - height: 10
-            size: 30
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 10
 
       - type: horizontal-stack
         cards:
