@@ -29,7 +29,20 @@
     content: Alarme ativo!
 
 - type: markdown
-  style: !include ../styles/style-card-alert.yaml
+  style: >
+    ha-card {
+      height: 100%;
+      background: none;
+      font-family: var(--paper-ha-card_-_font-family);
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1em;
+      color: var(--el-title-color);
+      margin-left: -15px;
+    }
+    ha-markdown {
+      padding-top: 0px !important;
+    }
   content: |
     {{as_timestamp(now()) | timestamp_custom('%H:%M')}}  -  {{now().strftime('%d %B, %Y')}}
 
@@ -41,19 +54,7 @@
         state: "on"
   card:
     type: markdown
-    style: >
-      ha-card {
-        box-shadow: none;
-        height: 100%;
-        background: rgb(255,103,0);
-        font-weight: 700;
-        font-size: 1.2em;
-        color: #fff;
-        margin-bottom: 0px;
-      }
-      ha-markdown {
-        padding: 10px 16px !important;
-      }
+    style: !include ../styles/style-card-alert.yaml
     content: >
       {% if states.sensor.door_open_for.state | int > 0 %} Porta aberta à {{states.sensor.door_open_for.state}} minutos.{% else %} Porta foi aberta à {{states.sensor.door_open_last.state}} minutos.{% endif %}
 
