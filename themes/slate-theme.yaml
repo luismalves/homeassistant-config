@@ -42,6 +42,7 @@ slate_theme:
   background-view-kitchen: "linear-gradient(95deg, #cdf7f6 0%, #ebf4f5 74%)"
   background-view-living: "linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%)"
   background-view-config: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+  background-view-security: "linear-gradient(135deg, #afdaf3 0%, #6568a5 100%)"
   background-view-system: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-tasks: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-network: "linear-gradient(315deg, #485461 0%, #28313b 74%)"

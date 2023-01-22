@@ -2,7 +2,7 @@ title: Alarme
 path: security
 icon: mdi:shield-home
 panel: true
-background: "var(--background-view-bedroom)"
+background: "var(--background-view-security)"
 
 cards:
   - type: custom:layout-card
