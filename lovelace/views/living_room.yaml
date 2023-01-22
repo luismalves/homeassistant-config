@@ -125,18 +125,18 @@ cards:
 
       # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
       - cards:
-          - template: es-light
-            type: "custom:decluttering-card"
-            variables:
-              - template: light-xmas
-              - entity-1: light.wled_xmas
-              - name-1: "Árvore Natal"
-              - state-1: "on"
-              - state-2: "off"
-              - circle-1: entity.attributes.brightness
-              - circle-2: (254 / 100)
-              - circle-3: "on"
-              - circle-4: brightness
+          # - template: es-light
+          #   type: "custom:decluttering-card"
+          #   variables:
+          #     - template: light-xmas
+          #     - entity-1: light.wled_xmas
+          #     - name-1: "Árvore Natal"
+          #     - state-1: "on"
+          #     - state-2: "off"
+          #     - circle-1: entity.attributes.brightness
+          #     - circle-2: (254 / 100)
+          #     - circle-3: "on"
+          #     - circle-4: brightness
           - template: es-cover
             type: "custom:decluttering-card"
             variables:

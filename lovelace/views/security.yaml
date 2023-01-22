@@ -1,0 +1,61 @@
+title: Alarme
+path: security
+icon: mdi:shield-home
+panel: true
+background: "var(--background-view-bedroom)"
+
+cards:
+  - type: custom:layout-card
+    layout_type: custom:vertical-layout
+    layout:
+      width: 200
+      max_width: 350
+      column_widths: 98%
+    cards:
+      - cards:
+          - height: 40
+            type: "custom:gap-card"
+        type: horizontal-stack
+
+      - cards:
+          - style: "ha-card { width: 10px; }"
+            template: title
+            type: "custom:decluttering-card"
+            variables:
+              - content: Segurança
+        type: horizontal-stack
+
+      - cards:
+          - height: 20
+            type: "custom:gap-card"
+        type: horizontal-stack
+
+      - type: "custom:alarmo-card"
+        entity: alarm_control_panel.alarmo
+        button_scale_keypad: 1.5
+
+      - cards:
+          - height: 20
+            type: "custom:gap-card"
+        type: horizontal-stack
+
+      - type: horizontal-stack
+        cards:
+          - template: es-person
+            type: "custom:decluttering-card"
+            variables:
+              - template: person-girl
+              - entity-1: input_boolean.margarida_home
+              - name-1: "Ma"
+              - state-1: "on"
+              - state-outline: "off"
+          - template: es-person
+            type: "custom:decluttering-card"
+            variables:
+              - template: person-man
+              - entity-1: input_boolean.luis_home
+              - name-1: "Lu"
+              - state-1: "on"
+              - state-outline: "off"
+          - type: "custom:gap-card"
+            height: 10

@@ -29,3 +29,4 @@ views:
   - !include lovelace/views/system-mobile.yaml
   - !include lovelace/views/network-mobile.yaml
   - !include lovelace/views/nas.yaml
+  - !include lovelace/views/security.yaml

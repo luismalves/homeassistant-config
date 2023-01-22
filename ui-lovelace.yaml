@@ -25,4 +25,5 @@ views:
   #- !include lovelace/views/maintenance.yaml
   - !include lovelace/views/network.yaml
   - !include lovelace/views/nas.yaml
+  - !include lovelace/views/security.yaml
   #- !include lovelace/views/debug.yaml

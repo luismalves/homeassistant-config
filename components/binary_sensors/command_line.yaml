@@ -4,7 +4,7 @@
 #####
 
 - platform: command_line
-  command: 'nc -z -w 5 192.168.1.80 2869 && (echo "Running") || (echo "Not running")'
+  command: 'nc -z -w 5 192.168.1.21 2869 && (echo "Running") || (echo "Not running")'
   name: "Xbox One X State"
   device_class: moving
   payload_on: "Running"

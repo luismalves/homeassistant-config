@@ -242,3 +242,16 @@ slate_theme_dark:
     ha-card.type-custom-mini-graph-card .state__value {
       font-family: var(--paper-font-body1_-_font-family);
     }
+
+    ha-card.type-custom-alarmo-card {
+      background-color: var(--ha-card-background-es-static);
+      color: var(--el-title-color);
+    }
+
+    ha-card.type-custom-alarmo-card .armActions button {
+      border-radius: 16px;
+    }
+
+    ha-card.type-custom-alarmo-card .numberKey {
+      --mdc-shape-small: 32px;
+    }

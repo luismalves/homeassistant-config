@@ -36,6 +36,15 @@ lovelace:
   resources: !include_dir_list lovelace/resources
   dashboards: !include_dir_merge_named lovelace/dashboards
 
+panel_custom:
+  - name: panel-redirect
+    url_path: redirect-logs
+    sidebar_title: Logs
+    sidebar_icon: mdi:math-log
+    module_url: /local/custom_scripts/panel-redirect.js
+    config:
+      target: /config/logs
+
 # ########################################
 # ###           INTEGRATIONS           ###
 # ########################################
@@ -134,6 +143,10 @@ spotcast:
 logger: !include logger.yaml
 logbook: !include logbook.yaml
 recorder: !include recorder.yaml
+
+system_log:
+  max_entries: 30
+  fire_event: true
 
 influxdb:
   host: !secret influxdb_host

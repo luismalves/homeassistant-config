@@ -21,12 +21,12 @@ cards:
       - template: sensor-number
         type: "custom:decluttering-card"
         variables:
-          - template: sensors-version
+          - template: sensors-empty
           - entity-1: sensor.homeassistant_db_size
           - name-1: "HA MariaDB size"
       - template: sensor-number
         type: "custom:decluttering-card"
         variables:
-          - template: sensors-version
+          - template: sensors-empty
           - entity-1: sensor.influxdb_ha_db_size
           - name-1: "InfluxDB size"

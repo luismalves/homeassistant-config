@@ -1,0 +1,6 @@
+#####
+# List of entities that is exposed to Google Assistant
+# Alarm system
+#####
+
+- alarm_control_panel.alarmo
