@@ -19,6 +19,7 @@ custom_fields:
     - position: absolute
     - letter-spacing: 0.03vw
   sd1:
+    - color: var(--ha-card-color-state-on)
     - font-size: 12px
     - top: 79%
     - position: absolute

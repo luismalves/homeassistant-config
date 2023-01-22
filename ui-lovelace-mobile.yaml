@@ -8,7 +8,7 @@ button_card_templates: !include lovelace/templates/button_card.yaml
 decluttering_templates: !include lovelace/templates/decluttering.yaml
 
 ## Dashboard settings
-title: Home Control
+title: Home Control (mobile)
 
 swipe_nav:
   wrap: false

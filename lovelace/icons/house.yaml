@@ -5,6 +5,6 @@ icon_hue: >
 sd1: >
   [[[
     if (entity.state === 'on')
-      return `<span style="color: var(--text-color-sensor);">Ocupada</span>`;
-    else return `<span style="color: var(--text-color-sensor);">Vazia</span>`;
-  ]]]        
+      return `<span>Ocupada</span>`;
+    else return `<span>Vazia</span>`;
+  ]]]

@@ -3,6 +3,9 @@
 # https://github.com/custom-cards/button-card#configuration-templates
 #####
 
+alarm:
+  custom_fields: !include ../icons/alarm.yaml
+
 house:
   custom_fields: !include ../icons/house.yaml
 
