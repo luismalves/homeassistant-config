@@ -19,21 +19,17 @@
   content: |
     Olá {{user}}
 
+- type: conditional
+  conditions:
+    - entity: alarm_control_panel.alarmo
+      state_not: "disarmed"
+  card:
+    type: markdown
+    style: !include ../styles/style-card-alert.yaml
+    content: Alarme ativo!
+
 - type: markdown
-  style: >
-    ha-card {
-      height: 100%;
-      background: none;
-      font-family: var(--paper-ha-card_-_font-family);
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 1em;
-      color: var(--el-title-color);
-      margin-left: -15px;
-    }
-    ha-markdown {
-      padding-top: 0px !important;
-    }
+  style: !include ../styles/style-card-alert.yaml
   content: |
     {{as_timestamp(now()) | timestamp_custom('%H:%M')}}  -  {{now().strftime('%d %B, %Y')}}
 
