@@ -1,0 +1,15 @@
+#####
+# Security Lovelace Dashboard
+# For GOOGLE NEST HUB usage
+#####
+
+## Templates
+button_card_templates: !include lovelace/templates/button_card.yaml
+decluttering_templates: !include lovelace/templates/decluttering.yaml
+
+## Dashboard settings
+title: Home Control
+
+## Views
+views:
+  - !include lovelace/views/security-nest.yaml

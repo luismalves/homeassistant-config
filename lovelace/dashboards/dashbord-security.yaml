@@ -1,0 +1,11 @@
+#####
+# Lovelace Dashboard
+# For GOOGLE NEST HUB usage
+#####
+
+dashboard-security:
+  mode: yaml
+  title: Security Control
+  icon: mdi:shield-home
+  show_in_sidebar: false
+  filename: ui-lovelace-security.yaml

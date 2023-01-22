@@ -12,10 +12,8 @@ cards:
       max_width: 350
       column_widths: 98%
     cards:
-      - cards:
-          - height: 40
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 40
 
       - cards:
           - style: "ha-card { width: 10px; }"
@@ -25,19 +23,15 @@ cards:
               - content: Segurança
         type: horizontal-stack
 
-      - cards:
-          - height: 20
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 20
 
       - type: "custom:alarmo-card"
         entity: alarm_control_panel.alarmo
         button_scale_keypad: 1.5
 
-      - cards:
-          - height: 20
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - type: "custom:gap-card"
+        height: 20
 
       - type: horizontal-stack
         cards:

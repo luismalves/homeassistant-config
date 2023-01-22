@@ -1,0 +1,20 @@
+title: Alarme
+path: security
+icon: mdi:shield-home
+panel: true
+background: "var(--background-view-bedroom)"
+
+cards:
+  - type: custom:layout-card
+    layout_type: custom:vertical-layout
+    layout:
+      width: 800
+      max_width: 800
+      column_widths: 98%
+    cards:
+      - type: "custom:gap-card"
+        height: 10
+
+      - type: "custom:alarmo-card"
+        entity: alarm_control_panel.alarmo
+        button_scale_keypad: 2
