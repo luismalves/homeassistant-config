@@ -42,7 +42,7 @@ slate_theme_dark:
   background-view-kitchen: "#202125"
   background-view-living: "#202125"
   background-view-config: "#202125"
-  background-view-security: "#000"
+  background-view-security: "#202125"
   background-view-system: "#202125"
   background-view-tasks: "#202125"
   background-view-network: "#202125"
