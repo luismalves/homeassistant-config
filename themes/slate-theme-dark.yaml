@@ -47,6 +47,7 @@ slate_theme_dark:
   background-view-tasks: "#202125"
   background-view-network: "#202125"
   background-view-nas: "#202125"
+  background-view-ev: "#202125"
 
   # Nav Menu
   paper-listbox-color: "#777777"
@@ -70,6 +71,7 @@ slate_theme_dark:
   ha-card-background-scene: "var(--ha-card-background-es-off)"
   ha-card-background-energy: "#303135"
   ha-card-background-alert: "#f4a7a7"
+  ha-card-background-climate-control: "var(--card-background-color)"
 
   ha-card-color-state-on: "#ffffff"
   ha-card-color-name-on: "#89b4f8"
@@ -98,9 +100,17 @@ slate_theme_dark:
 
   el-svg-main-color-on: "var(--el-text-color)"
   el-svg-main-color-off: "var(--ha-card-color-state-off)"
+  el-svg-disabled: "var(--el-text-color-light)"
 
   el-graph-title-color: "var(--el-es-static-text-color-light)"
   el-graph-state-color: "var(--ha-card-color-name-off)"
+
+  el-state-cold: "#89b4f8"
+  el-state-hot: "rgba(255,103,0,1)"
+
+  # Custom elements
+  # Map
+  map-gradient-end: rgba(32, 33, 37, 1)
 
   # Paper card
   paper-card-header-color: "#00d6c0"

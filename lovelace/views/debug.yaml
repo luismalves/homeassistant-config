@@ -3,25 +3,36 @@ path: debug
 panel: true
 #icon: mdi:cog-box
 visible: true
-background: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+background: "var(--background-view-ev)"
 
 cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
-      width: 600
-      max_width: 735
-      column_widths: 98%
+      width: 350
+      max_width: 350
+      column_widths: 100%
     cards:
-      - type: custom:layout-card
-        layout_type: custom:masonry-layout
-        layout:
-          grid-template-columns: 365px 356px
-          grid-template-rows: auto
-          column-gap: 40px
+      - type: "custom:decluttering-card"
+        template: car-state
+        variables:
+          - entity-battery: sensor.tradfri_remote_control_battery_level
+
+      - type: "custom:decluttering-card"
+        template: map-card
+
+      - type: horizontal-stack
         cards:
-          - !include ../views_frames/network-pihole.yaml
-          - !include ../views_frames/network-ac3.yaml
-          - !include ../views_frames/network-audience.yaml
-        view_layout:
-          grid-area: main
+          - type: "custom:decluttering-card"
+            template: climate-hvac
+            variables:
+              - entity-climate: sensor.cpu_temperature
+              - name: "Climate"
+              - template: sensors-climate
+
+          - type: "custom:decluttering-card"
+            template: car-tires
+            variables:
+              - entity-climate: sensor.cpu_temperature
+              - name: "Tyre pressure"
+              - template: sensors-car-tires

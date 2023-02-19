@@ -1,0 +1,44 @@
+card:
+  - background: transparent
+  - width: 145px
+  - color: var(--el-es-static-text-color)
+  - font-size: 10px
+  - padding: 0px
+
+custom_fields:
+  icon_hue:
+    - margin-top: 14px
+    - width: 25px
+
+  sd1:
+    - align-self: start
+    - color: var(--el-text-color-light)
+    - font-size: 12px
+    - font-weight: bold
+    - margin-top: 2px
+
+grid:
+  - grid-template-areas: '"n n" "sd1 sd1" "s icon_hue"'
+  - grid-template-columns: 1fr min-content
+  - grid-template-rows: min-content min-content min-content
+  - text-align: left
+
+name:
+  - align-self: start
+  - font-weight: bold
+  - font-size: 14px
+  - place-self: flex-start
+
+state:
+  - align-self: start
+  - color: >
+      [[[
+        if (false)
+          return "var(--ha-card-color-state-on)";
+        else
+          return "var(--el-text-color-light)";
+      ]]]
+  - font-weight: bold
+  - font-size: 26px
+  - margin-top: 12px
+  - place-self: flex-start

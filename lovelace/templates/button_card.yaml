@@ -148,6 +148,12 @@ sensors-kitchen:
 sensors-living_room:
   custom_fields: !include ../sensors/sensors-living_room.yaml
 
+sensors-climate:
+  custom_fields: !include ../sensors/sensors-climate.yaml
+
+sensors-car-tires:
+  custom_fields: !include ../sensors/sensors-car-tires.yaml
+
 sensors-energy:
   custom_fields: !include ../sensors/sensors-energy.yaml
 

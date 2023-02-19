@@ -1,0 +1,70 @@
+card:
+  - background-color: "var(--ha-card-background-es-static)"
+  - color: var(--el-es-static-text-color)
+  - height: 165px
+  - font-size: 10px
+  - padding: 10px
+  - width: 165px
+
+custom_fields:
+  icon_hue:
+    - margin-top: 12px
+    - width: 25px
+
+  sd1:
+    - align-self: flex-start
+    - color: var(--el-text-color-light)
+    - margin-top: 2px
+
+  tyre1:
+    - align-items: center
+    - border-bottom: 1px solid var(--el-svg-main-color-off)
+    - border-right: 1px solid var(--el-svg-main-color-off)
+    - color: "var(--ha-card-color-state-on)"
+    - display: flex
+    - font-size: 18px
+    - font-weight: bold
+    - flex-direction: column
+    - margin-left: 12px
+    - padding: 6px 6px 8px 0px
+  tyre2:
+    - align-items: center
+    - border-bottom: 1px solid var(--el-svg-main-color-off)
+    - color: "var(--ha-card-color-state-on)"
+    - display: flex
+    - font-size: 18px
+    - font-weight: bold
+    - flex-direction: column
+    - margin-right: 12px
+    - padding: 6px 0px 8px 6px
+  tyre3:
+    - align-items: center
+    - border-right: 1px solid var(--el-svg-main-color-off)
+    - color: "var(--ha-card-color-state-on)"
+    - display: flex
+    - font-size: 18px
+    - font-weight: bold
+    - flex-direction: column
+    - margin-left: 12px
+    - padding: 8px 6px 8px 0px
+  tyre4:
+    - align-items: center
+    - color: "var(--ha-card-color-state-on)"
+    - display: flex
+    - font-size: 18px
+    - font-weight: bold
+    - flex-direction: column
+    - margin-right: 12px
+    - padding: 8px 0px 6px 6px
+
+grid:
+  - grid-template-areas: '"n n" "sd1 sd1" "tyre1 tyre2" "tyre3 tyre4"'
+  - grid-template-columns: 1fr 1fr
+  - grid-template-rows: min-content 1fr min-content min-content
+  - text-align: left
+
+name:
+  - align-self: start
+  - font-weight: bold
+  - font-size: 14px
+  - place-self: flex-start

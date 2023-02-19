@@ -1,0 +1,24 @@
+sd1: >
+  [[[
+    return `<span>Last updated 5min ago</span>`
+  ]]]
+
+tyre1: >
+  [[[
+    return `<span>2.5</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">BAR</span>`
+  ]]]
+
+tyre2: >
+  [[[
+    return `<span>2.5</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">BAR</span>`
+  ]]]
+
+tyre3: >
+  [[[
+    return `<span>2.5</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">BAR</span>`
+  ]]]
+
+tyre4: >
+  [[[
+    return `<span>2.5</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">BAR</span>`
+  ]]]

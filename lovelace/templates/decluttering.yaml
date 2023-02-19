@@ -744,3 +744,196 @@ script-mood-outline:
     template: "[[template]]"
     type: "custom:button-card"
   default: null
+
+#---------------------#
+# Map
+#---------------------#
+map-card:
+  card:
+    type: picture-entity
+    entity: camera.vw_ev_location
+    show_name: false
+    show_state: false
+    tap_action:
+      action: none
+    style: |
+      ha-card {
+        border-radius: 0px;
+        margin-bottom: -20px;
+      }
+      img {
+        position: relative;
+      }
+      .type-picture-entity:after {
+        background: linear-gradient(to bottom, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 15%),
+                    linear-gradient(to right, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 40%),
+                    linear-gradient(to left, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 15%),
+                    linear-gradient(to top, var(--map-gradient-end) 15px, rgba(0, 0, 0, 0) 20%);
+        content: '';
+        height: 100%;
+        left:0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+#---------------------#
+# Climate
+#---------------------#
+
+climate-hvac:
+  card:
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: "custom:button-card"
+        entity: "[[entity-climate]]"
+        name: "[[name]]"
+        show_icon: false
+        show_state: true
+        tap_action:
+          action: none
+        styles: !include ../styles/style-card-climate.yaml
+        template: "[[template]]"
+
+      - type: custom:mod-card
+        card_mod:
+          style: |
+            ha-card {
+              {% if false %}  
+              background: var(--ha-card-color-name-on);
+              {% else %}
+              background: var(--ha-card-background-climate-control);
+              {% endif %}
+              border-radius: 180px !important;
+              padding: 4px;              
+              --horizontal-stack-card-margin: 0px;
+            }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: "custom:button-card"
+              aspect_ratio: 1/1
+              icon: mdi:minus
+              color: var(--el-text-color-light)
+              styles:
+                card:
+                  - background: var(--ha-card-background-es-static)
+                  - border-radius: 50%
+              tap_action:
+                action: call-service
+                service: media_player.volume_down
+                service_data:
+                  entity_id: "[[entity-climate]]"
+            - type: "custom:button-card"
+              aspect_ratio: 1/1
+              icon: mdi:pause
+              color: var(--el-es-static-text)
+              styles:
+                card:
+                  - background: transparent
+              tap_action:
+                action: call-service
+                service: media_player.volume_down
+                service_data:
+                  entity_id: "[[entity-climate]]"
+            - type: "custom:button-card"
+              aspect_ratio: 1/1
+              icon: mdi:plus
+              color: var(--el-text-color-light)
+              styles:
+                card:
+                  - background: var(--ha-card-background-es-static)
+                  - border-radius: 50%
+              tap_action:
+                action: call-service
+                service: media_player.volume_down
+                service_data:
+                  entity_id: "[[entity-climate]]"
+    default: null
+    style: |
+      ha-card {
+        {% if false %}  
+        background: var(--ha-card-background-es-on);
+        {% else %}
+        background: var(--ha-card-background-es-off);
+        {% endif %}
+        height: 165px;
+        width: 165px;
+      }
+      ha-card > div {
+        display: inline-flex;
+        flex-direction: column;
+        height: calc(100% - 20px);
+        justify-content: space-between;
+        padding: 10px;
+        width: calc(100% - 20px);
+      }
+
+#---------------------#
+# Cars
+#---------------------#
+
+car-state:
+  card:
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: picture
+        image: /local/images/network/MT_AC3.png
+      - type: vertical-stack
+        cards:
+          - type: "custom:bar-card"
+            entities:
+              - entity: "[[entity-battery]]"
+            target: 80
+            icon: mdi:lightning-bolt
+            positions:
+              icon: "inside"
+              indicator: "off"
+              minmax: "off"
+              name: "off"
+              value: inside
+            style: |-
+              .card-content {
+                padding-bottom: 0px;
+              }
+              bar-card-card {
+                --bar-card-border-radius: 8px;
+                --mdc-icon-size: 18px;
+              }
+              bar-card-backgroundbar {
+                background: var(--ha-card-background-es-static);
+                filter: none;
+                opacity: 1;
+              }
+              bar-card-currentbar {
+                --bar-card-color: rgb(93, 167, 98);
+              }
+              .value-direction-right {
+                font-weight: bold;
+              }
+          - type: markdown
+            content: "2h 20min remaining"
+            style: |
+              ha-markdown.no-header {
+                color: var(--el-text-color-light);
+                font-size: 12px;
+                font-weight: bold;
+                padding-bottom: 6px;
+                padding-top: 6px !important;
+                text-align: center;
+              }
+
+  default: null
+
+car-tires:
+  card:
+    type: "custom:button-card"
+    entity: "[[entity-climate]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: none
+    styles: !include ../styles/style-card-car-tires.yaml
+    template: "[[template]]"
+  default: null

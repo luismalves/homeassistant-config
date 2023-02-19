@@ -47,6 +47,7 @@ slate_theme:
   background-view-tasks: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-network: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
   background-view-nas: "linear-gradient(315deg, #485461 0%, #28313b 74%)"
+  background-view-ev: "#F1F3F4"
 
   # Nav Menu
   paper-listbox-color: "#777777"
@@ -70,6 +71,7 @@ slate_theme:
   ha-card-background-scene: rgb(255, 255, 255)
   ha-card-background-energy: rgb(255, 255, 255)
   ha-card-background-alert: "linear-gradient(to left, rgba(255,103,0,0.7), rgba(255,103,0,1))"
+  ha-card-background-climate-control: "#f0f0f0"
 
   ha-card-color-state-on: rgba(0, 0, 0, 0.4)
   ha-card-color-name-on: rgba(0, 0, 0, 1)
@@ -98,9 +100,17 @@ slate_theme:
 
   el-svg-main-color-on: rgb(87,87,87)
   el-svg-main-color-off: rgb(87,87,87)
+  el-svg-disabled: "var(--el-text-color-light)"
 
   el-graph-title-color: "#333"
   el-graph-state-color: "#333"
+
+  el-state-cold: "#89b4f8"
+  el-state-hot: "rgba(255,103,0,1)"
+
+  # Custom elements
+  # Map
+  map-gradient-end: rgba(241, 243, 244, 1)
 
   # Paper card
   paper-card-header-color: "#00d6c0"
