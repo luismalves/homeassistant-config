@@ -16,7 +16,7 @@ custom_fields:
     - color: var(--el-text-color-light)
     - margin-top: 2px
 
-  tyre1:
+  info1:
     - align-items: center
     - border-bottom: 1px solid var(--el-svg-main-color-off)
     - border-right: 1px solid var(--el-svg-main-color-off)
@@ -27,7 +27,7 @@ custom_fields:
     - flex-direction: column
     - margin-left: 12px
     - padding: 6px 6px 8px 0px
-  tyre2:
+  info2:
     - align-items: center
     - border-bottom: 1px solid var(--el-svg-main-color-off)
     - color: "var(--ha-card-color-state-on)"
@@ -37,7 +37,7 @@ custom_fields:
     - flex-direction: column
     - margin-right: 12px
     - padding: 6px 0px 8px 6px
-  tyre3:
+  info3:
     - align-items: center
     - border-right: 1px solid var(--el-svg-main-color-off)
     - color: "var(--ha-card-color-state-on)"
@@ -47,7 +47,7 @@ custom_fields:
     - flex-direction: column
     - margin-left: 12px
     - padding: 8px 6px 8px 0px
-  tyre4:
+  info4:
     - align-items: center
     - color: "var(--ha-card-color-state-on)"
     - display: flex
@@ -58,7 +58,7 @@ custom_fields:
     - padding: 8px 0px 6px 6px
 
 grid:
-  - grid-template-areas: '"n n" "sd1 sd1" "tyre1 tyre2" "tyre3 tyre4"'
+  - grid-template-areas: '"n n" "sd1 sd1" "info1 info2" "info3 info4"'
   - grid-template-columns: 1fr 1fr
   - grid-template-rows: min-content 1fr min-content min-content
   - text-align: left
@@ -68,3 +68,6 @@ name:
   - font-weight: bold
   - font-size: 14px
   - place-self: flex-start
+
+state:
+  - display: none

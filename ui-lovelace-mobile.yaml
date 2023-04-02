@@ -12,7 +12,7 @@ title: Home Control (mobile)
 
 swipe_nav:
   wrap: false
-  animate: swipe
+  animate: fade
   prevent_default: true
   swipe_amount: 30
 
@@ -23,6 +23,7 @@ views:
   - !include lovelace/views/deck.yaml
   - !include lovelace/views/kitchen.yaml
   - !include lovelace/views/bedroom.yaml
+  - !include lovelace/views/ev.yaml
   - !include lovelace/views/tasks.yaml
   #- !include lovelace/views/plants.yaml
   - !include lovelace/views/security.yaml

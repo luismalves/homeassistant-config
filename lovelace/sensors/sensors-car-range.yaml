@@ -1,0 +1,9 @@
+number: >
+  [[[
+    return '<span>' + entity.state + '</span>'
+  ]]]
+
+label: >
+  [[[
+    return `<span>KM restantes</span>`
+  ]]]

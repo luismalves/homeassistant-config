@@ -1,0 +1,24 @@
+sd1: >
+  [[[
+    return `<span>Atualizado à 5min</span>`
+  ]]]
+
+info1: >
+  [[[
+    return `<span>11</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">kW</span>`
+  ]]]
+
+info2: >
+  [[[
+    return `<span>2.5</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">km/h</span>`
+  ]]]
+
+info3: >
+  [[[
+    return `<span>50%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Current</span>`
+  ]]]
+
+info4: >
+  [[[
+    return `<span>80%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Target</span>`
+  ]]]

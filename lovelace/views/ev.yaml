@@ -1,5 +1,5 @@
-title: Debug
-path: debug
+title: EV
+path: EV
 panel: true
 #icon: mdi:cog-box
 visible: true
@@ -13,10 +13,21 @@ cards:
       max_width: 350
       column_widths: 100%
     cards:
+      - type: "custom:gap-card"
+        height: 40
+
+      - type: "custom:decluttering-card"
+        template: title
+        variables:
+          - content: VW ID.3
+
+      - type: "custom:gap-card"
+        height: 5
+
       - type: "custom:decluttering-card"
         template: car-state
         variables:
-          - entity_range: number.clock_alarm_volume
+          - entity_range: sensor.numbers
           - entity-battery: sensor.tradfri_remote_control_battery_level
 
       - type: "custom:decluttering-card"

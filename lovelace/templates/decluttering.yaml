@@ -620,10 +620,12 @@ sensor-number:
     name: "[[name-1]]"
     show_icon: false
     show_state: true
+    show_units: "[[show_units]]"
     styles: !include ../styles/style-card-centered-one_half.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - show_units: true
 
 sensor-number-big:
   card:
@@ -750,32 +752,70 @@ script-mood-outline:
 #---------------------#
 map-card:
   card:
-    type: picture-entity
-    entity: camera.vw_ev_location
-    show_name: false
-    show_state: false
-    tap_action:
-      action: none
-    style: |
-      ha-card {
-        border-radius: 0px;
-        margin-bottom: -20px;
-      }
-      img {
-        position: relative;
-      }
-      .type-picture-entity:after {
-        background: linear-gradient(to bottom, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 15%),
-                    linear-gradient(to right, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 40%),
-                    linear-gradient(to left, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 15%),
-                    linear-gradient(to top, var(--map-gradient-end) 15px, rgba(0, 0, 0, 0) 20%);
-        content: '';
-        height: 100%;
-        left:0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: markdown
+        content: "Quilómetros"
+        style: |
+          ha-card.type-markdown {
+            background: transparent;
+            height: 0px;
+          }
+          ha-markdown.no-header {
+            bottom: -80px;
+            color: var(--el-text-color);
+            font-size: 12px;
+            font-weight: bold;
+            left: 0px;
+            padding-left: 10px !important;
+            padding-top: 0px !important;
+            position: absolute;
+            z-index: 1;
+          }
+      - type: markdown
+        content: "10000 KMs"
+        style: |
+          ha-card.type-markdown {
+            background: transparent;
+            height: 0px;
+          }
+          ha-markdown.no-header {
+            bottom: -96px;
+            color: var(--el-text-color);
+            font-size: 12px;
+            left: 0px;
+            padding-left: 10px !important;
+            padding-top: 0px !important;
+            position: absolute;
+            z-index: 1;
+          }
+      - type: picture-entity
+        entity: camera.vw_ev_location
+        show_name: false
+        show_state: false
+        tap_action:
+          action: none
+        style: |
+          ha-card {
+            border-radius: 0px;
+            margin-bottom: -20px;
+            margin-top: -5x;
+          }
+          img {
+            position: relative;
+          }
+          .type-picture-entity:after {
+            background: linear-gradient(to bottom, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 15%),
+                        linear-gradient(to right, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 40%),
+                        linear-gradient(to left, var(--map-gradient-end) 0px, rgba(0, 0, 0, 0) 15%),
+                        linear-gradient(to top, var(--map-gradient-end) 15px, rgba(0, 0, 0, 0) 20%);
+            content: '';
+            height: 100%;
+            left:0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+          }
 
 #---------------------#
 # Climate
@@ -874,66 +914,173 @@ climate-hvac:
 #---------------------#
 
 car-state:
+  default: null
   card:
     type: custom:vertical-stack-in-card
+    style: |
+      ha-card.type-custom-vertical-stack-in-card {
+        background: transparent;
+      }
+      layout-card {
+        background: var(--ha-card-background-es-static);
+        border-radius: var(--ha-card-border-radius);
+        display: block;
+        padding-top: 30px;
+      }
     cards:
       - type: picture
-        image: /local/images/network/MT_AC3.png
-      - type: vertical-stack
+        image: /local/images/cars/side.png
+        style: |
+          ha-card.type-picture {
+            background: transparent;
+          }
+      - type: markdown
+        content: "Atualizado à 5min"
+        style: |
+          ha-card.type-markdown {
+            background: transparent;
+            margin-bottom: -45px;
+          }
+          ha-markdown.no-header {
+            color: var(--el-text-color-light);
+            font-size: 10px;
+            margin-top: -35px;
+            padding-bottom: 0px;
+            padding-top: 0px !important;
+            text-align: center;
+          }
+      - type: custom:layout-card
+        layout_type: custom:horizontal-layout
+        layout:
+          column_widths: min-content 1fr
+          max_width: 350
+          width: 150
         cards:
-          - type: "custom:bar-card"
-            entities:
-              - entity: "[[entity-battery]]"
-            target: 80
-            icon: mdi:lightning-bolt
-            positions:
-              icon: "inside"
-              indicator: "off"
-              minmax: "off"
-              name: "off"
-              value: inside
-            style: |-
-              .card-content {
-                padding-bottom: 0px;
-              }
-              bar-card-card {
-                --bar-card-border-radius: 8px;
-                --mdc-icon-size: 18px;
-              }
-              bar-card-backgroundbar {
-                background: var(--ha-card-background-es-static);
-                filter: none;
-                opacity: 1;
-              }
-              bar-card-currentbar {
-                --bar-card-color: rgb(93, 167, 98);
-              }
-              .value-direction-right {
-                font-weight: bold;
-              }
-          - type: markdown
-            content: "2h 20min remaining"
-            style: |
-              ha-markdown.no-header {
-                color: var(--el-text-color-light);
-                font-size: 12px;
-                font-weight: bold;
-                padding-bottom: 6px;
-                padding-top: 6px !important;
-                text-align: center;
-              }
+          - type: "custom:button-card"
+            entity: "[[entity_range]]"
+            show_name: false
+            show_icon: false
+            show_state: false
+            tap_action:
+              action: none
+            styles:
+              card:
+                - background: transparent
+                - border-radius: 0
+                - height: 46px
+                - padding: 0
+              custom_fields:
+                number:
+                  - align-self: end
+                  - color: var(--el-text-color)
+                  - font-size: 32px
+                  - font-weight: bold
+                  - line-height: 26px
+                  - margin-right: 4px
+                label:
+                  - align-self: end
+                  - color: var(--el-text-color-light)
+                  - font-size: 12px
+                  - font-weight: bold
+                  - margin-right: 8px
+              grid:
+                - grid-template-areas: '"number label"'
+                - grid-template-columns: min-content min-content
+                - text-align: left
+            template: sensors-car-range
 
+          - type: vertical-stack
+            view_layout:
+              column: 2
+            cards:
+              - type: "custom:bar-card"
+                entities:
+                  - entity: "[[entity-battery]]"
+                target: 80
+                height: 35px
+                icon: mdi:lightning-bolt
+                positions:
+                  icon: "inside"
+                  indicator: "off"
+                  minmax: "off"
+                  name: "off"
+                  value: inside
+                style: |-
+                  ha-card.type-custom-bar-card {
+                    background: transparent;
+                  }
+                  .card-content {
+                    padding-bottom: 0px;
+                    padding-left: 5px;
+                    padding-right: 4px;
+                  }
+                  bar-card-card {
+                    --bar-card-border-radius: 6px;
+                    --mdc-icon-size: 18px;
+                  }
+                  bar-card-backgroundbar {
+                    background: var(--ha-card-bar-background);
+                    filter: none;
+                    opacity: 1;
+                  }
+                  bar-card-currentbar {
+                    --bar-card-color: rgb(93, 167, 98);
+                  }
+                  .value-direction-right {
+                    color: var(--el-text-color);
+                    font-weight: bold;
+                  }
+              - type: markdown
+                content: "2h 20min remaining"
+                style: |
+                  ha-card.type-markdown {
+                    background: transparent;
+                  }
+                  ha-markdown.no-header {
+                    color: var(--el-text-color-light);
+                    font-size: 11px;
+                    font-weight: bold;
+                    margin-top: -6px;
+                    padding-bottom: 0px;
+                    padding-top: 0px !important;
+                    text-align: center;
+                  }
+
+car-odometer:
   default: null
+  card:
+    type: "custom:button-card"
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: true
+    tap_action:
+      action: none
+    styles: !include ../styles/style-card-car-pill.yaml
+    template: "[[template]]"
 
 car-tires:
   card:
     type: "custom:button-card"
-    entity: "[[entity-climate]]"
+    entity: "[[entity]]"
     name: "[[name]]"
     show_icon: false
     show_state: false
     tap_action:
       action: none
-    styles: !include ../styles/style-card-car-tires.yaml
+    styles: !include ../styles/style-card-car-info.yaml
+    template: "[[template]]"
+  default: null
+
+car-charge-1:
+  card:
+    type: "custom:button-card"
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: true
+    tap_action:
+      action: none
+    styles: !include ../styles/style-card-car-info.yaml
     template: "[[template]]"
   default: null

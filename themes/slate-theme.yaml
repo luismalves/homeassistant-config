@@ -111,6 +111,8 @@ slate_theme:
   # Custom elements
   # Map
   map-gradient-end: rgba(241, 243, 244, 1)
+  # Bar
+  ha-card-bar-background: "#f0f0f0"
 
   # Paper card
   paper-card-header-color: "#00d6c0"

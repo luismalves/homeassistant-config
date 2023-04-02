@@ -18,6 +18,7 @@ views:
   - !include lovelace/views/deck.yaml
   - !include lovelace/views/kitchen.yaml
   - !include lovelace/views/bedroom.yaml
+  - !include lovelace/views/ev.yaml
   - !include lovelace/views/tasks.yaml
   #- !include lovelace/views/plants.yaml
   - !include lovelace/views/security.yaml
@@ -26,4 +27,4 @@ views:
   #- !include lovelace/views/maintenance.yaml
   - !include lovelace/views/network.yaml
   - !include lovelace/views/nas.yaml
-  - !include lovelace/views/debug.yaml
+  #- !include lovelace/views/debug.yaml

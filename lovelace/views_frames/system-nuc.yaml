@@ -27,7 +27,7 @@ cards:
     state_color: true
     header:
       type: picture
-      image: local/images/system/nuc.jpg
+      image: local/images/system/nuc.png
       tap_action:
         action: none
       hold_action:

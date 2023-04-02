@@ -1,0 +1,24 @@
+card:
+  - background-color: "var(--ha-card-background-es-static)"
+  - color: var(--el-es-static-text-color)
+  - height: 70px
+  - font-size: 10px
+  - padding: 10px
+  - width: 165px
+
+grid:
+  - grid-template-areas: '"n n" "s s"'
+  - grid-template-columns: 1fr 1fr
+  - grid-template-rows: 1fr 1fr
+  - text-align: left
+
+name:
+  - align-self: start
+  - font-weight: bold
+  - font-size: 14px
+  - place-self: flex-start
+
+state:
+  - align-self: flex-end
+  - color: var(--el-text-color-light)
+  - font-size: 14px

@@ -154,6 +154,15 @@ sensors-climate:
 sensors-car-tires:
   custom_fields: !include ../sensors/sensors-car-tires.yaml
 
+sensors-car-odometer:
+  custom_fields: !include ../sensors/sensors-car-odometer.yaml
+
+sensors-car-range:
+  custom_fields: !include ../sensors/sensors-car-range.yaml
+
+sensors-car-charge-1:
+  custom_fields: !include ../sensors/sensors-car-charge-1.yaml
+
 sensors-energy:
   custom_fields: !include ../sensors/sensors-energy.yaml
 
