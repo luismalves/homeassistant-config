@@ -12,6 +12,7 @@
 .storage
 .cloud
 node-red
+image
 esphome
 custom_components
 www/*
