@@ -9,7 +9,7 @@ sd1: >
     return `<ha-icon
       icon="mdi:lightning-bolt-outline"
       style="width: 12px; height: 15px;">
-      </ha-icon><span>Potência: </span><span style="color:color:var(--ha-card-name-on);">${states['sensor.shelly_em_channel_1_power'].state} W</span>`
+      </ha-icon><span>Potência: </span><span style="color:color:var(--ha-card-name-on);">${Math.round(states['sensor.shelly_em_channel_1_power'].state)} W</span>`
   ]]]
 
 sd2: >
