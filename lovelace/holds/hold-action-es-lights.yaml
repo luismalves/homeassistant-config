@@ -6,6 +6,7 @@ browser_mod:
     style:
       width: 400px;
     content:
+      type: vertical-stack
       cards:
         - type: custom:layout-card
           layout_type: grid-layout
@@ -101,4 +102,3 @@ browser_mod:
               background: var(--card-color);
             }
           type: entities
-      type: vertical-stack
