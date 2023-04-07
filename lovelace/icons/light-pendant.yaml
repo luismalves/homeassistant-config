@@ -1,5 +1,5 @@
 icon_hue: >
-  [[[ const light_color = entity.state === 'on' ? 'rgb(' + entity.attributes.rgb_color + ')' : 'rgb(248,205,65)';
+  [[[ const light_color = 'rgb(248,205,65)';
   if (entity.state === 'on') return '<svg id="e7x4u4hifr771"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"
