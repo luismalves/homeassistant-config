@@ -1,8 +1,6 @@
 #####
 # Custos energia
 #
-# Old_
-# {{ (float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.state) + float(states.sensor.sensor_utm_mensal_normal_cost.state)) | default(0) | round(2) }}
 #####
 
 - platform: template
