@@ -22,9 +22,9 @@ cards:
       - type: custom:layout-card
         layout_type: custom:masonry-layout
         cards:
+          - !include ../views_frames/network-guest.yaml
           - !include ../views_frames/network-pihole.yaml
           - !include ../views_frames/network-ac3.yaml
           - !include ../views_frames/network-audience.yaml
-          - !include ../views_frames/network-guest.yaml
         view_layout:
           grid-area: main
