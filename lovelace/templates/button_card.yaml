@@ -42,8 +42,15 @@ shutter:
 shutter-temp:
   custom_fields: !include ../icons/shutter-temp.yaml
 
+#---------------------#
+# Media
+#---------------------#
+
 speaker:
   custom_fields: !include ../icons/speaker.yaml
+
+speaker-nest-hub:
+  custom_fields: !include ../icons/speaker-nest-hub.yaml
 
 tv:
   custom_fields: !include ../icons/tv.yaml
@@ -62,6 +69,9 @@ light-spot:
 
 light-pendant:
   custom_fields: !include ../icons/light-pendant.yaml
+
+light-pendant-long:
+  custom_fields: !include ../icons/light-pendant-long.yaml
 
 light-mosquitto:
   custom_fields: !include ../icons/light-mosquitto.yaml

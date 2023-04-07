@@ -9,17 +9,37 @@ cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
-      width: 350
+      width: 200
       max_width: 350
-      column_widths: 100%
+      column_widths: 98%
     cards:
       - type: "custom:gap-card"
         height: 40
 
-      - type: "custom:decluttering-card"
-        template: title
-        variables:
-          - content: VW ID.3
+      - type: custom:button-card
+        name: "ID.3"
+        styles:
+          grid:
+            - grid-template-areas: '"icon_hue n"'
+            - grid-template-columns: min-content 1fr
+          card:
+            - background: none
+            - margin-left: -2px
+            - margin-top: -20px
+            - margin-bottom: -15px
+            - pointer-events: none
+          name:
+            - color: var(--el-title-color)
+            - font-weight: bold
+            - font-size: 24px
+            - justify-self: flex-start
+            - margin-left: 2px
+          custom_fields:
+            icon_hue:
+              - color: var(--el-title-color)
+              - height: 28px
+              - width: 26px
+        custom_fields: !include ../icons/vw.yaml
 
       - type: "custom:gap-card"
         height: 5

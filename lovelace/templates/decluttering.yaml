@@ -49,7 +49,7 @@ title:
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
-        font-size: 1.65em;
+        font-size: 24px;
         color: var(--el-title-color);
         margin-left: -15px;
         margin-top: -20px;
@@ -68,7 +68,7 @@ title-white:
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
-        font-size: 1.65em;
+        font-size: 24px;
         color: var(--el-title-color-inverted);
         margin-left: -15px;
         margin-top: -20px;
@@ -87,7 +87,7 @@ subtitle:
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 600;
-        font-size: 1.25em;
+        font-size: 17px;
         color: var(--el-title-color);
         margin-left: -15px;
         margin-top: -25px;
@@ -106,7 +106,7 @@ subtitle-white:
         background: none;
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 500;
-        font-size: 1.2em;
+        font-size: 17px;
         color: var(--el-title-color-inverted);
         margin-left: -15px;
         margin-top: -20px;

@@ -94,7 +94,7 @@ cards:
           - template: es-speaker
             type: "custom:decluttering-card"
             variables:
-              - template: speaker
+              - template: speaker-nest-hub
               - entity-1: media_player.smart_clock
               - name-1: "Smart Clock"
               - room: "Quarto"

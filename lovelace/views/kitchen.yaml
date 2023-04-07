@@ -54,7 +54,7 @@ cards:
           - template: es-switch
             type: "custom:decluttering-card"
             variables:
-              - template: light-pendant
+              - template: light-pendant-long
               - entity-1: light.shelly_kitchen_light
               - name-1: "Luz Cozinha"
               - state-1: "on"
@@ -111,7 +111,7 @@ cards:
           - template: es-speaker
             type: "custom:decluttering-card"
             variables:
-              - template: speaker
+              - template: speaker-nest-hub
               - entity-1: media_player.nest_hub
               - name-1: "Nest Hub"
               - room: "Sala"
