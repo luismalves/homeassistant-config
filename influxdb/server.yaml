@@ -1,0 +1,8 @@
+#####
+# Entities related to Home server
+# to store into InfluxDB.
+#####
+
+# Database sizes
+- sensor.influxdb_ha_db_size
+- sensor.homeassistant_db_size
