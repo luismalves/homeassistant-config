@@ -5,6 +5,13 @@
 ############################################################
 
 exclude:
+  domains:
+    - sun
+    - group
+    - weather
+    - zone
+    - update
+    - camera
   entity_globs:
     - binary_sensor.*_browser*
     - sensor.*_browser*

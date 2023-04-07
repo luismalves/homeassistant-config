@@ -176,13 +176,6 @@ influxdb:
 # ###              ENTITIES             ###
 # ########################################
 
-# media_player:
-#   - platform: androidtv
-#     name: Android TV
-#     host: !secret android_tv_ip
-#     adb_server_ip: 127.0.0.1
-#     adb_server_port: 5037
-
 #input_boolean: !include_dir_merge_named components/input_boolean
 #input_datetime: !include_dir_merge_named components/input_datetime
 shell_command: !include_dir_merge_named components/shell_command
