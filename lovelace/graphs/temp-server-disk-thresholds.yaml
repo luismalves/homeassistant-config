@@ -2,7 +2,9 @@
   color: "#BCF4F5"
 - value: 44
   color: "#5FBFF9"
-- value: 46
-  color: "#EDEBA0"
 - value: 48
+  color: "#EDEBA0"
+- value: 52
   color: "#E39774"
+- value: 55
+  color: "#990000"
