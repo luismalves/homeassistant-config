@@ -6,7 +6,7 @@
 
 # Log Severities: notset, debug, info, warn, warning, error, fatal, critical
 
-default: info
+default: warning
 logs:
   homeassistant.core: error
   homeassistant.helpers.script: info
@@ -20,6 +20,10 @@ filters:
     # This can happen during restart having Ingress tabs open.
     # I really don't care about it.
     - "Error doing job: Task exception was never retrieved"
+
+  homeassistant.loader:
+    # Really? Cool... I know... I installed them...
+    - "We found a custom integration"
 
   pychromecast.socket_client:
     # Surpress to chatty Cast integration
