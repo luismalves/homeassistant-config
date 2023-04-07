@@ -17,8 +17,22 @@ custom_fields:
     - font-weight: bold
     - margin-top: 2px
 
+  sd2:
+    - align-self: start
+    - color: >
+        [[[
+          if (variables.state == variables.state_on)
+            return "var(--ha-card-color-state-on)";
+          else
+            return "var(--el-text-color-light)";
+        ]]]
+    - font-weight: bold
+    - font-size: 26px
+    - margin-top: 12px
+    - place-self: flex-start
+
 grid:
-  - grid-template-areas: '"n n" "sd1 sd1" "s icon_hue"'
+  - grid-template-areas: '"n n" "sd1 sd1" "sd2 icon_hue"'
   - grid-template-columns: 1fr min-content
   - grid-template-rows: min-content min-content min-content
   - text-align: left
@@ -30,15 +44,4 @@ name:
   - place-self: flex-start
 
 state:
-  - align-self: start
-  - color: >
-      [[[
-        if (false)
-          return "var(--ha-card-color-state-on)";
-        else
-          return "var(--el-text-color-light)";
-      ]]]
-  - font-weight: bold
-  - font-size: 26px
-  - margin-top: 12px
-  - place-self: flex-start
+  - display: none

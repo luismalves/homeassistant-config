@@ -56,9 +56,11 @@ cards:
       - type: horizontal-stack
         cards:
           - type: "custom:decluttering-card"
-            template: climate-hvac
+            template: climate-vw
             variables:
-              - entity-climate: sensor.cpu_temperature
+              - entity-climate-state: input_number.target_vw_id_3_temperature
+              - entity-climate-target: input_number.target_vw_id_3_temperature
+              - entity-climate-current: sensor.homedrive_system_temperature
               - name: "Clima"
               - template: sensors-climate
 

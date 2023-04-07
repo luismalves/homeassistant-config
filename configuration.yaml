@@ -178,6 +178,7 @@ influxdb:
 
 #input_boolean: !include_dir_merge_named components/input_boolean
 #input_datetime: !include_dir_merge_named components/input_datetime
+input_number: !include_dir_merge_named components/input_number
 shell_command: !include_dir_merge_named components/shell_command
 sensor: !include_dir_merge_list components/sensors
 binary_sensor: !include_dir_merge_list components/binary_sensors

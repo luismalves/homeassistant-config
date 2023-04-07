@@ -7,5 +7,12 @@ icon_hue: >
 
 sd1: >
   [[[
-    return `<span>Estão ${states['weather.home'].attributes.temperature}ºC na rua</span>`
+    let temp = variables.current_temp;
+    return `<span>Programados ${temp}ºC</span>`
+  ]]]
+
+sd2: >
+  [[[
+    let temp = variables.target_temp;
+    return `<span>${temp}ºC</span>`
   ]]]

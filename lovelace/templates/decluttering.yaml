@@ -821,12 +821,12 @@ map-card:
 # Climate
 #---------------------#
 
-climate-hvac:
+climate-vw:
   card:
     type: custom:vertical-stack-in-card
     cards:
       - type: "custom:button-card"
-        entity: "[[entity-climate]]"
+        entity: "[[entity-climate-state]]"
         name: "[[name]]"
         show_icon: false
         show_state: true
@@ -834,6 +834,20 @@ climate-hvac:
           action: none
         styles: !include ../styles/style-card-climate.yaml
         template: "[[template]]"
+        variables:
+          current_temp: >
+            [[[
+              return `${states['[[entity-climate-current]]'].state}`;
+            ]]]
+          target_temp: >
+            [[[
+              return `${states['[[entity-climate-target]]'].state}`;
+            ]]]
+          state: >
+            [[[
+              return entity.state;
+            ]]]
+          state_on: "active"
 
       - type: custom:mod-card
         card_mod:
@@ -861,21 +875,21 @@ climate-hvac:
                   - border-radius: 50%
               tap_action:
                 action: call-service
-                service: media_player.volume_down
+                service: input_number.decrement
                 service_data:
-                  entity_id: "[[entity-climate]]"
+                  entity_id: "[[entity-climate-target]]"
             - type: "custom:button-card"
               aspect_ratio: 1/1
-              icon: mdi:pause
+              icon: mdi:play
               color: var(--el-es-static-text)
               styles:
                 card:
                   - background: transparent
               tap_action:
                 action: call-service
-                service: media_player.volume_down
+                service: input_number.increment
                 service_data:
-                  entity_id: "[[entity-climate]]"
+                  entity_id: "[[service-set-target]]"
             - type: "custom:button-card"
               aspect_ratio: 1/1
               icon: mdi:plus
@@ -886,9 +900,9 @@ climate-hvac:
                   - border-radius: 50%
               tap_action:
                 action: call-service
-                service: media_player.volume_down
+                service: input_number.increment
                 service_data:
-                  entity_id: "[[entity-climate]]"
+                  entity_id: "[[entity-climate-target]]"
     default: null
     style: |
       ha-card {
