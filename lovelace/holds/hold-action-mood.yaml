@@ -6,11 +6,25 @@ browser_mod:
     style: |
       --popup-min-width: 350px;
       --popup-max-width: 500px;
+    right_button: "Stop"
+    right_button_action:
+      service: input_select.select_option
+      data:
+        entity_id: input_select.lights_mood
+        option: none
     content:
       type: vertical-stack
       cards:
         - type: horizontal-stack
           cards:
+            - template: es-mood
+              type: "custom:decluttering-card"
+              variables:
+                - entity: input_select.lights_mood
+                - option: Red
+                - template: light-strip-2-var
+                - name: "Vermelho"
+                - color: "red"
             - template: es-mood
               type: "custom:decluttering-card"
               variables:
@@ -27,6 +41,16 @@ browser_mod:
                 - template: light-strip-2-var
                 - name: "Verde"
                 - color: "green"
+        - type: horizontal-stack
+          cards:
+            - template: es-mood
+              type: "custom:decluttering-card"
+              variables:
+                - entity: input_select.lights_mood
+                - option: Orange
+                - template: light-strip-2-var
+                - name: "Laranja"
+                - color: "orange"
             - template: es-mood
               type: "custom:decluttering-card"
               variables:
@@ -35,16 +59,5 @@ browser_mod:
                 - template: light-strip-2-var
                 - name: "Festa"
                 - color: "red"
-        - type: horizontal-stack
-          cards:
-            - template: es-mood
-              type: "custom:decluttering-card"
-              variables:
-                - entity: input_select.lights_mood
-                - option: none
-                - template: light-strip-2-var
-                - name: "Reset"
-                - color: "gray"
-        - type: "custom:gap-card"
-          height: 10
-          size: 30
+            - type: "custom:gap-card"
+              height: 10

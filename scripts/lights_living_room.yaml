@@ -14,6 +14,18 @@ turn_off_living_room:
     - service: light.turn_off
       entity_id: light.led_strip_living_room
 
+set_living_room_lights_color:
+  alias: Set living room lights to color X
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.led_strip_living_room
+        effect: Solid
+        rgb_color:
+          - "{{ red }}"
+          - "{{ green }}"
+          - "{{ blue }}"
+
 set_living_room_lights_party:
   alias: Set living room color lights to party mode
   sequence:

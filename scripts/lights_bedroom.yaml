@@ -53,10 +53,10 @@ set_bedroom_lights_color:
       data:
         entity_id: light.wled_bed_group
         effect: Solid
-        rgb_color: >
+        rgb_color:
           - "{{ red }}"
-          - "{{ blue }}"
           - "{{ green }}"
+          - "{{ blue }}"
 
 set_bedroom_lights_white:
   sequence:

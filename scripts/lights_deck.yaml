@@ -28,6 +28,18 @@ turn_on_deck:
       entity_id: light.mi_lamp_pro
   mode: single
 
+set_deck_lights_color:
+  alias: Set decks lights to color X
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.led_strip_deck
+        effect: Solid
+        rgb_color:
+          - "{{ red }}"
+          - "{{ green }}"
+          - "{{ blue }}"
+
 set_deck_lights_party:
   alias: Set deck color lights to party mode
   sequence:
