@@ -20,25 +20,6 @@
     target:
       entity_id: input_datetime.latest_start_of_ha
   mode: single
-- id: '1612951793227'
-  alias: Running A Daily Internet Speed Test
-  description: ''
-  use_blueprint:
-    path: CyanAutomation/daily_internet_speed_test.yaml
-    input:
-      run_time: 07:30:00
-- id: '1647106810990'
-  alias: Set theme at startup
-  description: ''
-  trigger:
-  - platform: homeassistant
-    event: start
-  condition: []
-  action:
-  - service: frontend.set_theme
-    data:
-      name: slate_theme
-  mode: single
 - id: '1672603720477'
   alias: Theme change
   description: Light/Dark theme change
