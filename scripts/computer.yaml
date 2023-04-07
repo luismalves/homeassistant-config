@@ -9,16 +9,17 @@ turn_on_desktop:
       data:
         mac: !secret desktop_pc_mac
 
-turn_off_desktop:
-  alias: Turn off Desktop Computer
-  sequence:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.shutdown_desktop
+# Switch deprecated
+# turn_off_desktop:
+#   alias: Turn off Desktop Computer
+#   sequence:
+#     - service: switch.turn_on
+#       target:
+#         entity_id: switch.shutdown_desktop
 
-sleep_desktop:
-  alias: Put Desktop into Sleep
-  sequence:
-    - service: switch.turn_on
-      target:
-        entity_id: switch.hibernate_desktop
+# sleep_desktop:
+#   alias: Put Desktop into Sleep
+#   sequence:
+#     - service: switch.turn_on
+#       target:
+#         entity_id: switch.hibernate_desktop
