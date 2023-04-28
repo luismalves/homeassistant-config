@@ -1,5 +1,5 @@
 icon_hue: >
-  [[[ const light_color = 'rgb(248,205,65)';
+  [[[ 
   if (entity.state === 'on') return '<svg id="e7x4u4hifr771"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"
@@ -19,7 +19,7 @@ icon_hue: >
   id="e7x4u4hifr774" transform="translate(0,0) translate(0,0)"
   opacity="0"><path id="e7x4u4hifr775"
   d="M9.019000,18.185000C9.019000,19.257000,9.591000,20.247000,10.519000,20.783000C11.447000,21.319000,12.591000,21.319000,13.519000,20.783000C14.447000,20.247000,15.019000,19.257000,15.019000,18.185000L9.019000,18.185000Z"
-  fill="${light_color}" stroke="lightgray" stroke-width="0.3"/></g></svg>';   
+  fill="rgb(248,205,65)" stroke="0" stroke-width="0"/></g></svg>';   
   else return '<svg id="e47a1uy8ttsc1" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"
   shape-rendering="geometricPrecision"
