@@ -131,10 +131,10 @@ spotcast:
   sp_dc: !secret spotify_dc
   sp_key: !secret spotify_key
 
-#device_tracker:
-#  - platform: bluetooth_tracker
-#new_device_defaults:
-#  track_new_devices: false
+device_tracker:
+  - platform: bluetooth_le_tracker
+    new_device_defaults:
+      track_new_devices: false
 
 # ########################################
 # ###              LOGGING             ###
