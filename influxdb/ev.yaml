@@ -1,0 +1,16 @@
+#####
+# Entities related to eletric car
+# to store into InfluxDB.
+#####
+
+# Battery
+- sensor.my_id_state_of_charge
+- sensor.my_id_charging_state
+- sensor.my_id_charging_mode
+- sensor.my_id_charge_type
+- sensor.my_id_charge_power
+- sensor.my_id_charge_rate
+- sensor.my_id_remaining_charging_time
+
+# Odometer
+- sensor.my_id_odometer
