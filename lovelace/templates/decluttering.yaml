@@ -773,7 +773,8 @@ map-card:
             z-index: 1;
           }
       - type: markdown
-        content: "10000 KMs"
+        content: |
+          {{ states.sensor.my_id_odometer.state }} KMs
         style: |
           ha-card.type-markdown {
             background: transparent;
@@ -853,7 +854,7 @@ climate-vw:
         card_mod:
           style: |
             ha-card {
-              {% if false %}  
+              {% if not(is_state('sensor.my_id_climatisation_state','off')) %}  
               background: var(--ha-card-color-name-on);
               {% else %}
               background: var(--ha-card-background-climate-control);
@@ -906,7 +907,7 @@ climate-vw:
     default: null
     style: |
       ha-card {
-        {% if false %}  
+        {% if not(is_state('sensor.my_id_climatisation_state','off')) %}  
         background: var(--ha-card-background-es-on);
         {% else %}
         background: var(--ha-card-background-es-off);
@@ -949,7 +950,8 @@ car-state:
             background: transparent;
           }
       - type: markdown
-        content: "Atualizado à 5min"
+        content: |
+          Atualizado à {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.my_id_car_is_active.last_changed)) | timestamp_custom("%Hh e %Mmin", false) }}
         style: |
           ha-card.type-markdown {
             background: transparent;
@@ -1045,7 +1047,10 @@ car-state:
                     font-weight: bold;
                   }
               - type: markdown
-                content: "2h 20min remaining"
+                content: |
+                  {% if is_not_state('sensor.my_id_remaining_charging_time', '0') %}
+                    {{ states.sensor.my_id_remaining_charging_time.state }} remaining
+                  {% endif %}
                 style: |
                   ha-card.type-markdown {
                     background: transparent;
@@ -1095,6 +1100,7 @@ car-charge-1:
     show_state: true
     tap_action:
       action: none
+    state: !include ../states/state-car-charge.yaml
     styles: !include ../styles/style-card-car-info.yaml
     template: "[[template]]"
   default: null

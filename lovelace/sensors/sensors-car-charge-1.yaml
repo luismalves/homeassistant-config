@@ -1,24 +1,24 @@
 sd1: >
   [[[
-    return `<span>Atualizado à 5min</span>`
+    return `<span>Atualizado às ${new Date(states['sensor.my_id_charge_power'].last_changed).toTimeString().slice(3, 9)}</span>`
   ]]]
 
 info1: >
   [[[
-    return `<span>11</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">kW</span>`
+    return `<span>${states['sensor.my_id_charge_power'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">kW</span>`
   ]]]
 
 info2: >
   [[[
-    return `<span>2.5</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">km/h</span>`
+    return `<span>${states['sensor.my_id_charge_rate'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">km/h</span>`
   ]]]
 
 info3: >
   [[[
-    return `<span>50%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Current</span>`
+    return `<span>${states['sensor.my_id_state_of_charge'].state}%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Current</span>`
   ]]]
 
 info4: >
   [[[
-    return `<span>80%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Target</span>`
+    return `<span>${states['number.my_id_target_state_of_charge'].state}%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Target</span>`
   ]]]

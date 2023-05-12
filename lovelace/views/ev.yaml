@@ -47,8 +47,8 @@ cards:
       - type: "custom:decluttering-card"
         template: car-state
         variables:
-          - entity_range: sensor.numbers
-          - entity-battery: sensor.tradfri_remote_control_battery_level
+          - entity_range: sensor.my_id_range
+          - entity-battery: sensor.my_id_state_of_charge
 
       - type: "custom:decluttering-card"
         template: map-card
@@ -58,15 +58,15 @@ cards:
           - type: "custom:decluttering-card"
             template: climate-vw
             variables:
-              - entity-climate-state: input_number.target_vw_id_3_temperature
+              - entity-climate-state: sensor.my_id_climatisation_state
               - entity-climate-target: input_number.target_vw_id_3_temperature
-              - entity-climate-current: sensor.homedrive_system_temperature
+              - entity-climate-current: number.my_id_target_climate_temperature
               - name: "Clima"
               - template: sensors-climate
 
           - type: "custom:decluttering-card"
             template: car-charge-1
             variables:
-              - entity: sensor.cpu_temperature
+              - entity: sensor.my_id_charging_state
               - name: "Carregamento"
               - template: sensors-car-charge-1
