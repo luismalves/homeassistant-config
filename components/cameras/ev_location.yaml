@@ -5,5 +5,5 @@
 
 - name: VW EV location
   platform: generic
-  still_image_url: https://api.mapbox.com/styles/v1/mapbox/{% if (is_state('sun.sun', 'above_horizon'))%}light{% else %}dark{% endif %}-v11/static/pin-m-car+89b4f8({{ state_attr('device_tracker.my_id_tracker', 'longitude') }},{{state_attr('device_tracker.my_id_tracker, 'latitude') }})/{{state_attr('person.luis_alves', 'longitude') }},{{state_attr('person.luis_alves', 'latitude') }},13,0/500x200?access_token={{states('input_text.mapbox_api_key')}}
+  still_image_url: https://api.mapbox.com/styles/v1/mapbox/{% if (is_state('sun.sun', 'above_horizon'))%}light{% else %}dark{% endif %}-v11/static/pin-m-car+89b4f8({{ state_attr('device_tracker.my_id_tracker', 'longitude') }},{{state_attr('device_tracker.my_id_tracker', 'latitude') }})/{{state_attr('person.luis_alves', 'longitude') }},{{state_attr('person.luis_alves', 'latitude') }},13,0/500x200?access_token={{states('input_text.mapbox_api_key')}}
   limit_refetch_to_url_change: true
