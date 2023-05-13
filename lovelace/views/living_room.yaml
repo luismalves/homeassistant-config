@@ -104,10 +104,10 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: tv
-              - entity-1: media_player.mi_tv
+              - entity-1: remote.android_tv
               - name-1: "Android TV"
-              - state-1: "paused"
-              - state-2: "playing"
+              - state-1: "on"
+              - state-2: "on"
               - state-3: "off"
               - state-4: "unavailable"
           - template: sensor-living_room

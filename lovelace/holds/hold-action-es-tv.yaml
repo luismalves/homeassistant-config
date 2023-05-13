@@ -32,9 +32,9 @@ browser_mod:
                 - icon: arrow-up-bold
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.send_command
                     service_data:
-                      entity_id: media_player.mi_tv
+                      entity_id: remote.android_tv
                       command: UP
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -43,10 +43,10 @@ browser_mod:
                 - icon: power-off
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.turn_off
                     service_data:
-                      entity_id: media_player.mi_tv
-                      command: SLEEP
+                      entity_id: remote.android_tv
+
             ###################################################################################################
             # 2 row - 3 Navigation Buttons using template: btn-icon-text
             ###################################################################################################
@@ -58,9 +58,9 @@ browser_mod:
                 - icon: arrow-left-bold
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.send_command
                     service_data:
-                      entity_id: media_player.mi_tv
+                      entity_id: remote.android_tv
                       command: LEFT
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -69,9 +69,9 @@ browser_mod:
                 - icon: camera-control
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.send_command
                     service_data:
-                      entity_id: media_player.mi_tv
+                      entity_id: remote.android_tv
                       command: ENTER
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -80,9 +80,9 @@ browser_mod:
                 - icon: arrow-right-bold
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.send_command
                     service_data:
-                      entity_id: media_player.mi_tv
+                      entity_id: remote.android_tv
                       command: RIGHT
             ###################################################################################################
             # 3 row - 3 Navigation Buttons using template: btn-icon-text
@@ -95,9 +95,9 @@ browser_mod:
                 - icon: backburger
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.send_command
                     service_data:
-                      entity_id: media_player.mi_tv
+                      entity_id: remote.android_tv
                       command: BACK
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -106,9 +106,9 @@ browser_mod:
                 - icon: arrow-down-bold
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.send_command
                     service_data:
-                      entity_id: media_player.mi_tv
+                      entity_id: remote.android_tv
                       command: DOWN
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -117,9 +117,9 @@ browser_mod:
                 - icon: home-circle
                 - tap_action:
                     action: call-service
-                    service: androidtv.adb_command
+                    service: remote.send_command
                     service_data:
-                      entity_id: media_player.mi_tv
+                      entity_id: remote.android_tv
                       command: HOME
         - height: 10
           size: 30

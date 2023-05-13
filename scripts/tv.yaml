@@ -12,10 +12,8 @@ turn_on_tv:
 turn_off_tv:
   alias: Turn off TV
   sequence:
-    - service: androidtv.adb_command
-      data:
-        entity_id: media_player.mi_tv
-        command: "SLEEP"
+    - service: remote.turn_off
+      entity_id: remote.android_tv
 
 # Start applications
 #
@@ -36,25 +34,27 @@ start_netflix_tv:
 volume_down_tv:
   alias: Volume down tv
   sequence:
-    - service: androidtv.adb_command
-      entity_id: media_player.mi_tv
+    - service: remote.send_command
+      target:
+        entity_id: remote.android_tv
       data:
-        command: "input keyevent 24"
+        command: VOLUME_UP
 
 volume_up_tv:
   alias: Volume up tv
   sequence:
-    - service: androidtv.adb_command
-      entity_id: media_player.mi_tv
+    - service: remote.send_command
+      target:
+        entity_id: remote.android_tv
       data:
-        command: "input keyevent 25"
+        command: VOLUME_DOWN
 
 set_volume_tv_x:
   alias: Set volume to x
   sequence:
-    - service: androidtv.adb_command
+    - service: remote.send_command
       data:
-        entity_id: media_player.mi_tv
+        entity_id: remote.android_tv
         command: "service call audio 7 i32 3 i32 {{ volume }} i32 1"
 
 set_volume_tv_10:
