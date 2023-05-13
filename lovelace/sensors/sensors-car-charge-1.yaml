@@ -1,6 +1,6 @@
 sd1: >
   [[[
-    return `<span>Atualizado às ${new Date(states['sensor.my_id_charge_power'].last_changed).toTimeString().slice(3, 9)}</span>`
+    return `<span>Atualizado às ${new Date(states['sensor.my_id_charge_power'].last_changed).toTimeString().slice(0, 5)}</span>`
   ]]]
 
 info1: >

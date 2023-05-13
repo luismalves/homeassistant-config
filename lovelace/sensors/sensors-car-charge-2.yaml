@@ -1,0 +1,24 @@
+sd1: >
+  [[[
+    return `<span>Com base nos dados Tronity</span>`
+  ]]]
+
+info1: >
+  [[[
+    return `<span>${states['sensor.my_id_total_charge_cost'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR</span>`
+  ]]]
+
+info2: >
+  [[[
+    return `<span>${states['sensor.my_id_price_per_kwh'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR</span>`
+  ]]]
+
+info3: >
+  [[[
+    return `<span>${states['sensor.my_id_ac_dc_charge_ratio'].state}/${100 - states['sensor.my_id_ac_dc_charge_ratio'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">AC/DC</span>`
+  ]]]
+
+info4: >
+  [[[
+    return `<span>${Math.round(states['sensor.my_id_total_charge_energy'].state)}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total kWh</span>`
+  ]]]

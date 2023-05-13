@@ -1091,7 +1091,7 @@ car-tires:
     template: "[[template]]"
   default: null
 
-car-charge-1:
+car-stats:
   card:
     type: "custom:button-card"
     entity: "[[entity]]"

@@ -11,6 +11,12 @@
 - sensor.my_id_charge_power
 - sensor.my_id_charge_rate
 - sensor.my_id_remaining_charging_time
+- sensor.my_id_total_charge_energy
+- sensor.my_id_ac_dc_charge_ratio
 
 # Odometer
 - sensor.my_id_odometer
+
+# Costs
+- sensor.my_id_total_charge_cost
+- sensor.my_id_price_per_kwh

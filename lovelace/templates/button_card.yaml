@@ -173,6 +173,9 @@ sensors-car-range:
 sensors-car-charge-1:
   custom_fields: !include ../sensors/sensors-car-charge-1.yaml
 
+sensors-car-charge-2:
+  custom_fields: !include ../sensors/sensors-car-charge-2.yaml
+
 sensors-energy:
   custom_fields: !include ../sensors/sensors-energy.yaml
 

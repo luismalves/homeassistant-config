@@ -65,8 +65,17 @@ cards:
               - template: sensors-climate
 
           - type: "custom:decluttering-card"
-            template: car-charge-1
+            template: car-stats
             variables:
               - entity: sensor.my_id_charging_state
               - name: "Carregamento"
               - template: sensors-car-charge-1
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:decluttering-card"
+            template: car-stats
+            variables:
+              - entity: sensor.my_id_charging_state
+              - name: "Estatisticas"
+              - template: sensors-car-charge-2
