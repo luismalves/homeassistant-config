@@ -10,7 +10,7 @@ info1: >
 
 info2: >
   [[[
-    return `<span>${states['sensor.my_id_price_per_kwh'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR</span>`
+    return `<span>${states['sensor.my_id_price_per_kwh'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR p/ kWh</span>`
   ]]]
 
 info3: >

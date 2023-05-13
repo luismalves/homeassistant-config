@@ -5,12 +5,14 @@ sd1: >
 
 info1: >
   [[[
-    return `<span>${states['sensor.my_id_charge_power'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">kW</span>`
+    let state = (states['sensor.my_id_charge_power'].state == 0) ? '-' : states['sensor.my_id_charge_power'].state ;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">kW</span>`
   ]]]
 
 info2: >
   [[[
-    return `<span>${states['sensor.my_id_charge_rate'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">km/h</span>`
+    let state = (states['sensor.my_id_charge_rate'].state == 0) ? '-' : states['sensor.my_id_charge_rate'].state ;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">km/h</span>`
   ]]]
 
 info3: >

@@ -79,3 +79,6 @@ cards:
               - entity: sensor.my_id_charging_state
               - name: "Estatisticas"
               - template: sensors-car-charge-2
+
+      - type: "custom:gap-card"
+        height: 15
