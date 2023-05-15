@@ -11,3 +11,7 @@
 
 - sensor.shelly_roller_left_temperature
 - sensor.shelly_roller_right_temperature
+
+- sensor.cpu_temperature
+- sensor.disk_temperature
+- sensor.homedrive_system_temperature
