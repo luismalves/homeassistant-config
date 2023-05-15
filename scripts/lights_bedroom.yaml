@@ -29,21 +29,33 @@ low_light_bedroom:
 set_read_to_sleep_luis:
   alias: Turn on low light on Bedroom on other side of Luis
   sequence:
-    service: select.select_option
-    target:
-      entity_id: select.wled_bed_preset
-    data:
-      option: "Right blue"
+    - service: select.select_option
+      target:
+        entity_id: select.wled_bed_preset
+      data:
+        option: "Right blue"
+    - service: light.turn_off
+      entity_id: light.luz_quarto
+    - service: light.turn_off
+      entity_id: light.luz_quarto_esquerda
+    - service: light.turn_off
+      entity_id: light.luz_quarto_direita
   mode: single
 
 set_read_to_sleep_margarida:
   alias: Turn on low light on Bedroom on other side of Margarida
   sequence:
-    service: select.select_option
-    target:
-      entity_id: select.wled_bed_preset
-    data:
-      option: "Left blue"
+    - service: select.select_option
+      target:
+        entity_id: select.wled_bed_preset
+      data:
+        option: "Left blue"
+    - service: light.turn_off
+      entity_id: light.luz_quarto
+    - service: light.turn_off
+      entity_id: light.luz_quarto_esquerda
+    - service: light.turn_off
+      entity_id: light.luz_quarto_direita
   mode: single
 
 set_bedroom_lights_color:
