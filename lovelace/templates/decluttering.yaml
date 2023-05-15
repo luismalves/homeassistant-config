@@ -1048,7 +1048,7 @@ car-state:
                   }
               - type: markdown
                 content: |
-                  {% if is_not_state('sensor.my_id_remaining_charging_time', '0') %}
+                  {% if not(is_state('sensor.my_id_remaining_charging_time', '0')) %}
                     {{ states.sensor.my_id_remaining_charging_time.state }} remaining
                   {% endif %}
                 style: |
