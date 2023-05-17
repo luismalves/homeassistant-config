@@ -1012,7 +1012,7 @@ car-state:
               - type: "custom:bar-card"
                 entities:
                   - entity: "[[entity-battery]]"
-                target: 80
+                target: 20
                 height: 35px
                 icon: mdi:lightning-bolt
                 positions:
