@@ -1049,7 +1049,8 @@ car-state:
               - type: markdown
                 content: |
                   {% if not(is_state('sensor.my_id_remaining_charging_time', '0')) %}
-                    {{ states.sensor.my_id_remaining_charging_time.state }} remaining
+                  {% set ct = states('sensor.my_id_remaining_charging_time') | int %}
+                    {% if ct > 60 %}{{ ct // 60 }}:{{ '{:0>2d}'.format(ct%60) }}min{% else %}{{ct}}min{% endif %} restantes
                   {% endif %}
                 style: |
                   ha-card.type-markdown {
