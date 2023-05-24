@@ -1105,3 +1105,20 @@ car-stats:
     styles: !include ../styles/style-card-car-info.yaml
     template: "[[template]]"
   default: null
+
+car-charge-option:
+  card:
+    type: "custom:button-card"
+    entity: "[[entity]]"
+    name: "[[type]]"
+    icon: "[[icon]]"
+    show_icon: true
+    show_state: false
+    show_name: false
+    tap_action:
+      action: none
+    styles: !include ../styles/style-card-car-charge.yaml
+    template: "[[template]]"
+    variables:
+      rate: "[[rate]]"
+  default: null

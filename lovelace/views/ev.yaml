@@ -50,8 +50,84 @@ cards:
           - entity_range: sensor.my_id_range
           - entity-battery: sensor.my_id_state_of_charge
 
-      - type: "custom:decluttering-card"
-        template: map-card
+      # - type: "custom:decluttering-card"
+      #   template: map-card
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:decluttering-card"
+            template: car-stats
+            variables:
+              - entity: sensor.my_id_charging_state
+              - name: "Carregamento"
+              - template: sensors-car-charge-1
+
+          - type: "custom:decluttering-card"
+            template: car-stats
+            variables:
+              - entity: sensor.my_id_charging_state
+              - name: "Estatisticas"
+              - template: sensors-car-charge-2
+
+      - type: custom:vertical-stack-in-card
+        style: |
+          ha-card.type-custom-vertical-stack-in-card {
+            background-color: var(--ha-card-background-es-static);
+          }
+          ha-card.type-custom-vertical-stack-in-card > div {
+            padding: 0px 15px 5px;
+          }
+        cards:
+          - type: "custom:button-card"
+            name: Opções de carregamento
+            show_icon: false
+            show_state: false
+            tap_action:
+              action: none
+            styles: !include ../styles/style-card-car-header.yaml
+            custom_fields:
+              subtitle: >
+                [[[
+                  return `<span>Com base na bateria atual de ${states['sensor.my_id_state_of_charge'].state}%</span>`
+                ]]]
+
+          - type: horizontal-stack
+            cards:
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "AC"
+                  - icon: mdi:ev-plug-type2
+                  - rate: "3.7"
+                  - template: sensors-car-charge-option
+
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "AC"
+                  - icon: mdi:ev-plug-type2
+                  - rate: "11"
+                  - template: sensors-car-charge-option
+
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "DC"
+                  - icon: mdi:ev-plug-ccs2
+                  - rate: "50"
+                  - template: sensors-car-charge-option
+
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "DC"
+                  - icon: mdi:ev-plug-ccs2
+                  - rate: "100"
+                  - template: sensors-car-charge-option
 
       - type: horizontal-stack
         cards:
@@ -63,22 +139,6 @@ cards:
               - entity-climate-current: number.my_id_target_climate_temperature
               - name: "Clima"
               - template: sensors-climate
-
-          - type: "custom:decluttering-card"
-            template: car-stats
-            variables:
-              - entity: sensor.my_id_charging_state
-              - name: "Carregamento"
-              - template: sensors-car-charge-1
-
-      - type: horizontal-stack
-        cards:
-          - type: "custom:decluttering-card"
-            template: car-stats
-            variables:
-              - entity: sensor.my_id_charging_state
-              - name: "Estatisticas"
-              - template: sensors-car-charge-2
 
       - type: "custom:gap-card"
         height: 15

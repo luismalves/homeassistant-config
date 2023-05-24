@@ -1,0 +1,29 @@
+card:
+  - background-color: transparent
+  - color: var(--el-es-static-text-color)
+  - font-size: 10px
+
+custom_fields:
+  icon_hue:
+    - margin-top: 12px
+    - width: 25px
+
+  subtitle:
+    - align-self: flex-start
+    - color: var(--el-text-color-light)
+    - margin-top: 2px
+
+grid:
+  - grid-template-areas: '"n icon" "subtitle icon"'
+  - grid-template-columns: 1fr 60px
+  - grid-template-rows: min-content 1fr
+  - text-align: left
+
+name:
+  - align-self: start
+  - font-weight: bold
+  - font-size: 14px
+  - place-self: flex-start
+
+state:
+  - display: none
