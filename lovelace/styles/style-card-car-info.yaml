@@ -68,6 +68,3 @@ name:
   - font-weight: bold
   - font-size: 14px
   - place-self: flex-start
-
-state:
-  - display: none

@@ -19,6 +19,9 @@ img_cell:
   - width: 50px
   - position: relative
 
+icon:
+  - color: var(--el-svg-main-color-on)
+
 custom_fields:
   rate:
     - color: var(--el-text-color-light)

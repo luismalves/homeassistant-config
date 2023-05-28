@@ -65,7 +65,6 @@ cards:
           - type: "custom:decluttering-card"
             template: car-stats
             variables:
-              - entity: sensor.my_id_charging_state
               - name: "Estatisticas"
               - template: sensors-car-charge-2
 

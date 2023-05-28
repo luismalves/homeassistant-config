@@ -951,7 +951,7 @@ car-state:
           }
       - type: markdown
         content: |
-          Atualizado à {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.my_id_car_is_active.last_changed)) | timestamp_custom("%Hh e %Mmin", false) }}
+          Atualizado à {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.my_id_car_is_active.last_changed)) | timestamp_custom("%-Hh e %Mmin", false) }}
         style: |
           ha-card.type-markdown {
             background: transparent;
@@ -1098,7 +1098,7 @@ car-stats:
     entity: "[[entity]]"
     name: "[[name]]"
     show_icon: false
-    show_state: true
+    show_state: false
     tap_action:
       action: none
     state: !include ../states/state-car-charge.yaml
