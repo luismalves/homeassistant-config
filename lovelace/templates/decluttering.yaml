@@ -192,6 +192,7 @@ path-car:
       navigation_path: "[[navigation_path]]"
     show_icon: false
     show_state: false
+    state: !include ../states/state-car-lock.yaml
     styles: !include ../styles/style-card-path-car.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -980,6 +981,38 @@ car-state:
             padding-top: 0px !important;
             text-align: center;
           }
+
+      - type: custom:state-switch
+        entity: sensor.my_id_door_lock_status
+        default: default
+        states:
+          locked:
+            type: markdown
+            content: |
+              <ha-icon icon="mdi:lock-open-alert-outline"></ha-icon> Unlocked
+            style: |
+              ha-card.type-markdown {
+                background: transparent;
+                display: flex;
+                justify-content: center;
+                margin-bottom: -45px;
+                width: 100%;
+                --mdc-icon-size: 12px;
+              }
+              ha-markdown.no-header {
+                background-color: var(--ha-card-background-es-off);
+                border-radius: 40px;
+                color: var(--el-text-color);
+                font-size: 12px;
+                font-weight: bold;
+                height: 18px;
+                margin-top: -45px;
+                padding-bottom: 10px;
+                padding-left: 16px;
+                padding-top: 10px !important;
+                padding-right: 16px;
+              }
+
       - type: custom:layout-card
         layout_type: custom:horizontal-layout
         layout:

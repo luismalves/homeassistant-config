@@ -101,6 +101,7 @@ cards:
             template: path-car
             variables:
               - template: path-car
+              - entity: sensor.my_id_door_lock_status
               - name: "Carro"
               - navigation_path: /dashboard-mobile/ev
 
