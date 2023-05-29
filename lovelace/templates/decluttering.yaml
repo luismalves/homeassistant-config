@@ -986,7 +986,7 @@ car-state:
         entity: sensor.my_id_door_lock_status
         default: default
         states:
-          locked:
+          unlocked:
             type: markdown
             content: |
               <ha-icon icon="mdi:lock-open-alert-outline"></ha-icon> Unlocked
