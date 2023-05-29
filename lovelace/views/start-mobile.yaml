@@ -62,16 +62,16 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: path-living-room
-              - entity-1: sensor.lights_on_living_room
-              - name-1: "Sala"
+              - entity: sensor.lights_on_living_room
+              - name: "Sala"
               - navigation_path: /dashboard-mobile/living
 
           - template: path-division
             type: "custom:decluttering-card"
             variables:
               - template: path-kitchen
-              - entity-1: sensor.lights_on_kitchen
-              - name-1: "Cozinha"
+              - entity: sensor.lights_on_kitchen
+              - name: "Cozinha"
               - navigation_path: /dashboard-mobile/kitchen
 
       - type: horizontal-stack
@@ -80,17 +80,29 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: path-deck
-              - entity-1: sensor.lights_on_deck
-              - name-1: "Deck"
+              - entity: sensor.lights_on_deck
+              - name: "Deck"
               - navigation_path: /dashboard-mobile/deck
 
           - template: path-division
             type: "custom:decluttering-card"
             variables:
               - template: path-bedroom
-              - entity-1: sensor.lights_on_bedroom
-              - name-1: "Quarto"
+              - entity: sensor.lights_on_bedroom
+              - name: "Quarto"
               - navigation_path: /dashboard-mobile/bedroom
+
+      - type: custom:state-switch
+        entity: user
+        default: default
+        states:
+          Luís:
+            type: "custom:decluttering-card"
+            template: path-car
+            variables:
+              - template: path-car
+              - name: "Carro"
+              - navigation_path: /dashboard-mobile/ev
 
       - type: "custom:gap-card"
         height: 5

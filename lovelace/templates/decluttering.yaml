@@ -169,8 +169,8 @@ path:
 # Navigation card for divisions
 path-division:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: navigate
       navigation_path: "[[navigation_path]]"
@@ -178,6 +178,21 @@ path-division:
     show_state: false
     state: !include ../states/state-path-division.yaml
     styles: !include ../styles/style-card-path-division.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Navigation card for car
+path-car:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[navigation_path]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-path-car.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
