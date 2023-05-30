@@ -1,10 +1,12 @@
 sd1: >
   [[[
-    let date_changed = new Date(states['sensor.my_id_charge_power'].last_changed);
-    let minutes = date_changed.getMinutes() < 10 ? '0' : '';
-    let day = date_changed.getDate() == new Date().getDate() ? ' de hoje' : (' de ' + date_changed.getDate() + '/' + (date_changed.getMonth() + 1));
-    return `<span>Último às ${date_changed.getHours() + ':' + minutes + date_changed.getMinutes() + ' ' + day}</span>`
-  ]]]
+    if(states['sensor.last_my_vw_id_charge'].state !== 'unknown') {
+      let date_changed = new Date(states['sensor.last_my_vw_id_charge'].last_changed);
+      let minutes = date_changed.getMinutes() < 10 ? '0' : '';
+      let day = date_changed.getDate() == new Date().getDate() ? ' de hoje' : (' de ' + date_changed.getDate() + '/' + (date_changed.getMonth() + 1));
+      return `<span>Último às ${date_changed.getHours() + ':' + minutes + date_changed.getMinutes() + ' ' + day}</span>`
+    }
+    ]]]
 
 info1: >
   [[[

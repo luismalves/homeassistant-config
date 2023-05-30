@@ -1,0 +1,13 @@
+#####
+# Car sensors
+#
+#####
+
+- trigger:
+    - platform: state
+      entity_id: sensor.my_id_charging_state
+      from: "charging"
+  sensor:
+    - name: Last My VW ID charge
+      device_class: timestamp
+      state: "{{ now() }}"
