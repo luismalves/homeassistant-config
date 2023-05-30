@@ -36,3 +36,13 @@ sd3: >
         </ha-icon><span style="color: var(--text-color-sensor);">${remaining_text} restante</span>`
     }
   ]]]
+
+sd4: >
+  [[[
+    if(states['sensor.my_id_door_lock_status'].state == 'unlocked') {
+      return `<ha-icon
+        icon="mdi:lock-open-alert-outline"
+        style="width: 12px; height: 10px;">
+        </ha-icon><span style="color: var(--text-color-sensor);">Unlocked</span>`
+    }
+  ]]]

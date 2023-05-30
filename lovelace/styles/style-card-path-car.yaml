@@ -3,12 +3,12 @@ card:
   - font-weight: bold
   - font-size: 12px
   - background-color: "var(--ha-card-background-path)"
-  - padding: 0px
+  - padding: 5px
 
 custom_fields:
   icon_hue:
     - align-self: center
-    - padding: 5px 10px 5px 10px
+    - padding: 3px 10px 0px 5px
     - width: 30px
 
   sd1:
@@ -28,16 +28,26 @@ custom_fields:
     - justify-self: flex-start
     - color: "var(--el-es-static-text-color-light)"
 
+  sd4:
+    - font-size: 12px
+    - justify-self: flex-start
+    - color: "var(--el-es-static-text-color-light)"
+    - margin-right: 2px
+
 grid:
-  - grid-template-areas: '"icon_hue n sd1 sd2 sd3"'
+  - grid-template-areas: >
+      [[[
+        if (states['sensor.my_id_charging_state'].state == 'charging')
+          return '"icon_hue n sd1 sd2 sd3" "icon_hue n sd4 sd4 sd4"';
+        else
+          return '"icon_hue n sd1 sd4 sd4" "icon_hue n sd1 sd4 sd4"';
+      ]]]
   - grid-template-columns: min-content min-content min-content min-content min-content
-  - grid-template-rows: 1fr
+  - grid-template-rows: 1fr min-content
 
 name:
   - color: "var(--ha-card-color-name-on)"
   - justify-self: start
   - font-weight: bold
   - font-size: 16px
-  - margin-bottom: 4px
-  - margin-top: 4px
   - margin-right: 10px
