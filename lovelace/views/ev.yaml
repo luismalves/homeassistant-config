@@ -128,6 +128,87 @@ cards:
                   - rate: "100"
                   - template: sensors-car-charge-option
 
+      - type: custom:vertical-stack-in-card
+        style: |
+          ha-card.type-custom-vertical-stack-in-card {
+            background-color: var(--ha-card-background-es-static);
+          }
+          ha-card.type-custom-vertical-stack-in-card > div {
+            padding: 0px 15px 5px;
+          }
+        cards:
+          - type: "custom:button-card"
+            name: Distâncias por dia
+            show_icon: false
+            show_state: false
+            tap_action:
+              action: none
+            styles: !include ../styles/style-card-car-header.yaml
+            custom_fields:
+              subtitle: >
+                [[[
+                  return `<span>Total de ${states['sensor.my_id_odometer'].state} KMs</span>`
+                ]]]
+
+          - type: custom:apexcharts-card
+            graph_span: 7d
+            span:
+              end: day
+            yaxis:
+              - show: false
+                min: 0
+                apex_config:
+                  padding:
+                    left: 0
+                    right: 0
+            series:
+              - entity: sensor.my_id_odometer
+                type: column
+                color: "var(--el-graph-bar-color)"
+                group_by:
+                  duration: 1d
+                  func: diff
+                  start_with_last: true
+                show:
+                  datalabels: true
+            apex_config:
+              chart:
+                height: 120px
+                fontFamily: "var(--paper-ha-card_-_font-family)"
+                parentHeightOffset: 0
+              tooltip:
+                enabled: false
+              grid:
+                show: false
+              dataLabels:
+                show: true
+                offsetY: -12
+                # formatter: |
+                #   function(val, opts) {
+                #     return val + '€';
+                #   }
+                style:
+                  fontSize: "12px"
+                  colors: ["var(--el-graph-bar-color)"]
+                background:
+                  enabled: false
+              plotOptions:
+                bar:
+                  borderRadius: 6
+                  columnWidth: "90%"
+              xaxis:
+                tickPlacement: "on"
+                labels:
+                  show: true
+                  hideOverlappingLabels: false
+                  format: "d/M"
+                  style:
+                    fontSize: "10px"
+            style: |-
+              ha-card.type-custom-apexcharts-card {
+                background: transparent;
+              }
+
       - type: horizontal-stack
         cards:
           - type: "custom:decluttering-card"
