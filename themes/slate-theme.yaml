@@ -104,6 +104,7 @@ slate_theme:
 
   el-graph-title-color: "#333"
   el-graph-state-color: "#333"
+  el-graph-bar-color: "var(--el-text-color-light)"
 
   el-state-cold: "#89b4f8"
   el-state-hot: "rgba(255,103,0,1)"
