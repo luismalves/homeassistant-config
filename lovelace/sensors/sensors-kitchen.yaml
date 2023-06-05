@@ -13,7 +13,7 @@ temp: >
       return `<ha-icon
       icon="mdi:motion-sensor"
       style="width: 12px; height: 12px; color:#f69836">
-      </ha-icon><span style="color: var(--ha-card-color-name-on);">${entity.state}</span>`
+      </ha-icon><span style="color: #f69836;">${entity.state}</span>`
   ]]]
 
 sd1: >
