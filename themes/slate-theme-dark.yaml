@@ -69,7 +69,7 @@ slate_theme_dark:
   ha-card-background-path: "var(--ha-card-background-es-off)"
   ha-card-background-task: "var(--ha-card-background-es-off)"
   ha-card-background-scene: "var(--ha-card-background-es-off)"
-  ha-card-background-energy: "#303135"
+  #ha-card-background-energy: "#303135"
   ha-card-background-alert: "#f4a7a7"
   ha-card-background-climate-control: "var(--card-background-color)"
 

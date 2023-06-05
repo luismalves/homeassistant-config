@@ -3,7 +3,7 @@ card:
   - font-weight: 700
   - color: "var(--ha-card-color-name-off)"
   - font-size: 10px
-  - background-color: "var(--ha-card-background-energy)"
+  - background-color: "transparent"
   - padding: 0px
 
 grid:

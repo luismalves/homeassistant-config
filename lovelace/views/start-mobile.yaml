@@ -149,7 +149,7 @@ cards:
         horizontal: false
         style: |-
           ha-card.type-custom-vertical-stack-in-card {
-            background: transparent;
+            background: var(--ha-card-background-es-static);
             border-radius: 10px;
           }
         cards:
