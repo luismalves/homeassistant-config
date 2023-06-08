@@ -133,6 +133,7 @@ cards:
           ha-card.type-custom-vertical-stack-in-card {
             background-color: var(--ha-card-background-es-static);
           }
+          apexcharts-card { --primary-text-color: var(--el-graph-bar-color); }
           ha-card.type-custom-vertical-stack-in-card > div {
             padding: 0px 15px 5px;
           }
@@ -180,13 +181,12 @@ cards:
                 enabled: false
               grid:
                 show: false
+                padding:
+                  left: -20
+                  right: -15
               dataLabels:
                 show: true
                 offsetY: -12
-                # formatter: |
-                #   function(val, opts) {
-                #     return val + '€';
-                #   }
                 style:
                   fontSize: "12px"
                   colors: ["var(--el-graph-bar-color)"]

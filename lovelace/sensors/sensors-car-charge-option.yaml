@@ -8,7 +8,7 @@ time: >
   [[[
     let needed_capacity = entity.state > 80 ? 58 * ((100 - entity.state) / 100) :  58 * ((80 - entity.state) / 100);
     let hours = needed_capacity / variables.rate;
-    let minutes = (((hours % 1) * 60) < 10 && hours >= 1) ? '0' + Math.round((hours % 1) * 60) : Math.round((hours % 1 ) * 60);
+    let minutes = (Math.round((hours % 1) * 60) < 10 && hours >= 1) ? '0' + Math.round((hours % 1) * 60) : Math.round((hours % 1 ) * 60);
     if(hours >= 1) {
       if(minutes == 0 || minutes == 60) {
           return `<span>${Math.round(hours)}h</span>`;
