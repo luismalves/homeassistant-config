@@ -24,7 +24,7 @@
       friendly_name: "Homedrive NAS Uptime"
       value_template: >
         {% set value = state_attr('sensor.homedrive_status','Uptime') %}
-        {% set dt = as_timestamp(strptime(value, "%dd %Hh %Mm")) | timestamp_custom('%-d') | int(default=0) %}
+        {% set dt = as_timestamp(strptime(value, "%jd %Hh %Mm")) | timestamp_custom('%-d') | int(default=0) %}
         {% if dt > 1 %}
           {{ dt }} days
         {% else %}
