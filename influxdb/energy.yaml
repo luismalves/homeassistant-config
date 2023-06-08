@@ -8,11 +8,17 @@
 - sensor.shelly_em_channel_1_power
 
 ## Utility meters
-- sensor.utm_diario_normal
+- sensor.utm_diario_fora_de_vazio
+- sensor.utm_diario_vazio
+- sensor.utm_mensal_fora_de_vazio
+- sensor.utm_mensal_vazio
 
 ## Cost calculations
-- sensor.sensor_utm_mensal_normal_cost
-- sensor.endesa_5_75_kva_simples_ciclo_diario
+- input_number.energy_access_cost_per_day
+- input_number.energy_cost_per_kwh_empty_hours
+- input_number.energy_discount
+- input_number.energy_power_cost_per_day
+- input_number.energy_taxes
 - sensor.energy_bill
 
 ## Power outlets

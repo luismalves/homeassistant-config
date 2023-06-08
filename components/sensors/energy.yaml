@@ -9,7 +9,7 @@
       friendly_name: "Fatura Energia"
       device_class: monetary
       value_template: >-
-        {{ float((2.85 + 0.071 + float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.attributes.daily_power_cost * now().day) + float(states.sensor.utm_mensal_normal.state) * float(states.sensor.endesa_5_75_kva_simples_ciclo_diario.attributes.current_unitary_cost)) * 1.23) | default(0) | round(2) }}
+        {{ ((float(states.sensor.utm_mensal_vazio.state) * (float(states.input_number.energy_cost_per_kwh_empty_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + float(states.sensor.utm_mensal_fora_de_vazio.state) * (float(states.input_number.energy_cost_per_kwh_full_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + now().day * (float(states.input_number.energy_power_cost_per_day.state) + float(states.input_number.energy_access_cost_per_day.state)) + float(states.input_number.energy_taxes.state) ) * 1.23 ) | default(0) | round(2) }}
       unit_of_measurement: "€"
 
 - platform: template
@@ -18,5 +18,5 @@
       friendly_name: "Fatura Energia"
       device_class: monetary
       value_template: >-
-        {{ float((float(states.sensor.endesa_5_75_kva_simples_ciclo_diario_cost.attributes.daily_power_cost) + float(states.sensor.utm_diario_normal.state) * float(states.sensor.endesa_5_75_kva_simples_ciclo_diario.attributes.current_unitary_cost)) * 1.23) | default(0) | round(2) }}
+        {{ ((float(states.sensor.utm_diario_vazio.state) * (float(states.input_number.energy_cost_per_kwh_empty_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + float(states.sensor.utm_diario_fora_de_vazio.state) * (float(states.input_number.energy_cost_per_kwh_full_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + (float(states.input_number.energy_power_cost_per_day.state) + float(states.input_number.energy_access_cost_per_day.state))) * 1.23 ) | default(0) | round(2) }}
       unit_of_measurement: "€"

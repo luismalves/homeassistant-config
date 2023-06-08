@@ -9,16 +9,19 @@ utm_mensal:
   offset:
     days: 5
   tariffs:
-    - Normal
+    - Fora de Vazio
+    - Vazio
 
-utm_semanal:
-  source: sensor.shelly_em_channel_1_energy #sensor in kWh
-  cycle: weekly
-  tariffs:
-    - Normal
+# utm_semanal:
+#   source: sensor.shelly_em_channel_1_energy #sensor in kWh
+#   cycle: weekly
+#   tariffs:
+#     - Fora de Vazio
+#     - Vazio
 
 utm_diario:
   source: sensor.shelly_em_channel_1_energy #sensor in kWh
   cycle: daily
   tariffs:
-    - Normal
+    - Fora de Vazio
+    - Vazio
