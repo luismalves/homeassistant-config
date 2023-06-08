@@ -12,18 +12,6 @@ house:
 plants:
   custom_fields: !include ../icons/plants.yaml
 
-toggle:
-  custom_fields: !include ../icons/toggle.yaml
-
-auto-brightness:
-  custom_fields: !include ../icons/auto-brightness.yaml
-
-brightness:
-  custom_fields: !include ../icons/brightness.yaml
-
-debug-code:
-  custom_fields: !include ../icons/debug-code.yaml
-
 healthchecks:
   custom_fields: !include ../icons/healthchecks.yaml
 
@@ -45,7 +33,6 @@ shutter-temp:
 #---------------------#
 # Media
 #---------------------#
-
 speaker:
   custom_fields: !include ../icons/speaker.yaml
 
@@ -60,6 +47,24 @@ tv:
 #---------------------#
 switch:
   custom_fields: !include ../icons/switch.yaml
+
+#---------------------#
+# Toggles
+#---------------------#
+toggle:
+  custom_fields: !include ../icons/toggle.yaml
+
+toggle-vacations:
+  custom_fields: !include ../icons/toggle-vacations.yaml
+
+toggle-auto-brightness:
+  custom_fields: !include ../icons/toggle-brightness.yaml
+
+toggle-brightness:
+  custom_fields: !include ../icons/toggle-brightness.yaml
+
+toggle-debug-code:
+  custom_fields: !include ../icons/toggle-debug-code.yaml
 
 #---------------------#
 # Lights
