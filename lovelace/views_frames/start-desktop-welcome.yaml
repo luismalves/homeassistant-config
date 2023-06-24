@@ -26,7 +26,7 @@
   card:
     type: markdown
     style: !include ../styles/style-card-alert.yaml
-    content: Alarme ativo!
+    content: Alarme ligado!
 
 - type: markdown
   style: >

@@ -5,6 +5,6 @@ icon_hue: >
 sd1: >
   [[[
     if (entity.state === 'disarmed')
-      return `<span>Inativo</span>`;
-    else return `<span>Ativo</span>`;
+      return `<span>Desligado</span>`;
+    else return `<span>Ligado</span>`;
   ]]]
