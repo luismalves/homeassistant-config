@@ -43,6 +43,6 @@ sd4: >
       return `<ha-icon
         icon="mdi:lock-open-alert-outline"
         style="width: 12px; height: 10px;">
-        </ha-icon><span style="color: var(--text-color-sensor);">Unlocked</span>`
+        </ha-icon><span style="color: var(--text-color-sensor);">Aberto</span>`
     }
   ]]]

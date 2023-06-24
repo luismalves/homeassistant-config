@@ -989,7 +989,7 @@ car-state:
           unlocked:
             type: markdown
             content: |
-              <ha-icon icon="mdi:lock-open-alert-outline"></ha-icon> Unlocked
+              <ha-icon icon="mdi:lock-open-alert-outline"></ha-icon> Aberto
             style: |
               ha-card.type-markdown {
                 background: transparent;
