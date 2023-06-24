@@ -14,6 +14,18 @@
     light.luz_quarto_direita: "off"
     light.luz_quarto: "off"
 
+- name: Bird rest time
+  icon: mdi:bird
+  entities:
+    light.shelly_kitchen_light: "off"
+    light.shelly_table_light: "on"
+    light.luz_mesa_1:
+      state: "on"
+      brightness: 100
+    light.luz_mesa_2:
+      state: "on"
+      brightness: 100
+
 #####
 # Kitchen
 #####

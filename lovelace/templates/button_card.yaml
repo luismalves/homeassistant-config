@@ -202,6 +202,9 @@ sensor-xbox:
 #---------------------#
 # Scene
 #---------------------#
+scene-bird:
+  custom_fields: !include ../icons/scene-bird.yaml
+
 scene-kitchen:
   custom_fields: !include ../icons/scene-kitchen.yaml
 

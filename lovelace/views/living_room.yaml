@@ -183,6 +183,12 @@ cards:
               - template: scene-movie
               - scene-1: scene.movie_time
               - entity-1: scene.movie_time
+          - template: scene
+            type: "custom:decluttering-card"
+            variables:
+              - template: scene-bird
+              - scene-1: scene.bird_rest_time
+              - entity-1: scene.bird_rest_time
           - template: es-boolean
             type: "custom:decluttering-card"
             variables:
@@ -203,11 +209,18 @@ cards:
                 - template: script-lights-off
                 - script: script.turn_off_living_room
                 - name: "Desligar luzes"
-          - type: conditional
-            conditions:
-              - entity: sensor.lights_on_living_room
-                state: "0"
-            card:
-              width: 110
-              size: 30
-              type: "custom:gap-card"
+
+      - type: conditional
+        conditions:
+          - entity: sensor.lights_on_living_room
+            state_not: "0"
+        card:
+          type: horizontal-stack
+          cards:
+            - type: "custom:decluttering-card"
+              template: script
+              variables:
+                - entity-1: sensor.lights_on_living_room
+                - template: script-lights-off
+                - script: script.turn_off_living_room
+                - name: "Desligar luzes"
