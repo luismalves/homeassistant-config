@@ -967,7 +967,13 @@ car-state:
           }
       - type: markdown
         content: |
-          Atualizado à {{ (as_timestamp(now()) - as_timestamp(states.binary_sensor.my_id_car_is_active.last_changed)) | timestamp_custom("%-Hh e %Mmin", false) }}
+          {% set timestamp_1 = states.binary_sensor.my_id_car_is_active.last_changed %}
+          {% set timestamp_2 = states.sensor.my_id_state_of_charge.last_changed %}
+          {% if timestamp_1 > timestamp_2 %}
+          Utilizado à {{ (as_timestamp(now()) - as_timestamp(timestamp_1)) | timestamp_custom("%-Hh e %Mmin", false) }}
+          {% else %}
+          Utilizado à {{ (as_timestamp(now()) - as_timestamp(timestamp_2)) | timestamp_custom("%-Hh e %Mmin", false) }}
+          {% endif %}
         style: |
           ha-card.type-markdown {
             background: transparent;
