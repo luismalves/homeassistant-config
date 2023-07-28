@@ -96,6 +96,15 @@ cards:
                 template: car-charge-option
                 variables:
                   - entity: sensor.my_id_state_of_charge
+                  - type: "DC"
+                  - icon: mdi:power-plug-outline
+                  - rate: "2"
+                  - template: sensors-car-charge-option
+
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
                   - type: "AC"
                   - icon: mdi:ev-plug-type2
                   - rate: "3.7"
@@ -117,15 +126,6 @@ cards:
                   - type: "DC"
                   - icon: mdi:ev-plug-ccs2
                   - rate: "50"
-                  - template: sensors-car-charge-option
-
-              - type: "custom:decluttering-card"
-                template: car-charge-option
-                variables:
-                  - entity: sensor.my_id_state_of_charge
-                  - type: "DC"
-                  - icon: mdi:ev-plug-ccs2
-                  - rate: "100"
                   - template: sensors-car-charge-option
 
       - type: custom:vertical-stack-in-card

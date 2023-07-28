@@ -964,6 +964,7 @@ car-state:
         style: |
           ha-card.type-picture {
             background: transparent;
+            min-height: 160px;
           }
       - type: markdown
         content: |
