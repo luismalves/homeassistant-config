@@ -25,11 +25,12 @@
           show:
             name: true
             icon: true
+            labels: true
           tap_action:
             action: none
-          hours_to_show: 24
+          hours_to_show: 72
           font_size: 65
-          points_per_hour: 4
+          points_per_hour: 1
           color_thresholds: !include ../graphs/temp-thresholds.yaml
           style: !include ../styles/style-graph-wtitle.yaml
 
@@ -40,11 +41,12 @@
           show:
             name: true
             icon: true
+            labels: true
           tap_action:
             action: none
-          hours_to_show: 24
+          hours_to_show: 72
           font_size: 65
-          points_per_hour: 4
+          points_per_hour: 1
           color_thresholds: !include ../graphs/humidity-thresholds.yaml
           style: !include ../styles/style-graph-wtitle.yaml
 

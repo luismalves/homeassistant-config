@@ -25,3 +25,17 @@
     padding-bottom: 0px;
     padding-left: 8px;
   }
+  .graph__container .graph__labels {
+    color: var(--el-text-color);
+    font-size: 8.5px;
+    padding: 1em 0.6em;
+    top: -15px;
+    opacity: 1;
+  }
+  .graph__container .graph__labels > span {
+    background: var(--el-text-color-inverted);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px, rgba(0, 0, 0, 0.12) 0px 1px 2px;
+    padding: 0px 4px;
+    line-height: 10px;
+  }
