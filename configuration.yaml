@@ -111,12 +111,12 @@ cloud:
       include_entities: !include_dir_merge_list google_assistant
 
 tts:
-  - platform: google_translate
-    cache: true
-    cache_dir: /tmp/tts
-    time_memory: 300
-    base_url: http://192.168.1.95:8123
-    service_name: google_say
+  # - platform: google_translate
+  #   cache: true
+  #   cache_dir: /tmp/tts
+  #   time_memory: 300
+  #   base_url: http://192.168.1.95:8123
+  #   service_name: google_say
   - platform: google_cloud
     key_file: service-account-tts.json
     language: pt-PT
@@ -183,6 +183,7 @@ shell_command: !include_dir_merge_named components/shell_command
 sensor: !include_dir_merge_list components/sensors
 template: !include_dir_merge_list components/templates
 binary_sensor: !include_dir_merge_list components/binary_sensors
+command_line: !include_dir_merge_list components/command_line
 switch: !include_dir_merge_list components/switches
 light: !include_dir_merge_list components/lights
 utility_meter: !include_dir_merge_named components/utility_meter

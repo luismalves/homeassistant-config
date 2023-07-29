@@ -87,7 +87,8 @@ cards:
             custom_fields:
               subtitle: >
                 [[[
-                  return `<span>Com base na bateria atual de ${states['sensor.my_id_state_of_charge'].state}%</span>`
+                  let needed_battery = 80 - states['sensor.my_id_state_of_charge'].state;
+                  return `<span>Para um carregamento de ${needed_battery}%</span>`
                 ]]]
 
           - type: horizontal-stack
