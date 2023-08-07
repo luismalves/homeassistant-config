@@ -497,6 +497,24 @@ es-switch:
       power_entity: "[[entity-power]]"
   default: switch
 
+es-switch-confirmation:
+  card:
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-es.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+    confirmation:
+      text: "[[confirmation-text]]"
+    variables:
+      power_entity: "[[entity-power]]"
+  default: switch
+
 # Devices state obtained with ping integration
 es-ping:
   card:

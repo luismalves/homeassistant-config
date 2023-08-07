@@ -134,17 +134,23 @@ cards:
             type: "custom:decluttering-card"
             variables:
               - template: switch
+              - entity-1: switch.smart_plug_3
+              - name-1: Extensão
+              - entity-power: sensor.smart_plug_3_power
+          - template: es-switch-confirmation
+            type: "custom:decluttering-card"
+            variables:
+              - template: switch
               - entity-1: switch.smart_plug_2
               - name-1: Tomada
               - entity-power: sensor.smart_plug_2_power
+              - confirmation-text: "De certeza? Confirma que o PC está desligado se estiveres a desligar a tomada."
           - template: es-ping
             type: "custom:decluttering-card"
             variables:
               - template: sensor-desktop
               - entity-1: binary_sensor.windows_desktop_state
               - name-1: Computador fixo
-          - height: 10
-            type: "custom:gap-card"
 
       - cards:
           - height: 10
