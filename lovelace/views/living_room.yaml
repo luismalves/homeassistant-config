@@ -167,6 +167,16 @@ cards:
               - template: sensor-xbox
               - entity-1: binary_sensor.xbox_one_x_state
               - name-1: XBOX
+          - template: es-camera
+            type: "custom:decluttering-card"
+            variables:
+              - template: camera
+              - entity-1: camera.mi_cam
+              - name-1: "Camera"
+              - state-1: detected
+              - state-2: idle
+          - height: 10
+            type: "custom:gap-card"
         type: horizontal-stack
 
       - type: horizontal-stack
