@@ -576,6 +576,21 @@ es-tv:
     type: "custom:button-card"
   default: null
 
+es-camera:
+  card:
+    #custom_fields: !include ../circles/circle-x.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    tap_action:
+      action: more-info
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
 es-mood:
   card:
     entity: "[[entity]]"

@@ -42,6 +42,9 @@ speaker-nest-hub:
 tv:
   custom_fields: !include ../icons/tv.yaml
 
+camera:
+  custom_fields: !include ../icons/camera.yaml
+
 #---------------------#
 # Switch
 #---------------------#
