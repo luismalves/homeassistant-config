@@ -18,10 +18,10 @@ cards:
       - entity: sensor.alpaca_uptime_friendly
         name: Uptime
         icon: mdi:timelapse
-      - entity: sensor.alpaca_disk_total
+      - entity: sensor.node_alpaca_disk_total
         name: Disco total
         icon: mdi:harddisk
-      - entity: sensor.alpaca_memory_total
+      - entity: sensor.node_alpaca_memory_total
         name: Memória total
         icon: mdi:memory
     state_color: true
@@ -47,7 +47,7 @@ cards:
     cards:
       - type: "custom:mini-graph-card"
         entities:
-          - entity: sensor.alpaca_memory_use_percent
+          - entity: sensor.node_alpaca_memory_used_percentage
             name: Memory Usage
         show:
           name: true
@@ -62,7 +62,7 @@ cards:
 
       - type: "custom:mini-graph-card"
         entities:
-          - entity: sensor.alpaca_disk_use_percent
+          - entity: sensor.node_alpaca_disk_used_percentage
             name: Disk Usage
         show:
           name: true
@@ -75,32 +75,32 @@ cards:
         color_thresholds: !include ../graphs/percentage-thresholds.yaml
         style: !include ../styles/style-graph-wtitle.yaml
 
-      - type: "custom:mini-graph-card"
-        entities:
-          - entity: sensor.cpu_temperature
-            name: CPU Temp
-        show:
-          name: true
-          icon: true
-        tap_action:
-          action: none
-        hours_to_show: 24
-        font_size: 65
-        points_per_hour: 4
-        color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
-        style: !include ../styles/style-graph-wtitle.yaml
+      # - type: "custom:mini-graph-card"
+      #   entities:
+      #     - entity: sensor.cpu_temperature
+      #       name: CPU Temp
+      #   show:
+      #     name: true
+      #     icon: true
+      #   tap_action:
+      #     action: none
+      #   hours_to_show: 24
+      #   font_size: 65
+      #   points_per_hour: 4
+      #   color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
+      #   style: !include ../styles/style-graph-wtitle.yaml
 
-      - type: "custom:mini-graph-card"
-        entities:
-          - entity: sensor.disk_temperature
-            name: Disk Temp
-        show:
-          name: true
-          icon: true
-        tap_action:
-          action: none
-        hours_to_show: 24
-        font_size: 65
-        points_per_hour: 4
-        color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
-        style: !include ../styles/style-graph-wtitle.yaml
+      # - type: "custom:mini-graph-card"
+      #   entities:
+      #     - entity: sensor.disk_temperature
+      #       name: Disk Temp
+      #   show:
+      #     name: true
+      #     icon: true
+      #   tap_action:
+      #     action: none
+      #   hours_to_show: 24
+      #   font_size: 65
+      #   points_per_hour: 4
+      #   color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
+      #   style: !include ../styles/style-graph-wtitle.yaml

@@ -7,4 +7,5 @@
 
 ha_start: "curl http://192.168.1.95:1880/hastart --connect-timeout 60"
 
-proxmox_control_vm: bash /config/shell_scripts/proxmox_control_vm.bash {{ states("sensor.proxmox_ip") }} alpaca {{ states("sensor.proxmox_user") }} {{ states("sensor.proxmox_pwd") }} {{ command }} {{ type }} {{ vm }}
+# No longer needed with latest custom integration
+#proxmox_control_vm: bash /config/shell_scripts/proxmox_control_vm.bash {{ states("sensor.proxmox_ip") }} alpaca {{ states("sensor.proxmox_user") }} {{ states("sensor.proxmox_pwd") }} {{ command }} {{ type }} {{ vm }}

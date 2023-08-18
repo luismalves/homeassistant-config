@@ -22,7 +22,7 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: vm
-          - entity-1: binary_sensor.alpaca_hassio_running
+          - entity-1: binary_sensor.qemu_hassio_100_status
           - name-1: "Hassio"
           - state-1: "on"
           - state-2: "off"
@@ -30,7 +30,7 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: vm
-          - entity-1: binary_sensor.alpaca_ubuntu_server_running
+          - entity-1: binary_sensor.qemu_ubuntu_server_105_status
           - name-1: "Ubuntu Server"
           - state-1: "on"
           - state-2: "off"
@@ -38,15 +38,15 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: vm
-          - entity-1: binary_sensor.alpaca_ubuntu_desktop_running
-          - name-1: "Ubuntu (Minecraft)"
+          - entity-1: binary_sensor.qemu_ubuntu_desktop_103_status
+          - name-1: "Ubuntu Desktop"
           - state-1: "on"
           - state-2: "off"
       - template: es-config-dummy
         type: "custom:decluttering-card"
         variables:
           - template: vm
-          - entity-1: binary_sensor.alpaca_win10_running
+          - entity-1: binary_sensor.qemu_win10_201_status
           - name-1: "Windows 10"
           - state-1: "on"
           - state-2: "off"

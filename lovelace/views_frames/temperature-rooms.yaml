@@ -120,40 +120,40 @@
         grid-template-columns: 1fr 1fr
         grid-template-rows: 110px
       cards:
-        - type: "custom:mini-graph-card"
-          entities:
-            - entity: sensor.cpu_temperature
-              name: Temperatura CPU
-          show:
-            name: true
-            icon: true
-          tap_action:
-            action: none
-          hours_to_show: 24
-          font_size: 65
-          points_per_hour: 4
-          color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+        #     - type: "custom:mini-graph-card"
+        #       entities:
+        #         - entity: sensor.cpu_temperature
+        #           name: Temperatura CPU
+        #       show:
+        #         name: true
+        #         icon: true
+        #       tap_action:
+        #         action: none
+        #       hours_to_show: 24
+        #       font_size: 65
+        #       points_per_hour: 4
+        #       color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
+        #       style: !include ../styles/style-graph-wtitle.yaml
 
-        - type: "custom:mini-graph-card"
-          entities:
-            - entity: sensor.disk_temperature
-              name: Temperatura disco
-          show:
-            name: true
-            icon: true
-          tap_action:
-            action: none
-          hours_to_show: 24
-          font_size: 65
-          points_per_hour: 4
-          color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+        #     - type: "custom:mini-graph-card"
+        #       entities:
+        #         - entity: sensor.disk_temperature
+        #           name: Temperatura disco
+        #       show:
+        #         name: true
+        #         icon: true
+        #       tap_action:
+        #         action: none
+        #       hours_to_show: 24
+        #       font_size: 65
+        #       points_per_hour: 4
+        #       color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
+        #       style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.homedrive_system_temperature
-              name: Temperatura NAS
+              name: Sistema NAS
           show:
             name: true
             icon: true
@@ -168,7 +168,7 @@
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.homedrive_temperature_drive_0_2
-              name: Temperatura disco NAS
+              name: Disco NAS
           show:
             name: true
             icon: true
