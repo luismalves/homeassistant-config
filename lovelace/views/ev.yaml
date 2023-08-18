@@ -87,7 +87,7 @@ cards:
             custom_fields:
               subtitle: >
                 [[[
-                  let needed_battery = 80 - states['sensor.my_id_state_of_charge'].state;
+                  let needed_battery = states['sensor.my_id_state_of_charge'].state > 80 ? 100 - states['sensor.my_id_state_of_charge'].state : 80 - states['sensor.my_id_state_of_charge'].state;
                   return `<span>Para um carregamento de ${needed_battery}%</span>`
                 ]]]
 
