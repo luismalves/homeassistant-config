@@ -55,3 +55,13 @@
       sd1:
         - color: "var(--ha-card-color-state-off)"
   value: "[[state-outline]]"
+
+- styles:
+    card:
+      - background-color: "transparent"
+      - border: "var(--ha-card-border-off)"
+    name:
+      - color: "var(--ha-card-color-name-off)"
+    state:
+      - color: "var(--ha-card-color-state-off)"
+  value: "unavailable"
