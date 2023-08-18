@@ -9,12 +9,12 @@ cards:
     cards:
       - type: "custom:gap-card"
         height: 25
-      - cards:
-          - template: subtitle-white
-            type: "custom:decluttering-card"
-            variables:
-              - content: Bateria dos sensores
-        type: horizontal-stack
+
+      - type: "custom:decluttering-card"
+        template: subtitle-white
+        variables:
+          - content: Bateria dos sensores
+
       - type: "custom:auto-entities"
         card:
           columns: 1
@@ -94,3 +94,72 @@ cards:
             - name: "*[Mm]acbook*"
             - name: "sensor.browser_*"
             - name: "sensor.nexus_7_*"
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:gap-card"
+        height: 25
+
+      - type: "custom:decluttering-card"
+        template: subtitle-white
+        variables:
+          - content: Estatisticas
+
+      - type: entities
+        entities:
+          - entity: sensor.devices
+            name: Devices
+          - entity: sensor.entities
+            name: Entities
+          - entity: sensor.integrations
+            name: Integrations
+          - sensor.custom_integrations
+          - entity: sensor.alarm_control_panels
+            name: Alarm control panels
+          - entity: sensor.areas
+            name: Areas
+          - entity: sensor.zones
+            name: Zones
+          - entity: sensor.device_trackers
+            name: Device trackers
+          - entity: sensor.automations
+            name: Automations
+          - entity: sensor.scenes
+            name: Scenes
+          - entity: sensor.scripts
+            name: Scripts
+          - entity: sensor.binary_sensors
+            name: Binary sensors
+          - entity: sensor.cameras
+            name: Cameras
+          - entity: sensor.climate
+            name: Climate
+          - entity: sensor.covers
+            name: Covers
+          - entity: sensor.input_booleans
+            name: Input booleans
+          - entity: sensor.input_buttons
+            name: Input buttons
+          - entity: sensor.input_datetimes
+            name: Input date/times
+          - entity: sensor.input_numbers
+            name: Input numbers
+          - entity: sensor.input_selects
+            name: Input selects
+          - entity: sensor.input_texts
+            name: Input texts
+          - entity: sensor.lights
+            name: Lights
+          - entity: sensor.media_players
+            name: Media players
+          - entity: sensor.numbers
+            name: Numbers
+          - entity: sensor.persons
+            name: Persons
+          - entity: sensor.sensors
+            name: Sensors
+          - entity: sensor.switches
+            name: Switches
+        state_color: true
+        card_mod:
+          style: !include ../styles/style-card-entities-img.yaml
