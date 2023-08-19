@@ -27,6 +27,7 @@ secrets.yaml
 known_devices.yaml
 service-account*.json
 splitwise.conf
+.activities_list.json
 
 # Ignores font binaries because of copywrite
 *.woff
