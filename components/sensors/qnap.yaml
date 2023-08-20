@@ -3,21 +3,6 @@
 # https://www.home-assistant.io/integrations/qnap/
 #####
 
-- platform: qnap
-  host: !secret nas_ip
-  username: !secret nas_user
-  password: !secret nas_pwd
-  monitored_conditions:
-    - status
-    - system_temp
-    - drive_smart_status
-    - drive_temp
-    - volume_size_free
-    - volume_size_used
-    - volume_percentage_used
-    - memory_percent_used
-    - cpu_usage
-
 - platform: template
   sensors:
     homedrive_uptime_friendly:
