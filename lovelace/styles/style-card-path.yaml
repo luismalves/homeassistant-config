@@ -1,5 +1,4 @@
 card:
-  #- width: 110px
   - height: 110px
   - color: "var(--ha-card-color-name-on)"
   - font-size: 12px

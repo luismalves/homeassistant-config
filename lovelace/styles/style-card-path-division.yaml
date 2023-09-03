@@ -1,5 +1,4 @@
 card:
-  #- width: 165px
   - height: 70px
   - font-weight: bold
   #- color: "var(--el-es-static-text-color)"
