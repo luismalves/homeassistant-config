@@ -1,5 +1,4 @@
 card:
-  - width: 110px
   - height: 50px
   - font-weight: bold
   - color: var(--el-text-color-light)
