@@ -7,22 +7,30 @@ cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
-      width: 200
+      card_margin: 8px 0px
+      margin: 0px
       max_width: 350
-      column_widths: 98%
     cards:
       - type: "custom:gap-card"
         height: 40
 
-      - cards:
+      - type: "custom:layout-card"
+        layout_type: "custom:grid-layout"
+        layout:
+          grid-template-columns: 1fr 1fr 1fr
+          grid-template-rows: auto
+          margin: 0px
+        cards:
           - template: title
             type: "custom:decluttering-card"
+            view_layout:
+              grid-column: span 3
             variables:
               - content: Quarto
-        type: horizontal-stack
 
-      - cards:
           - type: markdown
+            view_layout:
+              grid-column: span 3
             style: >
               ha-card {
                 box-shadow: none;
@@ -37,9 +45,7 @@ cards:
               }
             content: >
               {% if states.sensor.lights_on_bedroom.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_bedroom.state == "1" %} {{states.sensor.lights_on_bedroom.state}} luz ligada. {% else %} {{states.sensor.lights_on_bedroom.state}} luzes ligadas. {% endif %}
-        type: horizontal-stack
 
-      - cards:
           - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
@@ -52,6 +58,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
+
           - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
@@ -64,6 +71,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
+
           - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
@@ -76,9 +84,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
-        type: horizontal-stack
 
-      - cards:
           - template: es-light
             type: "custom:decluttering-card"
             variables:
@@ -91,6 +97,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
+
           - template: es-speaker
             type: "custom:decluttering-card"
             variables:
@@ -102,26 +109,19 @@ cards:
               - circle-2: 0.01
               - circle-3: "playing"
               - circle-4: volume_level
-          - height: 10
-            type: "custom:gap-card"
-        type: horizontal-stack
 
-      - cards:
-          - height: 10
-            type: "custom:gap-card"
-          - height: 10
-            type: "custom:gap-card"
-          - height: 10
-            type: "custom:gap-card"
-        type: horizontal-stack
+          - type: "custom:gap-card"
+            height: 10
+            view_layout:
+              grid-column: span 3
 
-      - cards:
           - template: scene
             type: "custom:decluttering-card"
             variables:
               - template: scene-reading
               - scene-1: scene.reading
               - entity-1: scene.reading
+
           - template: script
             type: "custom:decluttering-card"
             variables:
@@ -129,6 +129,7 @@ cards:
               - template: light-strip-2
               - script: script.low_light_bedroom
               - name: "Low light"
+
           - type: conditional
             conditions:
               - entity: sensor.lights_on_bedroom
@@ -141,11 +142,3 @@ cards:
                 - template: script-lights-off
                 - script: script.turn_off_bedroom
                 - name: "Desligar luzes"
-          - type: conditional
-            conditions:
-              - entity: sensor.lights_on_bedroom
-                state: "0"
-            card:
-              height: 10
-              type: "custom:gap-card"
-        type: horizontal-stack

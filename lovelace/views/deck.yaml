@@ -7,28 +7,30 @@ cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
-      width: 200
+      card_margin: 8px 0px
+      margin: 0px
       max_width: 350
-      column_widths: 98%
     cards:
-      - cards:
-          - height: 40
-            type: "custom:gap-card"
-          - height: 40
-            type: "custom:gap-card"
-          - height: 40
-            type: "custom:gap-card"
-        type: horizontal-stack
+      - height: 40
+        type: "custom:gap-card"
 
-      - cards:
+      - type: "custom:layout-card"
+        layout_type: "custom:grid-layout"
+        layout:
+          grid-template-columns: 1fr 1fr 1fr
+          grid-template-rows: auto
+          margin: 0px
+        cards:
           - template: title
             type: "custom:decluttering-card"
+            view_layout:
+              grid-column: span 3
             variables:
               - content: Deck
-        type: horizontal-stack
 
-      - cards:
           - type: markdown
+            view_layout:
+              grid-column: span 3
             style: >
               ha-card {
                 box-shadow: none;
@@ -43,20 +45,20 @@ cards:
               }
             content: >
               {% if states.sensor.lights_on_deck.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_deck.state == "1" %} {{states.sensor.lights_on_deck.state}} luz ligada. {% else %} {{states.sensor.lights_on_deck.state}} luzes ligadas. {% endif %}
-        type: horizontal-stack
 
-      - type: custom:auto-entities
-        show_empty: false
-        filter:
-          include:
-            - entity_id: "sensor.humidity_2"
-              state: ">80.0"
-        card:
-          type: markdown
-          style: !include ../styles/style-card-alert.yaml
-          content: Humidade muito elevada.
+          - type: custom:auto-entities
+            view_layout:
+              grid-column: span 3
+            show_empty: false
+            filter:
+              include:
+                - entity_id: "sensor.humidity_2"
+                  state: ">80.0"
+            card:
+              type: markdown
+              style: !include ../styles/style-card-alert.yaml
+              content: Humidade muito elevada.
 
-      - cards:
           - template: es-light-tasmota
             type: "custom:decluttering-card"
             variables:
@@ -69,6 +71,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
+
           - template: es-light
             type: "custom:decluttering-card"
             variables:
@@ -81,6 +84,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
+
           - template: es-light
             type: "custom:decluttering-card"
             variables:
@@ -93,9 +97,7 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
-        type: horizontal-stack
 
-      - cards:
           - template: es-light-temperature
             type: "custom:decluttering-card"
             variables:
@@ -108,7 +110,10 @@ cards:
               - circle-2: (254 / 100)
               - circle-3: "on"
               - circle-4: brightness
+
           - type: "custom:mini-graph-card"
+            view_layout:
+              grid-column: span 2
             entities:
               - entity: sensor.temperature_2
               - entity: sensor.humidity_2
@@ -126,10 +131,7 @@ cards:
             points_per_hour: 1
             color_thresholds: !include ../graphs/temp-thresholds.yaml
             style: !include ../styles/style-graph-big.yaml
-        type: horizontal-stack
 
-      - type: horizontal-stack
-        cards:
           - template: es-switch
             type: "custom:decluttering-card"
             variables:
@@ -137,6 +139,7 @@ cards:
               - entity-1: switch.smart_plug_3
               - name-1: Extensão
               - entity-power: sensor.smart_plug_3_power
+
           - template: es-switch-confirmation
             type: "custom:decluttering-card"
             variables:
@@ -145,6 +148,7 @@ cards:
               - name-1: Tomada
               - entity-power: sensor.smart_plug_2_power
               - confirmation-text: "De certeza? Confirma que o PC está desligado se estiveres a desligar a tomada."
+
           - template: es-ping
             type: "custom:decluttering-card"
             variables:
@@ -152,24 +156,33 @@ cards:
               - entity-1: binary_sensor.windows_desktop_state
               - name-1: Computador fixo
 
-      - cards:
-          - height: 10
-            type: "custom:gap-card"
-        type: horizontal-stack
+          - template: es-switch
+            type: "custom:decluttering-card"
+            variables:
+              - template: switch
+              - entity-1: switch.plug_xiaomi
+              - name-1: Tomada coluna
+              - entity-power: sensor.xiaomi_plug_power_32
 
-      - cards:
+          - type: "custom:gap-card"
+            height: 10
+            view_layout:
+              grid-column: span 3
+
           - template: scene
             type: "custom:decluttering-card"
             variables:
               - template: scene-hobby
               - scene-1: scene.hooby_time
               - entity-1: scene.hooby_time
+
           - template: scene
             type: "custom:decluttering-card"
             variables:
               - template: scene-gamming
               - scene-1: scene.gamming_time
               - entity-1: scene.gamming_time
+
           - type: conditional
             conditions:
               - entity: sensor.lights_on_deck
@@ -189,4 +202,3 @@ cards:
             card:
               height: 10
               type: "custom:gap-card"
-        type: horizontal-stack

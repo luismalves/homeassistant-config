@@ -86,13 +86,13 @@ wake_on_lan:
 #     name: discord
 #     token: !secret discord_bot_token
 
-  # - platform: telegram
-  #   name: Telegram Luis
-  #   chat_id: !secret telegram_chatid_luis
+# - platform: telegram
+#   name: Telegram Luis
+#   chat_id: !secret telegram_chatid_luis
 
-  # - platform: telegram
-  #   name: Telegram Margarida
-  #   chat_id: !secret telegram_chatid_margarida
+# - platform: telegram
+#   name: Telegram Margarida
+#   chat_id: !secret telegram_chatid_margarida
 
 # ########################################
 # ###             SERVICES             ###
@@ -131,10 +131,10 @@ spotcast:
   sp_dc: !secret spotify_dc
   sp_key: !secret spotify_key
 
-# device_tracker:
-#   - platform: bluetooth_le_tracker
-#     new_device_defaults:
-#       track_new_devices: true
+device_tracker:
+  - platform: bluetooth_le_tracker
+    new_device_defaults:
+      track_new_devices: true
 
 # ########################################
 # ###              LOGGING             ###
