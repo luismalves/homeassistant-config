@@ -7,11 +7,6 @@
     - type: "custom:gap-card"
       height: 20
 
-    - type: "custom:decluttering-card"
-      template: subtitle
-      variables:
-        - content: Sala de estar
-
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
@@ -19,6 +14,13 @@
         grid-template-rows: auto
         margin: 0px
       cards:
+        - template: subtitle
+          type: "custom:decluttering-card"
+          view_layout:
+            grid-column: span 6
+          variables:
+            - content: Sala de estar
+
         - template: es-light-tasmota
           type: "custom:decluttering-card"
           variables:
@@ -31,6 +33,7 @@
             - circle-2: (254 / 100)
             - circle-3: "on"
             - circle-4: brightness
+
         - template: es-light-switch
           type: "custom:decluttering-card"
           variables:
@@ -44,6 +47,7 @@
             - circle-2: (254 / 100)
             - circle-3: "on"
             - circle-4: brightness
+
         - template: es-light-switch-2
           type: "custom:decluttering-card"
           variables:
@@ -100,11 +104,6 @@
     - type: "custom:gap-card"
       height: 25
 
-    - type: "custom:decluttering-card"
-      template: subtitle
-      variables:
-        - content: Cozinha
-
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
@@ -112,6 +111,13 @@
         grid-template-rows: auto
         margin: 0px
       cards:
+        - template: subtitle
+          type: "custom:decluttering-card"
+          view_layout:
+            grid-column: span 3
+          variables:
+            - content: Cozinha
+
         - template: es-switch
           type: "custom:decluttering-card"
           variables:
@@ -120,6 +126,7 @@
             - name-1: "Luz Cozinha"
             - state-1: "on"
             - state-2: "off"
+
         - template: es-switch
           type: "custom:decluttering-card"
           variables:
@@ -128,6 +135,7 @@
             - name-1: "LED Strip"
             - state-1: "on"
             - state-2: "off"
+
         - template: es-light-temperature
           type: "custom:decluttering-card"
           variables:
@@ -140,6 +148,7 @@
             - circle-2: (254 / 100)
             - circle-3: "on"
             - circle-4: brightness
+
         - type: conditional
           conditions:
             - entity: sensor.lights_on_kitchen
@@ -162,11 +171,6 @@
     - type: "custom:gap-card"
       height: 25
 
-    - type: "custom:decluttering-card"
-      template: subtitle
-      variables:
-        - content: Deck
-
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
@@ -174,6 +178,13 @@
         grid-template-rows: auto
         margin: 0px
       cards:
+        - template: subtitle
+          type: "custom:decluttering-card"
+          view_layout:
+            grid-column: span 3
+          variables:
+            - content: Deck
+
         - template: es-light-tasmota
           type: "custom:decluttering-card"
           variables:
@@ -186,6 +197,7 @@
             - circle-2: (254 / 100)
             - circle-3: "on"
             - circle-4: brightness
+
         - template: es-light
           type: "custom:decluttering-card"
           variables:
@@ -198,6 +210,7 @@
             - circle-2: (254 / 100)
             - circle-3: "on"
             - circle-4: brightness
+
         - template: es-light
           type: "custom:decluttering-card"
           variables:
@@ -210,6 +223,7 @@
             - circle-2: (254 / 100)
             - circle-3: "on"
             - circle-4: brightness
+
         - template: es-light-temperature
           type: "custom:decluttering-card"
           variables:
@@ -222,6 +236,7 @@
             - circle-2: (254 / 100)
             - circle-3: "on"
             - circle-4: brightness
+
         - type: conditional
           conditions:
             - entity: sensor.lights_on_deck
@@ -244,11 +259,6 @@
     - type: "custom:gap-card"
       height: 25
 
-    - type: "custom:decluttering-card"
-      template: subtitle
-      variables:
-        - content: Quarto
-
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
@@ -256,6 +266,12 @@
         grid-template-rows: auto
         margin: 0px
       cards:
+        - template: subtitle
+          type: "custom:decluttering-card"
+          view_layout:
+            grid-column: span 3
+          variables:
+            - content: Quarto
         - template: es-light-temperature
           type: "custom:decluttering-card"
           variables:

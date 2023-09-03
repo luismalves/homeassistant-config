@@ -8,9 +8,9 @@ cards:
   - type: custom:layout-card
     layout_type: custom:vertical-layout
     layout:
-      width: 600
+      card_margin: 8px 0px
+      margin: 0px
       max_width: 1150
-      column_widths: 98%
     cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
