@@ -1,6 +1,6 @@
 >
-  ha-card {
-    height: 100%;
+  ha-card.type-markdown {
+    height: min-content;
     background: var(--ha-card-background-alert);
     font-weight: bold;
     font-size: 1.2em;
