@@ -1,6 +1,5 @@
 card:
   - background: transparent
-  - width: 145px
   - color: var(--el-es-static-text-color)
   - font-size: 10px
   - padding: 0px

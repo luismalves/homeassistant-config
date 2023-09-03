@@ -1,5 +1,4 @@
 card:
-  - width: 110px
   - height: 110px
   - background: var(--ha-card-background-es-static)
   - font-weight: bold

@@ -3,9 +3,6 @@
 # 1 normal card slots
 #####
 |
-  :host {
-    flex: 1 !important;
-  }
   ha-card {
     background: var(--ha-card-background-es-static);
     border-radius: 15px;

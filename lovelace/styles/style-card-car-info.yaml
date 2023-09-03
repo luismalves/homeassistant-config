@@ -4,7 +4,6 @@ card:
   - height: 165px
   - font-size: 10px
   - padding: 10px
-  - width: 165px
 
 custom_fields:
   icon_hue:

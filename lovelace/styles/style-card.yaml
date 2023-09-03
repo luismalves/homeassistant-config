@@ -1,5 +1,4 @@
 card:
-  - width: 110px
   - height: 110px
   - font-size: 12px
   - font-family: "var(--paper-ha-card_-_font-family)"

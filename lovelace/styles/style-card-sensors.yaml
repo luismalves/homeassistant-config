@@ -1,5 +1,5 @@
 card:
-  - width: 165px
+  #- width: 165px
   - height: 110px
   - color: var(--el-es-static-text-color)
   - font-size: 10px

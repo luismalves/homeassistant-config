@@ -1,5 +1,5 @@
 card:
-  - width: 340px
+  #- width: 340px
   - height: 34px
   #- background: "black"
   - font-size: 12px
