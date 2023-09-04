@@ -603,7 +603,7 @@ es-number:
       action: none
     show_icon: false
     show_state: true
-    styles: !include ../styles/style-card-centered-one_half.yaml
+    styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
@@ -656,22 +656,11 @@ sensor-number:
     show_icon: false
     show_state: true
     show_units: "[[show_units]]"
-    styles: !include ../styles/style-card-centered-one_half.yaml
+    styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - show_units: true
-
-sensor-number-big:
-  card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
-    show_icon: false
-    show_state: true
-    styles: !include ../styles/style-card-centered-two.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
 
 sensor-number-ext:
   card:
@@ -682,7 +671,7 @@ sensor-number-ext:
       url_path: "[[url-1]]"
     show_icon: false
     show_state: true
-    styles: !include ../styles/style-card-centered-one_half.yaml
+    styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
@@ -696,7 +685,7 @@ sensor-number-local:
       navigation_path: "[[url-1]]"
     show_icon: false
     show_state: true
-    styles: !include ../styles/style-card-centered-one_half.yaml
+    styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
