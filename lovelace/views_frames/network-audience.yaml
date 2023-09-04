@@ -2,17 +2,27 @@
 # Mikrotik Audience AP
 #
 ####
-type: vertical-stack
+type: "custom:layout-card"
+layout_type: "custom:grid-layout"
+layout:
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+  margin: 0px
 cards:
   - type: "custom:gap-card"
     height: 25
+    view_layout:
+      grid-column: span 6
 
-  - type: "custom:decluttering-card"
-    template: subtitle-white
+  - template: subtitle-white
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 6
     variables:
       - content: Mikrotik Audience
 
   - type: entities
+    view_layout:
+      grid-column: span 6
     entities:
       - entity: sensor.mt_audience_uptime_friendly
         name: Uptime
@@ -37,40 +47,36 @@ cards:
     card_mod:
       style: !include ../styles/style-card-entities-img.yaml
 
-  - type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      margin: 0
-      card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
-      grid-template-columns: 1fr 1fr
-      grid-template-rows: 110px
-    cards:
-      - type: "custom:mini-graph-card"
-        entities:
-          - entity: sensor.mt_audience_cpu_load
-            name: CPU
-        show:
-          name: true
-          icon: true
-        tap_action:
-          action: none
-        hours_to_show: 6
-        font_size: 65
-        points_per_hour: 6
-        color_thresholds: !include ../graphs/percentage-thresholds.yaml
-        style: !include ../styles/style-graph-wtitle.yaml
+  - type: "custom:mini-graph-card"
+    view_layout:
+      grid-column: span 3
+    entities:
+      - entity: sensor.mt_audience_cpu_load
+        name: CPU
+    show:
+      name: true
+      icon: true
+    tap_action:
+      action: none
+    hours_to_show: 6
+    font_size: 65
+    points_per_hour: 6
+    color_thresholds: !include ../graphs/percentage-thresholds.yaml
+    style: !include ../styles/style-graph-wtitle.yaml
 
-      - type: "custom:mini-graph-card"
-        entities:
-          - entity: sensor.mt_audience_memory_usage
-            name: Memória
-        show:
-          name: true
-          icon: true
-        tap_action:
-          action: none
-        hours_to_show: 6
-        font_size: 65
-        points_per_hour: 6
-        color_thresholds: !include ../graphs/percentage-thresholds.yaml
-        style: !include ../styles/style-graph-wtitle.yaml
+  - type: "custom:mini-graph-card"
+    view_layout:
+      grid-column: span 3
+    entities:
+      - entity: sensor.mt_audience_memory_usage
+        name: Memória
+    show:
+      name: true
+      icon: true
+    tap_action:
+      action: none
+    hours_to_show: 6
+    font_size: 65
+    points_per_hour: 6
+    color_thresholds: !include ../graphs/percentage-thresholds.yaml
+    style: !include ../styles/style-graph-wtitle.yaml

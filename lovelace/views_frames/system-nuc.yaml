@@ -3,17 +3,27 @@
 # Intel NUC
 #
 ####
-type: vertical-stack
+type: "custom:layout-card"
+layout_type: "custom:grid-layout"
+layout:
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+  margin: 0px
 cards:
   - type: "custom:gap-card"
     height: 25
+    view_layout:
+      grid-column: span 6
 
-  - type: "custom:decluttering-card"
-    template: subtitle-white
+  - template: subtitle-white
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 6
     variables:
       - content: Intel NUC
 
   - type: entities
+    view_layout:
+      grid-column: span 6
     entities:
       - entity: sensor.alpaca_uptime_friendly
         name: Uptime
@@ -37,70 +47,68 @@ cards:
     card_mod:
       style: !include ../styles/style-card-entities-img.yaml
 
-  - type: custom:layout-card
-    layout_type: custom:grid-layout
-    layout:
-      margin: 0
-      card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
-      grid-template-columns: 1fr 1fr
-      grid-template-rows: 110px
-    cards:
-      - type: "custom:mini-graph-card"
-        entities:
-          - entity: sensor.node_alpaca_memory_used_percentage
-            name: Memory Usage
-        show:
-          name: true
-          icon: true
-        tap_action:
-          action: none
-        hours_to_show: 6
-        font_size: 65
-        points_per_hour: 6
-        color_thresholds: !include ../graphs/percentage-thresholds.yaml
-        style: !include ../styles/style-graph-wtitle.yaml
+  - type: "custom:mini-graph-card"
+    view_layout:
+      grid-column: span 3
+    entities:
+      - entity: sensor.node_alpaca_memory_used_percentage
+        name: Memory Usage
+    show:
+      name: true
+      icon: true
+    tap_action:
+      action: none
+    hours_to_show: 6
+    font_size: 65
+    points_per_hour: 6
+    color_thresholds: !include ../graphs/percentage-thresholds.yaml
+    style: !include ../styles/style-graph-wtitle.yaml
 
-      - type: "custom:mini-graph-card"
-        entities:
-          - entity: sensor.node_alpaca_disk_used_percentage
-            name: Disk Usage
-        show:
-          name: true
-          icon: true
-        tap_action:
-          action: none
-        hours_to_show: 80
-        font_size: 65
-        points_per_hour: 1
-        color_thresholds: !include ../graphs/percentage-thresholds.yaml
-        style: !include ../styles/style-graph-wtitle.yaml
+  - type: "custom:mini-graph-card"
+    view_layout:
+      grid-column: span 3
+    entities:
+      - entity: sensor.node_alpaca_disk_used_percentage
+        name: Disk Usage
+    show:
+      name: true
+      icon: true
+    tap_action:
+      action: none
+    hours_to_show: 80
+    font_size: 65
+    points_per_hour: 1
+    color_thresholds: !include ../graphs/percentage-thresholds.yaml
+    style: !include ../styles/style-graph-wtitle.yaml
 
-      # - type: "custom:mini-graph-card"
-      #   entities:
-      #     - entity: sensor.cpu_temperature
-      #       name: CPU Temp
-      #   show:
-      #     name: true
-      #     icon: true
-      #   tap_action:
-      #     action: none
-      #   hours_to_show: 24
-      #   font_size: 65
-      #   points_per_hour: 4
-      #   color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
-      #   style: !include ../styles/style-graph-wtitle.yaml
+  # - type: "custom:mini-graph-card"
+  #   entities:
+  #     - entity: sensor.cpu_temperature
+  #       name: CPU Temp
+  #   show:
+  #     name: true
+  #     icon: true
+  #   tap_action:
+  #     action: none
+  #   hours_to_show: 24
+  #   font_size: 65
+  #   points_per_hour: 4
+  #   color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
+  #   style: !include ../styles/style-graph-wtitle.yaml
 
-      # - type: "custom:mini-graph-card"
-      #   entities:
-      #     - entity: sensor.disk_temperature
-      #       name: Disk Temp
-      #   show:
-      #     name: true
-      #     icon: true
-      #   tap_action:
-      #     action: none
-      #   hours_to_show: 24
-      #   font_size: 65
-      #   points_per_hour: 4
-      #   color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
-      #   style: !include ../styles/style-graph-wtitle.yaml
+  # - type: "custom:mini-graph-card"
+  #   entities:
+  #     - entity: sensor.disk_temperature
+  #       name: Disk Temp
+  #   show:
+  #     name: true
+  #     icon: true
+  #   tap_action:
+  #     action: none
+  #   hours_to_show: 24
+  #   font_size: 65
+  #   points_per_hour: 4
+  #   color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
+  #   style: !include ../styles/style-graph-wtitle.yaml
+
+

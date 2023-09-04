@@ -3,30 +3,38 @@
 # Databases
 #
 ####
-type: vertical-stack
+type: "custom:layout-card"
+layout_type: "custom:grid-layout"
+layout:
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+  margin: 0px
 cards:
   - type: "custom:gap-card"
     height: 25
+    view_layout:
+      grid-column: span 6
 
-  - type: horizontal-stack
-    cards:
-      - template: subtitle-white
-        type: "custom:decluttering-card"
-        variables:
-          - content: Databases
-  - type: grid
-    columns: 2
-    square: false
-    cards:
-      - template: sensor-number
-        type: "custom:decluttering-card"
-        variables:
-          - template: sensors-empty
-          - entity-1: sensor.homeassistant_db_size
-          - name-1: "HA MariaDB size"
-      - template: sensor-number
-        type: "custom:decluttering-card"
-        variables:
-          - template: sensors-empty
-          - entity-1: sensor.influxdb_ha_db_size
-          - name-1: "InfluxDB size"
+  - template: subtitle-white
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 6
+    variables:
+      - content: Databases
+
+  - template: sensor-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity-1: sensor.homeassistant_db_size
+      - name-1: "HA MariaDB size"
+
+  - template: sensor-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity-1: sensor.influxdb_ha_db_size
+      - name-1: "InfluxDB size"

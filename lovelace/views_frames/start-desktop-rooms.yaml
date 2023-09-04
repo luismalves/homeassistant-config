@@ -17,7 +17,7 @@
         - template: subtitle
           type: "custom:decluttering-card"
           view_layout:
-            grid-column: span 6
+            grid-column: span 3
           variables:
             - content: Sala de estar
 

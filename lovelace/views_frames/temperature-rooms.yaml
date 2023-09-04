@@ -7,17 +7,20 @@
     - type: "custom:gap-card"
       height: 25
 
-    - type: "custom:decluttering-card"
-      template: subtitle
-      variables:
-        - content: Cozinha
-
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
         grid-template-columns: 1fr 1fr
-        grid-template-rows: 110px
+        grid-template-rows: min-content 110px
+        margin: 0px
       cards:
+        - template: subtitle
+          type: "custom:decluttering-card"
+          view_layout:
+            grid-column: span 2
+          variables:
+            - content: Cozinha
+
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.temperature_1
@@ -59,17 +62,20 @@
     - type: "custom:gap-card"
       height: 25
 
-    - type: "custom:decluttering-card"
-      template: subtitle
-      variables:
-        - content: Deck
-
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
         grid-template-columns: 1fr 1fr
-        grid-template-rows: 110px
+        grid-template-rows: min-content 110px
+        margin: 0px
       cards:
+        - template: subtitle
+          type: "custom:decluttering-card"
+          view_layout:
+            grid-column: span 2
+          variables:
+            - content: Deck
+
         - type: "custom:mini-graph-card"
           entities:
             - entity: sensor.temperature_2
@@ -109,17 +115,20 @@
     - type: "custom:gap-card"
       height: 25
 
-    - type: "custom:decluttering-card"
-      template: subtitle
-      variables:
-        - content: Devices
-
     - type: custom:layout-card
       layout_type: custom:grid-layout
       layout:
         grid-template-columns: 1fr 1fr
-        grid-template-rows: 110px
+        grid-template-rows: min-content 110px
+        margin: 0px
       cards:
+        - template: subtitle
+          type: "custom:decluttering-card"
+          view_layout:
+            grid-column: span 2
+          variables:
+            - content: Devices
+
         #     - type: "custom:mini-graph-card"
         #       entities:
         #         - entity: sensor.cpu_temperature
