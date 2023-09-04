@@ -1,5 +1,4 @@
 card:
-  - width: 110px
   - height: 80px
   - font-weight: bold
   - color: "rgba(255, 255, 255, 0.3)"
