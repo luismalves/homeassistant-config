@@ -1,3 +1,7 @@
+#####
+# Lovelace Dashboard
+# DEPRECATED
+#####
 title: Plantas
 path: plants
 panel: true
