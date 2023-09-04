@@ -1,30 +1,26 @@
 title: Network
 path: network
-panel: true
 visible: true
 background: "var(--background-view-network)"
 
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
 cards:
-  - type: custom:layout-card
-    layout_type: custom:vertical-layout
-    layout:
-      width: 600
-      max_width: 735
-      column_widths: 98%
-    cards:
-      - type: "custom:gap-card"
-        height: 40
-      - template: title-white
-        type: "custom:decluttering-card"
-        variables:
-          - content: Home network
+  - type: "custom:gap-card"
+    height: 40
 
-      - type: custom:layout-card
-        layout_type: custom:masonry-layout
-        cards:
-          - !include ../views_frames/network-guest.yaml
-          - !include ../views_frames/network-pihole.yaml
-          - !include ../views_frames/network-ac3.yaml
-          - !include ../views_frames/network-audience.yaml
-        view_layout:
-          grid-area: main
+  - template: title-white
+    type: "custom:decluttering-card"
+    variables:
+      - content: Home network
+
+  - type: custom:layout-card
+    layout_type: custom:masonry-layout
+    cards:
+      - !include ../views_frames/network-guest.yaml
+      - !include ../views_frames/network-pihole.yaml
+      - !include ../views_frames/network-ac3.yaml
+      - !include ../views_frames/network-audience.yaml

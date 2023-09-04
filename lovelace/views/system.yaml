@@ -1,35 +1,30 @@
 title: Server
 path: system
-panel: true
 visible: true
 background: "var(--background-view-system)"
 
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 700
 cards:
+  - type: "custom:gap-card"
+    height: 40
+
+  - template: title-white
+    type: "custom:decluttering-card"
+    variables:
+      - content: Home server
+
   - type: custom:layout-card
-    layout_type: custom:vertical-layout
+    layout_type: custom:masonry-layout
     layout:
-      width: 600
-      max_width: 735
-      column_widths: 98%
+      max_width: 350px
+      column_widths: 350px 350px
+      column-gap: 40px
+      min_height: 2
     cards:
-      - type: "custom:gap-card"
-        height: 40
-
-      - template: title-white
-        type: "custom:decluttering-card"
-        variables:
-          - content: Home server
-
-      - type: custom:layout-card
-        layout_type: custom:masonry-layout
-        layout:
-          max_width: 350px
-          column_widths: 350px 350px
-          grid-template-rows: auto
-          column-gap: 40px
-        cards:
-          - !include ../views_frames/system-nuc.yaml
-          - !include ../views_frames/system-proxmox.yaml
-          - !include ../views_frames/system-databases.yaml
-        view_layout:
-          grid-area: main
+      - !include ../views_frames/system-nuc.yaml
+      - !include ../views_frames/system-proxmox.yaml
+      - !include ../views_frames/system-databases.yaml

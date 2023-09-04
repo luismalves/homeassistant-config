@@ -1,197 +1,194 @@
 title: Config
 path: config
-panel: true
 icon: mdi:cog-box
 visible: true
 background: "var(--background-view-config)"
 
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
 cards:
-  - type: custom:layout-card
-    layout_type: custom:vertical-layout
+  - type: "custom:gap-card"
+    height: 40
+
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
     layout:
-      card_margin: 8px 0px
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
       margin: 0px
-      max_width: 350
     cards:
+      - template: title-white
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Definições
+
       - type: "custom:gap-card"
-        height: 40
+        height: 20
+        view_layout:
+          grid-column: span 6
 
-      - type: "custom:layout-card"
-        layout_type: "custom:grid-layout"
-        layout:
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
-          grid-template-rows: auto
-          margin: 0px
-        cards:
-          - template: title-white
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 6
-            variables:
-              - content: Definições
+      - template: subtitle-white
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Updates
 
-          - type: "custom:gap-card"
-            height: 20
-            view_layout:
-              grid-column: span 6
+      - template: sensor-number-ext
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-version
+          - entity-1: sensor.current_version
+          - name-1: "Running version"
+          - url-1: https://www.home-assistant.io/blog/categories/release-notes/
 
-          - template: subtitle-white
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 6
-            variables:
-              - content: Updates
+      - template: sensor-number-ext
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-version
+          - entity-1: sensor.latest_version
+          - name-1: "Latest version"
+          - url-1: https://www.home-assistant.io/blog/categories/release-notes/
 
-          - template: sensor-number-ext
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: sensors-version
-              - entity-1: sensor.current_version
-              - name-1: "Running version"
-              - url-1: https://www.home-assistant.io/blog/categories/release-notes/
+      - template: sensor-number-local
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - template: sensors-hacs
+          - entity-1: sensor.hacs
+          - name-1: "HACS updates"
+          - url-1: /hacs
 
-          - template: sensor-number-ext
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: sensors-version
-              - entity-1: sensor.latest_version
-              - name-1: "Latest version"
-              - url-1: https://www.home-assistant.io/blog/categories/release-notes/
+      - type: "custom:gap-card"
+        height: 25
+        view_layout:
+          grid-column: span 6
 
-          - template: sensor-number-local
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 6
-            variables:
-              - template: sensors-hacs
-              - entity-1: sensor.hacs
-              - name-1: "HACS updates"
-              - url-1: /hacs
+      - template: subtitle-white
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Helpers
 
-          - type: "custom:gap-card"
-            height: 25
-            view_layout:
-              grid-column: span 6
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity-1: input_boolean.enable_shutter_automation
+          - name-1: "Automação dos estores"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: subtitle-white
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 6
-            variables:
-              - content: Helpers
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity-1: input_boolean.enable_breaze_automation
+          - name-1: "Automação dos estores (briza noturna)"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-auto-brightness
-              - entity-1: input_boolean.enable_shutter_automation
-              - name-1: "Automação dos estores"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity-1: input_boolean.enable_entrace_light_automation
+          - name-1: "Automação luz entrada"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-auto-brightness
-              - entity-1: input_boolean.enable_breaze_automation
-              - name-1: "Automação dos estores (briza noturna)"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity-1: input_boolean.enable_mosquitto_killer_automation
+          - name-1: "Automação luz mosquitos"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-auto-brightness
-              - entity-1: input_boolean.enable_entrace_light_automation
-              - name-1: "Automação luz entrada"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity-1: input_boolean.enable_bedroom_light_automation
+          - name-1: "Automação luz quarto"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-auto-brightness
-              - entity-1: input_boolean.enable_mosquitto_killer_automation
-              - name-1: "Automação luz mosquitos"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity-1: input_boolean.enable_deck_lights_automation
+          - name-1: "Automação luz deck"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-auto-brightness
-              - entity-1: input_boolean.enable_bedroom_light_automation
-              - name-1: "Automação luz quarto"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity-1: input_boolean.enable_kitchen_automation
+          - name-1: "Automação luz cozinha"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-auto-brightness
-              - entity-1: input_boolean.enable_deck_lights_automation
-              - name-1: "Automação luz deck"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-brightness
+          - entity-1: input_boolean.enable_wake_up_lights
+          - name-1: "Rotina de acordar"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-auto-brightness
-              - entity-1: input_boolean.enable_kitchen_automation
-              - name-1: "Automação luz cozinha"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-debug-code
+          - entity-1: input_boolean.maintenance_mode
+          - name-1: "Modo de manutenção"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-brightness
-              - entity-1: input_boolean.enable_wake_up_lights
-              - name-1: "Rotina de acordar"
-              - state-1: "on"
-              - state-2: "off"
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-vacations
+          - entity-1: input_boolean.vacations_mode
+          - name-1: "Modo de férias"
+          - state-1: "on"
+          - state-2: "off"
 
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-debug-code
-              - entity-1: input_boolean.maintenance_mode
-              - name-1: "Modo de manutenção"
-              - state-1: "on"
-              - state-2: "off"
-
-          - template: es-config
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 3
-            variables:
-              - template: toggle-vacations
-              - entity-1: input_boolean.vacations_mode
-              - name-1: "Modo de férias"
-              - state-1: "on"
-              - state-2: "off"
-
-          - !include ../views_frames/config-devices.yaml
+      - !include ../views_frames/config-devices.yaml

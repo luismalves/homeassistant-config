@@ -1,238 +1,234 @@
 title: EV
 path: ev
-panel: true
-#icon: mdi:cog-box
 visible: true
 background: "var(--background-view-ev)"
 
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
 cards:
-  - type: custom:layout-card
-    layout_type: custom:vertical-layout
+  - type: "custom:gap-card"
+    height: 40
+
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
     layout:
-      card_margin: 8px 0px
+      grid-template-columns: 1fr 1fr
+      grid-template-rows: auto
       margin: 0px
-      max_width: 350
     cards:
-      - type: "custom:gap-card"
-        height: 40
+      - type: custom:button-card
+        view_layout:
+          grid-column: span 2
+        name: "ID.3"
+        styles:
+          grid:
+            - grid-template-areas: '"icon_hue n"'
+            - grid-template-columns: min-content 1fr
+          card:
+            - background: none
+            - margin-left: -2px
+            - margin-top: -20px
+            - margin-bottom: -15px
+            - pointer-events: none
+          name:
+            - color: var(--el-title-color)
+            - font-weight: bold
+            - font-size: 24px
+            - justify-self: flex-start
+            - margin-left: 2px
+          custom_fields:
+            icon_hue:
+              - color: var(--el-title-color)
+              - height: 28px
+              - width: 26px
+        custom_fields: !include ../icons/vw.yaml
 
-      - type: "custom:layout-card"
-        layout_type: "custom:grid-layout"
-        layout:
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: auto
-          margin: 0px
+      - type: "custom:gap-card"
+        height: 5
+        view_layout:
+          grid-column: span 2
+
+      - template: car-state
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - entity_range: sensor.my_id_range
+          - entity-battery: sensor.my_id_state_of_charge
+
+      # - type: "custom:decluttering-card"
+      #   template: map-card
+
+      - type: "custom:decluttering-card"
+        template: car-stats
+        variables:
+          - entity: sensor.my_id_charging_state
+          - name: "Carregamento"
+          - template: sensors-car-charge-1
+
+      - type: "custom:decluttering-card"
+        template: car-stats
+        variables:
+          - name: "Estatisticas"
+          - template: sensors-car-charge-2
+
+      - type: custom:vertical-stack-in-card
+        view_layout:
+          grid-column: span 2
+        style: |
+          ha-card.type-custom-vertical-stack-in-card {
+            background-color: var(--ha-card-background-es-static);
+          }
+          ha-card.type-custom-vertical-stack-in-card > div {
+            padding: 0px 15px 5px;
+          }
         cards:
-          - type: custom:button-card
-            view_layout:
-              grid-column: span 2
-            name: "ID.3"
-            styles:
-              grid:
-                - grid-template-areas: '"icon_hue n"'
-                - grid-template-columns: min-content 1fr
-              card:
-                - background: none
-                - margin-left: -2px
-                - margin-top: -20px
-                - margin-bottom: -15px
-                - pointer-events: none
-              name:
-                - color: var(--el-title-color)
-                - font-weight: bold
-                - font-size: 24px
-                - justify-self: flex-start
-                - margin-left: 2px
-              custom_fields:
-                icon_hue:
-                  - color: var(--el-title-color)
-                  - height: 28px
-                  - width: 26px
-            custom_fields: !include ../icons/vw.yaml
+          - type: "custom:button-card"
+            name: Opções de carregamento
+            show_icon: false
+            show_state: false
+            tap_action:
+              action: none
+            styles: !include ../styles/style-card-car-header.yaml
+            custom_fields:
+              subtitle: >
+                [[[
+                  let needed_battery = states['sensor.my_id_state_of_charge'].state > 80 ? 100 - states['sensor.my_id_state_of_charge'].state : 80 - states['sensor.my_id_state_of_charge'].state;
+                  return `<span>Para um carregamento de ${needed_battery}%</span>`
+                ]]]
 
-          - type: "custom:gap-card"
-            height: 5
-            view_layout:
-              grid-column: span 2
-
-          - template: car-state
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 2
-            variables:
-              - entity_range: sensor.my_id_range
-              - entity-battery: sensor.my_id_state_of_charge
-
-          # - type: "custom:decluttering-card"
-          #   template: map-card
-
-          - type: "custom:decluttering-card"
-            template: car-stats
-            variables:
-              - entity: sensor.my_id_charging_state
-              - name: "Carregamento"
-              - template: sensors-car-charge-1
-
-          - type: "custom:decluttering-card"
-            template: car-stats
-            variables:
-              - name: "Estatisticas"
-              - template: sensors-car-charge-2
-
-          - type: custom:vertical-stack-in-card
-            view_layout:
-              grid-column: span 2
-            style: |
-              ha-card.type-custom-vertical-stack-in-card {
-                background-color: var(--ha-card-background-es-static);
-              }
-              ha-card.type-custom-vertical-stack-in-card > div {
-                padding: 0px 15px 5px;
-              }
+          - type: horizontal-stack
             cards:
-              - type: "custom:button-card"
-                name: Opções de carregamento
-                show_icon: false
-                show_state: false
-                tap_action:
-                  action: none
-                styles: !include ../styles/style-card-car-header.yaml
-                custom_fields:
-                  subtitle: >
-                    [[[
-                      let needed_battery = states['sensor.my_id_state_of_charge'].state > 80 ? 100 - states['sensor.my_id_state_of_charge'].state : 80 - states['sensor.my_id_state_of_charge'].state;
-                      return `<span>Para um carregamento de ${needed_battery}%</span>`
-                    ]]]
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "DC"
+                  - icon: mdi:power-plug-outline
+                  - rate: "2"
+                  - template: sensors-car-charge-option
 
-              - type: horizontal-stack
-                cards:
-                  - type: "custom:decluttering-card"
-                    template: car-charge-option
-                    variables:
-                      - entity: sensor.my_id_state_of_charge
-                      - type: "DC"
-                      - icon: mdi:power-plug-outline
-                      - rate: "2"
-                      - template: sensors-car-charge-option
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "AC"
+                  - icon: mdi:ev-plug-type2
+                  - rate: "3.7"
+                  - template: sensors-car-charge-option
 
-                  - type: "custom:decluttering-card"
-                    template: car-charge-option
-                    variables:
-                      - entity: sensor.my_id_state_of_charge
-                      - type: "AC"
-                      - icon: mdi:ev-plug-type2
-                      - rate: "3.7"
-                      - template: sensors-car-charge-option
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "AC"
+                  - icon: mdi:ev-plug-type2
+                  - rate: "11"
+                  - template: sensors-car-charge-option
 
-                  - type: "custom:decluttering-card"
-                    template: car-charge-option
-                    variables:
-                      - entity: sensor.my_id_state_of_charge
-                      - type: "AC"
-                      - icon: mdi:ev-plug-type2
-                      - rate: "11"
-                      - template: sensors-car-charge-option
+              - type: "custom:decluttering-card"
+                template: car-charge-option
+                variables:
+                  - entity: sensor.my_id_state_of_charge
+                  - type: "DC"
+                  - icon: mdi:ev-plug-ccs2
+                  - rate: "50"
+                  - template: sensors-car-charge-option
 
-                  - type: "custom:decluttering-card"
-                    template: car-charge-option
-                    variables:
-                      - entity: sensor.my_id_state_of_charge
-                      - type: "DC"
-                      - icon: mdi:ev-plug-ccs2
-                      - rate: "50"
-                      - template: sensors-car-charge-option
+      - type: custom:vertical-stack-in-card
+        view_layout:
+          grid-column: span 2
+        style: |
+          ha-card.type-custom-vertical-stack-in-card {
+            background-color: var(--ha-card-background-es-static);
+          }
+          apexcharts-card { --primary-text-color: var(--el-graph-bar-color); }
+          ha-card.type-custom-vertical-stack-in-card > div {
+            padding: 0px 15px 5px;
+          }
+        cards:
+          - type: "custom:button-card"
+            name: Distâncias por dia
+            show_icon: false
+            show_state: false
+            tap_action:
+              action: none
+            styles: !include ../styles/style-card-car-header.yaml
+            custom_fields:
+              subtitle: >
+                [[[
+                  return `<span>Total de ${states['sensor.my_id_odometer'].state} KMs</span>`
+                ]]]
 
-          - type: custom:vertical-stack-in-card
-            view_layout:
-              grid-column: span 2
-            style: |
-              ha-card.type-custom-vertical-stack-in-card {
-                background-color: var(--ha-card-background-es-static);
-              }
-              apexcharts-card { --primary-text-color: var(--el-graph-bar-color); }
-              ha-card.type-custom-vertical-stack-in-card > div {
-                padding: 0px 15px 5px;
-              }
-            cards:
-              - type: "custom:button-card"
-                name: Distâncias por dia
-                show_icon: false
-                show_state: false
-                tap_action:
-                  action: none
-                styles: !include ../styles/style-card-car-header.yaml
-                custom_fields:
-                  subtitle: >
-                    [[[
-                      return `<span>Total de ${states['sensor.my_id_odometer'].state} KMs</span>`
-                    ]]]
-
-              - type: custom:apexcharts-card
-                graph_span: 7d
-                span:
-                  end: day
-                yaxis:
-                  - show: false
-                    min: 0
-                    apex_config:
-                      padding:
-                        left: 0
-                        right: 0
-                series:
-                  - entity: sensor.my_id_odometer
-                    type: column
-                    color: "var(--el-graph-bar-color)"
-                    group_by:
-                      duration: 1d
-                      func: diff
-                      start_with_last: true
-                    show:
-                      datalabels: true
+          - type: custom:apexcharts-card
+            graph_span: 7d
+            span:
+              end: day
+            yaxis:
+              - show: false
+                min: 0
                 apex_config:
-                  chart:
-                    height: 120px
-                    fontFamily: "var(--paper-ha-card_-_font-family)"
-                    parentHeightOffset: 0
-                  tooltip:
-                    enabled: false
-                  grid:
-                    show: false
-                    padding:
-                      left: -20
-                      right: -15
-                  dataLabels:
-                    show: true
-                    offsetY: -12
-                    style:
-                      fontSize: "12px"
-                      colors: ["var(--el-graph-bar-color)"]
-                    background:
-                      enabled: false
-                  plotOptions:
-                    bar:
-                      borderRadius: 6
-                      columnWidth: "90%"
-                  xaxis:
-                    tickPlacement: "on"
-                    labels:
-                      show: true
-                      hideOverlappingLabels: false
-                      format: "d/M"
-                      style:
-                        fontSize: "10px"
-                style: |-
-                  ha-card.type-custom-apexcharts-card {
-                    background: transparent;
-                  }
+                  padding:
+                    left: 0
+                    right: 0
+            series:
+              - entity: sensor.my_id_odometer
+                type: column
+                color: "var(--el-graph-bar-color)"
+                group_by:
+                  duration: 1d
+                  func: diff
+                  start_with_last: true
+                show:
+                  datalabels: true
+            apex_config:
+              chart:
+                height: 120px
+                fontFamily: "var(--paper-ha-card_-_font-family)"
+                parentHeightOffset: 0
+              tooltip:
+                enabled: false
+              grid:
+                show: false
+                padding:
+                  left: -20
+                  right: -15
+              dataLabels:
+                show: true
+                offsetY: -12
+                style:
+                  fontSize: "12px"
+                  colors: ["var(--el-graph-bar-color)"]
+                background:
+                  enabled: false
+              plotOptions:
+                bar:
+                  borderRadius: 6
+                  columnWidth: "90%"
+              xaxis:
+                tickPlacement: "on"
+                labels:
+                  show: true
+                  hideOverlappingLabels: false
+                  format: "d/M"
+                  style:
+                    fontSize: "10px"
+            style: |-
+              ha-card.type-custom-apexcharts-card {
+                background: transparent;
+              }
 
-          - type: "custom:decluttering-card"
-            template: climate-vw
-            variables:
-              - entity-climate-state: sensor.my_id_climatisation_state
-              - entity-climate-target: input_number.target_vw_id_3_temperature
-              - entity-climate-current: number.my_id_target_climate_temperature
-              - name: "Clima"
-              - template: sensors-climate
+      - type: "custom:decluttering-card"
+        template: climate-vw
+        variables:
+          - entity-climate-state: sensor.my_id_climatisation_state
+          - entity-climate-target: input_number.target_vw_id_3_temperature
+          - entity-climate-current: number.my_id_target_climate_temperature
+          - name: "Clima"
+          - template: sensors-climate
 
-      - type: "custom:gap-card"
-        height: 15
+  - type: "custom:gap-card"
+    height: 15

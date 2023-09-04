@@ -1,117 +1,113 @@
 title: NAS
 path: nas
-panel: true
-#icon: mdi:cog-box
 visible: true
 background: "var(--background-view-nas)"
 
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
 cards:
-  - type: custom:layout-card
-    layout_type: custom:vertical-layout
-    layout:
-      width: 200
-      max_width: 350
-      column_widths: 98%
+  - type: "custom:gap-card"
+    height: 40
+
+  - type: "custom:decluttering-card"
+    template: title-white
+    variables:
+      - content: Network Attached Storage
+
+  - type: "custom:gap-card"
+    height: 25
+
+  - type: vertical-stack
     cards:
-      - type: "custom:gap-card"
-        height: 40
-
       - type: "custom:decluttering-card"
-        template: title-white
+        template: subtitle-white
         variables:
-          - content: Network Attached Storage
+          - content: QNAP TS-233
 
-      - type: "custom:gap-card"
-        height: 25
+      - type: entities
+        entities:
+          - entity: sensor.homedrive_status
+            name: Status
+            icon: mdi:list-status
+          - entity: sensor.homedrive_uptime_friendly
+            name: Uptime
+            icon: mdi:timelapse
+          - type: attribute
+            entity: sensor.homedrive_used_space_volume1
+            name: Disco total
+            icon: mdi:harddisk
+            attribute: Volume Size
+          - type: attribute
+            entity: sensor.homedrive_memory_usage
+            name: Memória total
+            icon: mdi:memory
+            attribute: Memory Size
+        state_color: true
+        header:
+          type: picture
+          image: local/images/network/NAS_TS233.png
+          tap_action:
+            action: none
+          hold_action:
+            action: none
+        card_mod:
+          style: !include ../styles/style-card-entities-img.yaml
 
-      - type: vertical-stack
+      - type: custom:layout-card
+        layout_type: custom:grid-layout
+        layout:
+          margin: 0
+          card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
+          grid-template-columns: 1fr 1fr
+          grid-template-rows: 110px
         cards:
-          - type: "custom:decluttering-card"
-            template: subtitle-white
-            variables:
-              - content: QNAP TS-233
-
-          - type: entities
+          - type: "custom:mini-graph-card"
             entities:
-              - entity: sensor.homedrive_status
-                name: Status
-                icon: mdi:list-status
-              - entity: sensor.homedrive_uptime_friendly
-                name: Uptime
-                icon: mdi:timelapse
-              - type: attribute
-                entity: sensor.homedrive_used_space_volume1
-                name: Disco total
-                icon: mdi:harddisk
-                attribute: Volume Size
-              - type: attribute
-                entity: sensor.homedrive_memory_usage
-                name: Memória total
-                icon: mdi:memory
-                attribute: Memory Size
-            state_color: true
-            header:
-              type: picture
-              image: local/images/network/NAS_TS233.png
-              tap_action:
-                action: none
-              hold_action:
-                action: none
-            card_mod:
-              style: !include ../styles/style-card-entities-img.yaml
+              - entity: sensor.homedrive_system_temperature
+                name: System Temp
+            show:
+              name: true
+              icon: true
+            tap_action:
+              action: none
+            hours_to_show: 6
+            font_size: 65
+            points_per_hour: 6
+            color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
+            style: !include ../styles/style-graph-wtitle.yaml
 
-          - type: custom:layout-card
-            layout_type: custom:grid-layout
-            layout:
-              margin: 0
-              card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
-              grid-template-columns: 1fr 1fr
-              grid-template-rows: 110px
-            cards:
-              - type: "custom:mini-graph-card"
-                entities:
-                  - entity: sensor.homedrive_system_temperature
-                    name: System Temp
-                show:
-                  name: true
-                  icon: true
-                tap_action:
-                  action: none
-                hours_to_show: 6
-                font_size: 65
-                points_per_hour: 6
-                color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
-                style: !include ../styles/style-graph-wtitle.yaml
+          - type: "custom:mini-graph-card"
+            entities:
+              - entity: sensor.homedrive_temperature_drive_0_2
+                name: Disk Temp
+            show:
+              name: true
+              icon: true
+            tap_action:
+              action: none
+            hours_to_show: 6
+            font_size: 65
+            points_per_hour: 6
+            color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
+            style: !include ../styles/style-graph-wtitle.yaml
 
-              - type: "custom:mini-graph-card"
-                entities:
-                  - entity: sensor.homedrive_temperature_drive_0_2
-                    name: Disk Temp
-                show:
-                  name: true
-                  icon: true
-                tap_action:
-                  action: none
-                hours_to_show: 6
-                font_size: 65
-                points_per_hour: 6
-                color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
-                style: !include ../styles/style-graph-wtitle.yaml
-
-              - type: "custom:mini-graph-card"
-                entities:
-                  - entity: sensor.homedrive_volume_used_volume1
-                    name: Disk usage
-                  - entity: sensor.homedrive_used_space_volume1
-                    show_state: true
-                    show_graph: false
-                show:
-                  name: true
-                  icon: true
-                tap_action:
-                  action: none
-                hours_to_show: 80
-                font_size: 65
-                points_per_hour: 1
-                color_thresholds: !include ../graphs/percentage-thresholds.yaml
-                style: !include ../styles/style-graph-wtitle.yaml
+          - type: "custom:mini-graph-card"
+            entities:
+              - entity: sensor.homedrive_volume_used_volume1
+                name: Disk usage
+              - entity: sensor.homedrive_used_space_volume1
+                show_state: true
+                show_graph: false
+            show:
+              name: true
+              icon: true
+            tap_action:
+              action: none
+            hours_to_show: 80
+            font_size: 65
+            points_per_hour: 1
+            color_thresholds: !include ../graphs/percentage-thresholds.yaml
+            style: !include ../styles/style-graph-wtitle.yaml
