@@ -38,3 +38,31 @@
       name: "{% if states.sun.sun.state == \"above_horizon\" %}\n  slate_theme\n{%
         else %}\n  slate_theme_dark\n{% endif %}\n"
   mode: single
+- id: '1691970147264'
+  alias: Turn fan off at specific night time
+  description: ''
+  trigger:
+  - platform: time
+    at: 01:10:00
+  - platform: time
+    at: '15:00:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.plug_xiaomi
+  mode: single
+- id: '1692688164520'
+  alias: Turn on fan at specific time
+  description: ''
+  trigger:
+  - platform: time
+    at: '14:00:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.plug_xiaomi
+  mode: single
