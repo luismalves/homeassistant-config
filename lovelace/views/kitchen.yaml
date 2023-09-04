@@ -53,7 +53,7 @@ cards:
             filter:
               include:
                 - entity_id: "sensor.humidity_1"
-                  state: ">10"
+                  state: ">80"
             card:
               type: markdown
               style: !include ../styles/style-card-alert.yaml
