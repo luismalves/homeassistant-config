@@ -1,3 +1,7 @@
+#####
+# Lovelace Dashboard
+# DEPRECATED
+#####
 title: Debug
 path: debug
 panel: true
