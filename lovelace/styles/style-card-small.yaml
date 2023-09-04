@@ -1,56 +1,42 @@
 card:
   - height: 50px
-  - font-weight: bold
-  - color: var(--el-text-color-light)
+  - background: "rgb(255, 255, 255)"
+  - color: "rgba(87, 87, 87, 0.8)"
   - font-size: 12px
 
 custom_fields:
   icon_hue:
-    - top: 12%
-    - left: 12%
-    - width: 35px
-    - position: absolute
-  info:
-    - top: 0px
-    - left: 20px
-    - width: 40px
-    - position: absolute
-    - letter-spacing: 0.03vw
-
+    - margin: auto
+    - width: 25px
   sd1:
-    - align-self: start
-    - font-size: 12px
-    - color: "rgba(0, 0, 0, 0.3)"
+    - align-self: center
     - justify-self: start
+    - text-align: center
+    - display: none
+  s:
+    - align-self: center
+    - font-weight: bold
+    - justify-self: start
+    - text-align: left
 
 grid:
-  - grid-template-areas: '"i n" "i s" "i sd1"'
-  - grid-template-columns: 1fr 1fr
-  - grid-template-rows: 1fr min-content 1fr
-
-img_cell:
-  - align-self: start
-  - text-align: start
+  - grid-template-areas: '"icon_hue n" "icon_hue s" "icon_hue sd1"'
+  - grid-template-columns: 1fr 2fr
+  - grid-template-rows: 1fr min-content min-content
 
 name:
-  - align-self: end
-  - justify-self: start
-  - text-align: left
-  - padding-left: 0px
-  - font-weight: bold
-  - padding-bottom: 0px
-  - margin-bottom: 0px
-  - font-size: 12px
-  - margin-top: 0px
-
-state:
-  - justify-self: start
-  - padding-left: 20px
-  - padding-bottom: 5px
-  - color: "rgba(87, 87, 87, 0.5)"
-  - display: none
-
-sd1:
   - align-self: center
   - justify-self: start
-  - text-align: center
+  - text-align: left
+  - font-weight: bold
+  - line-height: 1
+  - font-size: 12px
+  - padding-right: 5px
+  - text-overflow: none
+  - white-space: initial
+
+state:
+  - color: "rgba(87, 87, 87, 0.5)"
+  - font-weight: bold
+  - justify-self: start
+  - padding-top: 2px
