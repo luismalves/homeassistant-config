@@ -1,3 +1,7 @@
+#####
+# Lovelace Dashboard
+# DEPRECATED
+#####
 title: Manutenção
 path: maintenance
 panel: true
