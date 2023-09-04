@@ -1,22 +1,19 @@
 title: Clima
 path: temp
-panel: true
 background: "var(--background-view-temp)"
 
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 700
 cards:
   - type: custom:layout-card
-    layout_type: custom:vertical-layout
+    layout_type: custom:grid-layout
     layout:
-      width: 600
-      max_width: 735
-      column_widths: 98%
-    cards:
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        layout:
-          grid-template-columns: 365px 356px
-          grid-template-rows: auto
-          column-gap: 40px
-        cards: !include ../views_frames/temperature-rooms.yaml
-        view_layout:
-          grid-area: main
+      grid-template-columns: 365px 356px
+      grid-template-rows: auto
+      column-gap: 40px
+    cards: !include ../views_frames/temperature-rooms.yaml
+    view_layout:
+      grid-area: main
