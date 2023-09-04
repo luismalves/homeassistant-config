@@ -127,7 +127,7 @@ cards:
         font_size: 65
         points_per_hour: 1
         color_thresholds: !include ../graphs/temp-thresholds.yaml
-        style: !include ../styles/style-graph-big.yaml
+        style: !include ../styles/style-graph.yaml
 
       - template: es-switch
         type: "custom:decluttering-card"
