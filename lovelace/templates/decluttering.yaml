@@ -378,7 +378,10 @@ es-light:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
 # Lights which only support white range of values as Tasmota. Changes in hold action.
 es-light-tasmota:
@@ -395,7 +398,10 @@ es-light-tasmota:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
 # Lights which only support color temperatures
 es-light-temperature:
@@ -412,7 +418,10 @@ es-light-temperature:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --yellow-tint
+    - state-1: "on"
+    - state-2: "off"
 
 # Lights which toggle based on a switch and colors are controlled from another entity
 es-light-switch:
@@ -429,7 +438,10 @@ es-light-switch:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
 # Lights which toggle based on a switch and colors are controlled from another entity.
 # Hold action controls each individual light connected to switch
@@ -447,24 +459,30 @@ es-light-switch-2:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
-##!! not being used !!
-# es-3:
-#   card:
-#     custom_fields: !include ../circles/circle-x.yaml
-#     entity: "[[entity-1]]"
-#     name: "[[name-1]]"
-#     hold_action: !include ../holds/hold-action-es-3.yaml
-#     tap_action:
-#       action: toggle
-#     show_icon: false
-#     show_state: true
-#     state: !include ../states/state-x.yaml
-#     styles: !include ../styles/style-card.yaml
-#     template: "[[template]]"
-#     type: "custom:button-card"
-#   default: null
+# Lights with a slider
+es-light-slider:
+  card:
+    custom_fields: !include ../cards/card-light-slider.yaml
+    entity: "[[entity-1]]"
+    name: "[[name-1]]"
+    #hold_action: !include ../holds/hold-action-es-lights.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-slider.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
 # Wall plug devices
 es-switch:
@@ -475,13 +493,16 @@ es-switch:
       action: toggle
     show_icon: false
     show_state: true
-    state: !include ../states/state-es.yaml
+    state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
     variables:
       power_entity: "[[entity-power]]"
-  default: switch
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
 es-switch-confirmation:
   card:
@@ -491,7 +512,7 @@ es-switch-confirmation:
       action: toggle
     show_icon: false
     show_state: true
-    state: !include ../states/state-es.yaml
+    state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -499,7 +520,10 @@ es-switch-confirmation:
       text: "[[confirmation-text]]"
     variables:
       power_entity: "[[entity-power]]"
-  default: switch
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
 # Devices state obtained with ping integration
 es-ping:
@@ -510,11 +534,14 @@ es-ping:
       action: none
     show_icon: false
     show_state: false
-    state: !include ../states/state-es.yaml
+    state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: switch
+  default:
+    - background-on: --ha-card-background-es-on
+    - state-1: "on"
+    - state-2: "off"
 
 # Covers
 es-cover:
@@ -611,6 +638,26 @@ es-number:
 #---------------------#
 # Sensor cards
 #---------------------#
+sensor-pill:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    icon: "[[icon]]"
+    show_icon: true
+    show_state: true
+    show_name: false
+    numeric_precision: "[[numeric_precision]]"
+    tap_action:
+      action: none
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-sensor.yaml
+    #template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - background-on: --ha-card-background-es-on
+    - background-default: --green-tint
+    - numeric_precision: 1
+
 sensor-kitchen:
   card:
     entity: "[[entity-1]]"
