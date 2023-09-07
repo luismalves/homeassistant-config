@@ -128,14 +128,44 @@ cards:
           - state-3: "off"
           - state-4: "unavailable"
 
-      - template: sensor-living_room
+      # - template: sensor-living_room
+      #   view_layout:
+      #     grid-column: span 2
+      #   type: "custom:decluttering-card"
+      #   variables:
+      #     - template: sensors-living_room
+      #     - entity-1: sensor.presence_living_room
+      #     - name-1: "Sensores"
+
+      - type: "custom:layout-card"
         view_layout:
           grid-column: span 2
-        type: "custom:decluttering-card"
-        variables:
-          - template: sensors-living_room
-          - entity-1: sensor.presence_living_room
-          - name-1: "Sensores"
+        layout_type: "custom:grid-layout"
+        layout:
+          card_margin: 0px
+          grid-template-columns: 1fr
+          grid-template-rows: 1fr 1fr 1fr
+          height: 100%
+          margin: 0
+        cards:
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: sensor.presence_living_room
+              - state-1: "Detetado"
+              - state-2: "Vazio"
+              - icon: mdi:motion-sensor
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: sensor.temperature_1
+              - icon: mdi:thermometer
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: sensor.humidity_1
+              - icon: mdi:water-percent
+              - numeric_precision: 0
 
       # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
       # - template: es-light
@@ -198,7 +228,7 @@ cards:
           grid-column: span 2
         variables:
           - template: camera
-          - entity-1: camera.mi_cam
+          - entity-1: camera.androidcamera
           - name-1: "Camera"
           - state-1: detected
           - state-2: idle
@@ -239,6 +269,8 @@ cards:
           - state-2: "off"
 
       - type: conditional
+        view_layout:
+          grid-column: span 2
         conditions:
           - entity: sensor.lights_on_living_room
             state_not: "0"
@@ -247,8 +279,6 @@ cards:
           cards:
             - type: "custom:decluttering-card"
               template: script
-              view_layout:
-                grid-column: span 2
               variables:
                 - entity-1: sensor.lights_on_living_room
                 - template: script-lights-off
