@@ -1,0 +1,20 @@
+card:
+  - height: 30px # Disable when carD_margin is working in layout
+  - color: var(--el-es-static-text-color)
+  - background-color: "var(--ha-card-background-es-static)"
+  - padding: 2px 10px
+
+grid:
+  - grid-template-areas: '"i s"'
+  - grid-template-columns: 25px 1fr
+  - grid-template-rows: 1fr
+  - column-gap: 2px
+
+icon:
+  - width: 70%
+
+state:
+  - justify-self: start
+  - font-weight: bold
+  - font-size: 12px
+  - color: var(--ha-card-color-name-off);
