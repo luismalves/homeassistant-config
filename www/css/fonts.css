@@ -13,6 +13,12 @@
 
 @font-face {
   font-family: "Google Sans";
+  font-weight: 500;
+  src: url("/local/fonts/google-sans.woff2");
+}
+
+@font-face {
+  font-family: "Google Sans";
   font-weight: 400;
   src: url("/local/fonts/google-sans.woff2");
 }
@@ -30,7 +36,7 @@
 h1 { font-weight: 700; }
 h2 { font-weight: 600; }
 h3 { font-weight: 500; }
-h4 { font-weight: 500; font-family: "San Francisco";}
+h4 { font-weight: 500; }
 h5 { font-weight: 500; }
 p { font-weight: 400; }
 p.thin { font-weight: 200; }
