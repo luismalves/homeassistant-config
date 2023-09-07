@@ -27,8 +27,6 @@
             - template: light-strip
             - entity-1: light.led_strip_living_room
             - name-1: "LED Strip"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -41,8 +39,6 @@
             - entity-1: light.luz_sala
             - entity-switch: light.shelly_living_room_light
             - name-1: "Luz Sala"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -57,8 +53,6 @@
             - entity-3: light.luz_mesa_2
             - entity-switch: light.shelly_table_light
             - name-1: "Luz Mesa"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -124,8 +118,6 @@
             - template: light-pendant-long
             - entity-1: light.shelly_kitchen_light
             - name-1: "Luz Cozinha"
-            - state-1: "on"
-            - state-2: "off"
 
         - template: es-switch
           type: "custom:decluttering-card"
@@ -133,8 +125,6 @@
             - template: light-strip
             - entity-1: light.shelly_kitchen_led_left
             - name-1: "LED Strip"
-            - state-1: "on"
-            - state-2: "off"
 
         - template: es-light-temperature
           type: "custom:decluttering-card"
@@ -142,8 +132,6 @@
             - template: light-outdoor
             - entity-1: light.luz_entrada
             - name-1: Luz entrada
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -191,8 +179,6 @@
             - template: light-strip
             - entity-1: light.led_strip_deck
             - name-1: "LED Strip"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -204,8 +190,6 @@
             - template: light-pendant
             - entity-1: light.luz_deck
             - name-1: "Luz Deck"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -217,8 +201,6 @@
             - template: light-desk
             - entity-1: light.mi_lamp
             - name-1: "Mi Lamp"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -230,8 +212,6 @@
             - template: light-desk
             - entity-1: light.mi_lamp_pro
             - name-1: "Mi Lamp Pro"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -278,8 +258,6 @@
             - template: light-bedroom
             - entity-1: light.luz_quarto_direita
             - name-1: "Luz Esquerda"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -290,8 +268,6 @@
             - template: light-pendant
             - entity-1: light.luz_quarto
             - name-1: "Luz Quarto"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -302,8 +278,6 @@
             - template: light-bedroom
             - entity-1: light.luz_quarto_esquerda
             - name-1: "Luz Direita"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"
@@ -314,8 +288,6 @@
             - template: light-strip
             - entity-1: light.wled_bed_group
             - name-1: "LED Strip"
-            - state-1: "on"
-            - state-2: "off"
             - circle-1: entity.attributes.brightness
             - circle-2: (254 / 100)
             - circle-3: "on"

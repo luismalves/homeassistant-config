@@ -62,8 +62,6 @@ cards:
           - template: light-strip
           - entity-1: light.led_strip_deck
           - name-1: "LED Strip"
-          - state-1: "on"
-          - state-2: "off"
           - circle-1: entity.attributes.brightness
           - circle-2: (254 / 100)
           - circle-3: "on"
@@ -75,8 +73,6 @@ cards:
           - template: light-pendant
           - entity-1: light.luz_deck
           - name-1: "Luz Deck"
-          - state-1: "on"
-          - state-2: "off"
           - circle-1: entity.attributes.brightness
           - circle-2: (254 / 100)
           - circle-3: "on"
@@ -88,8 +84,6 @@ cards:
           - template: light-desk
           - entity-1: light.mi_lamp
           - name-1: "Mi Lamp"
-          - state-1: "on"
-          - state-2: "off"
           - circle-1: entity.attributes.brightness
           - circle-2: (254 / 100)
           - circle-3: "on"
@@ -101,8 +95,6 @@ cards:
           - template: light-desk
           - entity-1: light.mi_lamp_pro
           - name-1: "Mi Lamp Pro"
-          - state-1: "on"
-          - state-2: "off"
           - circle-1: entity.attributes.brightness
           - circle-2: (254 / 100)
           - circle-3: "on"

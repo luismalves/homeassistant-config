@@ -64,8 +64,6 @@ cards:
           - template: light-pendant-long
           - entity-1: light.shelly_kitchen_light
           - name-1: "Luz Cozinha"
-          - state-1: "on"
-          - state-2: "off"
 
       - template: es-switch
         type: "custom:decluttering-card"
@@ -75,8 +73,6 @@ cards:
           - template: light-strip
           - entity-1: light.shelly_kitchen_led_left
           - name-1: "LED Strip"
-          - state-1: "on"
-          - state-2: "off"
 
       - template: es-light
         type: "custom:decluttering-card"
@@ -86,8 +82,6 @@ cards:
           - template: light-outdoor
           - entity-1: light.luz_entrada
           - name-1: Luz entrada
-          - state-1: "on"
-          - state-2: "off"
           - circle-1: entity.attributes.brightness
           - circle-2: (254 / 100)
           - circle-3: "on"
@@ -136,6 +130,19 @@ cards:
           - circle-2: 0.01
           - circle-3: "playing"
           - circle-4: volume_level
+
+      - template: es-light-slider
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: light-desk
+          - entity-1: light.mi_lamp_pro
+          - name-1: "Mi Lamp Pro"
+          - circle-1: entity.attributes.brightness
+          - circle-2: (254 / 100)
+          - circle-3: "on"
+          - circle-4: brightness
 
       # - template: es-switch
       #   type: "custom:decluttering-card"
