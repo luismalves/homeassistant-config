@@ -1,10 +1,12 @@
 - styles:
     card:
-      - background-color: "var(--ha-card-background-es-on)"
+      - background-color: "var([[background-on]])"
       - overflow: hidden
     name:
       - color: "var(--ha-card-color-name-on)"
     state:
+      - color: "var(--ha-card-color-state-on)"
+    icon:
       - color: "var(--ha-card-color-state-on)"
     custom_fields:
       sd1:
@@ -19,6 +21,8 @@
     name:
       - color: "var(--ha-card-color-name-off)"
     state:
+      - color: "var(--ha-card-color-state-off)"
+    icon:
       - color: "var(--ha-card-color-state-off)"
     custom_fields:
       sd1:
@@ -65,3 +69,14 @@
     state:
       - color: "var(--ha-card-color-state-off)"
   value: "unavailable"
+
+- styles:
+    card:
+      - background-color: "var([[background-default]])"
+    name:
+      - color: "var(--el-es-static-text-color)"
+    state:
+      - color: "var(--el-es-static-text-color)"
+    icon:
+      - color: "var(--el-es-static-text-color)"
+  operator: default
