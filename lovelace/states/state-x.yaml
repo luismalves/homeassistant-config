@@ -3,6 +3,39 @@
       - background-color: "var([[background-on]])"
       - overflow: hidden
     name:
+      - color: "var([[color-name-on]])"
+    state:
+      - color: "var([[color-state-on]])"
+    icon:
+      - color: "var([[color-state-on]])"
+    custom_fields:
+      sd1:
+        - color: "var([[color-state-on]])"
+      s:
+        - color: "var([[color-state-on]])"
+  value: "[[state-1]]"
+
+- styles:
+    card:
+      - background-color: "var(--ha-card-background-es-off)"
+    name:
+      - color: "var([[color-name-off]])"
+    state:
+      - color: "var([[color-state-off]])"
+    icon:
+      - color: "var([[color-state-off]])"
+    custom_fields:
+      sd1:
+        - color: "var([[color-state-off]])"
+      s:
+        - color: "var([[color-state-off]])"
+  value: "[[state-2]]"
+
+- styles:
+    card:
+      - background-color: "var([[background-on]])"
+      - overflow: hidden
+    name:
       - color: "var(--ha-card-color-name-on)"
     state:
       - color: "var(--ha-card-color-state-on)"
@@ -13,7 +46,7 @@
         - color: "var(--ha-card-color-state-on)"
       s:
         - color: "var(--ha-card-color-state-on)"
-  value: "[[state-1]]"
+  value: "[[state-3]]"
 
 - styles:
     card:
@@ -29,24 +62,6 @@
         - color: "var(--ha-card-color-state-off)"
       s:
         - color: "var(--ha-card-color-state-off)"
-  value: "[[state-2]]"
-
-- styles:
-    card:
-      - background-color: "var(--ha-card-background-es-off)"
-    name:
-      - color: "var(--ha-card-color-name-off)"
-    state:
-      - color: "var(--ha-card-color-state-off)"
-  value: "[[state-3]]"
-
-- styles:
-    card:
-      - background-color: "var(--ha-card-background-es-off)"
-    name:
-      - color: "var(--ha-card-color-name-off)"
-    state:
-      - color: "var(--ha-card-color-state-off)"
   value: "[[state-4]]"
 
 - styles:
