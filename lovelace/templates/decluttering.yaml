@@ -621,6 +621,7 @@ es-cover:
     - color-state-off: --ha-card-color-state-off
     - state-1: "open"
     - state-2: "closed"
+    - state-3: "closing"
     - info-attribute: entity.attributes.current_position
     - info-max: 1
     - info-unit: "%"
