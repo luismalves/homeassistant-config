@@ -26,17 +26,15 @@
   trigger:
   - platform: homeassistant
     event: start
-  - platform: state
-    entity_id: sun.sun
-    to: above_horizon
-  - platform: state
-    entity_id: sun.sun
-    to: below_horizon
   action:
   - service: frontend.set_theme
     data_template:
       name: "{% if states.sun.sun.state == \"above_horizon\" %}\n  slate_theme\n{%
         else %}\n  slate_theme_dark\n{% endif %}\n"
+    enabled: false
+  - service: frontend.set_theme
+    data:
+      name: google_theme
   mode: single
 - id: '1691970147264'
   alias: Turn fan off at specific night time
