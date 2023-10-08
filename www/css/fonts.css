@@ -41,3 +41,8 @@ h5 { font-weight: 500; }
 p { font-weight: 400; }
 p.thin { font-weight: 200; }
 p.ultralight { font-weight: 100; }
+
+:focus,
+:focus-visible {
+  outline: 0;
+}
