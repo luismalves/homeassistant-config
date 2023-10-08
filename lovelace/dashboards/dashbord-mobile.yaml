@@ -6,6 +6,5 @@
 dashboard-mobile:
   mode: yaml
   title: Home Control (Mobile)
-  #icon: fas:city
   show_in_sidebar: false
   filename: ui-lovelace-mobile.yaml
