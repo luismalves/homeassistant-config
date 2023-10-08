@@ -1,9 +1,9 @@
 card:
   - background-color: var(--ha-card-background-es-static)
-  - font-weight: bold
   - color: "var(--el-es-static-text-color-light)"
   - height: 110px
   - font-size: 12px
+  - font-weight: bold
   - padding: 10px 0 0 0
 
 custom_fields:
@@ -29,7 +29,7 @@ custom_fields:
 grid:
   - grid-template-areas: '"icon_hue" "n" "sd1" "type"'
   - grid-template-columns: 1fr
-  - grid-template-rows: 1fr min-content min-content min-content min-content
+  - grid-template-rows: 1fr min-content min-content min-content
 
 name:
   - align-self: center

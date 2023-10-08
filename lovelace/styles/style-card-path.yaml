@@ -1,42 +1,33 @@
 card:
-  - height: 110px
+  - background-color: "var(--ha-card-background-path)"
   - color: "var(--ha-card-color-name-on)"
   - font-size: 12px
-  - background-color: "var(--ha-card-background-path)"
+  - font-weight: bold
+  - height: 110px
+  - padding: 10px 0 0 0
+
 custom_fields:
   icon_hue:
-    - top: 15%
-    - left: 30%
+    - align-self: center
+    - justify-self: center
     - width: 45px
-    - position: absolute
-  info:
-    - top: 0px
-    - left: 20px
-    - width: 40px
-    - position: absolute
-    - letter-spacing: 0.03vw
+
   sd1:
     - color: var(--ha-card-color-state-on)
     - font-size: 12px
-    - font-weight: bold
-    - top: 79%
-    - position: absolute
-    - width: 100%
+    - margin-bottom: 10px
+    - text-align: center
+
 grid:
-  - grid-template-areas: '"i" "n" "s" "sd1 sd1"'
+  - grid-template-areas: '"icon_hue" "n" "sd1" "type"'
   - grid-template-columns: 1fr
-  - grid-template-rows: 1fr min-content min-content
-img_cell:
-  - align-self: start
-  - text-align: start
+  - grid-template-rows: 1fr min-content min-content min-content
+
 name:
   - align-self: center
   - text-align: center
-  - padding-left: 0px
   - font-weight: bold
-  - padding-bottom: 0px
-  - margin-bottom: "-2px"
   - font-size: 12px
-  - margin-top: 50px
+
 state:
   - display: none

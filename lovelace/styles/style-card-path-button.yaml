@@ -3,11 +3,14 @@ card:
   - background-color: "var(--ha-card-background-path)"
   - padding: 10px
 
+custom_fields:
+  icon_hue:
+    - margin-top: 6px
+
+  type:
+    - display: none
+
 grid:
   - grid-template-areas: '"icon_hue"'
   - grid-template-columns: 1fr
   - grid-template-rows: 1fr
-
-custom_fields:
-  sd1:
-    - display: none

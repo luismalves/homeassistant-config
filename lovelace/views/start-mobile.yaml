@@ -427,6 +427,7 @@ cards:
           - name-1: "Casa"
           - state-1: "on"
           - state-2: "off"
+          - background-on: --green-tint, var(--ha-card-background-es-on)
 
       - template: path
         type: "custom:decluttering-card"
@@ -434,8 +435,8 @@ cards:
           grid-column: span 2
         variables:
           - template: alarm
-          - entity-1: alarm_control_panel.alarmo
-          - name-1: "Alarme"
+          - entity: alarm_control_panel.alarmo
+          - name: "Alarme"
           - navigation_path: /dashboard-mobile/security
 
       - template: es-boolean

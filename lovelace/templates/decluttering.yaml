@@ -118,8 +118,8 @@ es-icon:
 # Navigation card
 path:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: navigate
       navigation_path: "[[navigation_path]]"

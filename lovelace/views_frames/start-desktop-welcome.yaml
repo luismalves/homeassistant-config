@@ -247,6 +247,7 @@
         - name-1: "Casa"
         - state-1: "on"
         - state-2: "off"
+        - background-on: --green-tint, var(--ha-card-background-es-on)
 
     - template: path
       type: "custom:decluttering-card"
