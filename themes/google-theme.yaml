@@ -1,0 +1,427 @@
+# Custom Theme based on the macOS light and dark mode UI
+# Initial creator: Juan - @juanmtech
+#
+
+google_theme:
+  ########################################################
+  ############### Default global variables ###############
+  ########################################################
+  # Header:
+  app-header-background-color: var(--contrast1)
+  app-header-text-color: var(--contrast20)
+  app-header-selection-bar-color: transparent
+  app-header-edit-background-color: var(--contrast2)
+  app-header-edit-text-color: var(--contrast20)
+  header-height: 50px;
+
+  # Main Interface Colors
+  primary-color: var(--blue)
+  accent-color: var(--blue)
+  primary-background-color: var(--contrast1)
+  secondary-background-color: var(--contrast2)
+  divider-color: var(--contrast3)
+
+  # Text
+  primary-text-color: var(--contrast20)
+  secondary-text-color: var(--contrast9)
+  text-primary-color: var(--contrast20)
+  disabled-text-color: var(--contrast6)
+  text-accent-color: var(--contrast1)
+
+  # Sidebar Menu
+  sidebar-icon-color: var(--contrast6)
+  sidebar-text-color: var(--contrast20)
+  sidebar-background-color: var(--contrast2)
+  sidebar-selected-icon-color: var(--blue)
+  sidebar-selected-text-color: var(--blue)
+
+  # Cards
+  card-background-color: var(--contrast4)
+  ha-card-background: var(--contrast2)
+  ha-card-border-color: var(--contrast6)
+  paper-listbox-background-color: var(--contrast3)
+
+  # Spacings and radius
+  horizontal-stack-card-margin: 0px 4px
+  vertical-stack-card-margin: 4px 0px
+  ha-card-border-width: 0
+  ha-card-border-radius: 16px
+  masonry-view-card-margin: 4px
+
+  # Buttons
+  paper-item-icon-color: var(--contrast9)
+  mdc-button-outline-color: var(--contrast6)
+  mdc-shape-small: 20px
+
+  # States and Badges
+  state-icon-color: var(--contrast9)
+  #state-icon-active-color: var(--paper-item-icon-active-color)
+  #state-icon-unavailable-color: rgb(90, 89, 88)
+
+  # Sliders
+  paper-slider-knob-color: var(--contrast20)
+  paper-slider-knob-start-color: var(--contrast15)
+  paper-slider-pin-color: var(--contrast5)
+  paper-slider-pin-start-color: var(--contrast4)
+  paper-slider-active-color: var(--contrast15)
+  paper-slider-secondary-color: var(--contrast7)
+  paper-slider-container-color: var(--contrast5)
+
+  # Switches
+  switch-checked-button-color: var(--green)
+  switch-checked-track-color: var(--green)
+  switch-unchecked-button-color: var(--contrast9)
+  switch-unchecked-track-color: var(--contrast6)
+
+  # Toggles
+  paper-toggle-button-checked-button-color: var(--switch-checked-button-color)
+  paper-toggle-button-checked-bar-color: var(--switch-checked-track-color)
+  paper-toggle-button-unchecked-button-color: var(--switch-unchecked-button-color)
+  paper-toggle-button-unchecked-bar-color: var(--switch-unchecked-track-color)
+
+  # Checkboxes
+  mdc-checkbox-unchecked-color: var(--contrast15)
+
+  # Table
+  table-row-background-color: var(--contrast2)
+  table-row-alternative-background-color: var(--contrast3)
+  data-table-background-color: var(--contrast1)
+  mdc-text-field-fill-color: var(--contrast3)
+
+  # Pre/Code
+  markdown-code-background-color: var(--contrast1)
+
+  # Dropdowns
+  material-background-color: var(--contrast2)
+
+  # Labels
+  # label-badge-background-color: var(--secondary-background-color)
+  # label-badge-text-color: var(--primary-text-color)
+  # label-badge-red: rgb(255, 69, 58)
+  # label-badge-green: rgb(50, 215, 75)
+  # label-badge-blue: rgb(0, 122, 255)
+  # label-badge-yellow: rgb(255, 214, 10)
+  # label-badge-gray: rgb(90, 89, 88)
+
+  # Input
+  input-fill-color: var(--contrast3)
+  input-dropdown-icon-color: var(--contrast9)
+  input-ink-color: var(--contrast20)
+  input-label-ink-color: var(--contrast9)
+  input-idle-line-color: var(--contrast7)
+  input-hover-line-color: var(--contrast20)
+  mdc-select-fill-color: var(--input-fill-color)
+  mdc-select-ink-color: var(--input-ink-color)
+  mdc-select-label-ink-color: var(--input-label-ink-color)
+  mdc-select-idle-line-color: var(--input-idle-line-color)
+  mdc-select-dropdown-icon-color: var(--input-dropdown-icon-color)
+  mdc-select-hover-line-color: var(--input-hover-line-color)
+  mdc-text-field-disabled-fill-color: var(--contrast3)
+
+  # Error, Warning, Success and Info colors
+  error-color: rgb(253, 73, 67)
+  warning-color: rgb(255, 204, 0)
+  sucess-color: rgb(40, 205, 65)
+  info-color: rgb(0, 122, 255)
+
+  #Fonts
+  paper-font-subhead_-_font-family: "Google Sans"
+  paper-font-caption_-_font-family: "Google Sans"
+  paper-font-button_-_font-family: "Google Sans"
+  paper-font-title_-_font-family: "Google Sans"
+  paper-font-display1_-_font-family: "Google Sans"
+  paper-font-display2_-_font-family: "Google Sans"
+  paper-font-display3_-_font-family: "Google Sans"
+  paper-font-display4_-_font-family: "Google Sans"
+  paper-font-display5_-_font-family: "Google Sans"
+  paper-ha-card_-_font-family: "Google Sans"
+  mdc-typography-font-family: "Google Sans"
+
+  #######################################################
+  ############### Custom global variables ###############
+  #######################################################
+  # Black / White
+  black: "#000000"
+  white: "#FFFFFF"
+
+  # Contrast variables
+  black1: "#000000"
+  black2: "#111318"
+  black3: "#171A21"
+  black4: "#1C1F27"
+  black5: "#262A35"
+  black6: "#353946"
+  black7: "#434856"
+  black8: "#535865"
+  black9: "#636774"
+  black10: "#777A83"
+
+  white10: "#898C94"
+  white9: "#969AA6"
+  white8: "#A4A9B6"
+  white7: "#B3B8C6"
+  white6: "#C3C8D5"
+  white5: "#D4D8E2"
+  white4: "#E1E5EF"
+  white3: "#EAEDF6"
+  white2: "#F4F6FB"
+  white1: "#FFFFFF"
+
+  # white10: "#424242"
+  # white9: "#616161"
+  # white8: "#757575"
+  # white7: "#9E9E9E"
+  # white6: "#BDBDBD"
+  # white5: "#E0E0E0"
+  # white4: "#EEEEEE"
+  # white3: "#F5F5F5"
+  # white2: "#FAFAFA"
+  # white1: "#FFFFFF"
+
+  # Colors
+  purple: rgb(var(--purple-rgb))
+  yellow: rgb(var(--yellow-rgb))
+  orange: rgb(var(--orange-rgb))
+  red: rgb(var(--red-rgb))
+  green: rgb(var(--green-rgb))
+  blue: rgb(var(--blue-rgb))
+
+  # Color tints
+  purple-tint: rgba(var(--purple-rgb),var(--color-tint))
+  yellow-tint: rgba(var(--yellow-rgb),var(--color-tint))
+  orange-tint: rgba(var(--orange-rgb),var(--color-tint))
+  red-tint: rgba(var(--red-rgb),var(--color-tint))
+  green-tint: rgba(var(--green-rgb),var(--color-tint))
+  blue-tint: rgba(var(--blue-rgb),var(--color-tint))
+
+  # Gradients
+  brightness: linear-gradient(90deg, rgba(var(--brightness-low-rgb), 0.4) 0%, rgba(var(--brightness-high-rgb), 1) 100%)
+  brightness-tint: linear-gradient(90deg, rgba(var(--brightness-low-rgb), 0.06) 0%, rgba(var(--brightness-high-rgb), var(--color-tint)) 100%)
+  temperature: linear-gradient(90deg, rgba(var(--temperature-low-rgb), 01) 0%, rgba(var(--temperature-high-rgb), 1) 100%)
+  temperature-tint: linear-gradient(90deg, rgba(var(--temperature-low-rgb), var(--color-tint)) 0%, rgba(var(--temperature-high-rgb), var(--color-tint)) 100%)
+
+  # Color RGB variables
+  purple-rgb: 239, 177, 255
+  yellow-rgb: 255, 218, 120
+  orange-rgb: 255, 181, 129
+  red-rgb: 255, 145, 138
+  green-rgb: 206, 245, 149
+  blue-rgb: 144, 191, 255
+
+  # Gradient RGB variables
+  brightness-low-rgb: 232, 176, 29
+  brightness-high-rgb: 255, 211, 94
+  temperature-low-rgb: 177, 197, 255
+  temperature-high-rgb: 255, 175, 131
+
+  ##########################
+  # Custom cards backgrounds
+  ha-card-background-es-off: var(--contrast2)
+  ha-card-background-es-on: var(--blue-tint)
+  ha-card-background-es-static: var(--contrast2)
+  ha-card-background-path: var(--contrast2)
+  ha-card-background-task: var(--contrast2)
+  ha-card-background-scene: var(--contrast3)
+  ha-card-background-alert: "linear-gradient(to left, rgba(255,103,0,0.7), rgba(255,103,0,1))"
+  ha-card-background-climate-control: var(--contrast1)
+
+  ha-card-color-state-on: var(--contrast10)
+  ha-card-color-name-on: var(--contrast20)
+  ha-card-color-state-off: var(--contrast6)
+  ha-card-color-name-off: var(--contrast10)
+  ha-card-border-off: "2px solid var(--contrast7)"
+  ha-card-alert-text: var(--contrast1)
+
+  ha-card-bar-background: var(--contrast1)
+
+  ##########################
+  # Custom elements colors
+  el-title-color: var(--contrast18)
+  el-title-color-inverted: var(--contrast1)
+
+  el-text-color: var(--contrast18)
+  el-text-color-inverted: var(--contrast1)
+  el-text-color-light: "#b0b0b0"
+
+  el-state-circle-dash: var(--contrast14)
+  el-state-circle-text: var(--contrast12)
+
+  el-scene-name-color: "rgba(87, 87, 87, 0.8)"
+  el-scene-hint-color: "rgba(0, 0, 0, 0.3)"
+
+  el-es-static-text-color: var(--contrast18)
+  el-es-static-text-color-light: var(--contrast8)
+
+  el-svg-main-color-on: var(--contrast18)
+  el-svg-main-color-off: var(--contrast18)
+  el-svg-disabled: "var(--el-text-color-light)"
+
+  el-graph-title-color: var(--contrast18)
+  el-graph-state-color: var(--contrast18)
+  el-graph-bar-color: "var(--el-text-color-light)"
+
+  el-state-cold: "#89b4f8"
+  el-state-hot: "rgba(255,103,0,1)"
+
+  ########################################################
+  ############### Variables based on modes ###############
+  ########################################################
+  modes:
+    light:
+      ############### Custom global variables ###############
+      # Black white contrats
+      contrast1: var(--white1)
+      contrast2: var(--white2)
+      contrast3: var(--white3)
+      contrast4: var(--white4)
+      contrast5: var(--white5)
+      contrast6: var(--white6)
+      contrast7: var(--white7)
+      contrast8: var(--white8)
+      contrast9: var(--white9)
+      contrast10: var(--white10)
+      contrast11: var(--black10)
+      contrast12: var(--black9)
+      contrast13: var(--black8)
+      contrast14: var(--black7)
+      contrast15: var(--black6)
+      contrast16: var(--black5)
+      contrast17: var(--black4)
+      contrast18: var(--black3)
+      contrast19: var(--black2)
+      contrast20: var(--black1)
+
+      # Color tint transparancy
+      color-tint: "0.4"
+
+      # Contrast RGB variables
+      contrast1-RGB: "255,255,255"
+
+      # Views backgrounds
+      background-view-home: var(--contrast1)
+      background-view-home-mobile: var(--contrast1)
+      background-view-temp: var(--contrast1)
+      background-view-bedroom: var(--contrast1)
+      background-view-deck: var(--contrast1)
+      background-view-kitchen: var(--contrast1)
+      background-view-living: var(--contrast1)
+      background-view-config: var(--contrast1)
+      background-view-security: var(--contrast1)
+      background-view-system: var(--contrast1)
+      background-view-tasks: var(--contrast1)
+      background-view-network: var(--contrast1)
+      background-view-nas: var(--contrast1)
+      background-view-ev: var(--contrast1)
+
+    dark:
+      ############### Custom global variables ###############
+      # Black white contrats
+      contrast1: var(--black1)
+      contrast2: var(--black2)
+      contrast3: var(--black3)
+      contrast4: var(--black4)
+      contrast5: var(--black5)
+      contrast6: var(--black6)
+      contrast7: var(--black7)
+      contrast8: var(--black8)
+      contrast9: var(--black9)
+      contrast10: var(--black10)
+      contrast11: var(--white10)
+      contrast12: var(--white9)
+      contrast13: var(--white8)
+      contrast14: var(--white7)
+      contrast15: var(--white6)
+      contrast16: var(--white5)
+      contrast17: var(--white4)
+      contrast18: var(--white3)
+      contrast19: var(--white2)
+      contrast20: var(--white1)
+
+      # Color tint transparancy
+      color-tint: "0.3"
+
+      # Contrast RGB variables
+      contrast1-RGB: "0,0,0"
+
+      # Views backgrounds
+      background-view-home: var(--contrast1)
+      background-view-home-mobile: var(--contrast1)
+      background-view-temp: var(--contrast1)
+      background-view-bedroom: var(--contrast1)
+      background-view-deck: var(--contrast1)
+      background-view-kitchen: var(--contrast1)
+      background-view-living: var(--contrast1)
+      background-view-config: var(--contrast1)
+      background-view-security: var(--contrast1)
+      background-view-system: var(--contrast1)
+      background-view-tasks: var(--contrast1)
+      background-view-network: var(--contrast1)
+      background-view-nas: var(--contrast1)
+      background-view-ev: var(--contrast1)
+
+  ####################################################
+  #                                                  #
+  #                     CARD MOD                     #
+  #                                                  #
+  ####################################################
+
+  card-mod-theme: google_theme
+
+  card-mod-card: |
+    ha-card {
+      box-shadow: none;
+      font-family: var(--paper-ha-card_-_font-family);
+      transition: none;
+    }
+
+    /* * * * * * * * * * * * * * * * * *
+    *              TYPES              *
+    * * * * * * * * * * * * * * * * * */
+    ha-card.type-custom-mini-graph-card .state__value {
+      font-family: var(--paper-font-body1_-_font-family);
+    }
+
+    ha-card.type-custom-alarmo-card {
+      background-color: var(--ha-card-background-es-static);
+      color: var(--el-title-color);
+    }
+
+    ha-card.type-custom-alarmo-card .armActions button {
+      border-radius: 16px;
+    }
+
+    ha-card.type-custom-alarmo-card .numberKey {
+      --mdc-shape-small: 32px;
+    }
+
+    light-popup-card {
+      background: unset !important;
+    }
+
+  card-mod-root-yaml: |
+    .: |
+      /* ___________ Top bar ___________  */
+      :host([scrolled]) .header {
+        box-shadow: none !important;
+      }
+      paper-tab {
+        color: var(--contrast10);
+        border-radius: 15px;
+      }
+      paper-tab {
+        border-radius: 60px;
+        height: calc(100% - 16px);
+        margin: 8px 0;
+      }
+      paper-tab.iron-selected {
+        color: var(--contrast1);
+        background: var(--contrast20);
+      }
+      /* ___________ Side bar ___________  */
+      ha-menu-button, ha-button-menu {
+        color: var(--contrast10);
+      }
+      .iron-selected paper-icon-item::before, 
+      a:not(.iron-selected):focus::before {
+        border-radius: 30px;
+      }
