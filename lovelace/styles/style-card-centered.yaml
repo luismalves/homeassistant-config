@@ -18,8 +18,8 @@ custom_fields:
     - text-align: center
 
   type:
-    - background-color: var(--contrast3)
-    - color: var(--contrast6)
+    - background-color: var(--contrast4)
+    - color: var(--contrast8)
     - font-size: 12px
     - margin-top: 7px
     - text-align: center
