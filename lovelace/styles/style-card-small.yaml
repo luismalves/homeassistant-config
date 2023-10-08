@@ -1,8 +1,8 @@
 card:
   - height: 50px
-  - background: "rgb(255, 255, 255)"
   - color: "rgba(87, 87, 87, 0.8)"
   - font-size: 12px
+  - font-family: "var(--paper-ha-card_-_font-family)"
 
 custom_fields:
   icon_hue:

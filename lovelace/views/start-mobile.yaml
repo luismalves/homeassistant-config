@@ -66,51 +66,188 @@ cards:
         view_layout:
           grid-column: span 6
 
-      - template: path-division
-        type: "custom:decluttering-card"
+      # Path Living Room
+      - type: conditional
         view_layout:
           grid-column: span 3
-        variables:
-          - template: path-living-room
+        conditions:
           - entity: sensor.lights_on_living_room
-          - name: "Sala"
-          - navigation_path: /dashboard-mobile/living
+            state: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-living-room
+            - entity: sensor.lights_on_living_room
+            - name: "Sala"
+            - navigation_path: /dashboard-mobile/living
+            - rows-on: 1.5fr 1fr
+            - rows-off: 1fr 0.35fr
 
-      - template: path-division
-        type: "custom:decluttering-card"
+      - type: conditional
+        view_layout:
+          grid-column: span 2
+        conditions:
+          - entity: sensor.lights_on_living_room
+            state_not: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-living-room
+            - entity: sensor.lights_on_living_room
+            - name: "Sala"
+            - navigation_path: /dashboard-mobile/living
+            - rows-on: 1.5fr 1fr
+            - rows-off: 1fr 0.35fr
+
+      - type: conditional
+        conditions:
+          - entity: sensor.lights_on_living_room
+            state_not: "0"
+        card:
+          type: "custom:decluttering-card"
+          template: script-button
+          variables:
+            - template: script-lights-off
+            - script: script.turn_off_living_room
+
+      # Path Kitchen
+      - type: conditional
         view_layout:
           grid-column: span 3
-        variables:
-          - template: path-kitchen
+        conditions:
           - entity: sensor.lights_on_kitchen
-          - name: "Cozinha"
-          - navigation_path: /dashboard-mobile/kitchen
+            state: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-kitchen
+            - entity: sensor.lights_on_kitchen
+            - name: "Cozinha"
+            - navigation_path: /dashboard-mobile/kitchen
 
-      - template: path-division
-        type: "custom:decluttering-card"
+      - type: conditional
+        view_layout:
+          grid-column: span 2
+        conditions:
+          - entity: sensor.lights_on_kitchen
+            state_not: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-kitchen
+            - entity: sensor.lights_on_kitchen
+            - name: "Cozinha"
+            - navigation_path: /dashboard-mobile/kitchen
+
+      - type: conditional
+        conditions:
+          - entity: sensor.lights_on_kitchen
+            state_not: "0"
+        card:
+          type: "custom:decluttering-card"
+          template: script-button
+          variables:
+            - template: script-lights-off
+            - script: script.turn_off_kitchen
+
+      # Path Deck
+      - type: conditional
         view_layout:
           grid-column: span 3
-        variables:
-          - template: path-deck
+        conditions:
           - entity: sensor.lights_on_deck
-          - name: "Deck"
-          - navigation_path: /dashboard-mobile/deck
+            state: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-deck
+            - entity: sensor.lights_on_deck
+            - name: "Deck"
+            - navigation_path: /dashboard-mobile/deck
 
-      - template: path-division
-        type: "custom:decluttering-card"
+      - type: conditional
+        view_layout:
+          grid-column: span 2
+        conditions:
+          - entity: sensor.lights_on_deck
+            state_not: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-deck
+            - entity: sensor.lights_on_deck
+            - name: "Deck"
+            - navigation_path: /dashboard-mobile/deck
+
+      - type: conditional
+        conditions:
+          - entity: sensor.lights_on_deck
+            state_not: "0"
+        card:
+          type: "custom:decluttering-card"
+          template: script-button
+          variables:
+            - template: script-lights-off
+            - script: script.turn_off_deck
+
+      # Path Bedroom
+      - type: conditional
         view_layout:
           grid-column: span 3
-        variables:
-          - template: path-bedroom
+        conditions:
           - entity: sensor.lights_on_bedroom
-          - name: "Quarto"
-          - navigation_path: /dashboard-mobile/bedroom
+            state: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-bedroom
+            - entity: sensor.lights_on_bedroom
+            - name: "Quarto"
+            - navigation_path: /dashboard-mobile/bedroom
+            - rows-on: 1.5fr 1fr
+            - rows-off: 1fr 0.35fr
 
+      - type: conditional
+        view_layout:
+          grid-column: span 2
+        conditions:
+          - entity: sensor.lights_on_bedroom
+            state_not: "0"
+        card:
+          template: path-division
+          type: "custom:decluttering-card"
+          variables:
+            - template: path-bedroom
+            - entity: sensor.lights_on_bedroom
+            - name: "Quarto"
+            - navigation_path: /dashboard-mobile/bedroom
+            - rows-on: 1.5fr 1fr
+            - rows-off: 1fr 0.35fr
+
+      - type: conditional
+        conditions:
+          - entity: sensor.lights_on_bedroom
+            state_not: "0"
+        card:
+          type: "custom:decluttering-card"
+          template: script-button
+          variables:
+            - template: script-lights-off
+            - script: script.turn_off_bedroom
+
+      # Path car
       - type: custom:state-switch
         view_layout:
           grid-column: span 6
         entity: user
-        default: default
+        #default: default
         states:
           Luís:
             type: "custom:decluttering-card"
@@ -167,6 +304,7 @@ cards:
 
       - type: weather-forecast
         entity: weather.home
+        show_forecast: false
         view_layout:
           grid-column: span 6
         style: !include ../styles/style-card-weather.yaml

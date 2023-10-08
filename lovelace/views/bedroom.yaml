@@ -9,7 +9,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -49,10 +49,6 @@ cards:
           - template: light-bedroom
           - entity-1: light.luz_quarto_direita
           - name-1: "Luz Esquerda"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - template: es-light-temperature
         type: "custom:decluttering-card"
@@ -60,10 +56,6 @@ cards:
           - template: light-pendant
           - entity-1: light.luz_quarto
           - name-1: "Luz Quarto"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - template: es-light-temperature
         type: "custom:decluttering-card"
@@ -71,10 +63,6 @@ cards:
           - template: light-bedroom
           - entity-1: light.luz_quarto_esquerda
           - name-1: "Luz Direita"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - template: es-light
         type: "custom:decluttering-card"
@@ -82,10 +70,6 @@ cards:
           - template: light-strip
           - entity-1: light.wled_bed_group
           - name-1: "LED Strip"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - template: es-speaker
         type: "custom:decluttering-card"

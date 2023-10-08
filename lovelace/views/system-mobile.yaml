@@ -11,7 +11,7 @@ layout:
 cards:
   - type: "custom:gap-card"
     height: 40
-  - template: title-white
+  - template: title
     type: "custom:decluttering-card"
     variables:
       - content: Home server

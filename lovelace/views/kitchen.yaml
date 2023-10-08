@@ -9,7 +9,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -64,6 +64,7 @@ cards:
           - template: light-pendant-long
           - entity-1: light.shelly_kitchen_light
           - name-1: "Luz Cozinha"
+          - background-on: --yellow-tint, var(--ha-card-background-es-on)
 
       - template: es-switch
         type: "custom:decluttering-card"
@@ -73,6 +74,7 @@ cards:
           - template: light-strip
           - entity-1: light.shelly_kitchen_led_left
           - name-1: "LED Strip"
+          - background-on: --yellow-tint, var(--ha-card-background-es-on)
 
       - template: es-light
         type: "custom:decluttering-card"
@@ -82,23 +84,48 @@ cards:
           - template: light-outdoor
           - entity-1: light.luz_entrada
           - name-1: Luz entrada
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
-      - template: sensor-kitchen
-        type: "custom:decluttering-card"
+      - type: "custom:layout-card"
         view_layout:
-          grid-column: span 3
-        variables:
-          - template: sensors-kitchen
-          - entity-1: sensor.presence_kitchen
-          - name-1: "Sensores"
+          grid-column: span 2
+        layout_type: "custom:grid-layout"
+        layout:
+          card_margin: 0px
+          grid-template-columns: 1fr
+          grid-template-rows: 1fr 1fr 1fr
+          height: 100%
+          margin: 0
+        cards:
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: sensor.presence_kitchen
+              - state-1: "Detetado"
+              - state-2: "Vazio"
+              - icon: mdi:motion-sensor
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: binary_sensor.water_sensor
+              - icon: mdi:water-alert
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: binary_sensor.water_sensor_2
+              - icon: mdi:water-alert
+
+      # - template: sensor-kitchen
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 3
+      #   variables:
+      #     - template: sensors-kitchen
+      #     - entity-1: sensor.presence_kitchen
+      #     - name-1: "Sensores"
 
       - type: "custom:mini-graph-card"
         view_layout:
-          grid-column: span 3
+          grid-column: span 4
         entities:
           - entity: sensor.temperature_1
           - entity: sensor.humidity_1
@@ -131,18 +158,28 @@ cards:
           - circle-3: "playing"
           - circle-4: volume_level
 
-      - template: es-light-slider
+      - template: es-switch
         type: "custom:decluttering-card"
         view_layout:
-          grid-column: span 3
+          grid-column: span 2
         variables:
-          - template: light-desk
-          - entity-1: light.mi_lamp_pro
-          - name-1: "Mi Lamp Pro"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
+          - template: switch
+          - entity-1: switch.plug_xiaomi
+          - name-1: Tomada Dyson
+          - entity-power: sensor.xiaomi_plug_power_32
+
+      # - template: es-light-slider
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 3
+      #   variables:
+      #     - template: light-desk
+      #     - entity-1: light.mi_lamp_pro
+      #     - name-1: "Mi Lamp Pro"
+      #     - circle-1: entity.attributes.brightness
+      #     - circle-2: (254 / 100)
+      #     - circle-3: "on"
+      #     - circle-4: brightness
 
       # - template: es-switch
       #   type: "custom:decluttering-card"

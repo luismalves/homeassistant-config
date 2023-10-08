@@ -107,36 +107,6 @@
       view_layout:
         grid-column: span 6
 
-    - type: conditional
-      view_layout:
-        grid-column: span 6
-      conditions:
-        - entity: alarm_control_panel.alarmo
-          state_not: "disarmed"
-      card:
-        type: markdown
-        style: !include ../styles/style-card-alert.yaml
-        content: Alarme ligado!
-
-    - type: custom:auto-entities
-      view_layout:
-        grid-column: span 6
-      show_empty: false
-      filter:
-        include:
-          - entity_id: "sensor.door_show_time"
-            state: "on"
-      card:
-        type: markdown
-        style: !include ../styles/style-card-alert.yaml
-        content: >
-          {% if states.sensor.door_open_for.state | int > 0 %} Porta aberta à {{states.sensor.door_open_for.state}} minutos.{% else %} Porta foi aberta à {{states.sensor.door_open_last.state}} minutos.{% endif %}
-
-    - type: "custom:gap-card"
-      height: 5
-      view_layout:
-        grid-column: span 6
-
     - type: "custom:auto-entities"
       view_layout:
         grid-column: span 6
@@ -266,27 +236,6 @@
       height: 10
       view_layout:
         grid-column: span 6
-
-    - type: vertical-stack
-      view_layout:
-        grid-column: span 2
-      cards:
-        - template: es-person
-          type: "custom:decluttering-card"
-          variables:
-            - template: person-girl
-            - entity-1: input_boolean.margarida_home
-            - name-1: "Ma"
-            - state-1: "on"
-            - state-outline: "off"
-        - template: es-person
-          type: "custom:decluttering-card"
-          variables:
-            - template: person-man
-            - entity-1: input_boolean.luis_home
-            - name-1: "Lu"
-            - state-1: "on"
-            - state-outline: "off"
 
     - template: es-dummy
       type: "custom:decluttering-card"

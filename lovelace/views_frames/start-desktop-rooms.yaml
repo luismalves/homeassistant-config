@@ -27,10 +27,6 @@
             - template: light-strip
             - entity-1: light.led_strip_living_room
             - name-1: "LED Strip"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
 
         - template: es-light-switch
           type: "custom:decluttering-card"
@@ -39,10 +35,7 @@
             - entity-1: light.luz_sala
             - entity-switch: light.shelly_living_room_light
             - name-1: "Luz Sala"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
+            - info-attribute: states['light.luz_sala'].attributes.brightness
 
         - template: es-light-switch-2
           type: "custom:decluttering-card"
@@ -53,10 +46,8 @@
             - entity-3: light.luz_mesa_2
             - entity-switch: light.shelly_table_light
             - name-1: "Luz Mesa"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
+            - info-attribute: states['light.luz_mesa'].attributes.brightness
+
         # - template: es-light
         #   type: "custom:decluttering-card"
         #   variables:
@@ -65,10 +56,6 @@
         #     - name-1: "Árvore Natal"
         #     - state-1: "on"
         #     - state-2: "off"
-        #     - circle-1: entity.attributes.brightness
-        #     - circle-2: (254 / 100)
-        #     - circle-3: "on"
-        #     - circle-4: brightness
         # - template: es-switch
         #   type: "custom:decluttering-card"
         #   variables:
@@ -118,6 +105,7 @@
             - template: light-pendant-long
             - entity-1: light.shelly_kitchen_light
             - name-1: "Luz Cozinha"
+            - background-on: --yellow-tint, var(--ha-card-background-es-on)
 
         - template: es-switch
           type: "custom:decluttering-card"
@@ -125,6 +113,7 @@
             - template: light-strip
             - entity-1: light.shelly_kitchen_led_left
             - name-1: "LED Strip"
+            - background-on: --yellow-tint, var(--ha-card-background-es-on)
 
         - template: es-light-temperature
           type: "custom:decluttering-card"
@@ -132,10 +121,6 @@
             - template: light-outdoor
             - entity-1: light.luz_entrada
             - name-1: Luz entrada
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
 
         - type: conditional
           conditions:
@@ -179,10 +164,6 @@
             - template: light-strip
             - entity-1: light.led_strip_deck
             - name-1: "LED Strip"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
 
         - template: es-light
           type: "custom:decluttering-card"
@@ -190,10 +171,6 @@
             - template: light-pendant
             - entity-1: light.luz_deck
             - name-1: "Luz Deck"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
 
         - template: es-light
           type: "custom:decluttering-card"
@@ -201,10 +178,6 @@
             - template: light-desk
             - entity-1: light.mi_lamp
             - name-1: "Mi Lamp"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
 
         - template: es-light-temperature
           type: "custom:decluttering-card"
@@ -212,10 +185,6 @@
             - template: light-desk
             - entity-1: light.mi_lamp_pro
             - name-1: "Mi Lamp Pro"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
 
         - type: conditional
           conditions:
@@ -258,30 +227,18 @@
             - template: light-bedroom
             - entity-1: light.luz_quarto_direita
             - name-1: "Luz Esquerda"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
         - template: es-light-temperature
           type: "custom:decluttering-card"
           variables:
             - template: light-pendant
             - entity-1: light.luz_quarto
             - name-1: "Luz Quarto"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
         - template: es-light-temperature
           type: "custom:decluttering-card"
           variables:
             - template: light-bedroom
             - entity-1: light.luz_quarto_esquerda
             - name-1: "Luz Direita"
-            - circle-1: entity.attributes.brightness
-            - circle-2: (254 / 100)
-            - circle-3: "on"
-            - circle-4: brightness
         - template: es-light
           type: "custom:decluttering-card"
           variables:

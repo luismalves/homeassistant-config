@@ -10,10 +10,10 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
   - type: "custom:decluttering-card"
-    template: title-white
+    template: title
     variables:
       - content: Network Attached Storage
 
@@ -23,7 +23,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: "custom:decluttering-card"
-        template: subtitle-white
+        template: subtitle
         variables:
           - content: QNAP TS-233
 

@@ -10,13 +10,6 @@ custom_fields:
     - width: 40px
     - position: absolute
   info:
-    - color: white
-    - top: 10px
-    - right: 10px
-    - width: 40px
-    - position: absolute
-    - letter-spacing: 0.03vw
-  sd1:
     - position: absolute
     - top: 14px
     - right: 12px
@@ -25,17 +18,6 @@ custom_fields:
     - justify-self: start
     - padding-left: 10px
     - padding-bottom: 5px
-
-extra_styles: >
-  [[[ var radius = 20.5; 
-
-  var circumference = radius * 2 * Math.PI; 
-
-  var brightness = Math.round( entity.attributes.brightness / 2.54 );
-
-  return "#c_brightness { transform: rotate(-90deg); transform-origin:
-  50% 50%; stroke-dasharray: " + circumference + "; stroke-dashoffset: "
-  + (circumference - brightness / 100 * circumference) + ";}"; ]]]
 
 grid:
   - grid-template-areas: '"i sd1" "n n" "s s"'

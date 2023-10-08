@@ -10,7 +10,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -83,7 +83,7 @@ cards:
             background-color: var(--ha-card-background-es-static);
           }
           ha-card.type-custom-vertical-stack-in-card > div {
-            padding: 0px 15px 5px;
+            padding: 0px 15px 15px;
           }
         cards:
           - type: "custom:button-card"

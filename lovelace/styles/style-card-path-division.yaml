@@ -1,14 +1,15 @@
 card:
   - height: 70px
   - font-weight: bold
-  #- color: "var(--el-es-static-text-color)"
   - font-size: 12px
   - background-color: "var(--ha-card-background-path)"
+  - color: "var(--el-es-static-text-color-light)"
+  - padding: 4px 8px
 
 custom_fields:
   icon_hue:
     - align-self: center
-    - padding: 18px 10px 18px 10px
+    - padding: 18px 6px 18px 2px
     - width: 30px
   info:
     - top: 0px
@@ -18,30 +19,28 @@ custom_fields:
     - letter-spacing: 0.03vw
   sd1:
     - font-size: 12px
+    - align-self: flex-start
     - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
+
   sd2:
     - font-size: 12px
-    - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
+    - align-self: flex-start
+    - align-self: flex-start
   sd3:
     - font-size: 12px
+    - align-self: flex-start
     - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
-  sd4:
-    - font-size: 12px
-    - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
 
 grid:
-  - grid-template-areas: '"icon_hue n n ." "icon_hue sd1 sd2 ." "icon_hue sd3 sd4 ."'
-  - grid-template-columns: min-content 1fr 1fr 8px
-  - grid-template-rows: 1.2fr min-content min-content
+  - grid-template-areas: '"icon_hue n n" "icon_hue sd1 sd2" "icon_hue sd3 sd3"'
+  - grid-template-columns: min-content 1fr 1fr
+  - grid-template-rows: "[[rows-off]]"
+  - grid-gap: 2px 0
 
 name:
+  - align-self: flex-end
   - color: "var(--ha-card-color-name-on)"
   - justify-self: start
   - font-weight: bold
   - font-size: 16px
-  - margin-bottom: 4px
-  - margin-top: 4px
+  - margin-bottom: 2px

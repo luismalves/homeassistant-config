@@ -13,7 +13,7 @@ cards:
         height: 25
 
       - type: "custom:decluttering-card"
-        template: subtitle-white
+        template: subtitle
         variables:
           - content: Bateria dos sensores
 
@@ -103,7 +103,7 @@ cards:
         height: 25
 
       - type: "custom:decluttering-card"
-        template: subtitle-white
+        template: subtitle
         variables:
           - content: Estatisticas
 

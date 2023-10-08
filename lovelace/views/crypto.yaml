@@ -20,7 +20,7 @@ cards:
         type: "custom:gap-card"
       - cards:
           - style: "ha-card { width: 10px; }"
-            template: title-white
+            template: title
             type: "custom:decluttering-card"
             variables:
               - content: Bot Crypto (Anny)

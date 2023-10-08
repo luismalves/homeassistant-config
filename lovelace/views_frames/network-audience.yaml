@@ -13,7 +13,7 @@ cards:
     view_layout:
       grid-column: span 6
 
-  - template: subtitle-white
+  - template: subtitle
     type: "custom:decluttering-card"
     view_layout:
       grid-column: span 6

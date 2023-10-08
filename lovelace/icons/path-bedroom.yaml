@@ -4,13 +4,6 @@ icon_hue: >
 sd1: >
   [[[
     let numlight = states['sensor.lights_on_bedroom'].state;
-    if (numlight == "0") return '';
-    if (numlight == "1") return `<span> ${states['sensor.lights_on_bedroom'].state} luz ligada</span>`;
-    else return `<span> ${states['sensor.lights_on_bedroom'].state} luzes ligadas</span>`;
-  ]]]
-sd3: >
-  [[[ 
-    let numlight = states['sensor.lights_on_bedroom'].state;
-    if (numlight == "0") return '';
-    else return `<span>x</span>`;
+    if (numlight == 1) return `<span> ${states['sensor.lights_on_bedroom'].state} luz</span>`;
+    else if (numlight > 1) return `<span> ${states['sensor.lights_on_bedroom'].state} luzes</span>`;
   ]]]

@@ -10,7 +10,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"

@@ -108,6 +108,9 @@ light-bedroom:
 light-xmas:
   custom_fields: !include ../icons/light-xmas.yaml
 
+card-light-slider:
+  custom_fields: !include ../cards/card-light-slider.yaml
+
 #---------------------#
 # Paths
 #---------------------#
@@ -116,9 +119,6 @@ path-shutter:
 
 path-lights:
   custom_fields: !include ../icons/path-lights.yaml
-
-path-devices:
-  custom_fields: !include ../icons/path-devices.yaml
 
 path-living-room:
   custom_fields: !include ../icons/path-living-room.yaml
@@ -244,218 +244,218 @@ script-lights-off:
 tasks-action:
   custom_fields: !include ../icons/tasks-action.yaml
 
-task:
-  label: |
-    [[[
-      let last_trigger = variables._last_trigger();
-      if (last_trigger == "NE") return "Clique para criar";
-      if (last_trigger == "NS") return "Clique para publicar";
-      if (last_trigger == 0) return "Feito hoje";
+# task:
+#   label: |
+#     [[[
+#       let last_trigger = variables._last_trigger();
+#       if (last_trigger == "NE") return "Clique para criar";
+#       if (last_trigger == "NS") return "Clique para publicar";
+#       if (last_trigger == 0) return "Feito hoje";
       
-      let last_trigger_suffix = (last_trigger == 1 ? " dia atrás" :" dias atrás");
+#       let last_trigger_suffix = (last_trigger == 1 ? " dia atrás" :" dias atrás");
       
-      return last_trigger + last_trigger_suffix;
-    ]]]
-  show_label: true
-  icon: |
-    [[[
-      let days_left = variables._days_left(variables,false,true);
+#       return last_trigger + last_trigger_suffix;
+#     ]]]
+#   show_label: true
+#   icon: |
+#     [[[
+#       let days_left = variables._days_left(variables,false,true);
       
-      if (days_left == "NE" || days_left == "NS") return "mdi:alert-plus";
-      if (days_left < 0) return "mdi:alert-circle";
-      if (days_left <= variables.warning_before) return "mdi:clock-alert";
-      return "mdi:checkbox-marked-circle-outline";
-    ]]]
-  custom_fields:
-    days_left: |
-      [[[
-        let days_left = variables._days_left(variables,false,true);
-        if (days_left == "NE") return;
-        if (days_left == "NS") return;
+#       if (days_left == "NE" || days_left == "NS") return "mdi:alert-plus";
+#       if (days_left < 0) return "mdi:alert-circle";
+#       if (days_left <= variables.warning_before) return "mdi:clock-alert";
+#       return "mdi:checkbox-marked-circle-outline";
+#     ]]]
+#   custom_fields:
+#     days_left: |
+#       [[[
+#         let days_left = variables._days_left(variables,false,true);
+#         if (days_left == "NE") return;
+#         if (days_left == "NS") return;
 
-        // publish if end_date is not provided yet
-        if (typeof(entity.attributes.timestamp_end) != 'undefined') {
-          if (entity.attributes.timestamp_end == 'unknown') {
-            hass.callService("mqtt", "publish", {topic: variables._state_topic(variables), payload: variables._state_payload(variables, true), retain: true});
-          }
-        }
+#         // publish if end_date is not provided yet
+#         if (typeof(entity.attributes.timestamp_end) != 'undefined') {
+#           if (entity.attributes.timestamp_end == 'unknown') {
+#             hass.callService("mqtt", "publish", {topic: variables._state_topic(variables), payload: variables._state_payload(variables, true), retain: true});
+#           }
+#         }
 
-        let color = variables._colors["success"];
-        if (days_left <= variables.warning_before) color = variables._colors["warning"];
-        if (days_left < 0) color = variables._colors["error"];
+#         let color = variables._colors["success"];
+#         if (days_left <= variables.warning_before) color = variables._colors["warning"];
+#         if (days_left < 0) color = variables._colors["error"];
         
-        let message = ( days_left >= 0 ? (days_left == 1 ? days_left+" dia restante" : days_left+" dias restantes") : (Math.abs(days_left) == 1 ? Math.abs(days_left)+" dia em atraso" : Math.abs(days_left)+" dias em atraso" ) );
+#         let message = ( days_left >= 0 ? (days_left == 1 ? days_left+" dia restante" : days_left+" dias restantes") : (Math.abs(days_left) == 1 ? Math.abs(days_left)+" dia em atraso" : Math.abs(days_left)+" dias em atraso" ) );
 
-        return '<span style="display: inline-block; color: white; background: '+color+'; padding: 0 5px; border-radius: 5px;">' + message + '</span>'
-      ]]]
-  styles:
-    grid:
-      - grid-template-areas: '"i n n" "i . ." "i l days_left"'
-      - grid-template-columns: 15% 1fr 1fr
-      - grid-template-rows: 1fr 2px auto
-    icon:
-      - color: |
-          [[[
-            let days_left = variables._days_left(variables,false,true);
-            if (days_left == "NE" || days_left == "NS") return variables._colors["disabled"];
-            if (days_left < 0) return variables._colors["error"];
-            if (days_left <= variables.warning_before) return variables._colors["warning"];
-            return variables._colors["success"];
-          ]]]
-    label:
-      - color: var(--disabled-text-color)
-      - justify-self: start
-    name:
-      - font-size: 14px
-      - justify-self: start
-    card:
-      - background: var(--ha-card-background-task)
-      - font-weight: 700
-      - font-size: 12px
-      - border-radius: 15px
-      - padding: 4% 4% 4% 0
-    custom_fields:
-      days_left:
-        - font-weight: 400
-        - justify-self: end
-  variables:
-    cycle_days: 30
-    warning_before: 5
-    mqtt_prefix: homeassistant
-    mqtt_state_prefix: tasks
-    _entity_id: |
-      [[[ return this._config.entity; ]]]
-    _sensor_name: |
-      [[[
-        if (this._config.entity.startsWith("sensor.")) return this._config.entity.substring(7);
-        throw new Error('Entity must be a sensor');
-      ]]]
-    _sensor_friendly_name: |
-      [[[ return '' ]]]
-    _colors: |
-      [[[
-        return {
-          "success": "#8BC24A",
-          "warning": "#FFC107",
-          "error": "#FF5252",
-          "disabled": "var(--disabled-text-color)"
-        };
-      ]]]
-    _last_trigger: |
-      [[[
-        return function(){
-          if (typeof(entity) == 'undefined') return "NE";
-          if (typeof(entity.attributes.timestamp) == 'undefined') return "NS";
-          let one_day = 24 * 60 * 60 * 1000;
+#         return '<span style="display: inline-block; color: white; background: '+color+'; padding: 0 5px; border-radius: 5px;">' + message + '</span>'
+#       ]]]
+#   styles:
+#     grid:
+#       - grid-template-areas: '"i n n" "i . ." "i l days_left"'
+#       - grid-template-columns: 15% 1fr 1fr
+#       - grid-template-rows: 1fr 2px auto
+#     icon:
+#       - color: |
+#           [[[
+#             let days_left = variables._days_left(variables,false,true);
+#             if (days_left == "NE" || days_left == "NS") return variables._colors["disabled"];
+#             if (days_left < 0) return variables._colors["error"];
+#             if (days_left <= variables.warning_before) return variables._colors["warning"];
+#             return variables._colors["success"];
+#           ]]]
+#     label:
+#       - color: var(--disabled-text-color)
+#       - justify-self: start
+#     name:
+#       - font-size: 14px
+#       - justify-self: start
+#     card:
+#       - background: var(--ha-card-background-task)
+#       - font-weight: 700
+#       - font-size: 12px
+#       - border-radius: 15px
+#       - padding: 4% 4% 4% 0
+#     custom_fields:
+#       days_left:
+#         - font-weight: 400
+#         - justify-self: end
+#   variables:
+#     cycle_days: 30
+#     warning_before: 5
+#     mqtt_prefix: homeassistant
+#     mqtt_state_prefix: tasks
+#     _entity_id: |
+#       [[[ return this._config.entity; ]]]
+#     _sensor_name: |
+#       [[[
+#         if (this._config.entity.startsWith("sensor.")) return this._config.entity.substring(7);
+#         throw new Error('Entity must be a sensor');
+#       ]]]
+#     _sensor_friendly_name: |
+#       [[[ return '' ]]]
+#     _colors: |
+#       [[[
+#         return {
+#           "success": "#8BC24A",
+#           "warning": "#FFC107",
+#           "error": "#FF5252",
+#           "disabled": "var(--disabled-text-color)"
+#         };
+#       ]]]
+#     _last_trigger: |
+#       [[[
+#         return function(){
+#           if (typeof(entity) == 'undefined') return "NE";
+#           if (typeof(entity.attributes.timestamp) == 'undefined') return "NS";
+#           let one_day = 24 * 60 * 60 * 1000;
 
-          let now_date = new Date();
-          now_date.setHours(0, 0, 0);
+#           let now_date = new Date();
+#           now_date.setHours(0, 0, 0);
 
-          let start_date = new Date(entity.attributes.timestamp*1000);
-          start_date.setHours(0, 0, 0);
+#           let start_date = new Date(entity.attributes.timestamp*1000);
+#           start_date.setHours(0, 0, 0);
 
-          return Math.round(Math.abs((start_date - now_date) / one_day));
-        }
-      ]]]
-    _discovery_topic: |
-      [[[
-        return function(variables){
-          return (variables.mqtt_prefix.endsWith('/') ? variables.mqtt_prefix : variables.mqtt_prefix+'/')+'sensor/'+variables._sensor_name+'/config';
-        };
-      ]]]
-    _config_payload: |
-      [[[
-        return function(variables){
-          let version = "v1.0";
-          return '{ "name": "'+variables._sensor_name+'", "stat_t": "'+variables._state_topic(variables)+'", "json_attr_t": "'+variables._state_topic(variables)+'", "val_tpl": "{{value_json[\'timestamp\']|int|timestamp_local}}", "dev_cla": "timestamp", "uniq_id":"'+ variables._sensor_name+'", "dev":{"ids": ["tasks-'+variables._sensor_name+'"], "name": "Task '+variables._sensor_name+'", "mf": "@luisalvesm", "sw": "'+version+'"} }';
-        };
-      ]]]
-    _state_payload: |
-      [[[
-        return function(variables, only_update_timestamp_end=false){
-          let end_date_timestamp = '"unknown"';
-          if (variables._days_left(variables, true, false) != "NE" && variables._days_left(variables, true, false) != "NS")
-            end_date_timestamp = variables._days_left(variables, true, false).getTime()/1000;
-            if (only_update_timestamp_end) {
-              return '{ "timestamp": '+entity.attributes.timestamp+', "timestamp_end": '+end_date_timestamp+', "cycle_days": '+variables.cycle_days+', "warning_before": '+variables.warning_before+', "user_id": "'+entity.attributes.user_id+'", "user": "'+entity.attributes.user+'" }';
-            }
-          return '{ "timestamp": '+Math.round(Date.now() / 1000)+', "timestamp_end": '+end_date_timestamp+', "cycle_days": '+variables.cycle_days+',"warning_before": '+variables.warning_before+', "user_id": "'+user.id+'", "user": "'+user.name+'" }';
-        };
-      ]]]
-    _state_topic: |
-      [[[
-        return function(variables){
-          return (variables.mqtt_state_prefix.endsWith('/') ? variables.mqtt_state_prefix : variables.mqtt_state_prefix+'/')+variables._sensor_name;
-        };
-      ]]]
-    _days_left: |
-      [[[
-        return function(variables, report_end_date=false, is_for_frontend=false){
-          if (typeof(entity) == 'undefined') return "NE";
-          if (typeof(entity.attributes.timestamp) == 'undefined') return "NS";
+#           return Math.round(Math.abs((start_date - now_date) / one_day));
+#         }
+#       ]]]
+#     _discovery_topic: |
+#       [[[
+#         return function(variables){
+#           return (variables.mqtt_prefix.endsWith('/') ? variables.mqtt_prefix : variables.mqtt_prefix+'/')+'sensor/'+variables._sensor_name+'/config';
+#         };
+#       ]]]
+#     _config_payload: |
+#       [[[
+#         return function(variables){
+#           let version = "v1.0";
+#           return '{ "name": "'+variables._sensor_name+'", "stat_t": "'+variables._state_topic(variables)+'", "json_attr_t": "'+variables._state_topic(variables)+'", "val_tpl": "{{value_json[\'timestamp\']|int|timestamp_local}}", "dev_cla": "timestamp", "uniq_id":"'+ variables._sensor_name+'", "dev":{"ids": ["tasks-'+variables._sensor_name+'"], "name": "Task '+variables._sensor_name+'", "mf": "@luisalvesm", "sw": "'+version+'"} }';
+#         };
+#       ]]]
+#     _state_payload: |
+#       [[[
+#         return function(variables, only_update_timestamp_end=false){
+#           let end_date_timestamp = '"unknown"';
+#           if (variables._days_left(variables, true, false) != "NE" && variables._days_left(variables, true, false) != "NS")
+#             end_date_timestamp = variables._days_left(variables, true, false).getTime()/1000;
+#             if (only_update_timestamp_end) {
+#               return '{ "timestamp": '+entity.attributes.timestamp+', "timestamp_end": '+end_date_timestamp+', "cycle_days": '+variables.cycle_days+', "warning_before": '+variables.warning_before+', "user_id": "'+entity.attributes.user_id+'", "user": "'+entity.attributes.user+'" }';
+#             }
+#           return '{ "timestamp": '+Math.round(Date.now() / 1000)+', "timestamp_end": '+end_date_timestamp+', "cycle_days": '+variables.cycle_days+',"warning_before": '+variables.warning_before+', "user_id": "'+user.id+'", "user": "'+user.name+'" }';
+#         };
+#       ]]]
+#     _state_topic: |
+#       [[[
+#         return function(variables){
+#           return (variables.mqtt_state_prefix.endsWith('/') ? variables.mqtt_state_prefix : variables.mqtt_state_prefix+'/')+variables._sensor_name;
+#         };
+#       ]]]
+#     _days_left: |
+#       [[[
+#         return function(variables, report_end_date=false, is_for_frontend=false){
+#           if (typeof(entity) == 'undefined') return "NE";
+#           if (typeof(entity.attributes.timestamp) == 'undefined') return "NS";
 
-          let one_day = 24 * 60 * 60 * 1000;
-          let now_date = new Date();
-          now_date.setHours(0, 0, 0);
+#           let one_day = 24 * 60 * 60 * 1000;
+#           let now_date = new Date();
+#           now_date.setHours(0, 0, 0);
 
-          let start_date = new Date(entity.attributes.timestamp*1000);
-          start_date.setHours(0, 0, 0);
+#           let start_date = new Date(entity.attributes.timestamp*1000);
+#           start_date.setHours(0, 0, 0);
 
-          if (is_for_frontend) {
-            let set_end_date = new Date((entity.attributes.timestamp_end)*1000).setHours(0, 0, 0, 0);
-            return Math.round((set_end_date - now_date) / one_day);
-          }
+#           if (is_for_frontend) {
+#             let set_end_date = new Date((entity.attributes.timestamp_end)*1000).setHours(0, 0, 0, 0);
+#             return Math.round((set_end_date - now_date) / one_day);
+#           }
           
-          let end_date = new Date(
-            new Date(start_date).setDate(start_date.getDate() + variables.cycle_days)
-          );
-          end_date.setHours(0, 0, 0, 0);
+#           let end_date = new Date(
+#             new Date(start_date).setDate(start_date.getDate() + variables.cycle_days)
+#           );
+#           end_date.setHours(0, 0, 0, 0);
           
-          if (report_end_date) {
-            return end_date;
-          }
+#           if (report_end_date) {
+#             return end_date;
+#           }
 
-          return Math.round((end_date - now_date) / one_day);
-        };
-      ]]]
-  tap_action:
-    confirmation: |
-      [[[
-        if (typeof(entity) != 'undefined') {
-          return { text: 'Tens a certeza que queres marcar a tarefa como concluída?' }
-        }
-      ]]]
-    action: call-service
-    service: mqtt.publish
-    service_data:
-      topic: |
-        [[[
-          if (typeof(entity) == 'undefined')
-            return variables._discovery_topic(variables);
-          else
-            return variables._state_topic(variables);
-        ]]]
-      payload: |
-        [[[
-          let state_payload = variables._state_payload(variables);
-          let state_data = {
-            topic: variables._state_topic(variables),
-            payload: state_payload,
-            retain: true
-          };
-          let config_payload = variables._config_payload(variables);
+#           return Math.round((end_date - now_date) / one_day);
+#         };
+#       ]]]
+#   tap_action:
+#     confirmation: |
+#       [[[
+#         if (typeof(entity) != 'undefined') {
+#           return { text: 'Tens a certeza que queres marcar a tarefa como concluída?' }
+#         }
+#       ]]]
+#     action: call-service
+#     service: mqtt.publish
+#     service_data:
+#       topic: |
+#         [[[
+#           if (typeof(entity) == 'undefined')
+#             return variables._discovery_topic(variables);
+#           else
+#             return variables._state_topic(variables);
+#         ]]]
+#       payload: |
+#         [[[
+#           let state_payload = variables._state_payload(variables);
+#           let state_data = {
+#             topic: variables._state_topic(variables),
+#             payload: state_payload,
+#             retain: true
+#           };
+#           let config_payload = variables._config_payload(variables);
           
-          if (typeof(entity) == 'undefined') {
-            hass.callService("mqtt", "publish", state_data);
-            return config_payload;
-          } else {
-            return state_payload;
-          }
-        ]]]
-      retain: true
-  hold_action:
-    action: |
-      [[[
-        if (typeof(entity) == 'undefined') return;
-        return 'more-info';
-      ]]]
+#           if (typeof(entity) == 'undefined') {
+#             hass.callService("mqtt", "publish", state_data);
+#             return config_payload;
+#           } else {
+#             return state_payload;
+#           }
+#         ]]]
+#       retain: true
+#   hold_action:
+#     action: |
+#       [[[
+#         if (typeof(entity) == 'undefined') return;
+#         return 'more-info';
+#       ]]]

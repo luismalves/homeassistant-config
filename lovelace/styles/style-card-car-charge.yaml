@@ -1,14 +1,14 @@
 card:
   - background-color: "var(--ha-card-background-es-static)"
   - color: var(--el-es-static-text-color)
-  - height: 80px
+  - height: 90px
   - font-size: 10px
   - padding: 0px 5px
 
 grid:
-  - grid-template-areas: '"i" "rate" "time"'
+  - grid-template-areas: '"i" "rate" "time" "hourly"'
   - grid-template-columns: 1fr
-  - grid-template-rows: 30px min-content 1fr
+  - grid-template-rows: 30px min-content 1fr min-content
   - text-align: center
 
 name:
@@ -28,6 +28,12 @@ custom_fields:
     - font-size: 12px
 
   time:
+    - align-self: flex-end
     - color: var(--el-text-color)
     - font-size: 14px
     - font-weight: bold
+
+  hourly:
+    - color: var(--el-text-color-light)
+    - font-size: 10px
+    - margin-top: 2px

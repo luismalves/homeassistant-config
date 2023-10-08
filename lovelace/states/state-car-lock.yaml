@@ -8,3 +8,8 @@
     card:
       - background-color: "var(--ha-card-background-es-off)"
   value: "unlocked"
+
+- styles:
+    card:
+      - background-color: "var(--ha-card-background-es-off)"
+  value: "unavailable"

@@ -50,7 +50,7 @@ title:
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 700;
         font-size: 24px;
-        color: var(--el-title-color);
+        color: var([[color]]);
         margin-left: -15px;
         margin-top: -20px;
         margin-bottom: -15px;
@@ -58,26 +58,8 @@ title:
     type: markdown
     content: |
       [[content]]
-  default: null
-
-title-white:
-  card:
-    style: >
-      ha-card {
-        height: 100%;
-        background: none;
-        font-family: var(--paper-ha-card_-_font-family);
-        font-weight: 700;
-        font-size: 24px;
-        color: var(--el-title-color-inverted);
-        margin-left: -15px;
-        margin-top: -20px;
-        margin-bottom: -15px;
-      }
-    type: markdown
-    content: |
-      [[content]]
-  default: null
+  default:
+    - color: --el-title-color
 
 subtitle:
   card:
@@ -88,7 +70,7 @@ subtitle:
         font-family: var(--paper-ha-card_-_font-family);
         font-weight: 600;
         font-size: 17px;
-        color: var(--el-title-color);
+        color: var(--[[color]]);
         margin-left: -15px;
         margin-top: -25px;
         margin-bottom: -15px;
@@ -96,26 +78,8 @@ subtitle:
     type: markdown
     content: |
       [[content]]
-  default: null
-
-subtitle-white:
-  card:
-    style: >
-      ha-card {
-        height: 100%;
-        background: none;
-        font-family: var(--paper-ha-card_-_font-family);
-        font-weight: 500;
-        font-size: 17px;
-        color: var(--el-title-color-inverted);
-        margin-left: -15px;
-        margin-top: -20px;
-        margin-bottom: -10px;
-      }
-    type: markdown
-    content: |
-      [[content]]
-  default: null
+  default:
+    - color: --el-title-color
 
 device:
   card:
@@ -180,7 +144,9 @@ path-division:
     styles: !include ../styles/style-card-path-division.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - rows-on: 1.2fr min-content min-content
+    - rows-off: 1.5fr 1fr
 
 # Navigation card for car
 path-car:
@@ -228,6 +194,23 @@ script:
     show_state: false
     state: !include ../states/state-script.yaml
     styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+script-button:
+  card:
+    entity: "[[script]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      service_data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_name: false
+    show_state: false
+    state: !include ../states/state-script.yaml
+    styles: !include ../styles/style-card-path-button.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
@@ -282,6 +265,7 @@ es-script:
     type: "custom:button-card"
   default: null
 
+# Shows the state of an input boolean entity
 es-boolean:
   card:
     entity: "[[entity-1]]"
@@ -294,8 +278,16 @@ es-boolean:
     styles: !include ../styles/style-card-centered.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
 
+# Shows if a person is at home or not
 es-person:
   card:
     entity: "[[entity-1]]"
@@ -308,7 +300,14 @@ es-person:
     styles: !include ../styles/style-card-person.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --green-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --contras7
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
 
 es-config:
   card:
@@ -317,38 +316,20 @@ es-config:
     show_icon: false
     show_state: false
     tap_action:
-      action: toggle
+      action: "[[action]]"
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card-small.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
-
-es-config-dummy:
-  card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
-    show_icon: false
-    show_state: false
-    tap_action:
-      action: none
-    state: !include ../states/state-x.yaml
-    styles: !include ../styles/style-card-small.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-es-config-binary:
-  card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
-    show_icon: false
-    show_state: false
-    state: !include ../states/state-x.yaml
-    styles: !include ../styles/style-card-small.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
+  default:
+    - action: toggle
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
 
 es-dummy:
   card:
@@ -362,11 +343,18 @@ es-dummy:
     styles: !include ../styles/style-card-centered.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
 
 es-light:
   card:
-    custom_fields: !include ../circles/circle-x.yaml
+    custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-1]]"
     name: "[[name-1]]"
     hold_action: !include ../holds/hold-action-es-lights.yaml
@@ -379,14 +367,22 @@ es-light:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --ha-card-background-es-on
+    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - info-attribute: entity.attributes.brightness
+    - info-max: (254 / 100)
+    - info-unit: "%"
+    - info-state: "on"
 
 # Lights which only support white range of values as Tasmota. Changes in hold action.
 es-light-tasmota:
   card:
-    custom_fields: !include ../circles/circle-x.yaml
+    custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-1]]"
     name: "[[name-1]]"
     hold_action: !include ../holds/hold-action-es-lights-tasmota.yaml
@@ -399,14 +395,22 @@ es-light-tasmota:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --ha-card-background-es-on
+    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - info-attribute: entity.attributes.brightness
+    - info-max: (254 / 100)
+    - info-unit: "%"
+    - info-state: "on"
 
 # Lights which only support color temperatures
 es-light-temperature:
   card:
-    custom_fields: !include ../circles/circle-x.yaml
+    custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-1]]"
     name: "[[name-1]]"
     hold_action: !include ../holds/hold-action-es-lights-temperature.yaml
@@ -419,14 +423,22 @@ es-light-temperature:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --yellow-tint
+    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - info-attribute: entity.attributes.brightness
+    - info-max: (254 / 100)
+    - info-unit: "%"
+    - info-state: "on"
 
 # Lights which toggle based on a switch and colors are controlled from another entity
 es-light-switch:
   card:
-    custom_fields: !include ../circles/circle-x.yaml
+    custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-switch]]"
     name: "[[name-1]]"
     hold_action: !include ../holds/hold-action-es-lights-temperature.yaml
@@ -439,15 +451,23 @@ es-light-switch:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --ha-card-background-es-on
+    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - info-attribute: entity.attributes.brightness
+    - info-max: (254 / 100)
+    - info-unit: "%"
+    - info-state: "on"
 
 # Lights which toggle based on a switch and colors are controlled from another entity.
 # Hold action controls each individual light connected to switch
 es-light-switch-2:
   card:
-    custom_fields: !include ../circles/circle-x.yaml
+    custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-switch]]"
     name: "[[name-1]]"
     hold_action: !include ../holds/hold-action-es-lights-2.yaml
@@ -460,9 +480,17 @@ es-light-switch-2:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --ha-card-background-es-on
+    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - info-attribute: entity.attributes.brightness
+    - info-max: (254 / 100)
+    - info-unit: "%"
+    - info-state: "on"
 
 # Lights with a slider
 es-light-slider:
@@ -481,12 +509,17 @@ es-light-slider:
     type: "custom:button-card"
   default:
     - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
 
 # Wall plug devices
 es-switch:
   card:
+    custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-1]]"
     name: "[[name-1]]"
     tap_action:
@@ -501,11 +534,20 @@ es-switch:
       power_entity: "[[entity-power]]"
   default:
     - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - info-attribute: false
+    - info-max: 1
+    - info-unit: "W"
+    - info-state: "on"
 
 es-switch-confirmation:
   card:
+    custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-1]]"
     name: "[[name-1]]"
     tap_action:
@@ -522,8 +564,16 @@ es-switch-confirmation:
       power_entity: "[[entity-power]]"
   default:
     - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - info-attribute: false
+    - info-max: 1
+    - info-unit: "W"
+    - info-state: "on"
 
 # Devices state obtained with ping integration
 es-ping:
@@ -539,16 +589,20 @@ es-ping:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --ha-card-background-es-on
+    - background-on: --green-tint, var(--ha-card-background-es-on)
+    - background-default: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
 
 # Covers
 es-cover:
   card:
-    custom_fields: !include ../circles/circle-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     hold_action: !include ../holds/hold-action-es-cover.yaml
     tap_action:
       action: call-service
@@ -559,7 +613,18 @@ es-cover:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "open"
+    - state-2: "closed"
+    - info-attribute: entity.attributes.current_position
+    - info-max: 1
+    - info-unit: "%"
+    - info-state: "open"
 
 es-speaker:
   card:
@@ -587,7 +652,15 @@ es-tv:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --purple-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
+    - state-4: "unavailable"
 
 es-camera:
   card:
@@ -602,7 +675,16 @@ es-camera:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+
+    - state-1: detected
+    - state-2: idle
+    - state-3: recording
 
 es-mood:
   card:
@@ -655,34 +737,40 @@ sensor-pill:
     type: "custom:button-card"
   default:
     - background-on: --ha-card-background-es-on
-    - background-default: --green-tint
+    - background-default: --green-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
     - numeric_precision: 1
+    - state-1: "on"
+    - state-2: "off"
 
-sensor-kitchen:
-  card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
-    show_icon: false
-    show_state: false
-    tap_action:
-      action: none
-    styles: !include ../styles/style-card-sensors.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
+# sensor-kitchen:
+#   card:
+#     entity: "[[entity-1]]"
+#     name: "[[name-1]]"
+#     show_icon: false
+#     show_state: false
+#     tap_action:
+#       action: none
+#     styles: !include ../styles/style-card-sensors.yaml
+#     template: "[[template]]"
+#     type: "custom:button-card"
+#   default: null
 
-sensor-living_room:
-  card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
-    show_icon: false
-    show_state: false
-    tap_action:
-      action: none
-    styles: !include ../styles/style-card-sensors-small.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
+# sensor-living_room:
+#   card:
+#     entity: "[[entity-1]]"
+#     name: "[[name-1]]"
+#     show_icon: false
+#     show_state: false
+#     tap_action:
+#       action: none
+#     styles: !include ../styles/style-card-sensors-small.yaml
+#     template: "[[template]]"
+#     type: "custom:button-card"
+#   default: null
 
 sensor-energy:
   card:
@@ -1148,6 +1236,9 @@ car-state:
                     background: var(--ha-card-bar-background);
                     filter: none;
                     opacity: 1;
+                  }
+                  bar-card-iconbar {
+                    color: white;
                   }
                   bar-card-currentbar {
                     --bar-card-color: rgb(93, 167, 98);

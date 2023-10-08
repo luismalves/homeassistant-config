@@ -6,19 +6,18 @@ sd1: >
     return `<ha-icon
       icon="mdi:thermometer-low"
       style="width: 10px; height: 10px;">
-      </ha-icon><span><span style="color: var(--text-color-sensor);">${states['sensor.temperature_2'].state}º</span></span>`
+      </ha-icon><span>${states['sensor.temperature_2'].state}º</span>`
   ]]]
 sd2: >
   [[[
     return `<ha-icon
       icon="mdi:water-percent"
       style="width: 10px; height: 10px;">
-      </ha-icon><span><span style="color: var(--text-color-sensor);">${states['sensor.humidity_2'].state}%</span></span>`
+      </ha-icon><span>${states['sensor.humidity_2'].state}%</span>`
   ]]]
 sd3: >
   [[[
     let numlight = states['sensor.lights_on_deck'].state;
-    if (numlight == "0") return `<span>xx</span>`;
-    if (numlight == "1") return `<span style="color: var(--el-es-static-text-color-light);"> ${states['sensor.lights_on_deck'].state} luz ligada</span>`;
-    else return `<span style="color: var(--el-es-static-text-color-light);"> ${states['sensor.lights_on_deck'].state} luzes ligadas</span>`;
+    if (numlight == 1) return `<span> ${states['sensor.lights_on_deck'].state} luz</span>`;
+    else if (numlight > 1) return `<span> ${states['sensor.lights_on_deck'].state} luzes</span>`;
   ]]]

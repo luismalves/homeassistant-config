@@ -9,7 +9,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -64,10 +64,6 @@ cards:
           - template: light-strip
           - entity-1: light.led_strip_living_room
           - name-1: "LED Strip"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - template: es-light-switch
         view_layout:
@@ -78,10 +74,7 @@ cards:
           - entity-1: light.luz_sala
           - entity-switch: light.shelly_living_room_light
           - name-1: "Luz Sala"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
+          - info-attribute: states['light.luz_sala'].attributes.brightness
 
       - template: es-light-switch-2
         view_layout:
@@ -94,10 +87,7 @@ cards:
           - entity-3: light.luz_mesa_2
           - entity-switch: light.shelly_table_light
           - name-1: "Luz Mesa"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
+          - info-attribute: states['light.luz_mesa'].attributes.brightness
 
       - template: es-switch
         view_layout:
@@ -107,7 +97,7 @@ cards:
           - template: switch
           - entity-1: switch.smart_plug
           - name-1: Tomada TV
-          - entity-power: sensor.smart_plug_power
+          - info-attribute: states['sensor.smart_plug_power'].state
 
       - template: es-tv
         view_layout:
@@ -117,10 +107,6 @@ cards:
           - template: tv
           - entity-1: remote.android_tv
           - name-1: "Android TV"
-          - state-1: "on"
-          - state-2: "on"
-          - state-3: "off"
-          - state-4: "unavailable"
 
       # - template: sensor-living_room
       #   view_layout:
@@ -149,6 +135,7 @@ cards:
               - state-1: "Detetado"
               - state-2: "Vazio"
               - icon: mdi:motion-sensor
+              - color-state-on: --ha-card-color-name-on
           - template: sensor-pill
             type: "custom:decluttering-card"
             variables:
@@ -182,14 +169,8 @@ cards:
         variables:
           - template: shutter
           - toggle-script: script.toggle_cover_left
-          - entity-1: cover.shelly_roller_left
-          - name-1: Estores Esquerda
-          - state-1: "open"
-          - state-2: "closed"
-          - circle-1: entity.attributes.current_position
-          - circle-2: 1
-          - circle-3: "open"
-          - circle-4: current_position
+          - entity: cover.shelly_roller_left
+          - name: Estores Esquerda
 
       - template: es-cover
         type: "custom:decluttering-card"
@@ -198,14 +179,8 @@ cards:
         variables:
           - template: shutter
           - toggle-script: script.toggle_cover_right
-          - entity-1: cover.shelly_roller_right
-          - name-1: Estores Direita
-          - state-1: "open"
-          - state-2: "closed"
-          - circle-1: entity.attributes.current_position
-          - circle-2: 1
-          - circle-3: "open"
-          - circle-4: current_position
+          - entity: cover.shelly_roller_right
+          - name: Estores Direita
 
       - template: es-ping
         type: "custom:decluttering-card"
@@ -224,8 +199,6 @@ cards:
           - template: camera
           - entity-1: camera.androidcamera
           - name-1: "Camera"
-          - state-1: detected
-          - state-2: idle
 
       - type: "custom:gap-card"
         height: 10

@@ -11,6 +11,9 @@
     custom_fields:
       sd1:
         - color: "var([[color-state-on]])"
+      info:
+        - color: var(--contrast14)
+        - font-size: 11px
       s:
         - color: "var([[color-state-on]])"
   value: "[[state-1]]"

@@ -2,7 +2,7 @@ card:
   - height: 90px
   - background: var(--ha-card-background-es-static)
   - font-weight: bold
-  - color: "var(--el-es-static-text-color-light)"
+  - color: "var(--el-es-static-text-color)"
   - font-size: 12px
 
 custom_fields:

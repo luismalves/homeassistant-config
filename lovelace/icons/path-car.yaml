@@ -6,7 +6,7 @@ sd1: >
     return `<ha-icon
       icon="mdi:battery"
       style="width: 12px; height: 10px;">
-      </ha-icon><span style="color: var(--text-color-sensor);">${states['sensor.my_id_state_of_charge'].state}%</span>`
+      </ha-icon><span>${states['sensor.my_id_state_of_charge'].state}%</span>`
   ]]]
 
 sd2: >
@@ -15,7 +15,7 @@ sd2: >
       return `<ha-icon
         icon="mdi:ev-station"
         style="width: 14px; height: 12px;">
-        </ha-icon><span style="color: var(--text-color-sensor);">${Math.round(states['sensor.my_id_charge_power'].state)}kW</span>`
+        </ha-icon><span>${Math.round(states['sensor.my_id_charge_power'].state)}kW</span>`
   ]]]
 
 sd3: >
@@ -33,7 +33,7 @@ sd3: >
       return `<ha-icon
         icon="mdi:clock"
         style="width: 12px; height: 10px;">
-        </ha-icon><span style="color: var(--text-color-sensor);">${remaining_text} restante</span>`
+        </ha-icon><span>${remaining_text} restante</span>`
     }
   ]]]
 
@@ -43,6 +43,6 @@ sd4: >
       return `<ha-icon
         icon="mdi:lock-open-alert-outline"
         style="width: 12px; height: 10px;">
-        </ha-icon><span style="color: var(--text-color-sensor);">Aberto</span>`
+        </ha-icon><span>Aberto</span>`
     }
   ]]]

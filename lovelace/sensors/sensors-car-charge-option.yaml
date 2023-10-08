@@ -19,3 +19,10 @@ time: >
       return `<span>${minutes} min</span>`;
     }
   ]]]
+
+hourly: >
+  [[[
+    let needed_capacity = 58;
+    let hour_time = ((variables.rate / needed_capacity)*100).toFixed(1) + '% /hora'
+    return `<span>${hour_time}</span>`;
+  ]]]

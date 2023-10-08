@@ -1,0 +1,13 @@
+card:
+  - height: 70px
+  - background-color: "var(--ha-card-background-path)"
+  - padding: 10px
+
+grid:
+  - grid-template-areas: '"icon_hue"'
+  - grid-template-columns: 1fr
+  - grid-template-rows: 1fr
+
+custom_fields:
+  sd1:
+    - display: none

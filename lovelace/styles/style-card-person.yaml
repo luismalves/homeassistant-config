@@ -3,19 +3,11 @@ card:
   - font-weight: bold
   - color: var(--el-text-color-light)
   - font-size: 12px
+  - padding: 2px 10px
 
 custom_fields:
   icon_hue:
-    - top: 12%
-    - left: 12%
     - width: 35px
-    - position: absolute
-  info:
-    - top: 0px
-    - left: 20px
-    - width: 40px
-    - position: absolute
-    - letter-spacing: 0.03vw
 
   sd1:
     - align-self: start
@@ -24,13 +16,10 @@ custom_fields:
     - justify-self: start
 
 grid:
-  - grid-template-areas: '"i n" "i s" "i sd1"'
-  - grid-template-columns: 1fr 1fr
+  - grid-template-areas: '"icon_hue n" "icon_hue s" "icon_hue sd1"'
+  - grid-template-columns: min-content 1fr
   - grid-template-rows: 1fr min-content 1fr
-
-img_cell:
-  - align-self: start
-  - text-align: start
+  - grid-gap: 0 5px;
 
 name:
   - align-self: end
@@ -44,10 +33,6 @@ name:
   - margin-top: 0px
 
 state:
-  - justify-self: start
-  - padding-left: 20px
-  - padding-bottom: 5px
-  - color: "rgba(87, 87, 87, 0.5)"
   - display: none
 
 sd1:

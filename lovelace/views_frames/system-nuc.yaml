@@ -14,7 +14,7 @@ cards:
     view_layout:
       grid-column: span 6
 
-  - template: subtitle-white
+  - template: subtitle
     type: "custom:decluttering-card"
     view_layout:
       grid-column: span 6
@@ -110,5 +110,3 @@ cards:
   #   points_per_hour: 4
   #   color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
   #   style: !include ../styles/style-graph-wtitle.yaml
-
-

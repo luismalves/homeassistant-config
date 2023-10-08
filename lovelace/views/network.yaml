@@ -10,9 +10,9 @@ layout:
   max_width: 700
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
-  - template: title-white
+  - template: title
     type: "custom:decluttering-card"
     variables:
       - content: Home network

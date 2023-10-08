@@ -11,7 +11,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 40
+    height: 20
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -20,7 +20,7 @@ cards:
       grid-template-rows: auto
       margin: 0px
     cards:
-      - template: title-white
+      - template: title
         type: "custom:decluttering-card"
         view_layout:
           grid-column: span 6
@@ -32,7 +32,7 @@ cards:
         view_layout:
           grid-column: span 6
 
-      - template: subtitle-white
+      - template: subtitle
         type: "custom:decluttering-card"
         view_layout:
           grid-column: span 6
@@ -74,7 +74,7 @@ cards:
         view_layout:
           grid-column: span 6
 
-      - template: subtitle-white
+      - template: subtitle
         type: "custom:decluttering-card"
         view_layout:
           grid-column: span 6

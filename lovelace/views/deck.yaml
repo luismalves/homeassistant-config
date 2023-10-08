@@ -8,7 +8,7 @@ layout:
   margin: 0px
   max_width: 350
 cards:
-  - height: 40
+  - height: 20
     type: "custom:gap-card"
 
   - type: "custom:layout-card"
@@ -62,10 +62,6 @@ cards:
           - template: light-strip
           - entity-1: light.led_strip_deck
           - name-1: "LED Strip"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - template: es-light
         type: "custom:decluttering-card"
@@ -73,10 +69,6 @@ cards:
           - template: light-pendant
           - entity-1: light.luz_deck
           - name-1: "Luz Deck"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - template: es-light
         type: "custom:decluttering-card"
@@ -84,10 +76,10 @@ cards:
           - template: light-desk
           - entity-1: light.mi_lamp
           - name-1: "Mi Lamp"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
+          - info-attribute: entity.attributes.brightness
+          - info-max: (254 / 100)
+          - info-unit: "%"
+          - info-state: "on"
 
       - template: es-light-temperature
         type: "custom:decluttering-card"
@@ -95,10 +87,6 @@ cards:
           - template: light-desk
           - entity-1: light.mi_lamp_pro
           - name-1: "Mi Lamp Pro"
-          - circle-1: entity.attributes.brightness
-          - circle-2: (254 / 100)
-          - circle-3: "on"
-          - circle-4: brightness
 
       - type: "custom:mini-graph-card"
         view_layout:
@@ -127,7 +115,7 @@ cards:
           - template: switch
           - entity-1: switch.smart_plug_3
           - name-1: Extensão
-          - entity-power: sensor.smart_plug_3_power
+          - info-attribute: states['sensor.smart_plug_3_power'].state
 
       - template: es-switch-confirmation
         type: "custom:decluttering-card"
@@ -135,8 +123,8 @@ cards:
           - template: switch
           - entity-1: switch.smart_plug_2
           - name-1: Tomada
-          - entity-power: sensor.smart_plug_2_power
           - confirmation-text: "De certeza? Confirma que o PC está desligado se estiveres a desligar a tomada."
+          - info-attribute: states['sensor.smart_plug_2_power'].state
 
       - template: es-ping
         type: "custom:decluttering-card"
@@ -144,14 +132,6 @@ cards:
           - template: sensor-desktop
           - entity-1: binary_sensor.windows_desktop_state
           - name-1: Computador fixo
-
-      - template: es-switch
-        type: "custom:decluttering-card"
-        variables:
-          - template: switch
-          - entity-1: switch.plug_xiaomi
-          - name-1: Tomada coluna
-          - entity-power: sensor.xiaomi_plug_power_32
 
       - type: "custom:gap-card"
         height: 10

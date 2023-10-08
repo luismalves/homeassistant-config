@@ -1,0 +1,20 @@
+card:
+  - height: 125px
+  - font-size: 12px
+  - font-family: "var(--paper-ha-card_-_font-family)"
+  - padding: 10px
+
+custom_fields:
+  icon_hue:
+    - align-self: flex-start
+    - width: 40px
+
+grid:
+  - grid-template-areas: '"icon_hue" "n" "slider"'
+  - grid-template-columns: 1fr
+  - grid-template-rows: 1fr min-content min-content
+
+name:
+  - font-weight: bold
+  - justify-self: start
+  - padding-bottom: 8px
