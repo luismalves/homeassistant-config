@@ -1,8 +1,7 @@
 - styles:
     card:
-      - background-color: "var(--ha-card-background-es-on)"
-  operator: "!="
-  value: "locked"
+      - background-color: "var(--ha-card-background-es-off)"
+  value: "unavailable"
 
 - styles:
     card:
@@ -11,5 +10,6 @@
 
 - styles:
     card:
-      - background-color: "var(--ha-card-background-es-off)"
-  value: "unavailable"
+      - background-color: "var(--ha-card-background-es-on)"
+  operator: "!="
+  value: "locked"

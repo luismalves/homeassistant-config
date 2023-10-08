@@ -3,7 +3,7 @@ card:
   - font-weight: bold
   - font-size: 12px
   - background-color: "var(--ha-card-background-path)"
-  - color: "var(--el-es-static-text-color-light)"
+  - color: "var(--el-text-color-light)"
   - padding: 4px 8px
 
 custom_fields:

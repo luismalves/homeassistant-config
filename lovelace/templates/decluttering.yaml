@@ -304,7 +304,7 @@ es-person:
     - background-on: --green-tint, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
-    - color-state-on: --contras7
+    - color-state-on: --ha-card-color-state-on
     - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"

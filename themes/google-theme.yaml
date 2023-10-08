@@ -225,7 +225,7 @@ google_theme:
   ha-card-background-alert: "linear-gradient(to left, rgba(255,103,0,0.7), rgba(255,103,0,1))"
   ha-card-background-climate-control: var(--contrast1)
 
-  ha-card-color-state-on: var(--contrast10)
+  ha-card-color-state-on: var(--contrast11)
   ha-card-color-name-on: var(--contrast20)
   ha-card-color-state-off: var(--contrast6)
   ha-card-color-name-off: var(--contrast10)
@@ -241,7 +241,7 @@ google_theme:
 
   el-text-color: var(--contrast18)
   el-text-color-inverted: var(--contrast1)
-  el-text-color-light: "#b0b0b0"
+  el-text-color-light: var(--contrast12)
 
   el-state-circle-dash: var(--contrast14)
   el-state-circle-text: var(--contrast12)
