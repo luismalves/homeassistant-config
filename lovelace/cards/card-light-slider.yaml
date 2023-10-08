@@ -1,0 +1,35 @@
+slider:
+  card:
+    type: custom:my-slider-v2
+    entity: "[[entity-1]]"
+    colorMode: brightness
+    styles:
+      container:
+        - background: none
+        - border-radius: 100px
+        - overflow: visible
+      card:
+        - height: 30px
+        - padding: 0 16px
+        - background: |
+            [[[
+              if (entity.state == "on") return "linear-gradient(90deg, rgba(255,255,255, 0.3) 0%, rgba(255,255,255, 1) 100%)";
+              else return "#E1E5EF";
+            ]]]
+      track:
+        - overflow: visible
+        - background: none
+      progress:
+        - background: none
+      thumb:
+        - background: |
+            [[[
+              if (entity.state == "on") return "#000";
+              if (entity.state == "off") return "#FFFFFF";
+              else return "#A4A9B6";
+            ]]]
+        - top: 0px
+        - right: "-14px"
+        - height: 30px
+        - width: 30px
+        - border-radius: 50%
