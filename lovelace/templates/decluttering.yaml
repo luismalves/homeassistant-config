@@ -105,8 +105,8 @@ device:
 #---------------------#
 es-icon:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     show_icon: false
     show_state: false
     show_name: false
@@ -218,8 +218,8 @@ script-button:
 es:
   card:
     custom_fields: !include ../circles/circle-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     hold_action: !include ../holds/hold-action-es.yaml
     tap_action:
       action: toggle
@@ -233,8 +233,8 @@ es:
 
 es-scene:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: call-service
       service: scene.turn_on
@@ -250,8 +250,8 @@ es-scene:
 
 es-script:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: call-service
       service: script.turn_on
@@ -268,8 +268,8 @@ es-script:
 # Shows the state of an input boolean entity
 es-boolean:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: toggle
     show_icon: false
@@ -290,8 +290,8 @@ es-boolean:
 # Shows if a person is at home or not
 es-person:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     show_icon: false
     show_state: true
     tap_action:
@@ -311,8 +311,8 @@ es-person:
 
 es-config:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     show_icon: false
     show_state: false
     tap_action:
@@ -333,8 +333,8 @@ es-config:
 
 es-dummy:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     show_icon: false
     show_state: true
     tap_action:
@@ -355,8 +355,8 @@ es-dummy:
 es-light:
   card:
     custom_fields: !include ../circles/pill-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     hold_action: !include ../holds/hold-action-es-lights.yaml
     tap_action:
       action: toggle
@@ -383,8 +383,8 @@ es-light:
 es-light-tasmota:
   card:
     custom_fields: !include ../circles/pill-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     hold_action: !include ../holds/hold-action-es-lights-tasmota.yaml
     tap_action:
       action: toggle
@@ -411,8 +411,8 @@ es-light-tasmota:
 es-light-temperature:
   card:
     custom_fields: !include ../circles/pill-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     hold_action: !include ../holds/hold-action-es-lights-temperature.yaml
     tap_action:
       action: toggle
@@ -440,7 +440,7 @@ es-light-switch:
   card:
     custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-switch]]"
-    name: "[[name-1]]"
+    name: "[[name]]"
     hold_action: !include ../holds/hold-action-es-lights-temperature.yaml
     tap_action:
       action: toggle
@@ -469,7 +469,7 @@ es-light-switch-2:
   card:
     custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-switch]]"
-    name: "[[name-1]]"
+    name: "[[name]]"
     hold_action: !include ../holds/hold-action-es-lights-2.yaml
     tap_action:
       action: toggle
@@ -496,8 +496,8 @@ es-light-switch-2:
 es-light-slider:
   card:
     custom_fields: !include ../cards/card-light-slider.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     #hold_action: !include ../holds/hold-action-es-lights.yaml
     tap_action:
       action: toggle
@@ -520,8 +520,8 @@ es-light-slider:
 es-switch:
   card:
     custom_fields: !include ../circles/pill-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: toggle
     show_icon: false
@@ -548,8 +548,8 @@ es-switch:
 es-switch-confirmation:
   card:
     custom_fields: !include ../circles/pill-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: toggle
     show_icon: false
@@ -578,8 +578,8 @@ es-switch-confirmation:
 # Devices state obtained with ping integration
 es-ping:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: none
     show_icon: false
@@ -629,8 +629,8 @@ es-cover:
 es-speaker:
   card:
     custom_fields: !include ../circles/circle-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action: !include ../holds/hold-action-es-speaker.yaml
     show_icon: false
     show_state: true
@@ -643,8 +643,8 @@ es-speaker:
 es-tv:
   card:
     #custom_fields: !include ../circles/circle-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action: !include ../holds/hold-action-es-tv.yaml
     show_icon: false
     show_state: true
@@ -665,8 +665,8 @@ es-tv:
 es-camera:
   card:
     #custom_fields: !include ../circles/circle-x.yaml
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: more-info
     show_icon: false
@@ -706,8 +706,8 @@ es-mood:
 
 es-number:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: none
     show_icon: false
@@ -748,8 +748,8 @@ sensor-pill:
 
 # sensor-kitchen:
 #   card:
-#     entity: "[[entity-1]]"
-#     name: "[[name-1]]"
+#     entity: "[[entity]]"
+#     name: "[[name]]"
 #     show_icon: false
 #     show_state: false
 #     tap_action:
@@ -761,8 +761,8 @@ sensor-pill:
 
 # sensor-living_room:
 #   card:
-#     entity: "[[entity-1]]"
-#     name: "[[name-1]]"
+#     entity: "[[entity]]"
+#     name: "[[name]]"
 #     show_icon: false
 #     show_state: false
 #     tap_action:
@@ -774,7 +774,7 @@ sensor-pill:
 
 sensor-energy:
   card:
-    name: "[[name-1]]"
+    name: "[[name]]"
     show_icon: false
     show_state: false
     tap_action:
@@ -786,8 +786,8 @@ sensor-energy:
 
 sensor-number:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     show_icon: false
     show_state: true
     show_units: "[[show_units]]"
@@ -799,8 +799,8 @@ sensor-number:
 
 sensor-number-ext:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: url
       url_path: "[[url-1]]"
@@ -813,8 +813,8 @@ sensor-number-ext:
 
 sensor-number-local:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
       action: navigate
       navigation_path: "[[url-1]]"
@@ -875,8 +875,8 @@ btn-icon-text:
 
 btn-moods:
   card:
-    entity: "[[entity-1]]"
-    name: "[[name-1]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action: !include ../holds/hold-action-mood.yaml
     show_icon: false
     show_state: true

@@ -48,8 +48,8 @@ cards:
           grid-column: span 3
         variables:
           - template: person-girl
-          - entity-1: input_boolean.margarida_home
-          - name-1: "Ma"
+          - entity: input_boolean.margarida_home
+          - name: "Ma"
           - state-1: "on"
           - state-outline: "off"
 
@@ -59,8 +59,8 @@ cards:
           grid-column: span 3
         variables:
           - template: person-man
-          - entity-1: input_boolean.luis_home
-          - name-1: "Lu"
+          - entity: input_boolean.luis_home
+          - name: "Lu"
           - state-1: "on"
           - state-outline: "off"
 

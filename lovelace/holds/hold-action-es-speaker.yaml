@@ -17,14 +17,14 @@ browser_mod:
               type: "custom:decluttering-card"
               variables:
                 - template: "[[template]]"
-                - entity-1: "[[entity-1]]"
-                - name-1: "[[name-1]]"
+                - entity: "[[entity]]"
+                - name: "[[name]]"
               view_layout:
                 grid-area: icon
 
         - "--mmp-info-opacity": 1;
           artwork: cover
-          entity: "[[entity-1]]"
+          entity: "[[entity]]"
           group: true
           hide:
             controls: true
@@ -83,7 +83,7 @@ browser_mod:
             }
           type: "custom:mini-media-player"
 
-        - entity: "[[entity-1]]"
+        - entity: "[[entity]]"
           group: true
           hide:
             controls: true
@@ -177,7 +177,7 @@ browser_mod:
               borderRadius: 20px
               brightnessHeight: 200px
               brightnessWidth: 10px
-              entity: "[[entity-1]]"
+              entity: "[[entity]]"
               fullscreen: false
               icon: true
               sliderColor: "#ec543f"

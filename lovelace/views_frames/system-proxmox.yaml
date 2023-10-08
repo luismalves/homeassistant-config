@@ -28,8 +28,8 @@ cards:
     variables:
       - template: vm
       - action: none
-      - entity-1: binary_sensor.lxc_frigate_107_status
-      - name-1: "Frigate LXC"
+      - entity: binary_sensor.lxc_frigate_107_status
+      - name: "Frigate LXC"
 
   - template: es-config
     type: "custom:decluttering-card"
@@ -38,8 +38,8 @@ cards:
     variables:
       - template: vm
       - action: none
-      - entity-1: binary_sensor.qemu_ubuntu_server_105_status_2
-      - name-1: "Ubuntu Server"
+      - entity: binary_sensor.qemu_ubuntu_server_105_status_2
+      - name: "Ubuntu Server"
 
   - template: es-config
     type: "custom:decluttering-card"
@@ -48,8 +48,8 @@ cards:
     variables:
       - template: vm
       - action: none
-      - entity-1: binary_sensor.qemu_ubuntu_desktop_103_status_2
-      - name-1: "Ubuntu Desktop"
+      - entity: binary_sensor.qemu_ubuntu_desktop_103_status_2
+      - name: "Ubuntu Desktop"
 
   - template: es-config
     type: "custom:decluttering-card"
@@ -58,5 +58,5 @@ cards:
     variables:
       - template: vm
       - action: none
-      - entity-1: binary_sensor.qemu_win10_201_status_2
-      - name-1: "Windows 10"
+      - entity: binary_sensor.qemu_win10_201_status_2
+      - name: "Windows 10"

@@ -19,8 +19,8 @@ browser_mod:
               type: "custom:decluttering-card"
               variables:
                 - template: "[[template]]"
-                - entity-1: "[[entity-1]]"
-                - name-1: "[[[ return entity.attributes.friendly_name ]]]"
+                - entity: "[[entity]]"
+                - name: "[[[ return entity.attributes.friendly_name ]]]"
               view_layout:
                 grid-area: icon
 
@@ -37,17 +37,17 @@ browser_mod:
               actions:
                 - service: light.turn_on
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     color_temp: 150
                   color: "#d3e8ff"
                 - service: light.turn_on
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     color_temp: 320
                   color: "#fff2db"
                 - service: light.turn_on
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     color_temp: 400
                   color: "#ffbe50"
                 - action: fire-dom-event
@@ -59,10 +59,10 @@ browser_mod:
                         type: entities
                         show_header_toggle: false
                         entities:
-                          - entity: "[[entity-1]]"
+                          - entity: "[[entity]]"
                             secondary_info: last-changed
                           - type: custom:light-entity-card
-                            entity: "[[entity-1]]"
+                            entity: "[[entity]]"
                             brightness: false
                             color_temp: true
                             full_width_sliders: true
@@ -74,7 +74,7 @@ browser_mod:
               brightnessHeight: 250px
               brightnessWidth: 100px
               displayType: slider
-              entity: "[[entity-1]]"
+              entity: "[[entity]]"
               fullscreen: false
               hideIcon: true
               hideState: true

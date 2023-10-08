@@ -18,8 +18,8 @@ browser_mod:
               type: "custom:decluttering-card"
               variables:
                 - template: "[[template]]"
-                - entity-1: "[[entity-1]]"
-                - name-1: "[[[ return entity.attributes.friendly_name ]]]"
+                - entity: "[[entity]]"
+                - name: "[[[ return entity.attributes.friendly_name ]]]"
               view_layout:
                 grid-area: icon
 
@@ -36,19 +36,19 @@ browser_mod:
               actions:
                 - service: light.turn_on
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     effect: Solid
                     rgb_color: [255, 255, 255]
                   color: "#ffffff"
                 - service: light.turn_on
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     rgb_color: [255, 164, 73]
                     effect: Solid
                   color: "#f4a449"
                 - service: light.turn_on
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     rgb_color: [0, 191, 255]
                     effect: Solid
                   color: "#00bfff"
@@ -67,10 +67,10 @@ browser_mod:
                             background: rgba(0, 0, 0, 0.9);
                           }
                         entities:
-                          - entity: "[[entity-1]]"
+                          - entity: "[[entity]]"
                             secondary_info: last-changed
                           - type: custom:light-entity-card
-                            entity: "[[entity-1]]"
+                            entity: "[[entity]]"
                             brightness: false
                             color_temp: true
                             full_width_sliders: true
@@ -86,7 +86,7 @@ browser_mod:
               borderRadius: 20px
               brightnessHeight: 250px
               brightnessWidth: 100px
-              entity: "[[entity-1]]"
+              entity: "[[entity]]"
               displayType: slider
               fullscreen: false
               hideIcon: true

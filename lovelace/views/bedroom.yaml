@@ -47,36 +47,36 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: light-bedroom
-          - entity-1: light.luz_quarto_direita
-          - name-1: "Luz Esquerda"
+          - entity: light.luz_quarto_direita
+          - name: "Luz Esquerda"
 
       - template: es-light-temperature
         type: "custom:decluttering-card"
         variables:
           - template: light-pendant
-          - entity-1: light.luz_quarto
-          - name-1: "Luz Quarto"
+          - entity: light.luz_quarto
+          - name: "Luz Quarto"
 
       - template: es-light-temperature
         type: "custom:decluttering-card"
         variables:
           - template: light-bedroom
-          - entity-1: light.luz_quarto_esquerda
-          - name-1: "Luz Direita"
+          - entity: light.luz_quarto_esquerda
+          - name: "Luz Direita"
 
       - template: es-light
         type: "custom:decluttering-card"
         variables:
           - template: light-strip
-          - entity-1: light.wled_bed_group
-          - name-1: "LED Strip"
+          - entity: light.wled_bed_group
+          - name: "LED Strip"
 
       - template: es-speaker
         type: "custom:decluttering-card"
         variables:
           - template: speaker-nest-hub
-          - entity-1: media_player.smart_clock
-          - name-1: "Smart Clock"
+          - entity: media_player.smart_clock
+          - name: "Smart Clock"
           - room: "Quarto"
           - circle-1: entity.attributes.volume_level
           - circle-2: 0.01
@@ -93,12 +93,12 @@ cards:
         variables:
           - template: scene-reading
           - scene-1: scene.reading
-          - entity-1: scene.reading
+          - entity: scene.reading
 
       - template: script
         type: "custom:decluttering-card"
         variables:
-          - entity-1: sensor.lights_on_bedroom
+          - entity: sensor.lights_on_bedroom
           - template: light-strip-2
           - script: script.low_light_bedroom
           - name: "Low light"
@@ -111,7 +111,7 @@ cards:
           template: script
           type: "custom:decluttering-card"
           variables:
-            - entity-1: sensor.lights_on_bedroom
+            - entity: sensor.lights_on_bedroom
             - template: script-lights-off
             - script: script.turn_off_bedroom
             - name: "Desligar luzes"

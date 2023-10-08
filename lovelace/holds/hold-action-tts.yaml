@@ -27,7 +27,7 @@ card:
                   type: "custom:decluttering-card"
                   variables:
                     - text: "Enviar"
-                    - entity: "[[entity-1]]"
+                    - entity: "[[entity]]"
                     - script: script.tts_set
               type: horizontal-stack
 

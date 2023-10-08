@@ -24,8 +24,8 @@ cards:
     template: es-switch
     variables:
       - template: sensor-movement
-      - entity-1: switch.mt_audience_wifi_5g_guest_port
-      - name-1: Wireless guest
+      - entity: switch.mt_audience_wifi_5g_guest_port
+      - name: Wireless guest
 
   - type: conditional
     view_layout:

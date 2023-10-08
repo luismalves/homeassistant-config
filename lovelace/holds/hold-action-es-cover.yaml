@@ -17,8 +17,8 @@ browser_mod:
               type: "custom:decluttering-card"
               variables:
                 - template: "[[template]]"
-                - entity-1: "[[entity]]"
-                - name-1: "[[name]]"
+                - entity: "[[entity]]"
+                - name: "[[name]]"
               view_layout:
                 grid-area: icon
 

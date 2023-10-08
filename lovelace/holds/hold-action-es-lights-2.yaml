@@ -18,8 +18,8 @@ browser_mod:
               type: "custom:decluttering-card"
               variables:
                 - template: "[[template]]"
-                - entity-1: "[[entity-switch]]"
-                - name-1: "[[[ return entity.attributes.friendly_name ]]]"
+                - entity: "[[entity-switch]]"
+                - name: "[[[ return entity.attributes.friendly_name ]]]"
               view_layout:
                 grid-area: icon
 
@@ -51,7 +51,7 @@ browser_mod:
               brightnessHeight: 250px
               brightnessWidth: 100px
               displayType: slider
-              entity: "[[entity-1]]"
+              entity: "[[entity]]"
               fullscreen: false
               hideIcon: true
               hideState: true

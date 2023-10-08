@@ -17,8 +17,8 @@ browser_mod:
               type: "custom:decluttering-card"
               variables:
                 - template: "[[template]]"
-                - entity-1: "[[entity-1]]"
-                - name-1: "[[name-1]]"
+                - entity: "[[entity]]"
+                - name: "[[name]]"
               view_layout:
                 grid-area: icon
 
@@ -27,7 +27,7 @@ browser_mod:
             - type: "custom:decluttering-card"
               template: device
               variables:
-                - content: "[[name-1]]"
+                - content: "[[name]]"
 
         - entities:
             - actionSize: 50px
@@ -45,7 +45,7 @@ browser_mod:
               borderRadius: 20px
               brightnessHeight: 250px
               brightnessWidth: 100px
-              entity: "[[entity-1]]"
+              entity: "[[entity]]"
               fullscreen: false
               icon: true
               sliderColor: "#f8cd41"

@@ -246,7 +246,7 @@ google_theme:
   el-state-circle-dash: var(--contrast14)
   el-state-circle-text: var(--contrast12)
 
-  el-scene-name-color: "rgba(87, 87, 87, 0.8)"
+  el-scene-name-color: "var(--contrast14)"
   el-scene-hint-color: "rgba(0, 0, 0, 0.3)"
 
   el-es-static-text-color: var(--contrast18)

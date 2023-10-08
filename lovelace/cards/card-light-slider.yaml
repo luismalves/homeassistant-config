@@ -1,7 +1,7 @@
 slider:
   card:
     type: custom:my-slider-v2
-    entity: "[[entity-1]]"
+    entity: "[[entity]]"
     colorMode: brightness
     styles:
       container:

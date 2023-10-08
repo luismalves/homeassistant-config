@@ -62,8 +62,8 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: light-strip
-          - entity-1: light.led_strip_living_room
-          - name-1: "LED Strip"
+          - entity: light.led_strip_living_room
+          - name: "LED Strip"
 
       - template: es-light-switch
         view_layout:
@@ -71,9 +71,9 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: light-pendant
-          - entity-1: light.luz_sala
+          - entity: light.luz_sala
           - entity-switch: light.shelly_living_room_light
-          - name-1: "Luz Sala"
+          - name: "Luz Sala"
           - info-attribute: states['light.luz_sala'].attributes.brightness
 
       - template: es-light-switch-2
@@ -82,11 +82,11 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: light-pendant
-          - entity-1: light.luz_mesa
+          - entity: light.luz_mesa
           - entity-2: light.luz_mesa_1
           - entity-3: light.luz_mesa_2
           - entity-switch: light.shelly_table_light
-          - name-1: "Luz Mesa"
+          - name: "Luz Mesa"
           - info-attribute: states['light.luz_mesa'].attributes.brightness
 
       - template: es-switch
@@ -95,8 +95,8 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: switch
-          - entity-1: switch.smart_plug
-          - name-1: Tomada TV
+          - entity: switch.smart_plug
+          - name: Tomada TV
           - info-attribute: states['sensor.smart_plug_power'].state
 
       - template: es-tv
@@ -105,8 +105,8 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: tv
-          - entity-1: remote.android_tv
-          - name-1: "Android TV"
+          - entity: remote.android_tv
+          - name: "Android TV"
 
       # - template: sensor-living_room
       #   view_layout:
@@ -114,8 +114,8 @@ cards:
       #   type: "custom:decluttering-card"
       #   variables:
       #     - template: sensors-living_room
-      #     - entity-1: sensor.presence_living_room
-      #     - name-1: "Sensores"
+      #     - entity: sensor.presence_living_room
+      #     - name: "Sensores"
 
       - type: "custom:layout-card"
         view_layout:
@@ -153,8 +153,8 @@ cards:
       #   type: "custom:decluttering-card"
       #   variables:
       #     - template: light-xmas
-      #     - entity-1: light.wled_xmas
-      #     - name-1: "Árvore Natal"
+      #     - entity: light.wled_xmas
+      #     - name: "Árvore Natal"
       #     - state-1: "on"
       #     - state-2: "off"
       #     - circle-1: entity.attributes.brightness
@@ -188,8 +188,8 @@ cards:
           grid-column: span 2
         variables:
           - template: sensor-xbox
-          - entity-1: binary_sensor.xbox_one_x_state
-          - name-1: XBOX
+          - entity: binary_sensor.xbox_one_x_state
+          - name: XBOX
 
       - template: es-camera
         type: "custom:decluttering-card"
@@ -197,8 +197,8 @@ cards:
           grid-column: span 2
         variables:
           - template: camera
-          - entity-1: camera.androidcamera
-          - name-1: "Camera"
+          - entity: camera.androidcamera
+          - name: "Camera"
 
       - type: "custom:gap-card"
         height: 10
@@ -213,7 +213,7 @@ cards:
         variables:
           - template: scene-movie
           - scene-1: scene.movie_time
-          - entity-1: scene.movie_time
+          - entity: scene.movie_time
 
       - template: scene
         type: "custom:decluttering-card"
@@ -222,7 +222,7 @@ cards:
         variables:
           - template: scene-bird
           - scene-1: scene.bird_rest_time
-          - entity-1: scene.bird_rest_time
+          - entity: scene.bird_rest_time
 
       - template: es-boolean
         type: "custom:decluttering-card"
@@ -230,8 +230,8 @@ cards:
           grid-column: span 2
         variables:
           - template: shutter-temp
-          - entity-1: input_boolean.open_blinds_temporarly
-          - name-1: Abrir por hoje
+          - entity: input_boolean.open_blinds_temporarly
+          - name: Abrir por hoje
           - state-1: "on"
           - state-2: "off"
 
@@ -247,7 +247,7 @@ cards:
             - type: "custom:decluttering-card"
               template: script
               variables:
-                - entity-1: sensor.lights_on_living_room
+                - entity: sensor.lights_on_living_room
                 - template: script-lights-off
                 - script: script.turn_off_living_room
                 - name: "Desligar luzes"

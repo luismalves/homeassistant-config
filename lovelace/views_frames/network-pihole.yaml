@@ -24,8 +24,8 @@ cards:
     type: "custom:decluttering-card"
     variables:
       - template: pihole
-      - entity-1: switch.pi_hole
-      - name-1: Pi hole
+      - entity: switch.pi_hole
+      - name: Pi hole
 
   - type: entities
     view_layout:

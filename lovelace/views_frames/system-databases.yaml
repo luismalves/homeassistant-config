@@ -27,8 +27,8 @@ cards:
       grid-column: span 3
     variables:
       - template: sensors-empty
-      - entity-1: sensor.homeassistant_db_size
-      - name-1: "HA MariaDB size"
+      - entity: sensor.homeassistant_db_size
+      - name: "HA MariaDB size"
 
   - template: sensor-number
     type: "custom:decluttering-card"
@@ -36,5 +36,5 @@ cards:
       grid-column: span 3
     variables:
       - template: sensors-empty
-      - entity-1: sensor.influxdb_ha_db_size
-      - name-1: "InfluxDB size"
+      - entity: sensor.influxdb_ha_db_size
+      - name: "InfluxDB size"

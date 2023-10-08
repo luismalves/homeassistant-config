@@ -45,8 +45,8 @@ cards:
           grid-column: span 3
         variables:
           - template: sensors-version
-          - entity-1: sensor.current_version
-          - name-1: "Running version"
+          - entity: sensor.current_version
+          - name: "Running version"
           - url-1: https://www.home-assistant.io/blog/categories/release-notes/
 
       - template: sensor-number-ext
@@ -55,8 +55,8 @@ cards:
           grid-column: span 3
         variables:
           - template: sensors-version
-          - entity-1: sensor.latest_version
-          - name-1: "Latest version"
+          - entity: sensor.latest_version
+          - name: "Latest version"
           - url-1: https://www.home-assistant.io/blog/categories/release-notes/
 
       - template: sensor-number-local
@@ -65,8 +65,8 @@ cards:
           grid-column: span 6
         variables:
           - template: sensors-hacs
-          - entity-1: sensor.hacs
-          - name-1: "HACS updates"
+          - entity: sensor.hacs
+          - name: "HACS updates"
           - url-1: /hacs
 
       - type: "custom:gap-card"
@@ -87,8 +87,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
-          - entity-1: input_boolean.enable_shutter_automation
-          - name-1: "Automação dos estores"
+          - entity: input_boolean.enable_shutter_automation
+          - name: "Automação dos estores"
           - state-1: "on"
           - state-2: "off"
 
@@ -98,8 +98,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
-          - entity-1: input_boolean.enable_breaze_automation
-          - name-1: "Automação dos estores (briza noturna)"
+          - entity: input_boolean.enable_breaze_automation
+          - name: "Automação dos estores (briza noturna)"
           - state-1: "on"
           - state-2: "off"
 
@@ -109,8 +109,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
-          - entity-1: input_boolean.enable_entrace_light_automation
-          - name-1: "Automação luz entrada"
+          - entity: input_boolean.enable_entrace_light_automation
+          - name: "Automação luz entrada"
           - state-1: "on"
           - state-2: "off"
 
@@ -120,8 +120,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
-          - entity-1: input_boolean.enable_mosquitto_killer_automation
-          - name-1: "Automação luz mosquitos"
+          - entity: input_boolean.enable_mosquitto_killer_automation
+          - name: "Automação luz mosquitos"
           - state-1: "on"
           - state-2: "off"
 
@@ -131,8 +131,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
-          - entity-1: input_boolean.enable_bedroom_light_automation
-          - name-1: "Automação luz quarto"
+          - entity: input_boolean.enable_bedroom_light_automation
+          - name: "Automação luz quarto"
           - state-1: "on"
           - state-2: "off"
 
@@ -142,8 +142,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
-          - entity-1: input_boolean.enable_deck_lights_automation
-          - name-1: "Automação luz deck"
+          - entity: input_boolean.enable_deck_lights_automation
+          - name: "Automação luz deck"
           - state-1: "on"
           - state-2: "off"
 
@@ -153,8 +153,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
-          - entity-1: input_boolean.enable_kitchen_automation
-          - name-1: "Automação luz cozinha"
+          - entity: input_boolean.enable_kitchen_automation
+          - name: "Automação luz cozinha"
           - state-1: "on"
           - state-2: "off"
 
@@ -164,8 +164,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-brightness
-          - entity-1: input_boolean.enable_wake_up_lights
-          - name-1: "Rotina de acordar"
+          - entity: input_boolean.enable_wake_up_lights
+          - name: "Rotina de acordar"
           - state-1: "on"
           - state-2: "off"
 
@@ -175,8 +175,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-debug-code
-          - entity-1: input_boolean.maintenance_mode
-          - name-1: "Modo de manutenção"
+          - entity: input_boolean.maintenance_mode
+          - name: "Modo de manutenção"
           - state-1: "on"
           - state-2: "off"
 
@@ -186,8 +186,8 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-vacations
-          - entity-1: input_boolean.vacations_mode
-          - name-1: "Modo de férias"
+          - entity: input_boolean.vacations_mode
+          - name: "Modo de férias"
           - state-1: "on"
           - state-2: "off"
 

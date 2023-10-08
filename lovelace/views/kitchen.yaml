@@ -62,8 +62,8 @@ cards:
           grid-column: span 2
         variables:
           - template: light-pendant-long
-          - entity-1: light.shelly_kitchen_light
-          - name-1: "Luz Cozinha"
+          - entity: light.shelly_kitchen_light
+          - name: "Luz Cozinha"
           - background-on: --yellow-tint, var(--ha-card-background-es-on)
 
       - template: es-switch
@@ -72,8 +72,8 @@ cards:
           grid-column: span 2
         variables:
           - template: light-strip
-          - entity-1: light.shelly_kitchen_led_left
-          - name-1: "LED Strip"
+          - entity: light.shelly_kitchen_led_left
+          - name: "LED Strip"
           - background-on: --yellow-tint, var(--ha-card-background-es-on)
 
       - template: es-light
@@ -82,8 +82,8 @@ cards:
           grid-column: span 2
         variables:
           - template: light-outdoor
-          - entity-1: light.luz_entrada
-          - name-1: Luz entrada
+          - entity: light.luz_entrada
+          - name: Luz entrada
 
       - type: "custom:layout-card"
         view_layout:
@@ -120,8 +120,8 @@ cards:
       #     grid-column: span 3
       #   variables:
       #     - template: sensors-kitchen
-      #     - entity-1: sensor.presence_kitchen
-      #     - name-1: "Sensores"
+      #     - entity: sensor.presence_kitchen
+      #     - name: "Sensores"
 
       - type: "custom:mini-graph-card"
         view_layout:
@@ -150,8 +150,8 @@ cards:
           grid-column: span 2
         variables:
           - template: speaker-nest-hub
-          - entity-1: media_player.nest_hub
-          - name-1: "Nest Hub"
+          - entity: media_player.nest_hub
+          - name: "Nest Hub"
           - room: "Sala"
           - circle-1: entity.attributes.volume_level
           - circle-2: 0.01
@@ -164,8 +164,8 @@ cards:
           grid-column: span 2
         variables:
           - template: switch
-          - entity-1: switch.plug_xiaomi
-          - name-1: Tomada Dyson
+          - entity: switch.plug_xiaomi
+          - name: Tomada Dyson
           - entity-power: sensor.xiaomi_plug_power_32
 
       # - template: es-light-slider
@@ -174,8 +174,8 @@ cards:
       #     grid-column: span 3
       #   variables:
       #     - template: light-desk
-      #     - entity-1: light.mi_lamp_pro
-      #     - name-1: "Mi Lamp Pro"
+      #     - entity: light.mi_lamp_pro
+      #     - name: "Mi Lamp Pro"
       #     - circle-1: entity.attributes.brightness
       #     - circle-2: (254 / 100)
       #     - circle-3: "on"
@@ -185,8 +185,8 @@ cards:
       #   type: "custom:decluttering-card"
       #   variables:
       #     - template: light-mosquitto
-      #     - entity-1: switch.smart_plug_2
-      #     - name-1: Luz Azul
+      #     - entity: switch.smart_plug_2
+      #     - name: Luz Azul
 
       - type: "custom:gap-card"
         height: 10
@@ -219,7 +219,7 @@ cards:
           template: script
           type: "custom:decluttering-card"
           variables:
-            - entity-1: sensor.lights_on_kitchen
+            - entity: sensor.lights_on_kitchen
             - template: script-lights-off
             - script: script.turn_off_kitchen
             - name: "Desligar luzes"
