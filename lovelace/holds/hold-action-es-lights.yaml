@@ -3,8 +3,6 @@ browser_mod:
   service: browser_mod.popup
   data:
     title: " "
-    style:
-      width: 400px;
     content:
       type: vertical-stack
       cards:
@@ -35,7 +33,7 @@ browser_mod:
 
         - entities:
             - actionsInARow: 2
-              actionSize: 4.5em
+              actionSize: 60px
               actions:
                 - service: light.turn_on
                   service_data:
@@ -82,8 +80,9 @@ browser_mod:
                             smooth_color_wheel: true
                             consolidate_entities: true
                             style: |
-                              .light-entity-card {
-                                background: rgba(0, 0, 0, 0.9);
+                              .popup-inner {
+                                background: var(--card-background-color);
+                                padding-top: 20px;
                               }
               borderRadius: 20px
               brightnessHeight: 250px
@@ -91,7 +90,8 @@ browser_mod:
               entity: "[[entity-1]]"
               displayType: slider
               fullscreen: false
-              icon: true
+              hideIcon: true
+              hideState: true
               sliderColor: "#f8cd41"
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
               style: !include ../styles/style-popup-light.yaml
@@ -99,6 +99,6 @@ browser_mod:
           show_header_toggle: false
           style: >
             #states {
-              background: var(--card-color);
+              padding: 0;
             }
           type: entities

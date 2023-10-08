@@ -3,9 +3,8 @@ browser_mod:
   service: browser_mod.popup
   data:
     title: " "
-    style:
-      width: 400px;
     content:
+      type: vertical-stack
       cards:
         - type: custom:layout-card
           layout_type: grid-layout
@@ -35,7 +34,7 @@ browser_mod:
         - entities:
             - type: "custom:light-popup-card"
               actionsInARow: 2
-              actionSize: 50px
+              actionSize: 60px
               actions:
                 - icon: mdi:lightbulb-outline
                   name: Luz 1
@@ -55,7 +54,8 @@ browser_mod:
               displayType: slider
               entity: "[[entity-1]]"
               fullscreen: false
-              icon: true
+              hideIcon: true
+              hideState: true
               sliderColor: "#f8cd41"
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
               style: >
@@ -73,8 +73,9 @@ browser_mod:
                   font-weight: 700;
                   color: #c7c7c7;
                 } 
-                #popup {
-                  margin: 0 0 0.8em 0;
+                .popup-inner {
+                  background: var(--card-background-color);
+                  padding-top: 20px;
                 } 
                 #popup > div.range-holder > input[type=range]::-webkit-slider-thumb {
                   border: 100%
@@ -88,7 +89,6 @@ browser_mod:
           show_header_toggle: false
           style: >
             #states {
-              background: var(--card-color);
+              padding: 0;
             }
           type: entities
-      type: vertical-stack

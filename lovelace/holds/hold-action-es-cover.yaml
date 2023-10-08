@@ -17,8 +17,8 @@ browser_mod:
               type: "custom:decluttering-card"
               variables:
                 - template: "[[template]]"
-                - entity-1: "[[entity-1]]"
-                - name-1: "[[name-1]]"
+                - entity-1: "[[entity]]"
+                - name-1: "[[name]]"
               view_layout:
                 grid-area: icon
 
@@ -28,22 +28,22 @@ browser_mod:
               template: device
               type: "custom:decluttering-card"
               variables:
-                - content: "[[name-1]]"
+                - content: "[[name]]"
 
         - entities:
-            - actionSize: 50px
+            - actionSize: 60px
               actions:
                 - icon: "mdi:archive-arrow-up"
                   name: Abrir
                   service: cover.set_cover_position
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     position: 100
                 - icon: "mdi:archive-arrow-down-outline"
                   name: Fechar
                   service: cover.set_cover_position
                   service_data:
-                    entity_id: "[[entity-1]]"
+                    entity_id: "[[entity]]"
                     position: 0
                 - icon: "mdi:brightness-auto"
                   name: Auto
@@ -55,16 +55,15 @@ browser_mod:
               brightnessWidth: 100px
               sliderHeight: 250px
               sliderWidth: 100px
-              entity: "[[entity-1]]"
+              entity: "[[entity]]"
               fullscreen: false
-              icon: true
               sliderService: cover.set_cover_position
               sliderColor: "#a18568"
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
               style: >
                 #popup > div.action-holder > div > div {
                   margin: 1em 1em 1em 1em;
-                  font-family: 'Google Sans';
+                  font-family: var(--paper-ha-card_-_font-family);
                   font-weight: 700;
                   font-size: 0.9em;
                   color: #fff;
@@ -75,12 +74,16 @@ browser_mod:
                   margin-bottom: 20px;
                   font-size: 10px;
                   font-weight: 700;
-                  font-family: 'Google Sans';
+                  font-family: var(--paper-ha-card_-_font-family);
                   letter-spacing: 0.04em;
                 }  
-                #popup {
-                  margin: 0 0 0.8em 0;
+                .popup-inner {
+                  background: var(--card-background-color);
+                  padding-top: 65px;
                 } 
+                .popup-inner .icon {
+                  display: none;
+                }
                 #popup > div.range-holder > input[type=range]::-webkit-slider-thumb {
                   border: 100%
                   height: 100%
@@ -95,7 +98,7 @@ browser_mod:
           show_header_toggle: false
           style: >
             #states {
-              background: var(--card-color);
+              padding: 0;
             }
           type: entities
       type: vertical-stack

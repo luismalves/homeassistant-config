@@ -6,8 +6,9 @@
     font-size: 10px;
     color: #c7c7c7;
   } 
-  #popup {
-    margin: 0 0 0.8em 0;
+  .popup-inner {
+    background: var(--card-background-color);
+    padding-top: 30px;
   } 
   #popup > div.range-holder > input[type=range]::-webkit-slider-thumb {
     border: 100%
@@ -19,4 +20,4 @@
     background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 80%), 
     conic-gradient(rgb(120,39,230), rgb(230,34,231), rgb(228,5,136), rgb(228,25,25), rgb(229,105,30), rgb(232,226,46), 
     rgb(125,230,41), rgb(52,232,40), rgb(51,231,92), rgb(52,232,224),rgb(32,125,229), rgb(18,39,229), rgb(120,39,230));
-    border-width: 2px; border-color: #e6e6e6; --size: 4.4em !important; }
+    border-width: 2px; border-color: #e6e6e6;}
