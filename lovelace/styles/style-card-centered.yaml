@@ -1,54 +1,41 @@
 card:
-  - height: 110px
-  - background: var(--ha-card-background-es-static)
+  - background-color: var(--ha-card-background-es-static)
   - font-weight: bold
   - color: "var(--el-es-static-text-color-light)"
+  - height: 110px
   - font-size: 12px
+  - padding: 10px 0 0 0
 
 custom_fields:
   icon_hue:
-    - top: 15%
-    - left: 30%
+    - align-self: center
+    - justify-self: center
     - width: 45px
-    - position: absolute
-  info:
-    - top: 0px
-    - left: 20px
-    - width: 40px
-    - position: absolute
-    - letter-spacing: 0.03vw
+
   sd1:
-    - color: var(--ha-card-color-state-on)
     - font-size: 12px
-    - top: 79%
-    - position: absolute
+    - margin-bottom: 10px
+    - text-align: center
+
+  type:
+    - background-color: var(--contrast3)
+    - color: var(--contrast6)
+    - font-size: 12px
+    - margin-top: 7px
+    - text-align: center
+    - padding: 1px 0 2px
     - width: 100%
 
 grid:
-  - grid-template-areas: '"i" "n" "s" "sd1 sd1"'
+  - grid-template-areas: '"icon_hue" "n" "sd1" "type"'
   - grid-template-columns: 1fr
-  - grid-template-rows: 1fr min-content min-content
-
-img_cell:
-  - align-self: start
-  - text-align: start
+  - grid-template-rows: 1fr min-content min-content min-content min-content
 
 name:
   - align-self: center
   - text-align: center
-  - padding-left: 0px
   - font-weight: bold
-  - padding-bottom: 0px
-  - margin-bottom: "-2px"
   - font-size: 12px
-  - margin-top: 50px
 
 state:
-  - justify-self: start
-  - padding-left: 20px
-  - padding-bottom: 5px
   - display: none
-
-sd1:
-  - align-self: center
-  - text-align: center

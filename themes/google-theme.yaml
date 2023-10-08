@@ -221,7 +221,7 @@ google_theme:
   ha-card-background-es-static: var(--contrast2)
   ha-card-background-path: var(--contrast2)
   ha-card-background-task: var(--contrast2)
-  ha-card-background-scene: var(--contrast3)
+  ha-card-background-scene: var(--contrast2)
   ha-card-background-alert: "linear-gradient(to left, rgba(255,103,0,0.7), rgba(255,103,0,1))"
   ha-card-background-climate-control: var(--contrast1)
 
