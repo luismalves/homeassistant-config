@@ -32,3 +32,6 @@ custom_fields:
 
   sd6:
     - display: none
+
+  info:
+    - display: none

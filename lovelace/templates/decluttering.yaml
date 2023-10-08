@@ -89,7 +89,7 @@ device:
         background: none;
         font-weight: 700;
         font-size: 13px;
-        color: #fff;
+        color: var(--el-title-color);
         text-align: center;
         position: static;
         margin-top: -20px;

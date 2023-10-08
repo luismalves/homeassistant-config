@@ -24,9 +24,8 @@ browser_mod:
 
         - type: custom:hui-vertical-stack-card
           cards:
-            - style: "ha-card { width: 10px; }"
+            - type: "custom:decluttering-card"
               template: device
-              type: "custom:decluttering-card"
               variables:
                 - content: "[[name]]"
 
@@ -62,14 +61,13 @@ browser_mod:
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
               style: >
                 #popup > div.action-holder > div > div {
-                  margin: 1em 1em 1em 1em;
                   font-family: var(--paper-ha-card_-_font-family);
                   font-weight: 700;
                   font-size: 0.9em;
-                  color: #fff;
+                  margin: 1em 1em 1em 1em;
                 } 
                 div > div > h4 {
-                  color: rgba(255, 255, 255, 1);
+                  color: var(--el-title-color);
                   margin-top: -65px;
                   margin-bottom: 20px;
                   font-size: 10px;
@@ -90,7 +88,11 @@ browser_mod:
                   width: 10px;
                   cursor: pointer;
                 }
+                .action-holder .action .color {
+                  border-color: var(--el-text-color) !important;
+                }
                 .action-holder .action .name {
+                  color: var(--el-text-color) !important;
                   font-size: 10px !important;
                   margin-top: 4px !important;
                 }

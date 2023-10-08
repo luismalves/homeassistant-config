@@ -25,9 +25,8 @@ browser_mod:
 
         - type: custom:hui-vertical-stack-card
           cards:
-            - style: "ha-card { width: 10px; }"
+            - type: "custom:decluttering-card"
               template: device
-              type: "custom:decluttering-card"
               variables:
                 - content: "[[[ return entity.attributes.friendly_name ]]]"
 
