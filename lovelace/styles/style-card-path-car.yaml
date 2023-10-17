@@ -1,8 +1,9 @@
 card:
+  - background-color: "var(--ha-card-background-path)"
+  - color: "var(--el-text-color-light)"
   - height: 50px
   - font-weight: bold
   - font-size: 12px
-  - background-color: "var(--ha-card-background-path)"
   - padding: 5px
 
 custom_fields:
@@ -14,24 +15,20 @@ custom_fields:
   sd1:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
     - margin-right: 10px
 
   sd2:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
     - margin-right: 10px
 
   sd3:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
 
   sd4:
     - font-size: 12px
     - justify-self: flex-start
-    - color: "var(--el-es-static-text-color-light)"
     - margin-right: 2px
 
 grid:

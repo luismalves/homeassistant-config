@@ -12,7 +12,7 @@
       sd1:
         - color: "var([[color-state-on]])"
       info:
-        - color: var(--contrast14)
+        - color: var(--contrast18)
         - font-size: 11px
       s:
         - color: "var([[color-state-on]])"
