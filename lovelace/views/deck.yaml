@@ -131,7 +131,7 @@ cards:
         variables:
           - template: sensor-desktop
           - entity: binary_sensor.windows_desktop_state
-          - name: Computador fixo
+          - name: Desktop
 
       - type: "custom:gap-card"
         height: 10
