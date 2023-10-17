@@ -738,7 +738,7 @@ sensor-pill:
     type: "custom:button-card"
   default:
     - background-on: --ha-card-background-es-on
-    - background-default: --green-tint, var(--ha-card-background-es-on)
+    - background-default: --orange-tint, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
