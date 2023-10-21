@@ -92,6 +92,7 @@ cards:
               state: "<= 50"
           exclude:
             - name: "*[Oo]neplus*"
+            - name: "*[Oo]ppo*"
             - name: "*HUAWEI*"
             - name: "*[Mm]acbook*"
             - name: "sensor.browser_*"

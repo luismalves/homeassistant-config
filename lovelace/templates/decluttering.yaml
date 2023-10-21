@@ -998,11 +998,13 @@ climate-vw:
         variables:
           current_temp: >
             [[[
-              return `${states['[[entity-climate-current]]'].state}`;
+              if(states['[[entity-climate-current]]'].state == 'unavailable') { return -1 }
+              else { return `${states['[[entity-climate-current]]'].state}`; }
             ]]]
           target_temp: >
             [[[
-              return `${states['[[entity-climate-target]]'].state}`;
+              if(states['[[entity-climate-target]]'].state == 'unavailable') { return -1 }
+              else { return `${states['[[entity-climate-target]]'].state}`; }
             ]]]
           state: >
             [[[

@@ -96,8 +96,12 @@ cards:
             custom_fields:
               subtitle: >
                 [[[
-                  let needed_battery = states['sensor.my_id_state_of_charge'].state > 80 ? 100 - states['sensor.my_id_state_of_charge'].state : 80 - states['sensor.my_id_state_of_charge'].state;
-                  return `<span>Para um carregamento de ${needed_battery}%</span>`
+                  if(states['sensor.my_id_state_of_charge'].state == 'unavailable') { 
+                    return `<span>Informação indisponível</span>`
+                  } else {
+                    let needed_battery = states['sensor.my_id_state_of_charge'].state > 80 ? 100 - states['sensor.my_id_state_of_charge'].state : 80 - states['sensor.my_id_state_of_charge'].state;
+                    return `<span>Para um carregamento de ${needed_battery}%</span>`
+                  }
                 ]]]
 
           - type: horizontal-stack
@@ -160,7 +164,8 @@ cards:
             custom_fields:
               subtitle: >
                 [[[
-                  return `<span>Total de ${states['sensor.my_id_odometer'].state} KMs</span>`
+                  if(states['sensor.my_id_odometer'].state == 'unavailable') { return `<span>Total indisponível</span>` }
+                  else { return `<span>Total de ${states['sensor.my_id_odometer'].state} KMs</span>` }
                 ]]]
 
           - type: custom:apexcharts-card

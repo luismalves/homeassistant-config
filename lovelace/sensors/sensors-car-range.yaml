@@ -1,6 +1,7 @@
 number: >
   [[[
-    return '<span>' + entity.state + '</span>'
+    if(entity.state == 'unavailable') { return '<span>?</span>' } 
+    else { return '<span>' + entity.state + '</span>' }
   ]]]
 
 label: >

@@ -6,6 +6,9 @@
 alarm:
   custom_fields: !include ../icons/alarm.yaml
 
+alert:
+  custom_fields: !include ../icons/alert.yaml
+
 house:
   custom_fields: !include ../icons/house.yaml
 
@@ -243,7 +246,6 @@ script-lights-off:
 #---------------------#
 tasks-action:
   custom_fields: !include ../icons/tasks-action.yaml
-
 # task:
 #   label: |
 #     [[[
@@ -251,16 +253,16 @@ tasks-action:
 #       if (last_trigger == "NE") return "Clique para criar";
 #       if (last_trigger == "NS") return "Clique para publicar";
 #       if (last_trigger == 0) return "Feito hoje";
-      
+
 #       let last_trigger_suffix = (last_trigger == 1 ? " dia atrás" :" dias atrás");
-      
+
 #       return last_trigger + last_trigger_suffix;
 #     ]]]
 #   show_label: true
 #   icon: |
 #     [[[
 #       let days_left = variables._days_left(variables,false,true);
-      
+
 #       if (days_left == "NE" || days_left == "NS") return "mdi:alert-plus";
 #       if (days_left < 0) return "mdi:alert-circle";
 #       if (days_left <= variables.warning_before) return "mdi:clock-alert";
@@ -283,7 +285,7 @@ tasks-action:
 #         let color = variables._colors["success"];
 #         if (days_left <= variables.warning_before) color = variables._colors["warning"];
 #         if (days_left < 0) color = variables._colors["error"];
-        
+
 #         let message = ( days_left >= 0 ? (days_left == 1 ? days_left+" dia restante" : days_left+" dias restantes") : (Math.abs(days_left) == 1 ? Math.abs(days_left)+" dia em atraso" : Math.abs(days_left)+" dias em atraso" ) );
 
 #         return '<span style="display: inline-block; color: white; background: '+color+'; padding: 0 5px; border-radius: 5px;">' + message + '</span>'
@@ -405,12 +407,12 @@ tasks-action:
 #             let set_end_date = new Date((entity.attributes.timestamp_end)*1000).setHours(0, 0, 0, 0);
 #             return Math.round((set_end_date - now_date) / one_day);
 #           }
-          
+
 #           let end_date = new Date(
 #             new Date(start_date).setDate(start_date.getDate() + variables.cycle_days)
 #           );
 #           end_date.setHours(0, 0, 0, 0);
-          
+
 #           if (report_end_date) {
 #             return end_date;
 #           }
@@ -444,7 +446,7 @@ tasks-action:
 #             retain: true
 #           };
 #           let config_payload = variables._config_payload(variables);
-          
+
 #           if (typeof(entity) == 'undefined') {
 #             hass.callService("mqtt", "publish", state_data);
 #             return config_payload;

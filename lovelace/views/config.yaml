@@ -163,6 +163,17 @@ cards:
         view_layout:
           grid-column: span 3
         variables:
+          - template: alert
+          - entity: input_boolean.enable_ev_battery_alerts
+          - name: "Alertas bateria carro"
+          - state-1: "on"
+          - state-2: "off"
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
           - template: toggle-brightness
           - entity: input_boolean.enable_wake_up_lights
           - name: "Rotina de acordar"

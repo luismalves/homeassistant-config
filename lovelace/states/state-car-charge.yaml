@@ -1,5 +1,10 @@
 - styles:
     card:
+      - background-color: "var(--ha-card-background-es-off)"
+  value: "unavailable"
+
+- styles:
+    card:
       - background-color: "var(--ha-card-background-es-on)"
   operator: "!="
   value: "notReadyForCharging"
@@ -8,8 +13,3 @@
     card:
       - background-color: "var(--ha-card-background-es-off)"
   value: "notReadyForCharging"
-
-- styles:
-    card:
-      - background-color: "var(--ha-card-background-es-off)"
-  value: "unavailable"
