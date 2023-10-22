@@ -138,10 +138,6 @@ path-bedroom:
 path-car:
   custom_fields: !include ../icons/path-car.yaml
 
-#path-sensors:
-#custom_fields:
-#!include ../icons/path-sensors.yaml
-
 #---------------------#
 # Persons
 #---------------------#
@@ -175,6 +171,22 @@ sensors-living_room:
 sensors-climate:
   custom_fields: !include ../sensors/sensors-climate.yaml
 
+sensors-energy:
+  custom_fields: !include ../sensors/sensors-energy.yaml
+
+sensor-movement:
+  custom_fields: !include ../icons/sensor-movement.yaml
+
+sensor-desktop:
+  custom_fields: !include ../icons/sensor-desktop.yaml
+
+sensor-xbox:
+  custom_fields: !include ../icons/sensor-xbox.yaml
+
+#---------------------#
+# Sensors - Car
+#---------------------#
+
 sensors-car-tires:
   custom_fields: !include ../sensors/sensors-car-tires.yaml
 
@@ -192,18 +204,6 @@ sensors-car-charge-2:
 
 sensors-car-charge-option:
   custom_fields: !include ../sensors/sensors-car-charge-option.yaml
-
-sensors-energy:
-  custom_fields: !include ../sensors/sensors-energy.yaml
-
-sensor-movement:
-  custom_fields: !include ../icons/sensor-movement.yaml
-
-sensor-desktop:
-  custom_fields: !include ../icons/sensor-desktop.yaml
-
-sensor-xbox:
-  custom_fields: !include ../icons/sensor-xbox.yaml
 
 #---------------------#
 # Scene

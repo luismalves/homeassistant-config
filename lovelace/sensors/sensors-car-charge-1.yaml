@@ -24,12 +24,12 @@ info2: >
 
 info3: >
   [[[
-    if(states['sensor.my_id_state_of_charge'].state == 'unavailable') { return `<span>?</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Current</span>` }
+    if(states['sensor.my_id_state_of_charge'].state == 'unavailable') { return `<span>-</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Current</span>` }
     else { return `<span>${states['sensor.my_id_state_of_charge'].state}%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Current</span>` }
   ]]]
 
 info4: >
   [[[
-    if(states['sensor.my_id_target_state_of_charge'].state == 'unavailable') { return `<span>?</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Target</span>` }
+    if(states['sensor.my_id_target_state_of_charge'].state == 'unavailable') { return `<span>-</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Target</span>` }
     else { return `<span>${states['number.my_id_target_state_of_charge'].state}%</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Target</span>` }
   ]]]

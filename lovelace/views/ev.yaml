@@ -191,7 +191,7 @@ cards:
                   datalabels: true
             apex_config:
               chart:
-                height: 120px
+                height: "120px"
                 fontFamily: "var(--paper-ha-card_-_font-family)"
                 parentHeightOffset: 0
               tooltip:
@@ -234,6 +234,11 @@ cards:
           - entity-climate-current: number.my_id_target_climate_temperature
           - name: "Clima"
           - template: sensors-climate
+
+      - type: "custom:decluttering-card"
+        template: car-charge-stats
+        variables:
+          - name: "Rácio corrente"
 
   - type: "custom:gap-card"
     height: 15

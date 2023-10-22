@@ -15,7 +15,7 @@ info2: >
 
 info3: >
   [[[
-    return `<span>${states['sensor.my_id_ac_dc_charge_ratio'].state}/${100 - states['sensor.my_id_ac_dc_charge_ratio'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">AC/DC</span>`
+    return `<span>${states['sensor.my_id_odometer'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total KMs</span>`
   ]]]
 
 info4: >

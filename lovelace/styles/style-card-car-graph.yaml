@@ -1,0 +1,32 @@
+card:
+  - background-color: "var(--ha-card-background-es-static)"
+  - color: var(--el-es-static-text-color)
+  - height: 165px
+  - font-size: 10px
+  - padding: 10px 10px 0px 10px
+
+custom_fields:
+  sd1:
+    - align-self: flex-start
+    - color: var(--el-text-color-light)
+    - margin-top: 2px
+    - text-align: left
+
+  graph:
+    - align-items: center
+    - color: "var(--ha-card-color-state-on)"
+    - display: flex
+    - font-size: 18px
+    - font-weight: bold
+    - flex-direction: column
+
+grid:
+  - grid-template-areas: '"n" "sd1" "graph"'
+  - grid-template-columns: 1fr
+  - grid-template-rows: min-content min-content 1fr
+
+name:
+  - align-self: start
+  - font-weight: bold
+  - font-size: 14px
+  - place-self: flex-start

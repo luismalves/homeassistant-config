@@ -6,10 +6,6 @@ card:
   - padding: 10px
 
 custom_fields:
-  icon_hue:
-    - margin-top: 12px
-    - width: 25px
-
   sd1:
     - align-self: flex-start
     - color: var(--el-text-color-light)
@@ -26,6 +22,7 @@ custom_fields:
     - flex-direction: column
     - margin-left: 12px
     - padding: 6px 6px 8px 0px
+
   info2:
     - align-items: center
     - border-bottom: 1px solid var(--el-svg-main-color-off)
@@ -36,6 +33,7 @@ custom_fields:
     - flex-direction: column
     - margin-right: 12px
     - padding: 6px 0px 8px 6px
+
   info3:
     - align-items: center
     - border-right: 1px solid var(--el-svg-main-color-off)
@@ -46,6 +44,7 @@ custom_fields:
     - flex-direction: column
     - margin-left: 12px
     - padding: 8px 6px 8px 0px
+
   info4:
     - align-items: center
     - color: "var(--ha-card-color-state-on)"

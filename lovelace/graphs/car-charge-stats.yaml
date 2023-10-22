@@ -1,0 +1,44 @@
+graph:
+  card:
+    type: custom:apexcharts-card
+    chart_type: donut
+    apex_config:
+      chart:
+        fontFamily: "var(--paper-ha-card_-_font-family)"
+      plotOptions:
+        pie:
+          expandOnClick: false
+      legend:
+        show: false
+      tooltip:
+        enabled: false
+      dataLabels:
+        show: true
+        formatter: |
+          EVAL:function (val, opts) {
+            return val + '% ' + opts.w.config.labels[opts.seriesIndex];
+          }
+        style:
+          fontSize: "12px"
+          colors: ["var(--ha-card-background-es-static)"]
+        background:
+          enabled: true
+          foreColor: "var(--contrast17)"
+          borderWidth: 0
+          opacity: 1
+          padding: 2
+        dropShadow:
+          enabled: false
+    series:
+      - entity: sensor.my_id_ac_dc_charge_ratio
+        name: "DC"
+        color: "var(--contrast10)"
+      - entity: sensor.my_id_ac_dc_charge_ratio
+        transform: "return 100 - x;"
+        name: "AC"
+        color: "var(--contrast12)"
+
+sd1: >
+  [[[
+    return `<span>Com base nos dados Tronity</span>`
+  ]]]

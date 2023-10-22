@@ -1,21 +1,26 @@
 icon_hue: >
-  [[[ return `<ha-icon
-      icon="mdi:home-lightning-bolt-outline"
-      style="width: 52px; height: 52px; color: #fed843">
-      </ha-icon>` ]]]
+  [[[ return `<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M26.8 11.5l-12 19c-.1.3-.5.5-.8.5-.1 0-.2 0-.3-.1-.4-.2-.7-.6-.6-1.1L14.8 17H6c-.4 0-.7-.2-.9-.5-.2-.3-.1-.7.1-1l10-14c.3-.4.7-.5 1.1-.4.4.1.7.5.7.9v8h9c.4 0 .7.2.9.5.1.3.1.7-.1 1z" fill="#FFC10A"/></svg>` ]]]
 
 sd1: >
   [[[
-    return `<ha-icon
-      icon="mdi:lightning-bolt-outline"
-      style="width: 12px; height: 15px;">
-      </ha-icon><span>Potência: </span><span style="color:color:var(--ha-card-name-on);">${Math.round(states['sensor.shelly_em_channel_1_power'].state)} W</span>`
+    if(states['sensor.shelly_em_channel_1_power'].state == 'unavilable') {
+      return `<span>- W</span>`
+    } else {
+      return `<ha-icon
+        icon="mdi:lightning-bolt-outline"
+        style="height: 12px; width: 12px; margin-right: 2px; --mdc-icon-size: 115%">
+        </ha-icon><span>${Math.round(states['sensor.shelly_em_channel_1_power'].state)} W</span>`
+    }
   ]]]
 
 sd2: >
   [[[
-    return `<ha-icon
-      icon="mdi:wallet-outline"
-      style="width: 12px; height: 15px; margin-right: 2px">
-      </ha-icon><span>Custo: </span><span style="color:var(--ha-card-name-on);">${states['sensor.energy_bill'].state}€</span>`
+    if(states['sensor.shelly_em_channel_1_power'].state == 'unavilable') {
+      return `<span>- €</span>`
+    } else {
+      return `<ha-icon
+        icon="mdi:wallet-outline"
+        style="height: 12px; width: 12px; margin-right: 4px; --mdc-icon-size: 115%">
+        </ha-icon><span>${states['sensor.energy_bill'].state}€ até hoje</span>`
+    }
   ]]]

@@ -1,5 +1,5 @@
 card:
-  - font-weight: 700
+  - font-weight: 600
   - color: "var(--ha-card-color-name-off)"
   - font-size: 10px
   - background-color: "transparent"
@@ -7,10 +7,9 @@ card:
 
 grid:
   - grid-template-areas: '"icon_hue name name" "icon_hue sd1 sd2"'
-  - grid-template-columns: min-content 1fr 1fr
-  - grid-template-rows: 1fr 1fr
-  - grid-gap: 4px
-  - padding: 8px 4px
+  - grid-template-columns: 45px min-content min-content
+  - grid-gap: 4px 8px
+  - padding: 8px 4px 12px
 
 name:
   - font-weight: bold
@@ -21,11 +20,21 @@ name:
 
 custom_fields:
   sd1:
+    - background-color: "var(--contrast4)"
+    - border-radius: 25px
+    - color: "var(--ha-card-name-on)"
     - grid-area: sd1
     - font-size: 14px
     - justify-self: flex-start
+    - padding: 5px 10px 4px
+    - --ha-icon-display: block
 
   sd2:
+    - background-color: "var(--contrast4)"
+    - border-radius: 25px
+    - color: "var(--ha-card-name-on)"
     - grid-area: sd2
     - font-size: 14px
     - justify-self: flex-start
+    - padding: 5px 10px 4px
+    - --ha-icon-display: block
