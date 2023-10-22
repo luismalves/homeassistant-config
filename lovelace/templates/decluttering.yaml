@@ -1016,7 +1016,7 @@ climate-vw:
         card_mod:
           style: |
             ha-card {
-              {% if not(is_state('sensor.my_id_climatisation_state','off')) %}  
+              {% if (is_state('sensor.my_id_climatisation_state','on')) %}  
               background: var(--ha-card-color-name-on);
               {% else %}
               background: var(--ha-card-background-climate-control);
@@ -1069,7 +1069,7 @@ climate-vw:
     default: null
     style: |
       ha-card {
-        {% if not(is_state('sensor.my_id_climatisation_state','off')) %}  
+        {% if (is_state('sensor.my_id_climatisation_state','on')) %}  
         background: var(--ha-card-background-es-on);
         {% else %}
         background: var(--ha-card-background-es-off);
@@ -1308,6 +1308,20 @@ car-stats:
     state: !include ../states/state-car-charge.yaml
     styles: !include ../styles/style-card-car-info.yaml
     template: "[[template]]"
+  default: null
+
+car-charge-stats:
+  card:
+    type: "custom:button-card"
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: none
+    state: !include ../states/state-car-charge.yaml
+    styles: !include ../styles/style-card-car-graph.yaml
+    custom_fields: !include ../graphs/car-charge-stats.yaml
   default: null
 
 car-charge-option:

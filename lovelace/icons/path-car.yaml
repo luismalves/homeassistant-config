@@ -3,10 +3,14 @@ icon_hue: >
 
 sd1: >
   [[[
-    return `<ha-icon
-      icon="mdi:battery"
-      style="width: 12px; height: 10px;">
-      </ha-icon><span>${states['sensor.my_id_state_of_charge'].state}%</span>`
+    if(states['sensor.my_id_state_of_charge'].state == 'unavailable') {
+      return `<span>Informação indisponível</span>`
+    } else {
+      return `<ha-icon
+        icon="mdi:battery"
+        style="width: 12px; height: 10px;">
+        </ha-icon><span>${states['sensor.my_id_state_of_charge'].state}%</span>`
+    }
   ]]]
 
 sd2: >
