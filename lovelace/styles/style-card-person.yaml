@@ -1,4 +1,5 @@
 card:
+  - border-radius: 25px
   - height: 50px
   - font-weight: bold
   - color: var(--el-text-color-light)
@@ -7,7 +8,7 @@ card:
 
 custom_fields:
   icon_hue:
-    - width: 35px
+    - width: 30px
 
   sd1:
     - align-self: start
