@@ -52,6 +52,7 @@ cards:
           - name: "Ma"
           - state-1: "on"
           - state-outline: "off"
+          - background-on: --blue-tint, var(--ha-card-background-es-on)
 
       - template: es-person
         type: "custom:decluttering-card"
@@ -63,6 +64,7 @@ cards:
           - name: "Lu"
           - state-1: "on"
           - state-outline: "off"
+          - background-on: --blue-tint, var(--ha-card-background-es-on)
 
       - type: "custom:gap-card"
         height: 10
