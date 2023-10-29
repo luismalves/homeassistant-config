@@ -223,3 +223,8 @@ cards:
             - template: script-lights-off
             - script: script.turn_off_kitchen
             - name: "Desligar luzes"
+
+      - type: "custom:gap-card"
+        height: 10
+        view_layout:
+          grid-column: span 6
