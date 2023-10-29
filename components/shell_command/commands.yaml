@@ -3,9 +3,13 @@
 # https://www.home-assistant.io/integrations/shell_command/
 #####
 
-#get_gh_tokens: "~/GoogleHome/./get_tokens.sh"
-
+# Node red enpoitn to check if HA has started
 ha_start: "curl http://192.168.1.95:1880/hastart --connect-timeout 60"
 
 # No longer needed with latest custom integration
 #proxmox_control_vm: bash /config/shell_scripts/proxmox_control_vm.bash {{ states("sensor.proxmox_ip") }} alpaca {{ states("sensor.proxmox_user") }} {{ states("sensor.proxmox_pwd") }} {{ command }} {{ type }} {{ vm }}
+
+# Commands for QNAP NAS
+nas_shutdown: "ssh -i /config/ssh/qnap/id_rsa_qnap -o StrictHostKeyChecking=no -q admin@192.168.50.50 '/sbin/shutdown'"
+
+nas_reboot: "ssh -i /config/ssh/qnap/id_rsa_qnap -o StrictHostKeyChecking=no -q admin@192.168.50.50 '/sbin/reboot'"
