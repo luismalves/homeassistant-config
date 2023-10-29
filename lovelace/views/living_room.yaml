@@ -148,20 +148,6 @@ cards:
               - icon: mdi:water-percent
               - numeric_precision: 0
 
-      # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
-      # - template: es-light
-      #   type: "custom:decluttering-card"
-      #   variables:
-      #     - template: light-xmas
-      #     - entity: light.wled_xmas
-      #     - name: "Árvore Natal"
-      #     - state-1: "on"
-      #     - state-2: "off"
-      #     - circle-1: entity.attributes.brightness
-      #     - circle-2: (254 / 100)
-      #     - circle-3: "on"
-      #     - circle-4: brightness
-
       - template: es-cover
         type: "custom:decluttering-card"
         view_layout:
@@ -190,6 +176,16 @@ cards:
           - template: sensor-xbox
           - entity: binary_sensor.xbox_one_x_state
           - name: XBOX
+
+      # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
+      - template: es-light
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: light-xmas
+          - entity: light.wled_xmas
+          - name: "Árvore Natal"
 
       - template: es-camera
         type: "custom:decluttering-card"
@@ -251,3 +247,8 @@ cards:
                 - template: script-lights-off
                 - script: script.turn_off_living_room
                 - name: "Desligar luzes"
+
+      - type: "custom:gap-card"
+        height: 10
+        view_layout:
+          grid-column: span 6
