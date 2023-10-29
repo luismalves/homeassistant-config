@@ -13,6 +13,7 @@
 .cloud
 node-red
 google_assistant
+components/shell_command/*
 image
 esphome
 custom_components
@@ -20,6 +21,7 @@ www/*
 appdaemon/*
 blueprints
 python_scripts
+ssh
 tts
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
