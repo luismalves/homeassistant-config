@@ -93,6 +93,8 @@ cards:
             tap_action:
               action: none
             styles: !include ../styles/style-card-car-header.yaml
+            triggers_update:
+              - sensor.my_id_state_of_charge
             custom_fields:
               subtitle: >
                 [[[
