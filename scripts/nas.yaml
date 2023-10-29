@@ -1,0 +1,8 @@
+# Control NAS
+#
+turn_on_nas:
+  alias: Turn on NAS
+  sequence:
+    - service: wake_on_lan.send_magic_packet
+      data:
+        mac: !secret nas_mac
