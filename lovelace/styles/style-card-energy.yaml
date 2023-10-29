@@ -8,7 +8,7 @@ card:
 grid:
   - grid-template-areas: '"icon_hue name name" "icon_hue sd1 sd2"'
   - grid-template-columns: 45px min-content min-content
-  - grid-gap: 4px 8px
+  - grid-gap: 6px 8px
   - padding: 8px 4px 12px
 
 name:

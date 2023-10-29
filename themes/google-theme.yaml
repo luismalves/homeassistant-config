@@ -51,6 +51,7 @@ google_theme:
   # Buttons
   paper-item-icon-color: var(--contrast9)
   mdc-button-outline-color: var(--contrast6)
+  mdc-button-horizontal-padding: 16px
   mdc-shape-small: 20px
 
   # States and Badges
@@ -225,7 +226,7 @@ google_theme:
   ha-card-background-alert: "linear-gradient(to left, rgba(255,103,0,0.7), rgba(255,103,0,1))"
   ha-card-background-climate-control: var(--contrast1)
 
-  ha-card-color-state-on: var(--contrast11)
+  ha-card-color-state-on: var(--contrast12)
   ha-card-color-name-on: var(--contrast20)
   ha-card-color-state-off: var(--contrast6)
   ha-card-color-name-off: var(--contrast10)
@@ -262,6 +263,8 @@ google_theme:
 
   el-state-cold: "#89b4f8"
   el-state-hot: "rgba(255,103,0,1)"
+
+  text-color-sensor: var(--contrast12)
 
   ########################################################
   ############### Variables based on modes ###############
@@ -424,4 +427,7 @@ google_theme:
       .iron-selected paper-icon-item::before, 
       a:not(.iron-selected):focus::before {
         border-radius: 30px;
+      }
+      .mdc-button {
+        border: 1px solid currentColor;
       }

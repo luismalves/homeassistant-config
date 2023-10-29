@@ -5,7 +5,7 @@
     margin-top: 0px !important;
     border-radius: 10px;
     box-shadow: none;
-    padding: 8px 12px 6px 6px;
+    padding: 4px 12px 0px 6px;
   }
 
   .forecast > div > div:first-child,
@@ -17,4 +17,15 @@
   .state,
   .temp {
     color: var(--ha-card-color-name-on);
+    font-size: 18px !important;
+  }
+
+  .icon-image {
+    margin-right: 8px !important;
+    min-width: unset !important;
+    width: 45px;
+  }
+
+  .icon-image > * {
+    flex: unset !important;
   }
