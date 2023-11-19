@@ -95,6 +95,9 @@ google_theme:
   # Dropdowns
   material-background-color: var(--contrast2)
 
+  # Graphs
+  graphs-border-radius: 6px;
+
   # Labels
   # label-badge-background-color: var(--secondary-background-color)
   # label-badge-text-color: var(--primary-text-color)
@@ -309,7 +312,7 @@ google_theme:
       background-view-kitchen: var(--contrast1)
       background-view-living: var(--contrast1)
       background-view-config: var(--contrast1)
-      background-view-security: var(--contrast1)
+      background-view-house: var(--contrast1)
       background-view-system: var(--contrast1)
       background-view-tasks: var(--contrast1)
       background-view-network: var(--contrast1)
