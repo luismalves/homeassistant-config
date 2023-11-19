@@ -115,106 +115,6 @@ es-icon:
     type: "custom:button-card"
   default: null
 
-# Navigation card
-path:
-  card:
-    entity: "[[entity]]"
-    name: "[[name]]"
-    tap_action:
-      action: navigate
-      navigation_path: "[[navigation_path]]"
-    show_icon: false
-    show_state: false
-    styles: !include ../styles/style-card-path.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-# Navigation card for divisions
-path-division:
-  card:
-    entity: "[[entity]]"
-    name: "[[name]]"
-    tap_action:
-      action: navigate
-      navigation_path: "[[navigation_path]]"
-    show_icon: false
-    show_state: false
-    state: !include ../states/state-path-division.yaml
-    styles: !include ../styles/style-card-path-division.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default:
-    - rows-on: 1.2fr min-content min-content
-    - rows-off: 1.5fr 1fr
-
-# Navigation card for car
-path-car:
-  card:
-    entity: "[[entity]]"
-    name: "[[name]]"
-    tap_action:
-      action: navigate
-      navigation_path: "[[navigation_path]]"
-    show_icon: false
-    show_state: false
-    state: !include ../states/state-car-lock.yaml
-    styles: !include ../styles/style-card-path-car.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-scene:
-  card:
-    entity: "[[scene-1]]"
-    name: "[[[ return entity.attributes.friendly_name ]]]"
-    tap_action:
-      action: call-service
-      service: scene.turn_on
-      service_data:
-        entity_id: "[[scene-1]]"
-    show_icon: false
-    show_state: false
-    state: !include ../states/state-scene.yaml
-    styles: !include ../styles/style-card-centered.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-script:
-  card:
-    entity: "[[script]]"
-    name: "[[name]]"
-    tap_action:
-      action: call-service
-      service: script.turn_on
-      service_data:
-        entity_id: "[[script]]"
-    show_icon: false
-    show_state: false
-    state: !include ../states/state-script.yaml
-    styles: !include ../styles/style-card-centered.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-script-button:
-  card:
-    entity: "[[script]]"
-    tap_action:
-      action: call-service
-      service: script.turn_on
-      service_data:
-        entity_id: "[[script]]"
-    show_icon: false
-    show_name: false
-    show_state: false
-    state: !include ../states/state-script.yaml
-    styles: !include ../styles/style-card-path-button.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
 es:
   card:
     custom_fields: !include ../circles/circle-x.yaml
@@ -227,40 +127,6 @@ es:
     show_state: true
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-es-scene:
-  card:
-    entity: "[[entity]]"
-    name: "[[name]]"
-    tap_action:
-      action: call-service
-      service: scene.turn_on
-      service_data:
-        entity_id: "[[scene-1]]"
-    show_icon: false
-    show_state: true
-    state: !include ../states/state-x.yaml
-    styles: !include ../styles/style-card-centered.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-es-script:
-  card:
-    entity: "[[entity]]"
-    name: "[[name]]"
-    tap_action:
-      action: call-service
-      service: script.turn_on
-      service_data:
-        entity_id: "[[script-1]]"
-    show_icon: false
-    show_state: true
-    state: !include ../states/state-es-script.yaml
-    styles: !include ../styles/style-card-centered.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
@@ -330,6 +196,8 @@ es-config:
     - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
+    - align-name: left
+    - card-height: 50px
 
 es-dummy:
   card:
@@ -694,7 +562,7 @@ es-mood:
     tap_action:
       action: call-service
       service: input_select.select_option
-      service_data:
+      data:
         entity_id: "[[entity]]"
         option: "[[option]]"
     show_icon: false
@@ -714,6 +582,132 @@ es-number:
     show_icon: false
     show_state: true
     styles: !include ../styles/style-card-number.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+    default: null
+
+#---------------------#
+# Path cards
+#---------------------#
+
+# Navigation card
+path:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[navigation_path]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-path.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+# Navigation card for divisions
+path-division:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[navigation_path]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-path-division.yaml
+    styles: !include ../styles/style-card-path-division.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - rows-on: 1.2fr min-content min-content
+    - rows-off: 1.5fr 1fr
+
+# Navigation card for car
+path-car:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[navigation_path]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-car-lock.yaml
+    styles: !include ../styles/style-card-path-car.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+#---------------------#
+# Scene, Scripts cards
+#---------------------#
+
+scene:
+  card:
+    entity: "[[scene]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: scene.turn_on
+      data:
+        entity_id: "[[scene]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+
+script:
+  card:
+    entity: "[[script]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+
+script-button:
+  card:
+    entity: "[[script]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      service_data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_name: false
+    show_state: false
+    state: !include ../states/state-script.yaml
+    styles: !include ../styles/style-card-path-button.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default: null
+
+script-mood-outline:
+  card:
+    entity: "[[script]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-centered-outline.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
@@ -826,6 +820,50 @@ sensor-number-local:
     type: "custom:button-card"
   default: null
 
+sensor-bill:
+  card:
+    entity: "[[entity]]"
+    show_name: false
+    show_icon: false
+    show_state: false
+    styles: !include ../styles/style-card-bill.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+    variables:
+      type: "[[type]]"
+      title: "[[title]]"
+      company: "[[company]]"
+    custom_fields:
+      graph:
+        card:
+          type: custom:apexcharts-card
+          #experimental:
+          #  color_threshold: true
+          graph_span: 90d
+          span:
+            end: month
+          yaxis:
+            - show: false
+              min: 0
+              max: 40
+          series:
+            - entity: "[[entity]]"
+              type: column
+              color: "#417656"
+              #color_threshold: !include ../graphs/energy-bill-thresholds.yaml
+              group_by:
+                duration: 30d
+                func: last
+                fill: zero
+              show:
+                datalabels: true
+          apex_config: !include ../graphs/bills-apexconfig.yaml
+          style: |-
+            ha-card.type-custom-apexcharts-card {
+              background: transparent;
+            }
+  default: null
+
 #---------------------#
 # Radio cards
 #---------------------#
@@ -836,7 +874,7 @@ radio:
     tap_action:
       action: call-service
       service: script.radio_set
-      service_data:
+      data:
         chromecast_radio_option: "[[room]]"
         radio_station_option: "[[radio]]"
     show_icon: false
@@ -850,20 +888,91 @@ radio:
 # Buttons
 #---------------------#
 
-btn-script:
+btn:
   card:
-    name: "[[text]]"
+    entity: "[[entity]]"
+    name: "[[name]]"
     tap_action:
-      action: call-service
-      service: script.turn_on
-      service_data:
-        entity_id: "[[script]]"
+      action: "[[action]]"
+      service: "[[service]]"
+      data:
+        entity_id: "[[entity]]"
     show_icon: false
     show_state: false
-    styles: !include ../styles/style-btn-large.yaml
-    #template: "[[template]]"
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - action: call-service
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+
+btn-small:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: "[[action]]"
+      service: "[[service]]"
+      data:
+        entity_id: "[[entity]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-small.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - action: call-service
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - align-name: center
+    - card-height: 60px
+
+btn-confirmation:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: "[[action]]"
+      service: "[[service]]"
+      data:
+        entity_id: "[[entity]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    confirmation:
+      text: "[[confirmation-text]]"
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - action: call-service
+    - confirmation-text: "De certeza?"
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+
+btn-small-confirmation:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: "[[action]]"
+      service: "[[service]]"
+      data:
+        entity_id: "[[entity]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-small.yaml
+    confirmation:
+      text: "[[confirmation-text]]"
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - action: call-service
+    - confirmation-text: "De certeza?"
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - align-name: center
+    - card-height: 60px
 
 btn-icon-text:
   card:
@@ -883,26 +992,6 @@ btn-moods:
     show_state: true
     state: !include ../states/state-es-script.yaml
     styles: !include ../styles/style-card-centered.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default: null
-
-#---------------------#
-# Script triggers
-#---------------------#
-
-script-mood-outline:
-  card:
-    entity: "[[script]]"
-    name: "[[name]]"
-    tap_action:
-      action: call-service
-      service: script.turn_on
-      service_data:
-        entity_id: "[[script]]"
-    show_icon: false
-    show_state: false
-    styles: !include ../styles/style-card-centered-outline.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default: null
@@ -1039,7 +1128,7 @@ climate-vw:
               tap_action:
                 action: call-service
                 service: input_number.decrement
-                service_data:
+                data:
                   entity_id: "[[entity-climate-target]]"
             - type: "custom:button-card"
               aspect_ratio: 1/1
@@ -1051,7 +1140,7 @@ climate-vw:
               tap_action:
                 action: call-service
                 service: input_number.increment
-                service_data:
+                data:
                   entity_id: "[[service-set-target]]"
             - type: "custom:button-card"
               aspect_ratio: 1/1
@@ -1064,7 +1153,7 @@ climate-vw:
               tap_action:
                 action: call-service
                 service: input_number.increment
-                service_data:
+                data:
                   entity_id: "[[entity-climate-target]]"
     default: null
     style: |

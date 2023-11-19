@@ -184,6 +184,13 @@ sensor-xbox:
   custom_fields: !include ../icons/sensor-xbox.yaml
 
 #---------------------#
+# Sensors - Bills
+#---------------------#
+
+sensor-bills:
+  custom_fields: !include ../sensors/sensors-bills.yaml
+
+#---------------------#
 # Sensors - Car
 #---------------------#
 
@@ -240,6 +247,21 @@ scene-christmas:
 #---------------------#
 script-lights-off:
   custom_fields: !include ../icons/script-lights-off.yaml
+
+#---------------------#
+# Buttons
+#---------------------#
+btn-on:
+  custom_fields: !include ../icons/btn-on.yaml
+
+btn-off:
+  custom_fields: !include ../icons/btn-off.yaml
+
+btn-restart:
+  custom_fields: !include ../icons/btn-restart.yaml
+
+btn-script:
+  custom_fields: !include ../icons/btn-script.yaml
 
 #---------------------#
 # Tasks
