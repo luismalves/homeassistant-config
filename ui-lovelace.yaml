@@ -21,7 +21,7 @@ views:
   - !include lovelace/views/ev.yaml
   #- !include lovelace/views/tasks.yaml
   #- !include lovelace/views/plants.yaml
-  - !include lovelace/views/security.yaml
+  - !include lovelace/views/house.yaml
   - !include lovelace/views/config.yaml
   - !include lovelace/views/system.yaml
   #- !include lovelace/views/maintenance.yaml
