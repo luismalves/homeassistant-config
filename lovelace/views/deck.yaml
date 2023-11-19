@@ -142,14 +142,14 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: scene-hobby
-          - scene-1: scene.hooby_time
+          - scene: scene.hooby_time
           - entity: scene.hooby_time
 
       - template: scene
         type: "custom:decluttering-card"
         variables:
           - template: scene-gamming
-          - scene-1: scene.gamming_time
+          - scene: scene.gamming_time
           - entity: scene.gamming_time
 
       - type: conditional

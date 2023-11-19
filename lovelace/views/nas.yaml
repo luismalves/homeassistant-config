@@ -12,22 +12,35 @@ cards:
   - type: "custom:gap-card"
     height: 20
 
-  - type: "custom:decluttering-card"
-    template: title
-    variables:
-      - content: Network Attached Storage
-
-  - type: "custom:gap-card"
-    height: 25
-
-  - type: vertical-stack
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
+    layout:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      margin: 0px
     cards:
       - type: "custom:decluttering-card"
+        template: title
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Network Attached Storage
+
+      - type: "custom:gap-card"
+        view_layout:
+          grid-column: span 6
+        height: 25
+
+      - type: "custom:decluttering-card"
         template: subtitle
+        view_layout:
+          grid-column: span 6
         variables:
           - content: QNAP TS-233
 
       - type: entities
+        view_layout:
+          grid-column: span 6
         entities:
           - entity: sensor.homedrive_status
             name: Status
@@ -56,58 +69,99 @@ cards:
         card_mod:
           style: !include ../styles/style-card-entities-img.yaml
 
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        layout:
-          margin: 0
-          card_margin: var(--masonry-view-card-margin, 0 0 4px 4px)
-          grid-template-columns: 1fr 1fr
-          grid-template-rows: 110px
-        cards:
-          - type: "custom:mini-graph-card"
-            entities:
-              - entity: sensor.homedrive_system_temperature
-                name: System Temp
-            show:
-              name: true
-              icon: true
-            tap_action:
-              action: none
-            hours_to_show: 6
-            font_size: 65
-            points_per_hour: 6
-            color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
-            style: !include ../styles/style-graph-wtitle.yaml
+      - type: "custom:mini-graph-card"
+        view_layout:
+          grid-column: span 3
+        entities:
+          - entity: sensor.homedrive_system_temperature
+            name: System Temp
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 6
+        font_size: 65
+        points_per_hour: 6
+        color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
+        style: !include ../styles/style-graph-wtitle.yaml
 
-          - type: "custom:mini-graph-card"
-            entities:
-              - entity: sensor.homedrive_temperature_drive_0_2
-                name: Disk Temp
-            show:
-              name: true
-              icon: true
-            tap_action:
-              action: none
-            hours_to_show: 6
-            font_size: 65
-            points_per_hour: 6
-            color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
-            style: !include ../styles/style-graph-wtitle.yaml
+      - type: "custom:mini-graph-card"
+        view_layout:
+          grid-column: span 3
+        entities:
+          - entity: sensor.homedrive_temperature_drive_0_2
+            name: Disk Temp
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 6
+        font_size: 65
+        points_per_hour: 6
+        color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
+        style: !include ../styles/style-graph-wtitle.yaml
 
-          - type: "custom:mini-graph-card"
-            entities:
-              - entity: sensor.homedrive_volume_used_volume1
-                name: Disk usage
-              - entity: sensor.homedrive_used_space_volume1
-                show_state: true
-                show_graph: false
-            show:
-              name: true
-              icon: true
-            tap_action:
-              action: none
-            hours_to_show: 80
-            font_size: 65
-            points_per_hour: 1
-            color_thresholds: !include ../graphs/percentage-thresholds.yaml
-            style: !include ../styles/style-graph-wtitle.yaml
+      - type: "custom:mini-graph-card"
+        view_layout:
+          grid-column: span 3
+        entities:
+          - entity: sensor.homedrive_volume_used_volume1
+            name: Disk usage
+          - entity: sensor.homedrive_used_space_volume1
+            show_state: true
+            show_graph: false
+        show:
+          name: true
+          icon: true
+        tap_action:
+          action: none
+        hours_to_show: 80
+        font_size: 65
+        points_per_hour: 1
+        color_thresholds: !include ../graphs/percentage-thresholds.yaml
+        style: !include ../styles/style-graph-wtitle.yaml
+
+      - type: "custom:gap-card"
+        view_layout:
+          grid-column: span 6
+        height: 25
+
+      - template: btn-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: btn-on
+          - service: script.turn_on
+          - entity: script.turn_on_nas
+          - name: Ligar
+          - confirmation-text: Esta ação vai ligar o NAS
+
+      - template: btn-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: btn-off
+          - service: shell_command.nas_shutdown
+          - entity: shell_command.nas_shutdown
+          - name: Desligar
+          - confirmation-text: Esta ação vai desligar o NAS
+
+      - template: btn-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: btn-restart
+          - service: shell_command.nas_reboot
+          - entity: shell_command.nas_reboot
+          - name: Reiniciar
+          - confirmation-text: Esta ação vai reiniciar o NAS
+
+      - type: "custom:gap-card"
+        height: 10
+        view_layout:
+          grid-column: span 6

@@ -199,7 +199,7 @@ cards:
           grid-column: span 2
         variables:
           - template: scene-cooking
-          - scene-1: scene.cooking_time
+          - scene: scene.cooking_time
 
       - template: scene
         type: "custom:decluttering-card"
@@ -207,7 +207,7 @@ cards:
           grid-column: span 2
         variables:
           - template: scene-meal
-          - scene-1: scene.meal_time
+          - scene: scene.meal_time
 
       - type: conditional
         view_layout:

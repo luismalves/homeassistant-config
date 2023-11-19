@@ -92,7 +92,7 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: scene-reading
-          - scene-1: scene.reading
+          - scene: scene.reading
           - entity: scene.reading
 
       - template: script

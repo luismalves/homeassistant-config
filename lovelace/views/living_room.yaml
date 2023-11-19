@@ -187,14 +187,14 @@ cards:
           - entity: light.wled_xmas
           - name: "Árvore Natal"
 
-      - template: es-camera
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: camera
-          - entity: camera.androidcamera
-          - name: "Camera"
+      # - template: es-camera
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 2
+      #   variables:
+      #     - template: camera
+      #     - entity: camera.androidcamera
+      #     - name: "Camera"
 
       - type: "custom:gap-card"
         height: 10
@@ -208,7 +208,7 @@ cards:
           grid-column: span 2
         variables:
           - template: scene-movie
-          - scene-1: scene.movie_time
+          - scene: scene.movie_time
           - entity: scene.movie_time
 
       - template: scene
@@ -217,7 +217,7 @@ cards:
           grid-column: span 2
         variables:
           - template: scene-bird
-          - scene-1: scene.bird_rest_time
+          - scene: scene.bird_rest_time
           - entity: scene.bird_rest_time
 
       - template: es-boolean

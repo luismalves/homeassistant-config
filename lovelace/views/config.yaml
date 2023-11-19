@@ -202,4 +202,46 @@ cards:
           - state-1: "on"
           - state-2: "off"
 
+      - type: "custom:gap-card"
+        height: 25
+        view_layout:
+          grid-column: span 6
+
+      - template: subtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Actions
+
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-script
+          - service: script.turn_on
+          - entity: script.delete_clock_alarms
+          - name: "Apagar alarmes"
+
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-script
+          - service: script.turn_on
+          - entity: script.turn_off_all_lights
+          - name: "Desligar todas as luzes"
+
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-script
+          - service: script.toggle
+          - entity: switch.water_valve
+          - name: "Rodar torneira água"
+
       - !include ../views_frames/config-devices.yaml
