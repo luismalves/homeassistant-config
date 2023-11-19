@@ -1,7 +1,0 @@
-#####
-# Workdays component
-# https://www.home-assistant.io/integrations/workday/
-#####
-
-- platform: workday
-  country: PT
