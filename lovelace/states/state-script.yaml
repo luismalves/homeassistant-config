@@ -6,4 +6,4 @@
     custom_fields:
       sd1:
         - color: "var(--el-scene-hint-color)"
-  value: "off"
+  value: "default"
