@@ -1,0 +1,6 @@
+icon_hue: >
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.364 8.05l-.707-.707a8 8 0 102.28 4.658m-1.573-3.95h-4.243m4.243 0V3.807" stroke="var(--orange)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+type: >
+  [[[
+    return `<span>action</span>`
+  ]]]
