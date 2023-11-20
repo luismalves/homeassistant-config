@@ -341,6 +341,7 @@ cards:
                 group_by:
                   duration: 1d
                   func: last
+                  fill: zero
                   start_with_last: true
                 show:
                   datalabels: true
