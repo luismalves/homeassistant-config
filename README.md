@@ -130,7 +130,7 @@ My inspirations, which I own all the credits for the ideas:
 
 MIT License
 
-Copyright (c) 2019-204 Luís Alves
+Copyright (c) 2019-2023 Luís Alves
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
