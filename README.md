@@ -41,6 +41,13 @@ Wondering what Home assistant is? Check [their homepage][home-assistant].
 
 ## Dashboards
 
+They are not perfect but are at least 2 years worth of iterations and many many experimentations. 
+Optimized as much as possible with [button-card][button-card] and [decluttering-card][decluttering-card] templates. This ensured consistency in the design and faster development times for adding and modifying cards.
+
+My inspirations, which I own all the credits for the ideas:
+- https://community.home-assistant.io/t/rounded-dashboard-guide/543043
+- https://github.com/matt8707/hass-config
+
 ### Mobile - Homepage
 <p align="left">
   <img src="/extras/img/mobile/light_home.jpg" width="200" />
@@ -155,3 +162,5 @@ SOFTWARE.
 [intelnuc]: https://ark.intel.com/content/www/us/en/ark/products/126150/intel-nuc-kit-nuc8i3beh.html
 [conbee]: https://www.phoscon.de/en/conbee2
 [proxmox]: https://www.proxmox.com/en/
+[button-card]: https://github.com/custom-cards/button-card
+[decluttering-card]: https://github.com/custom-cards/decluttering-card
