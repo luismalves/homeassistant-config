@@ -39,6 +39,86 @@ Wondering what Home assistant is? Check [their homepage][home-assistant].
 - Many ESP32/ESP8266
 
 
+## Dashboards
+
+### Mobile - Homepage
+<p align="left">
+  <img src="/extras/img/mobile/light_home.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_home.jpg" width="200" />
+</p>
+
+### Mobile - Living Room
+<p align="left">
+  <img src="/extras/img/mobile/light_livingroom.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_livingroom.jpg" width="200" />
+</p>
+
+### Mobile - Office
+<p align="left">
+  <img src="/extras/img/mobile/light_deck.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_deck.jpg" width="200" />
+</p>
+
+### Mobile - Kitchen
+<p align="left">
+  <img src="/extras/img/mobile/light_kitchen.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_kitchen.jpg" width="200" />
+</p>
+
+### Mobile - Bedroom
+<p align="left">
+  <img src="/extras/img/mobile/light_bedroom.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_bedroom.jpg" width="200" />
+</p>
+
+### Mobile - EV
+<p align="left">
+  <img src="/extras/img/mobile/light_ev.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_ev.jpg" width="200" />
+</p>
+
+### Mobile - House
+<p align="left">
+  <img src="/extras/img/mobile/light_house.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_house.jpg" width="200" />
+</p>
+
+### Mobile - Config
+<p align="left">
+  <img src="/extras/img/mobile/light_config.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_config.jpg" width="200" />
+</p>
+
+### Mobile - Home server
+<p align="left">
+  <img src="/extras/img/mobile/light_server.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_server.jpg" width="200" />
+</p>
+
+### Mobile - Home network
+<p align="left">
+  <img src="/extras/img/mobile/light_network.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_network.jpg" width="200" />
+</p>
+
+### Mobile - NAS
+<p align="left">
+  <img src="/extras/img/mobile/light_nas.jpg" width="200" />
+  &nbsp; &nbsp;
+  <img src="/extras/img/mobile/dark_nas.jpg" width="200" />
+</p>
+
+
 ## License
 
 MIT License
