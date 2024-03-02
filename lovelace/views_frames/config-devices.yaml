@@ -57,29 +57,30 @@ cards:
             name: outside
           type: "custom:bar-card"
           unit_of_mesurement: "%"
-          style: |-
-            bar-card-row {
-              margin-bottom: 0px !important;
-            }
-            ha-card {
-              background: var(--ha-card-background-es-static);
-              font-weight: bold;
-              color: var(--el-es-static-text-color);
-              font-size: 12px;
-            }
-            bar-card-card {
-              --bar-card-border-radius: 5px;
-            }
-            bar-card-value {
-              color: var(--el-es-static-text-color);
-              margin-right: auto;
-              font-size: 12px;
-              font-weight: bold;
-              text-shadow: 1px 1px #0005;
-            }
-            bar-card-backgroundbar {
-              opacity: 0.1;
-            }
+          card_mod:
+            style: |-
+              bar-card-row {
+                margin-bottom: 0px !important;
+              }
+              ha-card {
+                background: var(--ha-card-background-es-static);
+                font-weight: bold;
+                color: var(--el-es-static-text-color);
+                font-size: 12px;
+              }
+              bar-card-card {
+                --bar-card-border-radius: 5px;
+              }
+              bar-card-value {
+                color: var(--el-es-static-text-color);
+                margin-right: auto;
+                font-size: 12px;
+                font-weight: bold;
+                text-shadow: 1px 1px #0005;
+              }
+              bar-card-backgroundbar {
+                opacity: 0.1;
+              }
           width: 40%
         sort:
           method: state

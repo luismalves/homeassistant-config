@@ -78,13 +78,14 @@ cards:
       - type: custom:vertical-stack-in-card
         view_layout:
           grid-column: span 2
-        style: |
-          ha-card.type-custom-vertical-stack-in-card {
-            background-color: var(--ha-card-background-es-static);
-          }
-          ha-card.type-custom-vertical-stack-in-card > div {
-            padding: 0px 15px 15px;
-          }
+        card_mod:
+          style: |
+            ha-card.type-custom-vertical-stack-in-card {
+              background-color: var(--ha-card-background-es-static);
+            }
+            ha-card.type-custom-vertical-stack-in-card > div {
+              padding: 0px 15px 15px;
+            }
         cards:
           - type: "custom:button-card"
             name: Opções de carregamento
@@ -147,14 +148,15 @@ cards:
       - type: custom:vertical-stack-in-card
         view_layout:
           grid-column: span 2
-        style: |
-          ha-card.type-custom-vertical-stack-in-card {
-            background-color: var(--ha-card-background-es-static);
-          }
-          apexcharts-card { --primary-text-color: var(--el-graph-bar-color); }
-          ha-card.type-custom-vertical-stack-in-card > div {
-            padding: 0px 15px 5px;
-          }
+        card_mod:
+          style: |
+            ha-card.type-custom-vertical-stack-in-card {
+              background-color: var(--ha-card-background-es-static);
+            }
+            apexcharts-card { --primary-text-color: var(--el-graph-bar-color); }
+            ha-card.type-custom-vertical-stack-in-card > div {
+              padding: 0px 15px 5px;
+            }
         cards:
           - type: "custom:button-card"
             name: Distâncias por dia
@@ -223,10 +225,11 @@ cards:
                   format: "d/M"
                   style:
                     fontSize: "10px"
-            style: |-
-              ha-card.type-custom-apexcharts-card {
-                background: transparent;
-              }
+            card_mod:
+              style: |-
+                ha-card.type-custom-apexcharts-card {
+                  background: transparent;
+                }
 
       - type: "custom:decluttering-card"
         template: climate-vw

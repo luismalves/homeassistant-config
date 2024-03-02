@@ -22,6 +22,25 @@ browser_mod:
               view_layout:
                 grid-area: icon
 
+        - type: custom:layout-card
+          layout_type: grid-layout
+          layout:
+            grid-auto-columns: auto
+            margin: 0px 0 14px
+            place-content: center center
+          cards:
+            - type: "custom:decluttering-card"
+              template: sensor-pill
+              variables:
+                - entity: input_boolean.enable_shutter_automation
+                - state-1: "on"
+                - state-2: "off"
+                - name: "Automação está"
+                - show-name: true
+                - icon: mdi:refresh-auto
+                - color-state-on: --ha-card-color-name-on
+                - color-name-off: --ha-card-color-state-off
+
         - type: custom:hui-vertical-stack-card
           cards:
             - type: "custom:decluttering-card"
@@ -59,48 +78,50 @@ browser_mod:
               sliderService: cover.set_cover_position
               sliderColor: "#a18568"
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
-              style: >
-                #popup > div.action-holder > div > div {
-                  font-family: var(--paper-ha-card_-_font-family);
-                  font-weight: 700;
-                  font-size: 0.9em;
-                  margin: 1em 1em 1em 1em;
-                } 
-                div > div > h4 {
-                  color: var(--el-title-color);
-                  margin-top: -65px;
-                  margin-bottom: 20px;
-                  font-size: 10px;
-                  font-weight: 700;
-                  font-family: var(--paper-ha-card_-_font-family);
-                  letter-spacing: 0.04em;
-                }  
-                .popup-inner {
-                  background: var(--card-background-color);
-                  padding-top: 65px;
-                } 
-                .popup-inner .icon {
-                  display: none;
-                }
-                #popup > div.range-holder > input[type=range]::-webkit-slider-thumb {
-                  border: 100%
-                  height: 100%
-                  width: 10px;
-                  cursor: pointer;
-                }
-                .action-holder .action .color {
-                  border-color: var(--el-text-color) !important;
-                }
-                .action-holder .action .name {
-                  color: var(--el-text-color) !important;
-                  font-size: 10px !important;
-                  margin-top: 4px !important;
-                }
+              card_mod:
+                style: >
+                  #popup > div.action-holder > div > div {
+                    font-family: var(--paper-ha-card_-_font-family);
+                    font-weight: 700;
+                    font-size: 0.9em;
+                    margin: 1em 1em 1em 1em;
+                  } 
+                  div > div > h4 {
+                    color: var(--el-title-color);
+                    margin-top: -65px;
+                    margin-bottom: 20px;
+                    font-size: 10px;
+                    font-weight: 700;
+                    font-family: var(--paper-ha-card_-_font-family);
+                    letter-spacing: 0.04em;
+                  }  
+                  .popup-inner {
+                    background: var(--card-background-color);
+                    padding-top: 65px;
+                  } 
+                  .popup-inner .icon {
+                    display: none;
+                  }
+                  #popup > div.range-holder > input[type=range]::-webkit-slider-thumb {
+                    border: 100%
+                    height: 100%
+                    width: 10px;
+                    cursor: pointer;
+                  }
+                  .action-holder .action .color {
+                    border-color: var(--el-text-color) !important;
+                  }
+                  .action-holder .action .name {
+                    color: var(--el-text-color) !important;
+                    font-size: 10px !important;
+                    margin-top: 4px !important;
+                  }
               type: "custom:cover-popup-card"
           show_header_toggle: false
-          style: >
-            #states {
-              padding: 0;
-            }
+          card_mod:
+            style: >
+              #states {
+                padding: 0;
+              }
           type: entities
       type: vertical-stack

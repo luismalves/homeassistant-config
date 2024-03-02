@@ -1,38 +1,59 @@
 card:
-  - height: 50px
+  - height: "[[card-height]]"
   - color: "rgba(87, 87, 87, 0.8)"
   - font-size: 12px
   - font-family: "var(--paper-ha-card_-_font-family)"
+  - padding: 0
+  - --text-align-name: "[[text-align-name]]"
+  - --align-self-name: "[[align-self-name]]"
+  - --align-self-state: "[[align-self-state]]"
+  - --grid-gap: "[[grid-gap]]"
+  - --grid-template-rows: "[[grid-template-rows]]"
+  - --margin-name: "[[margin-name]]"
 
 custom_fields:
   icon_hue:
     - margin: auto
     - width: 25px
+
   sd1:
     - align-self: center
     - justify-self: start
     - text-align: center
     - display: none
+
   s:
-    - align-self: center
+    - align-self: var(--align-self-state)
     - font-weight: bold
     - justify-self: start
     - text-align: left
 
+  type:
+    - background-color: var(--contrast4)
+    - color: var(--contrast8)
+    - font-size: 10px
+    - margin-top: 2px
+    - text-align: center
+    - padding: 2px 0
+    - width: 100%
+
 grid:
-  - grid-template-areas: '"icon_hue n" "icon_hue s" "icon_hue sd1"'
+  - grid-template-areas: '"icon_hue n" "icon_hue s" "icon_hue sd1" "type type"'
   - grid-template-columns: 1fr 2fr
-  - grid-template-rows: 1fr min-content min-content
+  - grid-gap: var(--grid-gap, 0px)
+  - grid-template-rows: var(--grid-template-rows)
 
 name:
-  - align-self: center
+  - align-self: var(--align-self-name)
   - justify-self: start
-  - text-align: left
+  - text-align: var(--text-align-name)
   - font-weight: bold
   - line-height: 1
+  - margin: var(--margin-name, 0px)
   - font-size: 12px
   - padding-right: 5px
   - text-overflow: none
+  - width: calc(100% - 5px)
   - white-space: initial
 
 state:

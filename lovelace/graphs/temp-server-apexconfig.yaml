@@ -1,0 +1,25 @@
+chart:
+  height: "200px"
+  fontFamily: "var(--paper-ha-card_-_font-family)"
+# tooltip:
+#   enabled: false
+grid:
+  #   show: false
+  borderColor: "var(--contrast9)"
+  padding:
+    left: 30
+    right: 30
+xaxis:
+  tickPlacement: "on"
+stroke:
+  curve: "smooth"
+dataLabels:
+  background:
+    borderRadius: 10
+    borderColor: "var(--contrast10)"
+  show: true
+  style:
+    fontSize: "12px"
+    colors: ["var(--card-background-color)"]
+  # background:
+  #   enabled: false

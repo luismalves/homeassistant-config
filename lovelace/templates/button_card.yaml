@@ -18,6 +18,9 @@ plants:
 healthchecks:
   custom_fields: !include ../icons/healthchecks.yaml
 
+lxc:
+  custom_fields: !include ../icons/lxc.yaml
+
 vm:
   custom_fields: !include ../icons/vm.yaml
 

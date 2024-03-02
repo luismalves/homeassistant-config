@@ -98,31 +98,32 @@ cards:
                     name: outside
                   type: "custom:bar-card"
                   unit_of_mesurement: "%"
-                  style: |-
-                    bar-card-row {
-                      margin-bottom: 0px !important;
-                    }
-                    ha-card {
-                      font-weight: 700;
-                      color: rgba(87, 87, 87);
-                      font-size: 12px;
-                      border-radius: 15px;
-                      box-shadow: none;
-                      transition: none 0s ease 0s;
-                    }
-                    bar-card-card {
-                      --bar-card-border-radius: 5px;
-                    }
-                    bar-card-value {
-                      color: rgba(0, 0, 0, 0.8);
-                      margin-right: auto;
-                      font-size: 12px;
-                      font-weight: bold;
-                      text-shadow: 1px 1px #0005;
-                    }
-                    bar-card-backgroundbar {
-                      opacity: 0.1;
-                    }
+                  card_mod:
+                    style: |-
+                      bar-card-row {
+                        margin-bottom: 0px !important;
+                      }
+                      ha-card {
+                        font-weight: 700;
+                        color: rgba(87, 87, 87);
+                        font-size: 12px;
+                        border-radius: 15px;
+                        box-shadow: none;
+                        transition: none 0s ease 0s;
+                      }
+                      bar-card-card {
+                        --bar-card-border-radius: 5px;
+                      }
+                      bar-card-value {
+                        color: rgba(0, 0, 0, 0.8);
+                        margin-right: auto;
+                        font-size: 12px;
+                        font-weight: bold;
+                        text-shadow: 1px 1px #0005;
+                      }
+                      bar-card-backgroundbar {
+                        opacity: 0.1;
+                      }
                   width: 40%
                 sort:
                   method: state
@@ -156,27 +157,28 @@ cards:
                   columns: 3
                   show_state: false
                   show_icon: true
-                  style:
-                    .: |
-                      ha-card {
-                        font-weight: 700;
-                        color: rgba(87, 87, 87);
-                        font-size: 12px;
-                        border-radius: 15px;
-                        box-shadow: none;
-                        transition: none 0s ease 0s;
-                      }
-                    "div.entity":
-                      $:
-                        "state-badge": |
-                          $:
-                            :host {
-                              height: 30px;
-                              line-height: 30px;
-                            }
-                            state-badge {
-                              margin: 0px !important;
-                            }
+                  card_mod:
+                    style:
+                      .: |
+                        ha-card {
+                          font-weight: 700;
+                          color: rgba(87, 87, 87);
+                          font-size: 12px;
+                          border-radius: 15px;
+                          box-shadow: none;
+                          transition: none 0s ease 0s;
+                        }
+                      "div.entity":
+                        $:
+                          "state-badge": |
+                            $:
+                              :host {
+                                height: 30px;
+                                line-height: 30px;
+                              }
+                              state-badge {
+                                margin: 0px !important;
+                              }
                 sort:
                   method: domain
                 filter:

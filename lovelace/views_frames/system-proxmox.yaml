@@ -19,6 +19,68 @@ cards:
     view_layout:
       grid-column: span 6
     variables:
+      - content: Linux Containers (Proxmox)
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - action: none
+      - entity: binary_sensor.lxc_pihole_300_status
+      - name: "Pihole"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - action: none
+      - entity: binary_sensor.lxc_mqtt_301_status
+      - name: "MQTT"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - action: none
+      - entity: binary_sensor.lxc_zigbee2mqtt_302_status
+      - name: "Zigbee2MQTT"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - action: none
+      - entity: binary_sensor.lxc_control_303_status
+      - name: "Control"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - action: none
+      - entity: binary_sensor.lxc_jellyfin_305_status
+      - name: "Jellyfin"
+
+  - type: "custom:gap-card"
+    height: 25
+    view_layout:
+      grid-column: span 6
+
+  - template: subtitle
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 6
+    variables:
       - content: Virtual Machines (Proxmox)
 
   - template: es-config
@@ -28,8 +90,8 @@ cards:
     variables:
       - template: vm
       - action: none
-      - entity: binary_sensor.lxc_frigate_107_status
-      - name: "Frigate LXC"
+      - entity: binary_sensor.qemu_omv_201_status
+      - name: "Open Media Vault"
 
   - template: es-config
     type: "custom:decluttering-card"
@@ -38,7 +100,17 @@ cards:
     variables:
       - template: vm
       - action: none
-      - entity: binary_sensor.qemu_ubuntu_server_105_status_2
+      - entity: binary_sensor.qemu_truenas_200_status
+      - name: "TrueNAS"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: vm
+      - action: none
+      - entity: binary_sensor.qemu_ubuntu_server_trusted_105_status
       - name: "Ubuntu Server"
 
   - template: es-config
@@ -48,15 +120,5 @@ cards:
     variables:
       - template: vm
       - action: none
-      - entity: binary_sensor.qemu_ubuntu_desktop_103_status_2
-      - name: "Ubuntu Desktop"
-
-  - template: es-config
-    type: "custom:decluttering-card"
-    view_layout:
-      grid-column: span 3
-    variables:
-      - template: vm
-      - action: none
-      - entity: binary_sensor.qemu_win10_201_status_2
-      - name: "Windows 10"
+      - entity: binary_sensor.qemu_dns_reflector_106_status
+      - name: "DNS Reflector"

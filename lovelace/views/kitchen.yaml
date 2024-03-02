@@ -28,18 +28,19 @@ cards:
       - type: markdown
         view_layout:
           grid-column: span 6
-        style: >
-          ha-card {
-            box-shadow: none;
-            height: 100%;
-            background: none;
-            font-weight: 700;
-            font-size: 1.2em;
-            color: var(--el-title-color);
-            margin-left: -15px;
-            margin-top: -17px;
-            margin-bottom: 0px;
-          }
+        card_mod:
+          style: >
+            ha-card {
+              box-shadow: none;
+              height: 100%;
+              background: none;
+              font-weight: 700;
+              font-size: 1.2em;
+              color: var(--el-title-color);
+              margin-left: -15px;
+              margin-top: -17px;
+              margin-bottom: 0px;
+            }
         content: >
           {% if states.sensor.lights_on_kitchen.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_kitchen.state == "1" %} {{states.sensor.lights_on_kitchen.state}} luz ligada. {% else %} {{states.sensor.lights_on_kitchen.state}} luzes ligadas. {% endif %}
 
@@ -53,7 +54,8 @@ cards:
               state: ">80"
         card:
           type: markdown
-          style: !include ../styles/style-card-alert.yaml
+          card_mod:
+            style: !include ../styles/style-card-alert.yaml
           content: Humidade muito elevada.
 
       - template: es-switch
@@ -142,7 +144,8 @@ cards:
         font_size: 65
         points_per_hour: 1
         color_thresholds: !include ../graphs/temp-thresholds.yaml
-        style: !include ../styles/style-graph.yaml
+        card_mod:
+          style: !include ../styles/style-graph.yaml
 
       - template: es-speaker
         type: "custom:decluttering-card"

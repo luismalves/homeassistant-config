@@ -91,6 +91,8 @@ cards:
           - name: "Automação dos estores"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -102,6 +104,8 @@ cards:
           - name: "Automação dos estores (briza noturna)"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -113,6 +117,8 @@ cards:
           - name: "Automação luz entrada"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -124,6 +130,8 @@ cards:
           - name: "Automação luz mosquitos"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -135,6 +143,8 @@ cards:
           - name: "Automação luz quarto"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -146,6 +156,8 @@ cards:
           - name: "Automação luz deck"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -157,6 +169,8 @@ cards:
           - name: "Automação luz cozinha"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -168,6 +182,8 @@ cards:
           - name: "Alertas bateria carro"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -179,6 +195,8 @@ cards:
           - name: "Rotina de acordar"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -190,6 +208,8 @@ cards:
           - name: "Modo de manutenção"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -201,6 +221,21 @@ cards:
           - name: "Modo de férias"
           - state-1: "on"
           - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-vacations
+          - entity: input_boolean.christmas_season
+          - name: "Época de natal"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - type: "custom:gap-card"
         height: 25

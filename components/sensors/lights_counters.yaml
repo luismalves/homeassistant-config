@@ -57,3 +57,11 @@
           states.light.wled_bed_group,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_house:
+      friendly_name: "Luzes ligadas na casa"
+      unit_of_measurement: "on"
+      value_template: >
+        {{ states('sensor.lights_on_deck')|int + states('sensor.lights_on_living_room')|int + states('sensor.lights_on_living_room')|int + states('sensor.lights_on_bedroom')|int }}

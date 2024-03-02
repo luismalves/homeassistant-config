@@ -15,10 +15,12 @@ dataLabels:
   offsetY: 4
   formatter: |
     EVAL:function(value) {
-      if(value.toFixed(1) == 0) {
-        return '';
-      } else {
-        return value.toFixed(1) + "€";
+      if(value) {
+        if(value.toFixed(1) == 0) {
+          return '';
+        } else {
+          return value.toFixed(1) + "€";
+        }
       }
     }
   style:

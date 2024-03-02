@@ -43,18 +43,19 @@ subheader:
 
 title:
   card:
-    style: >
-      ha-card {
-        height: 100%;
-        background: none;
-        font-family: var(--paper-ha-card_-_font-family);
-        font-weight: 700;
-        font-size: 24px;
-        color: var([[color]]);
-        margin-left: -15px;
-        margin-top: -20px;
-        margin-bottom: -15px;
-      }
+    card_mod:
+      style: >
+        ha-card {
+          height: 100%;
+          background: none;
+          font-family: var(--paper-ha-card_-_font-family);
+          font-weight: 700;
+          font-size: 24px;
+          color: var([[color]]);
+          margin-left: -15px;
+          margin-top: -20px;
+          margin-bottom: -15px;
+        }
     type: markdown
     content: |
       [[content]]
@@ -63,18 +64,19 @@ title:
 
 subtitle:
   card:
-    style: >
-      ha-card {
-        height: 100%;
-        background: none;
-        font-family: var(--paper-ha-card_-_font-family);
-        font-weight: 600;
-        font-size: 17px;
-        color: var(--[[color]]);
-        margin-left: -15px;
-        margin-top: -25px;
-        margin-bottom: -15px;
-      }
+    card_mod:
+      style: >
+        ha-card {
+          height: 100%;
+          background: none;
+          font-family: var(--paper-ha-card_-_font-family);
+          font-weight: 600;
+          font-size: 17px;
+          color: var(--[[color]]);
+          margin-left: -15px;
+          margin-top: -25px;
+          margin-bottom: -15px;
+        }
     type: markdown
     content: |
       [[content]]
@@ -83,18 +85,19 @@ subtitle:
 
 device:
   card:
-    style: >
-      ha-card {
-        height: 100%;
-        background: none;
-        font-weight: 700;
-        font-size: 13px;
-        color: var(--el-title-color);
-        text-align: center;
-        position: static;
-        margin-top: -20px;
-        margin-bottom: -25px;
-      }
+    card_mod:
+      style: >
+        ha-card {
+          height: 100%;
+          background: none;
+          font-weight: 700;
+          font-size: 13px;
+          color: var(--el-title-color);
+          text-align: center;
+          position: static;
+          margin-top: -20px;
+          margin-bottom: -25px;
+        }
     type: markdown
     content: |
       [[content]]
@@ -196,8 +199,13 @@ es-config:
     - color-state-off: --ha-card-color-state-off
     - state-1: "on"
     - state-2: "off"
-    - align-name: left
     - card-height: 50px
+    - grid-gap: 0
+    - grid-template-rows: 1.1fr 1fr
+    - text-align-name: left
+    - align-self-name: end
+    - align-self-state: start
+    - margin-name: 0 0 3px 0
 
 es-dummy:
   card:
@@ -226,6 +234,34 @@ es-light:
     entity: "[[entity]]"
     name: "[[name]]"
     hold_action: !include ../holds/hold-action-es-lights.yaml
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
+    - info-attribute: entity.attributes.brightness
+    - info-max: (254 / 100)
+    - info-unit: "%"
+    - info-state: "on"
+
+# Lights which support speed and itensity as WLED. Changes in hold action.
+es-light-wled:
+  card:
+    custom_fields: !include ../circles/pill-x.yaml
+    entity: "[[entity]]"
+    name: "[[name]]"
+    hold_action: !include ../holds/hold-action-es-lights-wled.yaml
     tap_action:
       action: toggle
     show_icon: false
@@ -722,14 +758,16 @@ sensor-pill:
     icon: "[[icon]]"
     show_icon: true
     show_state: true
-    show_name: false
+    show_name: "[[show-name]]"
     numeric_precision: "[[numeric_precision]]"
     tap_action:
       action: none
     state: !include ../states/state-x.yaml
-    styles: !include ../styles/style-card-sensor.yaml
+    styles: !include ../styles/style-card-sensor-pill.yaml
     #template: "[[template]]"
     type: "custom:button-card"
+    variables:
+      show-name: "[[show-name]]"
   default:
     - background-on: --ha-card-background-es-on
     - background-default: --orange-tint, var(--ha-card-background-es-on)
@@ -740,8 +778,9 @@ sensor-pill:
     - numeric_precision: 1
     - state-1: "on"
     - state-2: "off"
+    - show-name: false
 
-# sensor-kitchen:
+    # sensor-kitchen:
 #   card:
 #     entity: "[[entity]]"
 #     name: "[[name]]"
@@ -858,10 +897,11 @@ sensor-bill:
               show:
                 datalabels: true
           apex_config: !include ../graphs/bills-apexconfig.yaml
-          style: |-
-            ha-card.type-custom-apexcharts-card {
-              background: transparent;
-            }
+          card_mod:
+            style: |-
+              ha-card.type-custom-apexcharts-card {
+                background: transparent;
+              }
   default: null
 
 #---------------------#
@@ -925,8 +965,13 @@ btn-small:
   default:
     - action: call-service
     - name: "[[[ return entity.attributes.friendly_name ]]]"
-    - align-name: center
     - card-height: 60px
+    - grid-gap: 0
+    - grid-template-rows: 1fr min-content min-content min-content
+    - text-align-name: center
+    - align-self-name: center
+    - align-self-state: center
+    - margin-name: 0
 
 btn-confirmation:
   card:
@@ -971,8 +1016,13 @@ btn-small-confirmation:
     - action: call-service
     - confirmation-text: "De certeza?"
     - name: "[[[ return entity.attributes.friendly_name ]]]"
-    - align-name: center
-    - card-height: 60px
+    - card-height: 60px´
+    - grid-gap: 0
+    - grid-template-rows: 1fr min-content min-content min-content
+    - text-align-name: center
+    - align-self-name: center
+    - align-self-state: center
+    - margin-name: 0
 
 btn-icon-text:
   card:
@@ -1005,67 +1055,70 @@ map-card:
     cards:
       - type: markdown
         content: "Quilómetros"
-        style: |
-          ha-card.type-markdown {
-            background: transparent;
-            height: 0px;
-          }
-          ha-markdown.no-header {
-            bottom: -80px;
-            color: var(--el-text-color);
-            font-size: 12px;
-            font-weight: bold;
-            left: 0px;
-            padding-left: 10px !important;
-            padding-top: 0px !important;
-            position: absolute;
-            z-index: 1;
-          }
+        card_mod:
+          style: |
+            ha-card.type-markdown {
+              background: transparent;
+              height: 0px;
+            }
+            ha-markdown.no-header {
+              bottom: -80px;
+              color: var(--el-text-color);
+              font-size: 12px;
+              font-weight: bold;
+              left: 0px;
+              padding-left: 10px !important;
+              padding-top: 0px !important;
+              position: absolute;
+              z-index: 1;
+            }
       - type: markdown
         content: |
           {{ states.sensor.my_id_odometer.state }} KMs
-        style: |
-          ha-card.type-markdown {
-            background: transparent;
-            height: 0px;
-          }
-          ha-markdown.no-header {
-            bottom: -96px;
-            color: var(--el-text-color);
-            font-size: 12px;
-            left: 0px;
-            padding-left: 10px !important;
-            padding-top: 0px !important;
-            position: absolute;
-            z-index: 1;
-          }
+        card_mod:
+          style: |
+            ha-card.type-markdown {
+              background: transparent;
+              height: 0px;
+            }
+            ha-markdown.no-header {
+              bottom: -96px;
+              color: var(--el-text-color);
+              font-size: 12px;
+              left: 0px;
+              padding-left: 10px !important;
+              padding-top: 0px !important;
+              position: absolute;
+              z-index: 1;
+            }
       - type: picture-entity
         entity: camera.vw_ev_location
         show_name: false
         show_state: false
         tap_action:
           action: none
-        style: |
-          ha-card {
-            border-radius: 0px;
-            margin-bottom: -20px;
-            margin-top: -5x;
-          }
-          img {
-            position: relative;
-          }
-          .type-picture-entity:after {
-            background: linear-gradient(to bottom, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 15%),
-                        linear-gradient(to right, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 40%),
-                        linear-gradient(to left, var(--map-gradient-end) 0px, rgba(0, 0, 0, 0) 15%),
-                        linear-gradient(to top, var(--map-gradient-end) 15px, rgba(0, 0, 0, 0) 20%);
-            content: '';
-            height: 100%;
-            left:0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-          }
+        card_mod:
+          style: |
+            ha-card {
+              border-radius: 0px;
+              margin-bottom: -20px;
+              margin-top: -5x;
+            }
+            img {
+              position: relative;
+            }
+            .type-picture-entity:after {
+              background: linear-gradient(to bottom, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 15%),
+                          linear-gradient(to right, var(--map-gradient-end) 5px, rgba(0, 0, 0, 0) 40%),
+                          linear-gradient(to left, var(--map-gradient-end) 0px, rgba(0, 0, 0, 0) 15%),
+                          linear-gradient(to top, var(--map-gradient-end) 15px, rgba(0, 0, 0, 0) 20%);
+              content: '';
+              height: 100%;
+              left:0;
+              position: absolute;
+              top: 0;
+              width: 100%;
+            }
 
 #---------------------#
 # Climate
@@ -1156,24 +1209,25 @@ climate-vw:
                 data:
                   entity_id: "[[entity-climate-target]]"
     default: null
-    style: |
-      ha-card {
-        {% if (is_state('sensor.my_id_climatisation_state','on')) %}  
-        background: var(--ha-card-background-es-on);
-        {% else %}
-        background: var(--ha-card-background-es-off);
-        {% endif %}
-        height: 165px;
-        width: 165px;
-      }
-      ha-card > div {
-        display: inline-flex;
-        flex-direction: column;
-        height: calc(100% - 20px);
-        justify-content: space-between;
-        padding: 10px;
-        width: calc(100% - 20px);
-      }
+    card_mod:
+      style: |
+        ha-card {
+          {% if (is_state('sensor.my_id_climatisation_state','on')) %}  
+          background: var(--ha-card-background-es-on);
+          {% else %}
+          background: var(--ha-card-background-es-off);
+          {% endif %}
+          height: 165px;
+          width: 165px;
+        }
+        ha-card > div {
+          display: inline-flex;
+          flex-direction: column;
+          height: calc(100% - 20px);
+          justify-content: space-between;
+          padding: 10px;
+          width: calc(100% - 20px);
+        }
 
 #---------------------#
 # Cars
@@ -1183,24 +1237,26 @@ car-state:
   default: null
   card:
     type: custom:vertical-stack-in-card
-    style: |
-      ha-card.type-custom-vertical-stack-in-card {
-        background: transparent;
-      }
-      layout-card {
-        background: var(--ha-card-background-es-static);
-        border-radius: var(--ha-card-border-radius);
-        display: block;
-        padding-top: 30px;
-      }
+    card_mod:
+      style: |
+        ha-card.type-custom-vertical-stack-in-card {
+          background: transparent;
+        }
+        layout-card {
+          background: var(--ha-card-background-es-static);
+          border-radius: var(--ha-card-border-radius);
+          display: block;
+          padding-top: 30px;
+        }
     cards:
       - type: picture
         image: /local/images/cars/side.png
-        style: |
-          ha-card.type-picture {
-            background: transparent;
-            min-height: 160px;
-          }
+        card_mod:
+          style: |
+            ha-card.type-picture {
+              background: transparent;
+              min-height: 160px;
+            }
       - type: markdown
         content: |
           {% set timestamp_1 = states.binary_sensor.my_id_car_is_active.last_changed %}
@@ -1210,19 +1266,20 @@ car-state:
           {% else %}
           Atualizado à {{ (as_timestamp(now()) - as_timestamp(timestamp_2)) | timestamp_custom("%-Hh e %Mmin", false) }}
           {% endif %}
-        style: |
-          ha-card.type-markdown {
-            background: transparent;
-            margin-bottom: -45px;
-          }
-          ha-markdown.no-header {
-            color: var(--el-text-color-light);
-            font-size: 10px;
-            margin-top: -35px;
-            padding-bottom: 0px;
-            padding-top: 0px !important;
-            text-align: center;
-          }
+        card_mod:
+          style: |
+            ha-card.type-markdown {
+              background: transparent;
+              margin-bottom: -45px;
+            }
+            ha-markdown.no-header {
+              color: var(--el-text-color-light);
+              font-size: 10px;
+              margin-top: -35px;
+              padding-bottom: 0px;
+              padding-top: 0px !important;
+              text-align: center;
+            }
 
       - type: custom:state-switch
         entity: sensor.my_id_door_lock_status
@@ -1232,28 +1289,29 @@ car-state:
             type: markdown
             content: |
               <ha-icon icon="mdi:lock-open-alert-outline"></ha-icon> Aberto
-            style: |
-              ha-card.type-markdown {
-                background: transparent;
-                display: flex;
-                justify-content: center;
-                margin-bottom: -45px;
-                width: 100%;
-                --mdc-icon-size: 12px;
-              }
-              ha-markdown.no-header {
-                background-color: var(--ha-card-background-es-off);
-                border-radius: 40px;
-                color: var(--el-text-color);
-                font-size: 12px;
-                font-weight: bold;
-                height: 18px;
-                margin-top: -45px;
-                padding-bottom: 10px;
-                padding-left: 16px;
-                padding-top: 10px !important;
-                padding-right: 16px;
-              }
+            card_mod:
+              style: |
+                ha-card.type-markdown {
+                  background: transparent;
+                  display: flex;
+                  justify-content: center;
+                  margin-bottom: -45px;
+                  width: 100%;
+                  --mdc-icon-size: 12px;
+                }
+                ha-markdown.no-header {
+                  background-color: var(--ha-card-background-es-off);
+                  border-radius: 40px;
+                  color: var(--el-text-color);
+                  font-size: 12px;
+                  font-weight: bold;
+                  height: 18px;
+                  margin-top: -45px;
+                  padding-bottom: 10px;
+                  padding-left: 16px;
+                  padding-top: 10px !important;
+                  padding-right: 16px;
+                }
 
       - type: custom:layout-card
         layout_type: custom:horizontal-layout
@@ -1311,53 +1369,55 @@ car-state:
                   minmax: "off"
                   name: "off"
                   value: inside
-                style: |-
-                  ha-card.type-custom-bar-card {
-                    background: transparent;
-                  }
-                  .card-content {
-                    padding-bottom: 0px;
-                    padding-left: 5px;
-                    padding-right: 4px;
-                  }
-                  bar-card-card {
-                    --bar-card-border-radius: 6px;
-                    --mdc-icon-size: 18px;
-                  }
-                  bar-card-backgroundbar {
-                    background: var(--ha-card-bar-background);
-                    filter: none;
-                    opacity: 1;
-                  }
-                  bar-card-iconbar {
-                    color: white;
-                  }
-                  bar-card-currentbar {
-                    --bar-card-color: rgb(93, 167, 98);
-                  }
-                  .value-direction-right {
-                    color: var(--el-text-color);
-                    font-weight: bold;
-                  }
+                card_mod:
+                  style: |-
+                    ha-card.type-custom-bar-card {
+                      background: transparent;
+                    }
+                    .card-content {
+                      padding-bottom: 0px;
+                      padding-left: 5px;
+                      padding-right: 4px;
+                    }
+                    bar-card-card {
+                      --bar-card-border-radius: 6px;
+                      --mdc-icon-size: 18px;
+                    }
+                    bar-card-backgroundbar {
+                      background: var(--ha-card-bar-background);
+                      filter: none;
+                      opacity: 1;
+                    }
+                    bar-card-iconbar {
+                      color: white;
+                    }
+                    bar-card-currentbar {
+                      --bar-card-color: rgb(93, 167, 98);
+                    }
+                    .value-direction-right {
+                      color: var(--el-text-color);
+                      font-weight: bold;
+                    }
               - type: markdown
                 content: |
                   {% if not(is_state('sensor.my_id_remaining_charging_time', '0')) %}
                   {% set ct = states('sensor.my_id_remaining_charging_time') | int %}
                     {% if ct > 60 %}{{ ct // 60 }}:{{ '{:0>2d}'.format(ct%60) }}min{% else %}{{ct}}min{% endif %} restantes
                   {% endif %}
-                style: |
-                  ha-card.type-markdown {
-                    background: transparent;
-                  }
-                  ha-markdown.no-header {
-                    color: var(--el-text-color-light);
-                    font-size: 11px;
-                    font-weight: bold;
-                    margin-top: -6px;
-                    padding-bottom: 0px;
-                    padding-top: 0px !important;
-                    text-align: center;
-                  }
+                card_mod:
+                  style: |
+                    ha-card.type-markdown {
+                      background: transparent;
+                    }
+                    ha-markdown.no-header {
+                      color: var(--el-text-color-light);
+                      font-size: 11px;
+                      font-weight: bold;
+                      margin-top: -6px;
+                      padding-bottom: 0px;
+                      padding-top: 0px !important;
+                      text-align: center;
+                    }
 
 car-odometer:
   default: null

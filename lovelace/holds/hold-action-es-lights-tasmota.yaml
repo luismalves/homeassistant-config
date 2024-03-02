@@ -73,13 +73,14 @@ browser_mod:
                             show_slider_percent: true
                             smooth_color_wheel: true
                             consolidate_entities: true
-                        style: >
-                          ha-card {
-                            background: transparent;
-                          }
-                          #states {
-                            padding: 0;
-                          }
+                        card_mod:
+                          style: >
+                            ha-card {
+                              background: transparent;
+                            }
+                            #states {
+                              padding: 0;
+                            }
               borderRadius: 20px
               brightnessHeight: 250px
               brightnessWidth: 100px
@@ -90,11 +91,13 @@ browser_mod:
               hideState: true
               sliderColor: "#f8cd41"
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
-              style: !include ../styles/style-popup-light.yaml
+              card_mod:
+                style: !include ../styles/style-popup-light.yaml
               type: "custom:light-popup-card"
           show_header_toggle: false
-          style: >
-            #states {
-              padding: 0;
-            }
+          card_mod:
+            style: >
+              #states {
+                padding: 0;
+              }
           type: entities

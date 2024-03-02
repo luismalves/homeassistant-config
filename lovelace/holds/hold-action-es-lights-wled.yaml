@@ -4,6 +4,7 @@ browser_mod:
   data:
     title: " "
     content:
+      type: vertical-stack
       cards:
         - type: custom:layout-card
           layout_type: grid-layout
@@ -33,21 +34,25 @@ browser_mod:
             - actionsInARow: 2
               actionSize: 60px
               actions:
-                - service: light.turn_on
+                - action: call-service
+                  service: light.turn_on
                   service_data:
                     entity_id: "[[entity]]"
-                    color_temp: 150
-                  color: "#d3e8ff"
-                - service: light.turn_on
+                    white: 255
+                  color: "#ffffff"
+                - action: call-service
+                  service: light.turn_on
                   service_data:
                     entity_id: "[[entity]]"
-                    color_temp: 320
-                  color: "#fff2db"
-                - service: light.turn_on
+                    rgb_color: [255, 164, 73]
+                  color: "#f4a449"
+                - action: call-service
+                  service: light.turn_on
                   service_data:
                     entity_id: "[[entity]]"
-                    color_temp: 400
-                  color: "#ffbe50"
+                    rgb_color: [0, 191, 255]
+                    effect: Solid
+                  color: "#00bfff"
                 - action: fire-dom-event
                   browser_mod:
                     service: browser_mod.popup
@@ -68,6 +73,19 @@ browser_mod:
                             show_slider_percent: true
                             smooth_color_wheel: true
                             consolidate_entities: true
+                            child_card: true
+                          - entity: "[[entity-speed]]"
+                            name: Velocidade
+                          - entity: "[[entity-intensity]]"
+                            name: Intensidade
+                        card_mod:
+                          style: >
+                            ha-card {
+                              background: transparent;
+                            }
+                            #states {
+                              padding: 0;
+                            }
               borderRadius: 20px
               brightnessHeight: 250px
               brightnessWidth: 100px
@@ -88,4 +106,3 @@ browser_mod:
                 padding: 0;
               }
           type: entities
-      type: vertical-stack

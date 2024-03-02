@@ -57,37 +57,39 @@ browser_mod:
               hideState: true
               sliderColor: "#f8cd41"
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
-              style: >
-                #popup > div.action-holder > div > div {
-                  margin: 1em 1em 1em 1em;
-                  font-weight: 700;
-                  font-size: 0.9em;
-                  color: #fff;
-                }
-                #brightnessValue {
-                  color: rgba(255, 255, 255, 1);
-                  margin-top: -65px;
-                  margin-bottom: 20px;
-                  font-size: 10px;
-                  font-weight: 700;
-                  color: #c7c7c7;
-                } 
-                .popup-inner {
-                  background: var(--card-background-color);
-                  padding-top: 20px;
-                } 
-                #popup > div.range-holder > input[type=range]::-webkit-slider-thumb {
-                  border: 100%
-                  height: 100%
-                  width: 10px;
-                  cursor: pointer;
-                }
-                .action-holder .action .color {
-                  background-color: transparent !important;
-                }
+              card_mod:
+                style: >
+                  #popup > div.action-holder > div > div {
+                    margin: 1em 1em 1em 1em;
+                    font-weight: 700;
+                    font-size: 0.9em;
+                    color: #fff;
+                  }
+                  #brightnessValue {
+                    color: rgba(255, 255, 255, 1);
+                    margin-top: -65px;
+                    margin-bottom: 20px;
+                    font-size: 10px;
+                    font-weight: 700;
+                    color: #c7c7c7;
+                  } 
+                  .popup-inner {
+                    background: var(--card-background-color);
+                    padding-top: 20px;
+                  } 
+                  #popup > div.range-holder > input[type=range]::-webkit-slider-thumb {
+                    border: 100%
+                    height: 100%
+                    width: 10px;
+                    cursor: pointer;
+                  }
+                  .action-holder .action .color {
+                    background-color: transparent !important;
+                  }
           show_header_toggle: false
-          style: >
-            #states {
-              padding: 0;
-            }
+          card_mod:
+            style: >
+              #states {
+                padding: 0;
+              }
           type: entities

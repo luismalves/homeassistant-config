@@ -6,7 +6,7 @@ icon_hue: >
 s: >
   [[[
     if (entity.state === 'on')
-      return `<span style="color: var(--text-color-sensor);">VM Online</span>`;
+      return `<span style="color: var(--text-color-sensor);">LXC Online</span>`;
     else return `<span style="color: var(--text-color-sensor);">Offline</span>`;
   ]]]
 

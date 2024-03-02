@@ -43,7 +43,6 @@ card:
                 - entity: "[[entity]]"
                 - script: script.radio_stop
           type: horizontal-stack
-      style: >
 
   type: vertical-stack
 style:

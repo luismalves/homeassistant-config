@@ -1,7 +1,0 @@
-#Note: If you want to use browser_mod with Home Assistant Cast, you need to also add:
-#
-#resources:
-#  - url: /browser_mod.js
-#    type: module
-#to your ui_lovelace.yaml. 
-#Don't worry about where to put browser_mod.js, the integration will handle that automatically, and please note that it's not /local/browser_mod.js.

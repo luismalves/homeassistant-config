@@ -5,20 +5,24 @@ sd1: >
 
 info1: >
   [[[
-    return `<span>${states['sensor.my_id_total_charge_cost'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR</span>`
+    let state = (states['sensor.my_id_total_charge_cost'].state == 'unavailable' || states['sensor.my_id_total_charge_cost'].state == 'unknown') ? '-' : states['sensor.my_id_total_charge_cost'].state;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR</span>`
   ]]]
 
 info2: >
   [[[
-    return `<span>${states['sensor.my_id_price_per_kwh'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR p/ kWh</span>`
+    let state = (states['sensor.my_id_price_per_kwh'].state == 'unavailable' || states['sensor.my_id_price_per_kwh'].state == 'unknown') ? '-' : states['sensor.my_id_price_per_kwh'].state;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR p/ kWh</span>`
   ]]]
 
 info3: >
   [[[
-    return `<span>${states['sensor.my_id_odometer'].state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total KMs</span>`
+    let state = (states['sensor.my_id_odometer'].state == 'unavailable' || states['sensor.my_id_odometer'].state == 'unknown') ? '-' : states['sensor.my_id_odometer'].state;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total KMs</span>`
   ]]]
 
 info4: >
   [[[
-    return `<span>${Math.round(states['sensor.my_id_total_charge_energy'].state)}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total kWh</span>`
+    let state = (states['sensor.my_id_total_charge_energy'].state == 'unavailable' || states['sensor.my_id_total_charge_energy'].state == 'unknown') ? '-' : Math.round(states['sensor.my_id_total_charge_energy'].state);
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total kWh</span>`
   ]]]

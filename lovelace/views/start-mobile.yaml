@@ -22,17 +22,18 @@ cards:
       - type: markdown
         view_layout:
           grid-column: span 6
-        style: >
-          ha-card {
-            height: 100%;
-            background: none;
-            font-family: var(--paper-ha-card_-_font-family);
-            font-weight: 700;
-            font-size: 3em;
-            line-height: 1em;
-            color: var(--el-title-color);
-            margin-left: -15px;
-          }
+        card_mod:
+          style: >
+            ha-card {
+              height: 100%;
+              background: none;
+              font-family: var(--paper-ha-card_-_font-family);
+              font-weight: 700;
+              font-size: 3em;
+              line-height: 1em;
+              color: var(--el-title-color);
+              margin-left: -15px;
+            }
         content: |
           Olá {{user}}
 
@@ -44,7 +45,8 @@ cards:
             state_not: "disarmed"
         card:
           type: markdown
-          style: !include ../styles/style-card-alert.yaml
+          card_mod:
+            style: !include ../styles/style-card-alert.yaml
           content: Alarme ligado!
 
       - type: custom:auto-entities
@@ -57,7 +59,8 @@ cards:
               state: "on"
         card:
           type: markdown
-          style: !include ../styles/style-card-alert.yaml
+          card_mod:
+            style: !include ../styles/style-card-alert.yaml
           content: >
             {% if states.sensor.door_open_for.state | int > 0 %} Porta aberta à {{states.sensor.door_open_for.state}} minutos.{% else %} Porta foi aberta à {{states.sensor.door_open_last.state}} minutos.{% endif %}
 
@@ -307,17 +310,19 @@ cards:
         show_forecast: false
         view_layout:
           grid-column: span 6
-        style: !include ../styles/style-card-weather.yaml
+        card_mod:
+          style: !include ../styles/style-card-weather.yaml
 
       - type: "custom:vertical-stack-in-card"
         view_layout:
           grid-column: span 6
         horizontal: false
-        style: |-
-          ha-card.type-custom-vertical-stack-in-card {
-            background: var(--ha-card-background-es-static);
-            border-radius: 10px;
-          }
+        card_mod:
+          style: |-
+            ha-card.type-custom-vertical-stack-in-card {
+              background: var(--ha-card-background-es-static);
+              border-radius: 10px;
+            }
         cards:
           - template: sensor-energy
             type: "custom:decluttering-card"
@@ -338,6 +343,7 @@ cards:
               - entity: sensor.energy_bill_daily
                 type: column
                 color_threshold: !include ../graphs/energy-bill-thresholds.yaml
+                fill_raw: zero
                 group_by:
                   duration: 1d
                   func: last
@@ -346,10 +352,11 @@ cards:
                 show:
                   datalabels: true
             apex_config: !include ../graphs/energy-bill-apexconfig.yaml
-            style: |-
-              ha-card.type-custom-apexcharts-card {
-                background: transparent;
-              }
+            card_mod:
+              style: |-
+                ha-card.type-custom-apexcharts-card {
+                  background: transparent;
+                }
 
           # - type: "custom:mini-graph-card"
           #   entities:

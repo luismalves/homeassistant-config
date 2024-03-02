@@ -22,7 +22,7 @@ cards:
       card_margin: 8px 0px
       margin: 0px
     cards:
-      - !include ../views_frames/system-nuc.yaml
+      - !include ../views_frames/system-vanilla.yaml
       - !include ../views_frames/system-proxmox.yaml
       - !include ../views_frames/system-databases.yaml
     view_layout:

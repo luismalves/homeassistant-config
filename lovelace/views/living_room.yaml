@@ -28,18 +28,19 @@ cards:
       - type: markdown
         view_layout:
           grid-column: span 6
-        style: >
-          ha-card {
-            box-shadow: none;
-            height: 100%;
-            background: none;
-            font-weight: 700;
-            font-size: 1.2em;
-            color: var(--el-title-color);
-            margin-left: -15px;
-            margin-top: -17px;
-            margin-bottom: 0px;
-          }
+        card_mod:
+          style: >
+            ha-card {
+              box-shadow: none;
+              height: 100%;
+              background: none;
+              font-weight: 700;
+              font-size: 1.2em;
+              color: var(--el-title-color);
+              margin-left: -15px;
+              margin-top: -17px;
+              margin-bottom: 0px;
+            }
         content: >
           {% if states.sensor.lights_on_living_room.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_living_room.state == "1" %} {{states.sensor.lights_on_living_room.state}} luz ligada. {% else %} {{states.sensor.lights_on_living_room.state}} luzes ligadas. {% endif %}
 
@@ -53,7 +54,8 @@ cards:
               state: ">80.0"
         card:
           type: markdown
-          style: !include ../styles/style-card-alert.yaml
+          card_mod:
+            style: !include ../styles/style-card-alert.yaml
           content: Humidade muito elevada.
 
       - template: es-light-tasmota
@@ -89,15 +91,15 @@ cards:
           - name: "Luz Mesa"
           - info-attribute: states['light.luz_mesa'].attributes.brightness
 
-      - template: es-switch
+      - template: es-light
         view_layout:
           grid-column: span 2
         type: "custom:decluttering-card"
         variables:
-          - template: switch
-          - entity: switch.smart_plug
-          - name: Tomada TV
-          - info-attribute: states['sensor.smart_plug_power'].state
+          - template: light-strip
+          - entity: light.ulanzi_click_matrix
+          - name: "Relógio Matrix"
+          - info-attribute: states['light.ulanzi_click_matrix'].attributes.brightness
 
       - template: es-tv
         view_layout:
@@ -178,14 +180,27 @@ cards:
           - name: XBOX
 
       # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
-      - template: es-light
-        type: "custom:decluttering-card"
+      # - template: es-light-wled
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 2
+      #   variables:
+      #     - template: light-xmas
+      #     - entity: light.wled_xmas
+      #     - entity-speed: number.wled_xmas_speed
+      #     - entity-intensity: number.wled_xmas_intensity
+      #     - name: "Árvore Natal"
+
+      - template: es-switch-confirmation
         view_layout:
           grid-column: span 2
+        type: "custom:decluttering-card"
         variables:
-          - template: light-xmas
-          - entity: light.wled_xmas
-          - name: "Árvore Natal"
+          - template: switch
+          - entity: switch.smart_plug
+          - name: Tomada Server
+          - info-attribute: states['sensor.smart_plug_power'].state
+          - confirmation-text: "De certeza?"
 
       # - template: es-camera
       #   type: "custom:decluttering-card"

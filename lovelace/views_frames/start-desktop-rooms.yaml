@@ -49,12 +49,12 @@
             - info-attribute: states['light.luz_mesa'].attributes.brightness
 
         # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
-        - template: es-light
-          type: "custom:decluttering-card"
-          variables:
-            - template: light-xmas
-            - entity: light.wled_xmas
-            - name: "Árvore Natal"
+        # - template: es-light
+        #   type: "custom:decluttering-card"
+        #   variables:
+        #     - template: light-xmas
+        #     - entity: light.wled_xmas
+        #     - name: "Árvore Natal"
 
         - type: conditional
           conditions:

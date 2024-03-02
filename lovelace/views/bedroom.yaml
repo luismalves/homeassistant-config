@@ -28,18 +28,19 @@ cards:
       - type: markdown
         view_layout:
           grid-column: span 3
-        style: >
-          ha-card {
-            box-shadow: none;
-            height: 100%;
-            background: none;
-            font-weight: 700;
-            font-size: 1.2em;
-            color: var(--el-title-color);
-            margin-left: -15px;
-            margin-top: -17px;
-            margin-bottom: 0px;
-          }
+        card_mod:
+          style: >
+            ha-card {
+              box-shadow: none;
+              height: 100%;
+              background: none;
+              font-weight: 700;
+              font-size: 1.2em;
+              color: var(--el-title-color);
+              margin-left: -15px;
+              margin-top: -17px;
+              margin-bottom: 0px;
+            }
         content: >
           {% if states.sensor.lights_on_bedroom.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_bedroom.state == "1" %} {{states.sensor.lights_on_bedroom.state}} luz ligada. {% else %} {{states.sensor.lights_on_bedroom.state}} luzes ligadas. {% endif %}
 
@@ -64,11 +65,13 @@ cards:
           - entity: light.luz_quarto_esquerda
           - name: "Luz Direita"
 
-      - template: es-light
+      - template: es-light-wled
         type: "custom:decluttering-card"
         variables:
           - template: light-strip
           - entity: light.wled_bed_group
+          - entity-speed: number.wled_bed_speed
+          - entity-intensity: number.wled_bed_intensity
           - name: "LED Strip"
 
       - template: es-speaker

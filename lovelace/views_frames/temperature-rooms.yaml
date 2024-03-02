@@ -35,7 +35,8 @@
           font_size: 65
           points_per_hour: 1
           color_thresholds: !include ../graphs/temp-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+          card_mod:
+            style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
@@ -51,7 +52,8 @@
           font_size: 65
           points_per_hour: 1
           color_thresholds: !include ../graphs/humidity-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+          card_mod:
+            style: !include ../styles/style-graph-wtitle.yaml
 
 ####
 # Deck
@@ -89,7 +91,8 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/temp-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+          card_mod:
+            style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
@@ -104,7 +107,8 @@
           font_size: 65
           points_per_hour: 4
           color_thresholds: !include ../graphs/humidity-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+          card_mod:
+            style: !include ../styles/style-graph-wtitle.yaml
 
 ####
 # Devices
@@ -161,8 +165,8 @@
 
         - type: "custom:mini-graph-card"
           entities:
-            - entity: sensor.homedrive_system_temperature
-              name: Sistema NAS
+            - entity: sensor.cpu_temperature
+              name: Server CPU
           show:
             name: true
             icon: true
@@ -171,12 +175,13 @@
           hours_to_show: 6
           font_size: 65
           points_per_hour: 6
-          color_thresholds: !include ../graphs/temp-nas-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+          color_thresholds: !include ../graphs/temp-server-cpu-thresholds.yaml
+          card_mod:
+            style: !include ../styles/style-graph-wtitle.yaml
 
         - type: "custom:mini-graph-card"
           entities:
-            - entity: sensor.homedrive_temperature_drive_0_2
+            - entity: sensor.disk_vanilla_dev_nvme1n1_temperature
               name: Disco NAS
           show:
             name: true
@@ -186,5 +191,6 @@
           hours_to_show: 6
           font_size: 65
           points_per_hour: 6
-          color_thresholds: !include ../graphs/temp-nas-disk-thresholds.yaml
-          style: !include ../styles/style-graph-wtitle.yaml
+          color_thresholds: !include ../graphs/temp-server-disk-thresholds.yaml
+          card_mod:
+            style: !include ../styles/style-graph-wtitle.yaml

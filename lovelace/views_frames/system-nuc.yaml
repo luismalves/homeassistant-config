@@ -62,7 +62,8 @@ cards:
     font_size: 65
     points_per_hour: 6
     color_thresholds: !include ../graphs/percentage-thresholds.yaml
-    style: !include ../styles/style-graph-wtitle.yaml
+    card_mod:
+      style: !include ../styles/style-graph-wtitle.yaml
 
   - type: "custom:mini-graph-card"
     view_layout:
@@ -79,7 +80,8 @@ cards:
     font_size: 65
     points_per_hour: 1
     color_thresholds: !include ../graphs/percentage-thresholds.yaml
-    style: !include ../styles/style-graph-wtitle.yaml
+    card_mod:
+      style: !include ../styles/style-graph-wtitle.yaml
 
   # - type: "custom:mini-graph-card"
   #   entities:

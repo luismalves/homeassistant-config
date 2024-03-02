@@ -56,16 +56,15 @@ browser_mod:
                   browser_mod:
                     service: browser_mod.popup
                     data:
-                      style:
-                        width: 400px;
                       title: "[[[ return entity.attributes.friendly_name ]]]"
                       content:
                         type: entities
                         show_header_toggle: false
-                        style: |
-                          ha-card {
-                            background: rgba(0, 0, 0, 0.9);
-                          }
+                        card_mod:
+                          style: |
+                            ha-card {
+                              background: rgba(0, 0, 0, 0.9);
+                            }
                         entities:
                           - entity: "[[entity]]"
                             secondary_info: last-changed
@@ -78,11 +77,12 @@ browser_mod:
                             show_slider_percent: true
                             smooth_color_wheel: true
                             consolidate_entities: true
-                            style: |
-                              .popup-inner {
-                                background: var(--card-background-color);
-                                padding-top: 20px;
-                              }
+                            card_mod:
+                              style: |
+                                .popup-inner {
+                                  background: var(--card-background-color);
+                                  padding-top: 20px;
+                                }
               borderRadius: 20px
               brightnessHeight: 250px
               brightnessWidth: 100px
@@ -93,11 +93,13 @@ browser_mod:
               hideState: true
               sliderColor: "#f8cd41"
               sliderTrackColor: "rgba(25, 25, 25, 0.9)"
-              style: !include ../styles/style-popup-light.yaml
+              card_mod:
+                style: !include ../styles/style-popup-light.yaml
               type: "custom:light-popup-card"
           show_header_toggle: false
-          style: >
-            #states {
-              padding: 0;
-            }
+          card_mod:
+            style: >
+              #states {
+                padding: 0;
+              }
           type: entities

@@ -9,8 +9,13 @@ turn_off_living_room:
       entity_id: light.shelly_table_light
     - service: light.turn_off
       entity_id: light.shelly_living_room_light
-    # - service: light.turn_off
-    #   entity_id: light.wled_xmas
+    - if:
+        - condition: state
+          entity_id: input_boolean.christmas_season
+          state: "on"
+      then:
+        - service: light.turn_off
+          entity_id: light.wled_xmas
     - service: light.turn_off
       entity_id: light.led_strip_living_room
 
