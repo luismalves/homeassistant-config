@@ -872,36 +872,55 @@ sensor-bill:
       type: "[[type]]"
       title: "[[title]]"
       company: "[[company]]"
-    custom_fields:
-      graph:
-        card:
-          type: custom:apexcharts-card
-          #experimental:
-          #  color_threshold: true
-          graph_span: 90d
-          span:
-            end: month
-          yaxis:
-            - show: false
-              min: 0
-              max: 40
-          series:
-            - entity: "[[entity]]"
-              type: column
-              color: "#417656"
-              #color_threshold: !include ../graphs/energy-bill-thresholds.yaml
-              group_by:
-                duration: 30d
-                func: last
-                fill: zero
-              show:
-                datalabels: true
-          apex_config: !include ../graphs/bills-apexconfig.yaml
-          card_mod:
-            style: |-
-              ha-card.type-custom-apexcharts-card {
-                background: transparent;
-              }
+    # custom_fields:
+    #   graph:
+    #     card:
+    #       type: custom:apexcharts-card
+    #       #experimental:
+    #       #  color_threshold: true
+    #       graph_span: 90d
+    #       span:
+    #         end: month
+    #       yaxis:
+    #         - show: false
+    #           min: 0
+    #           max: 40
+    #       series:
+    #         - entity: "[[entity]]"
+    #           type: column
+    #           color: "#417656"
+    #           #color_threshold: !include ../graphs/energy-bill-thresholds.yaml
+    #           group_by:
+    #             duration: 30d
+    #             func: last
+    #             fill: zero
+    #           show:
+    #             datalabels: true
+    #       apex_config: !include ../graphs/bills-apexconfig.yaml
+    card_mod:
+      style: |-
+        ha-card.type-custom-apexcharts-card {
+          background: transparent;
+        }
+        .pill {
+          border-radius: 20px;
+          display:flex;
+          height:20px;
+          font-size: 13px;
+          padding: 2px 12px 0px 12px;
+        }
+        .pill:nth-of-type(1) {
+          background-color:var(--contrast4);
+          justify-self: left;
+        }
+        .pill:nth-of-type(2) {
+          background-color:var(--contrast5);
+          justify-self: center;
+        }
+        .pill:nth-of-type(3) {
+          background-color:var(--ha-card-background-es-on);
+          justify-self: right;
+        }
   default: null
 
 #---------------------#
