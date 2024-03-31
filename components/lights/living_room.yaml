@@ -6,5 +6,5 @@
 - platform: group
   name: Luz Mesa
   entities:
-    - light.luz_mesa_1
-    - light.luz_mesa_2
+    - light.table_1
+    - light.table_2

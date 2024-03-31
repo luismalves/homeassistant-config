@@ -14,6 +14,6 @@ turn_off_all_lights:
     - service: script.turn_on
       entity_id: script.turn_off_deck
     - service: light.turn_off
-      entity_id: light.luz_entrada
+      entity_id: light.entrance_1
   mode: single
   icon: mdi:light-flood-down

@@ -28,11 +28,14 @@ cards:
       - entity: sensor.node_vanilla_last_boot
         name: Last boot
         icon: mdi:timelapse
-      - entity: sensor.node_vanilla_disk_total
-        name: Disco total
+      - entity: sensor.storage_local_disk_used_percentage
+        name: Disco NVME Boot
         icon: mdi:harddisk
-      - entity: sensor.node_vanilla_memory_total
-        name: Memória total
+      - entity: sensor.storage_local_lvm_disk_used_percentage
+        name: Disco NVME Data
+        icon: mdi:harddisk
+      - entity: sensor.node_vanilla_memory_used_percentage
+        name: Memória usada
         icon: mdi:memory
     state_color: true
     # header:

@@ -10,4 +10,4 @@ turn_off_kitchen:
     - service: light.turn_off
       entity_id: light.shelly_kitchen_light
     #- service: light.turn_off
-    #  entity_id: light.luz_entrada
+    #  entity_id: light.entrance_1

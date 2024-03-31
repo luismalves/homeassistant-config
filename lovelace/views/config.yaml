@@ -276,7 +276,7 @@ cards:
         variables:
           - template: btn-script
           - service: script.toggle
-          - entity: switch.water_valve
+          - entity: switch.valve_1
           - name: "Rodar torneira água"
 
       - !include ../views_frames/config-devices.yaml

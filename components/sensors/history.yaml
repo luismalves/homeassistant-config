@@ -9,7 +9,7 @@
       friendly_name: "Main door open for"
       unit_of_measurement: "minutes"
       value_template: >
-        {% set t = 0 if states('binary_sensor.door_openclose') == 'off' else now().timestamp() - states.binary_sensor.door_openclose.last_changed.timestamp() %}
+        {% set t = 0 if (states('binary_sensor.openclose_1_contact') == 'off' or states('binary_sensor.openclose_1_contact') == 'unavailable') else now().timestamp() - states.binary_sensor.openclose_1_contact.last_changed.timestamp() %}
         {{ t | timestamp_custom('%M', false) | int }}
 
 - platform: template
@@ -18,7 +18,7 @@
       friendly_name: "Main door lastly open"
       unit_of_measurement: "minutes"
       value_template: >
-        {% set t = 0 if states('binary_sensor.door_openclose') == 'on' else now().timestamp() - states.binary_sensor.door_openclose.last_changed.timestamp() %}
+        {% set t = 0 if states('binary_sensor.openclose_1_contact') == 'on' else now().timestamp() - states.binary_sensor.openclose_1_contact.last_changed.timestamp() %}
         {% set h = t | timestamp_custom('%H', false) | int %}
         {% set m = t | timestamp_custom('%M', false) | int %}
         {{ h * 60 + m | int }}

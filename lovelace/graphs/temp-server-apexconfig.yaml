@@ -20,6 +20,6 @@ dataLabels:
   show: true
   style:
     fontSize: "12px"
-    colors: ["var(--card-background-color)"]
+    colors: ["var(--contrast8)"]
   # background:
   #   enabled: false

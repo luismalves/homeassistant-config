@@ -84,7 +84,7 @@ cards:
           grid-column: span 2
         variables:
           - template: light-outdoor
-          - entity: light.luz_entrada
+          - entity: light.entrance_1
           - name: Luz entrada
 
       - type: "custom:layout-card"
@@ -105,16 +105,21 @@ cards:
               - state-1: "Detetado"
               - state-2: "Vazio"
               - icon: mdi:motion-sensor
+              - color-state-on: --ha-card-color-name-on
           - template: sensor-pill
             type: "custom:decluttering-card"
             variables:
-              - entity: binary_sensor.water_sensor
+              - entity: sensor.water_sensor
               - icon: mdi:water-alert
+              - state-1: "ALERTA"
+              - state-2: "OK"
           - template: sensor-pill
             type: "custom:decluttering-card"
             variables:
-              - entity: binary_sensor.water_sensor_2
+              - entity: sensor.water_sensor_2
               - icon: mdi:water-alert
+              - state-1: "ALERTA"
+              - state-2: "OK"
 
       # - template: sensor-kitchen
       #   type: "custom:decluttering-card"
@@ -129,8 +134,8 @@ cards:
         view_layout:
           grid-column: span 4
         entities:
-          - entity: sensor.temperature_1
-          - entity: sensor.humidity_1
+          - entity: sensor.environment_1_temperature
+          - entity: sensor.environment_1_humidity
             show_state: true
             show_graph: false
         name: Temperatura
@@ -167,9 +172,9 @@ cards:
           grid-column: span 2
         variables:
           - template: switch
-          - entity: switch.plug_xiaomi
+          - entity: switch.plug_1
           - name: Tomada Dyson
-          - entity-power: sensor.xiaomi_plug_power_32
+          - entity-power: sensor.plug_1_power
 
       # - template: es-light-slider
       #   type: "custom:decluttering-card"
@@ -188,7 +193,7 @@ cards:
       #   type: "custom:decluttering-card"
       #   variables:
       #     - template: light-mosquitto
-      #     - entity: switch.smart_plug_2
+      #     - entity: switch.plug_2
       #     - name: Luz Azul
 
       - type: "custom:gap-card"

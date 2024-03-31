@@ -6,7 +6,7 @@ sd1: >
     return `<ha-icon
       icon="mdi:thermometer-low"
       style="width: 10px; height: 10px;">
-      </ha-icon><span><span>${states['sensor.temperature_1'].state}º</span></span>`
+      </ha-icon><span><span>${states['sensor.environment_1_temperature'].state}º</span></span>`
   ]]]
 sd2: >
   [[[

@@ -12,7 +12,7 @@
         {% set lights = [
           states.light.led_strip_deck,
           states.light.mi_lamp,
-          states.light.luz_deck,
+          states.light.deck,
           states.light.mi_lamp_pro,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
@@ -38,7 +38,7 @@
       unit_of_measurement: "on"
       value_template: >
         {% set lights = [
-          states.light.luz_entrada,
+          states.light.entrance_1,
           states.light.shelly_kitchen_light,
           states.light.shelly_kitchen_led_left,
           ] %}
@@ -51,9 +51,9 @@
       unit_of_measurement: "on"
       value_template: >
         {% set lights = [
-          states.light.luz_quarto,
-          states.light.luz_quarto_esquerda,
-          states.light.luz_quarto_direita,
+          states.light.bedroom_top_1,
+          states.light.bedroom_1,
+          states.light.bedroom_2,
           states.light.wled_bed_group,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}

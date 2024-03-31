@@ -6,14 +6,14 @@ sd1: >
     return `<ha-icon
       icon="mdi:thermometer-low"
       style="width: 10px; height: 10px;">
-      </ha-icon><span>${states['sensor.temperature_2'].state}º</span>`
+      </ha-icon><span>${states['sensor.environment_2_temperature'].state}º</span>`
   ]]]
 sd2: >
   [[[
     return `<ha-icon
       icon="mdi:water-percent"
       style="width: 10px; height: 10px;">
-      </ha-icon><span>${states['sensor.humidity_2'].state}%</span>`
+      </ha-icon><span>${states['sensor.environment_2_humidity'].state}%</span>`
   ]]]
 sd3: >
   [[[

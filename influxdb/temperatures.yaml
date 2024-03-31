@@ -3,11 +3,11 @@
 # to store into InfluxDB.
 #####
 
-- sensor.temperature_1
-- sensor.temperature_2
+- sensor.environment_1_temperature
+- sensor.environment_2_temperature
 
-- sensor.humidity_1
-- sensor.humidity_2
+- sensor.environment_1_humidity
+- sensor.environment_2_humidity
 
 - sensor.shelly_roller_left_temperature
 - sensor.shelly_roller_right_temperature

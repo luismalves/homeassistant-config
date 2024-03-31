@@ -22,6 +22,6 @@
 - sensor.energy_bill
 
 ## Power outlets
-- sensor.smart_plug_xiaomi_consumption
-- sensor.smart_plug_consumption
-#- sensor.smart_plug_2_consumption
+- sensor.plug_1_energy
+- sensor.plug_3_energy
+- sensor.plug_2_energy

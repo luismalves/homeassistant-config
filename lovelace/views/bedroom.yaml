@@ -48,21 +48,21 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: light-bedroom
-          - entity: light.luz_quarto_direita
+          - entity: light.bedroom_2
           - name: "Luz Esquerda"
 
       - template: es-light-temperature
         type: "custom:decluttering-card"
         variables:
           - template: light-pendant
-          - entity: light.luz_quarto
+          - entity: light.bedroom_top_1
           - name: "Luz Quarto"
 
       - template: es-light-temperature
         type: "custom:decluttering-card"
         variables:
           - template: light-bedroom
-          - entity: light.luz_quarto_esquerda
+          - entity: light.bedroom_1
           - name: "Luz Direita"
 
       - template: es-light-wled

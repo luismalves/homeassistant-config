@@ -85,8 +85,8 @@ cards:
         variables:
           - template: light-pendant
           - entity: light.luz_mesa
-          - entity-2: light.luz_mesa_1
-          - entity-3: light.luz_mesa_2
+          - entity-2: light.table_1
+          - entity-3: light.table_2
           - entity-switch: light.shelly_table_light
           - name: "Luz Mesa"
           - info-attribute: states['light.luz_mesa'].attributes.brightness
@@ -116,7 +116,7 @@ cards:
       #   type: "custom:decluttering-card"
       #   variables:
       #     - template: sensors-living_room
-      #     - entity: sensor.presence_living_room
+      #     - entity: sensor.presence_1_occupancy
       #     - name: "Sensores"
 
       - type: "custom:layout-card"
@@ -141,7 +141,7 @@ cards:
           - template: sensor-pill
             type: "custom:decluttering-card"
             variables:
-              - entity: sensor.temperature_1
+              - entity: sensor.environment_1_temperature
               - icon: mdi:thermometer
           - template: sensor-pill
             type: "custom:decluttering-card"
@@ -197,9 +197,9 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: switch
-          - entity: switch.smart_plug
+          - entity: switch.plug_3
           - name: Tomada Server
-          - info-attribute: states['sensor.smart_plug_power'].state
+          - info-attribute: states['sensor.plug_3_power'].state
           - confirmation-text: "De certeza?"
 
       # - template: es-camera

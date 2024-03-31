@@ -23,7 +23,7 @@
 
         - type: "custom:mini-graph-card"
           entities:
-            - entity: sensor.temperature_1
+            - entity: sensor.environment_1_temperature
               name: Temperatura
           show:
             name: true
@@ -80,7 +80,7 @@
 
         - type: "custom:mini-graph-card"
           entities:
-            - entity: sensor.temperature_2
+            - entity: sensor.environment_2_temperature
               name: Temperatura
           show:
             name: true
@@ -96,7 +96,7 @@
 
         - type: "custom:mini-graph-card"
           entities:
-            - entity: sensor.humidity_2
+            - entity: sensor.environment_2_humidity
               name: Humidade
           show:
             name: true

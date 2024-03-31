@@ -7,9 +7,9 @@
     door_openclose:
       friendly_name: "Main door status"
       value_template: >-
-        {% if is_state('binary_sensor.door_openclose', 'on') %}
+        {% if is_state('binary_sensor.openclose_1_contact', 'on') %}
           Aberta
-        {% elif is_state('binary_sensor.door_openclose', 'off') %}
+        {% elif is_state('binary_sensor.openclose_1_contact', 'off') %}
           Fechada
         {% else %}
           Erro
@@ -25,9 +25,9 @@
     presence_kitchen:
       friendly_name: "Kitchen motion status"
       value_template: >-
-        {% if is_state('binary_sensor.presence_kitchen', 'on') %}
+        {% if is_state('binary_sensor.presence_3_occupancy', 'on') %}
           Detetado
-        {% elif is_state('binary_sensor.presence_kitchen', 'off') %}
+        {% elif is_state('binary_sensor.presence_3_occupancy', 'off') %}
           Vazio
         {% else %}
           Erro
@@ -38,9 +38,9 @@
     presence_living_room:
       friendly_name: "Living room motion status"
       value_template: >-
-        {% if is_state('binary_sensor.presence_living_room', 'on') %}
+        {% if is_state('binary_sensor.presence_1_occupancy', 'on') %}
           Detetado
-        {% elif is_state('binary_sensor.presence_living_room', 'off') %}
+        {% elif is_state('binary_sensor.presence_1_occupancy', 'off') %}
           Vazio
         {% else %}
           Erro
@@ -57,9 +57,9 @@
       friendly_name: "Water leak status"
       unique_id: sensor.water_sensor
       value_template: >-
-        {% if is_state('binary_sensor.water_sensor', 'off') %}
+        {% if is_state('binary_sensor.alarm_1_water_leak', 'off') %}
           OK
-        {% elif is_state('binary_sensor.water_sensor', 'on') %}
+        {% elif is_state('binary_sensor.alarm_1_water_leak', 'on') %}
           ALERTA
         {% else %}
           Erro
@@ -71,9 +71,9 @@
       friendly_name: "Water leak 2 status"
       unique_id: sensor.water_sensor_2
       value_template: >-
-        {% if is_state('binary_sensor.water_sensor_2', 'off') %}
+        {% if is_state('binary_sensor.alarm_2_water_leak', 'off') %}
           OK
-        {% elif is_state('binary_sensor.water_sensor_2', 'on') %}
+        {% elif is_state('binary_sensor.alarm_2_water_leak', 'on') %}
           ALERTA
         {% else %}
           Erro

@@ -10,19 +10,19 @@
     light.shelly_table_light: "off"
     light.led_strip_living_room:
       state: "on"
-    light.luz_quarto_esquerda: "off"
-    light.luz_quarto_direita: "off"
-    light.luz_quarto: "off"
+    light.bedroom_1: "off"
+    light.bedroom_2: "off"
+    light.bedroom_top_1: "off"
 
 - name: Bird rest time
   icon: mdi:bird
   entities:
     light.shelly_kitchen_light: "off"
     light.shelly_table_light: "on"
-    light.luz_mesa_1:
+    light.table_1:
       state: "on"
       brightness: 100
-    light.luz_mesa_2:
+    light.table_2:
       state: "on"
       brightness: 100
 
@@ -42,12 +42,12 @@
       brightness: 254
     light.led_strip_living_room: "off"
     light.led_strip_deck: "off"
-    light.luz_deck: "off"
+    light.deck: "off"
     light.mi_lamp: "off"
     light.mi_lamp_pro: "off"
-    light.luz_quarto_direita: "off"
-    light.luz_quarto_esquerda: "off"
-    light.luz_quarto: "off"
+    light.bedroom_2: "off"
+    light.bedroom_1: "off"
+    light.bedroom_top_1: "off"
 
 - name: Cooking time
   icon: mdi:pasta
@@ -95,20 +95,20 @@
 - name: Reading
   icon: mdi:gamepad-variant-outline
   entities:
-    light.luz_quarto_direita:
+    light.bedroom_2:
       state: "on"
       brightness: 254
-    light.luz_quarto_esquerda:
+    light.bedroom_1:
       state: "on"
       brightness: 254
-    light.luz_quarto: "off"
+    light.bedroom_top_1: "off"
 
 - name: S-FM
   icon: mdi:radio
   entities:
-    light.luz_quarto_direita:
+    light.bedroom_2:
       state: "off"
-    light.luz_quarto_esquerda:
+    light.bedroom_1:
       state: "off"
     light.led_strip_deck:
       state: "on"

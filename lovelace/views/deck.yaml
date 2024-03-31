@@ -50,7 +50,7 @@ cards:
         show_empty: false
         filter:
           include:
-            - entity_id: "sensor.humidity_2"
+            - entity_id: "sensor.environment_2_humidity"
               state: ">80.0"
         card:
           type: markdown
@@ -69,7 +69,7 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: light-pendant
-          - entity: light.luz_deck
+          - entity: light.deck
           - name: "Luz Deck"
 
       - template: es-light
@@ -94,8 +94,8 @@ cards:
         view_layout:
           grid-column: span 2
         entities:
-          - entity: sensor.temperature_2
-          - entity: sensor.humidity_2
+          - entity: sensor.environment_2_temperature
+          - entity: sensor.environment_2_humidity
             show_state: true
             show_graph: false
         name: Temperatura
@@ -115,18 +115,18 @@ cards:
         type: "custom:decluttering-card"
         variables:
           - template: switch
-          - entity: switch.smart_plug_3
+          - entity: switch.plug_2
           - name: Extensão
-          - info-attribute: states['sensor.smart_plug_3_power'].state
+          - info-attribute: states['sensor.plug_2_power'].state
 
       - template: es-switch-confirmation
         type: "custom:decluttering-card"
         variables:
           - template: switch
-          - entity: switch.smart_plug_2
+          - entity: switch.plug_4
           - name: Tomada
           - confirmation-text: "De certeza? Confirma que o PC está desligado se estiveres a desligar a tomada."
-          - info-attribute: states['sensor.smart_plug_2_power'].state
+          - info-attribute: states['sensor.plug_4_power'].state
 
       - template: es-ping
         type: "custom:decluttering-card"

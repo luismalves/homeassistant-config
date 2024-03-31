@@ -42,8 +42,8 @@
           variables:
             - template: light-pendant
             - entity: light.luz_mesa
-            - entity-2: light.luz_mesa_1
-            - entity-3: light.luz_mesa_2
+            - entity-2: light.table_1
+            - entity-3: light.table_2
             - entity-switch: light.shelly_table_light
             - name: "Luz Mesa"
             - info-attribute: states['light.luz_mesa'].attributes.brightness
@@ -112,7 +112,7 @@
           type: "custom:decluttering-card"
           variables:
             - template: light-outdoor
-            - entity: light.luz_entrada
+            - entity: light.entrance_1
             - name: Luz entrada
 
         - type: conditional
@@ -162,7 +162,7 @@
           type: "custom:decluttering-card"
           variables:
             - template: light-pendant
-            - entity: light.luz_deck
+            - entity: light.deck
             - name: "Luz Deck"
 
         - template: es-light
@@ -218,19 +218,19 @@
           type: "custom:decluttering-card"
           variables:
             - template: light-bedroom
-            - entity: light.luz_quarto_direita
+            - entity: light.bedroom_2
             - name: "Luz Esquerda"
         - template: es-light-temperature
           type: "custom:decluttering-card"
           variables:
             - template: light-pendant
-            - entity: light.luz_quarto
+            - entity: light.bedroom_top_1
             - name: "Luz Quarto"
         - template: es-light-temperature
           type: "custom:decluttering-card"
           variables:
             - template: light-bedroom
-            - entity: light.luz_quarto_esquerda
+            - entity: light.bedroom_1
             - name: "Luz Direita"
         - template: es-light
           type: "custom:decluttering-card"
