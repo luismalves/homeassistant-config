@@ -37,7 +37,7 @@ sd3: >
     return `<ha-icon
       icon="mdi:water-percent"
       style="width: 10px; height: 10px;">
-      </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.humidity_1'].state}%</span></span>`
+      </ha-icon><span> <span style="color: var(--text-color-sensor);">${states['sensor.environment_1_humidity'].state}%</span></span>`
   ]]]
 
 sd4: >

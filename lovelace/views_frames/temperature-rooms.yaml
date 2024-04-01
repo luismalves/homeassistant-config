@@ -40,7 +40,7 @@
 
         - type: "custom:mini-graph-card"
           entities:
-            - entity: sensor.humidity_1
+            - entity: sensor.environment_1_humidity
           name: Humidade
           show:
             name: true

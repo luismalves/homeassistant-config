@@ -50,7 +50,7 @@ cards:
         show_empty: false
         filter:
           include:
-            - entity_id: "sensor.humidity_1"
+            - entity_id: "sensor.environment_1_humidity"
               state: ">80"
         card:
           type: markdown
