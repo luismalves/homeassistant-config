@@ -32,10 +32,10 @@
           type: "custom:decluttering-card"
           variables:
             - template: light-pendant
-            - entity: light.luz_sala
+            - entity: light.living_room_1
             - entity-switch: light.shelly_living_room_light
             - name: "Luz Sala"
-            - info-attribute: states['light.luz_sala'].attributes.brightness
+            - info-attribute: states['light.living_room_1'].attributes.brightness
 
         - template: es-light-switch-2
           type: "custom:decluttering-card"
