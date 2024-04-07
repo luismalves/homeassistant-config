@@ -1,0 +1,52 @@
+card:
+  - font-size: 12px
+  - font-family: "var(--paper-ha-card_-_font-family)"
+  - padding: 5px 5px 5px 10px
+  - --icon-size: "[[icon-size]]"
+
+custom_fields:
+  up:
+    - background-color: var(--contrast3)
+    - border-radius: 50% 50% 0 0
+    - height: var(--icon-size, 40px)
+    - padding: 3px
+    - width: var(--icon-size, 40px)
+
+  down:
+    - background-color: var(--contrast3)
+    - border-radius: 0 0 50% 50%
+    - height: var(--icon-size, 40px)
+    - padding: 3px
+    - width: var(--icon-size, 40px)
+
+  description:
+    - align-self: start
+    - justify-self: start
+    - text-align: left
+    - line-height: 1
+    - font-size: 12px
+    - padding: 0px 4px 0 0
+    - white-space: normal;
+
+grid:
+  - grid-template-areas: '"n up" "description up" "s down"'
+  - grid-template-columns: 1fr min-content
+  - grid-gap: 0
+  - grid-template-rows: 18px min-content 1fr
+
+name:
+  - align-self: start
+  - justify-self: start
+  - text-align: left
+  - font-weight: bold
+  - line-height: 1
+  - font-size: 12px
+  - padding: 5px 4px 0 0
+  - white-space: normal;
+
+state:
+  - align-self: end
+  - font-size: 20px
+  - font-weight: bold
+  - justify-self: start
+  - padding: 0 0 5px 0

@@ -21,6 +21,17 @@ cards:
     variables:
       - content: Home server
 
+  - type: "custom:decluttering-card"
+    template: es-switch-energy
+    view_layout:
+      grid-column: span 4
+    variables:
+      - template: switch
+      - entity: switch.plug_3
+      - name: Tomada
+      - info-attribute: states['sensor.plug_3_power'].state
+      - confirmation-text: "De certeza?"
+
   - type: entities
     view_layout:
       grid-column: span 6

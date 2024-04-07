@@ -28,3 +28,4 @@ cards:
       - !include ../views_frames/system-vanilla.yaml
       - !include ../views_frames/system-proxmox.yaml
       - !include ../views_frames/system-databases.yaml
+      - !include ../views_frames/system-configs.yaml
