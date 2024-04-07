@@ -1,9 +1,9 @@
 card:
   - height: "[[card-height]]"
-  - color: "rgba(87, 87, 87, 0.8)"
+  - color: var(--el-es-static-text-color)
   - font-size: 12px
   - font-family: "var(--paper-ha-card_-_font-family)"
-  - padding: 0
+  - padding: 3px 0 0 0
   - --text-align-name: "[[text-align-name]]"
   - --align-self-name: "[[align-self-name]]"
   - --align-self-state: "[[align-self-state]]"
