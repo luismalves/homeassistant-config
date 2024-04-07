@@ -20,3 +20,18 @@
       value_template: >-
         {{ ((float(states.sensor.utm_diario_vazio.state) * (float(states.input_number.energy_cost_per_kwh_empty_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + float(states.sensor.utm_diario_fora_de_vazio.state) * (float(states.input_number.energy_cost_per_kwh_full_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + (float(states.input_number.energy_power_cost_per_day.state) + float(states.input_number.energy_access_cost_per_day.state))) * 1.23 ) | default(0) | round(2) }}
       unit_of_measurement: "€"
+# - platform: statistics
+#   name: "Server daily min power"
+#   entity_id: sensor.plug_3_power
+#   unique_id: sensor.plug_3_power_daily_min
+#   state_characteristic: value_min
+#   max_age:
+#     hours: 24
+
+# - platform: statistics
+#   name: "Server daily max power"
+#   entity_id: sensor.plug_3_power
+#   unique_id: sensor.plug_3_power_daily_max
+#   state_characteristic: value_max
+#   max_age:
+#     hours: 24
