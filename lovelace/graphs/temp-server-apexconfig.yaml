@@ -5,7 +5,7 @@ chart:
 #   enabled: false
 grid:
   #   show: false
-  borderColor: "var(--contrast9)"
+  borderColor: "var(--contrast7)"
   padding:
     left: 30
     right: 30
@@ -13,6 +13,7 @@ xaxis:
   tickPlacement: "on"
 stroke:
   curve: "smooth"
+  width: 2
 dataLabels:
   background:
     borderRadius: 10
