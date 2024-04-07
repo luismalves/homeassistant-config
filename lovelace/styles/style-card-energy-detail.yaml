@@ -1,0 +1,33 @@
+card:
+  - height: 110px
+  - font-size: 12px
+  - font-family: "var(--paper-ha-card_-_font-family)"
+  - padding: 0
+
+custom_fields:
+  icon_hue:
+    - align-self: start
+    - padding: 10px 0 0 10px
+    - width: 40px
+  info:
+    - justify-self: end
+    - width: auto
+  graph:
+    - align-self: end
+
+grid:
+  - grid-template-areas: '"icon_hue graph" "n graph" "s graph"'
+  - grid-template-columns: 1fr 1.5fr
+  - grid-template-rows: 1fr min-content min-content
+
+name:
+  - align-self: start
+  - font-weight: bold
+  - justify-self: start
+  - padding-left: 10px
+
+state:
+  - font-weight: bold
+  - justify-self: start
+  - padding-left: 10px
+  - padding-bottom: 10px

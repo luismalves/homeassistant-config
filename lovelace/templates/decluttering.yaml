@@ -178,6 +178,7 @@ es-person:
     - state-1: "on"
     - state-2: "off"
 
+# Shows the state of a configuration
 es-config:
   card:
     entity: "[[entity]]"
@@ -206,6 +207,61 @@ es-config:
     - align-self-name: end
     - align-self-state: start
     - margin-name: 0 0 3px 0
+
+# Configurations using input_number
+es-config-number:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_units: true
+    show_state: true
+    tap_action:
+      action: none
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-number-set.yaml
+    custom_fields:
+      description: >
+        [[[
+          return `<span>${variables.description}</span>`
+        ]]]
+      down:
+        card:
+          type: "custom:button-card"
+          aspect_ratio: 1/1
+          icon: mdi:chevron-down
+          size: 40%
+          color: var(--el-text-color-light)
+          styles:
+            card:
+              - background: var(--ha-card-background-es-static)
+              - border-radius: 50%
+          tap_action:
+            action: call-service
+            service: input_number.decrement
+            data:
+              entity_id: "[[entity]]"
+      up:
+        card:
+          type: "custom:button-card"
+          aspect_ratio: 1/1
+          icon: mdi:chevron-up
+          size: 40%
+          color: var(--el-text-color-light)
+          styles:
+            card:
+              - background: var(--ha-card-background-es-static)
+              - border-radius: 50%
+          tap_action:
+            action: call-service
+            service: input_number.increment
+            data:
+              entity_id: "[[entity]]"
+    variables:
+      description: "[[description]]"
+    type: "custom:button-card"
+  default:
+    - icon-size: 35px
 
 es-dummy:
   card:
@@ -479,6 +535,65 @@ es-switch-confirmation:
     - info-unit: "W"
     - info-state: "on"
 
+es-switch-energy:
+  card:
+    custom_fields:
+      graph:
+        card:
+          type: custom:mini-graph-card
+          entities:
+            - sensor.plug_3_power
+          hours_to_show: 24
+          line_width: 3
+          lower_bound: 15
+          show:
+            icon: false
+            name: false
+            state: false
+            average: true
+            extrema: true
+            labels: false
+            fill: true
+          card_mod:
+            style: >
+              ha-card {
+                background: transparent;
+                border-radius: 0 var(--ha-card-border-radius) var(--ha-card-border-radius) 0;
+              }
+              ha-card[fill] .info { padding-bottom: 28px !important; }
+              ha-card > div.info {
+                padding: 0 10px 5px;
+              }
+              .info__item__type { font-size: 12px; }
+              .info__item__time { font-size: 9px; }
+              .info__item__value { font-size: 12px; }
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-energy-detail.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+    confirmation:
+      text: "[[confirmation-text]]"
+    variables:
+      power_entity: "[[entity-power]]"
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
+    - info-attribute: false
+    - info-max: 1
+    - info-unit: "W"
+    - info-state: "on"
+
 # Devices state obtained with ping integration
 es-ping:
   card:
@@ -547,7 +662,6 @@ es-speaker:
 
 es-tv:
   card:
-    #custom_fields: !include ../circles/circle-x.yaml
     entity: "[[entity]]"
     name: "[[name]]"
     tap_action: !include ../holds/hold-action-es-tv.yaml
@@ -569,7 +683,6 @@ es-tv:
 
 es-camera:
   card:
-    #custom_fields: !include ../circles/circle-x.yaml
     entity: "[[entity]]"
     name: "[[name]]"
     tap_action:
@@ -586,7 +699,6 @@ es-camera:
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
     - color-state-off: --ha-card-color-state-off
-
     - state-1: detected
     - state-2: idle
     - state-3: recording
@@ -780,7 +892,7 @@ sensor-pill:
     - state-2: "off"
     - show-name: false
 
-    # sensor-kitchen:
+# sensor-kitchen:
 #   card:
 #     entity: "[[entity]]"
 #     name: "[[name]]"
@@ -872,31 +984,6 @@ sensor-bill:
       type: "[[type]]"
       title: "[[title]]"
       company: "[[company]]"
-    # custom_fields:
-    #   graph:
-    #     card:
-    #       type: custom:apexcharts-card
-    #       #experimental:
-    #       #  color_threshold: true
-    #       graph_span: 90d
-    #       span:
-    #         end: month
-    #       yaxis:
-    #         - show: false
-    #           min: 0
-    #           max: 40
-    #       series:
-    #         - entity: "[[entity]]"
-    #           type: column
-    #           color: "#417656"
-    #           #color_threshold: !include ../graphs/energy-bill-thresholds.yaml
-    #           group_by:
-    #             duration: 30d
-    #             func: last
-    #             fill: zero
-    #           show:
-    #             datalabels: true
-    #       apex_config: !include ../graphs/bills-apexconfig.yaml
     card_mod:
       style: |-
         ha-card.type-custom-apexcharts-card {
@@ -1035,7 +1122,7 @@ btn-small-confirmation:
     - action: call-service
     - confirmation-text: "De certeza?"
     - name: "[[[ return entity.attributes.friendly_name ]]]"
-    - card-height: 60px´
+    - card-height: 60px
     - grid-gap: 0
     - grid-template-rows: 1fr min-content min-content min-content
     - text-align-name: center

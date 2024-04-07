@@ -1,0 +1,42 @@
+####
+# SYSTEM
+# Proxmox
+#
+####
+type: "custom:layout-card"
+layout_type: "custom:grid-layout"
+layout:
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+  margin: 0px
+cards:
+  - type: "custom:gap-card"
+    height: 25
+    view_layout:
+      grid-column: span 6
+
+  - template: subtitle
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 6
+    variables:
+      - content: Configurações
+
+  - template: es-config-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - entity: input_number.server_alert_cpu_temperature
+      - name: "Alerta"
+      - description: "Temperatura CPU"
+
+  - template: es-config-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - entity: input_number.server_alert_disk_temperature
+      - name: "Alerta"
+      - description: "Temperatura Disco"
