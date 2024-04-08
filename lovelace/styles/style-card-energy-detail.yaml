@@ -1,5 +1,5 @@
 card:
-  - height: 110px
+  - height: 170px
   - font-size: 12px
   - font-family: "var(--paper-ha-card_-_font-family)"
   - padding: 0
@@ -16,18 +16,18 @@ custom_fields:
     - align-self: end
 
 grid:
-  - grid-template-areas: '"icon_hue graph" "n graph" "s graph"'
-  - grid-template-columns: 1fr 1.5fr
-  - grid-template-rows: 1fr min-content min-content
+  - grid-template-areas: '"icon_hue n" "icon_hue s" "graph graph"'
+  - grid-template-columns: min-content 1fr
+  - grid-template-rows: auto min-content 1fr
 
 name:
   - align-self: start
   - font-weight: bold
   - justify-self: start
-  - padding-left: 10px
+  - line-height: 12px
+  - padding: 16px 0 0 6px
 
 state:
   - font-weight: bold
   - justify-self: start
-  - padding-left: 10px
-  - padding-bottom: 10px
+  - padding: 2px 0 0 6px

@@ -24,7 +24,7 @@ cards:
   - type: "custom:decluttering-card"
     template: es-switch-energy
     view_layout:
-      grid-column: span 4
+      grid-column: span 3
     variables:
       - template: switch
       - entity: switch.plug_3

@@ -559,8 +559,9 @@ es-switch-energy:
               ha-card {
                 background: transparent;
                 border-radius: 0 var(--ha-card-border-radius) var(--ha-card-border-radius) 0;
+                padding-top: 0 !important;
               }
-              ha-card[fill] .info { padding-bottom: 28px !important; }
+              ha-card[fill] .info { padding-bottom: 15px !important; }
               ha-card > div.info {
                 padding: 0 10px 5px;
               }
