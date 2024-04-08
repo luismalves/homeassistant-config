@@ -191,16 +191,16 @@ cards:
       #     - entity-intensity: number.wled_xmas_intensity
       #     - name: "Árvore Natal"
 
-      - template: es-switch-confirmation
-        view_layout:
-          grid-column: span 2
-        type: "custom:decluttering-card"
-        variables:
-          - template: switch
-          - entity: switch.plug_3
-          - name: Tomada Server
-          - info-attribute: states['sensor.plug_3_power'].state
-          - confirmation-text: "De certeza?"
+      # - template: es-switch-confirmation
+      #   view_layout:
+      #     grid-column: span 2
+      #   type: "custom:decluttering-card"
+      #   variables:
+      #     - template: switch
+      #     - entity: switch.plug_3
+      #     - name: Tomada Server
+      #     - info-attribute: states['sensor.plug_3_power'].state
+      #     - confirmation-text: "De certeza?"
 
       # - template: es-camera
       #   type: "custom:decluttering-card"
