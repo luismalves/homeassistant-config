@@ -1,0 +1,64 @@
+#####
+# Custos energia
+#
+#####
+template:
+  sensor:
+    - unique_id: ibelectra_familia_simples
+      unit_of_measurement: "€/MWh"
+      availability: "{{ state_attr('sensor.omie_spot_price_pt', 'today_average') != None }}"
+      state_class: measurement
+      state: >
+        {% set OMIE = state_attr('sensor.omie_spot_price_pt', 'today_average') -%}
+        {% set CGS = state_attr(this.entity_id, 'CGS') -%}
+        {% set Perdas = state_attr(this.entity_id, 'Perdas') -%}
+        {% set k = state_attr(this.entity_id, 'k') -%}
+        {% set TAR = state_attr(this.entity_id, 'TAR') -%}
+
+        {% if None in [CGS, Perdas, k, TAR] %}
+          {{ None }}
+        {% else %}
+          {{ ((OMIE+CGS)*(1+Perdas)+k+TAR) | round(2) }}
+        {% endif %}
+      attributes:
+        friendly_name: "Ibelectra Solução Familia (tarifário simples)"
+        formula: (OMIE+CGS)*(1+Perdas)+k+TAR
+        OMIE: "{{ state_attr('sensor.omie_spot_price_pt', 'today_average') }}"
+        CGS: "{{ 7 }}"
+        Perdas: "{{ 0.1604 }}"
+        k: "{{ 3.5 }}"
+        TAR: "{{ 36.50 }}"
+        today_hours: >
+          {% set OMIE = state_attr('sensor.omie_spot_price_pt', 'today_average') -%}
+          {% set CGS = state_attr(this.entity_id, 'CGS') -%}
+          {% set Perdas = state_attr(this.entity_id, 'Perdas') -%}
+          {% set k = state_attr(this.entity_id, 'k') -%}
+          {% set TAR = state_attr(this.entity_id, 'TAR') -%}
+
+          {% set ns = namespace(hourly_data=[]) %}
+          {% for h in state_attr('sensor.omie_spot_price_pt', 'today_hours') -%}
+            {% if None in [OMIE, CGS, Perdas, k, TAR] %}
+              {% set price = None %}
+            {% else %}
+              {% set price=((OMIE+CGS)*(1+Perdas)+k+TAR) | round(2) %}
+            {% endif %}
+            {% set ns.hourly_data=ns.hourly_data + [(h.isoformat(), price)] %}
+          {% endfor -%}
+          {{ dict(ns.hourly_data) }}
+        tomorrow_hours: >
+          {% set OMIE = state_attr('sensor.omie_spot_price_pt', 'tomorrow_average') -%}
+          {% set CGS = state_attr(this.entity_id, 'CGS') -%}
+          {% set Perdas = state_attr(this.entity_id, 'Perdas') -%}
+          {% set k = state_attr(this.entity_id, 'k') -%}
+          {% set TAR = state_attr(this.entity_id, 'TAR') -%}
+
+          {% set ns = namespace(hourly_data=[]) %}
+          {% for h in state_attr('sensor.omie_spot_price_pt', 'tomorrow_hours') -%}
+            {% if None in [OMIE, CGS, Perdas, k, TAR] %}
+              {% set price=None %}
+            {% else %}
+              {% set price=((OMIE+CGS)*(1+Perdas)+k+TAR) | round(2) %}
+            {% endif %}
+            {% set ns.hourly_data=ns.hourly_data + [(h.isoformat(), price)] %}
+          {% endfor -%}
+          {{ dict(ns.hourly_data) }}
