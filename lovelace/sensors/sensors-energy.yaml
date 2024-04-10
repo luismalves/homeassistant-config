@@ -3,7 +3,7 @@ icon_hue: >
 
 sd1: >
   [[[
-    if(states['sensor.shelly_em_channel_1_power'].state == 'unavilable') {
+    if(states['sensor.shelly_em_channel_1_power'].state == 'unavailable') {
       return `<span>- W</span>`
     } else {
       return `<ha-icon
@@ -15,12 +15,14 @@ sd1: >
 
 sd2: >
   [[[
-    if(states['sensor.shelly_em_channel_1_power'].state == 'unavilable') {
-      return `<span>- €</span>`
+    if(states['sensor.shelly_em_channel_1_power'].state == 'unavailable') {
+      return `<span>- €</span>`;
     } else {
+      let entity = [[ variables.bill_entity ]];
+      let value = states[entity].state;
       return `<ha-icon
         icon="mdi:wallet-outline"
         style="height: 12px; width: 12px; margin-right: 4px; --mdc-icon-size: 115%">
-        </ha-icon><span>${states['sensor.energy_bill'].state}€ até hoje</span>`
+        </ha-icon><span>${value}€ até hoje</span>`
     }
   ]]]

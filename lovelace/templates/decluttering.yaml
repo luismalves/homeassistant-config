@@ -929,6 +929,8 @@ sensor-energy:
     styles: !include ../styles/style-card-energy.yaml
     template: "[[template]]"
     type: "custom:button-card"
+    variables:
+      bill_entity: "[[entity-bill]]"
   default: null
 
 sensor-number:

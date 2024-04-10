@@ -56,7 +56,7 @@
 
 - platform: template
   sensors:
-    energy_bill_omid_daily:
+    energy_bill_omie_daily:
       friendly_name: "Fatura Energia diária Indexada"
       device_class: monetary
       value_template: >-
