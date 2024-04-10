@@ -2,8 +2,7 @@
 # Custos energia
 #
 #####
-template:
-  sensor:
+- sensor:
     - unique_id: ibelectra_familia_simples
       unit_of_measurement: "€/MWh"
       availability: "{{ state_attr('sensor.omie_spot_price_pt', 'today_average') != None }}"
