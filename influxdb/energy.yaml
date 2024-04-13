@@ -23,5 +23,5 @@
 
 ## Power outlets
 - sensor.plug_1_energy
-- sensor.plug_3_energy
 - sensor.plug_2_energy
+- sensor.plug_3_energy
