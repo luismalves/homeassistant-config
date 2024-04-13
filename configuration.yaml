@@ -59,20 +59,6 @@ wake_on_lan:
 #   username: !secret nextcloud_username
 #   password: !secret nextcloud_password
 
-# proxmoxve:
-#   - host: !secret proxmox_ip
-#     username: !secret proxmox_user
-#     password: !secret proxmox_pwd
-#     verify_ssl: false
-#     realm: pve
-#     nodes:
-#       - node: alpaca
-#         vms:
-#           - 100
-#           - 103
-#           - 105
-#           - 201
-
 lywsd02:
 
 # ########################################
