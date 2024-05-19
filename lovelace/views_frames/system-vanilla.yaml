@@ -32,6 +32,34 @@ cards:
       - info-attribute: states['sensor.plug_3_power'].state
       - confirmation-text: "De certeza?"
 
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
+    view_layout:
+      grid-column: span 3
+    layout:
+      grid-template-rows: 1fr 1fr
+      margin: 0px
+    cards:
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-empty
+          - entity: sensor.plug_3_power
+          - name: "Consumo atual"
+          - height: 82px
+
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-empty
+          - entity: sensor.energy_bill_server
+          - name: "Preço por mês"
+          - height: 82px
+
   - type: entities
     view_layout:
       grid-column: span 6

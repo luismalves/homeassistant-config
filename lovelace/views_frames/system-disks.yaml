@@ -1,0 +1,40 @@
+####
+# SYSTEM
+# Databases
+#
+####
+type: "custom:layout-card"
+layout_type: "custom:grid-layout"
+layout:
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+  margin: 0px
+cards:
+  - type: "custom:gap-card"
+    height: 25
+    view_layout:
+      grid-column: span 6
+
+  - template: subtitle
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 6
+    variables:
+      - content: Discos
+
+  - template: sensor-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity: sensor.ubuntu_trusted_disk_use_percentage
+      - name: "Ubuntu (docker) use"
+
+  - template: sensor-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity: sensor.storage_local_lvm_disk_used_percentage
+      - name: "Proxmox local lvm use"
