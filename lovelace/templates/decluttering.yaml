@@ -944,6 +944,7 @@ sensor-number:
     template: "[[template]]"
     type: "custom:button-card"
   default:
+    - height: 90px
     - show_units: true
 
 sensor-number-ext:

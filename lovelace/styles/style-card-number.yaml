@@ -1,9 +1,10 @@
 card:
-  - height: 90px
+  - height: var(--height)
   - background: var(--ha-card-background-es-static)
   - font-weight: bold
   - color: "var(--el-es-static-text-color)"
   - font-size: 12px
+  - --height: "[[height]]"
 
 custom_fields:
   alert:
