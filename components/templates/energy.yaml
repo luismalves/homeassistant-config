@@ -61,3 +61,68 @@
             {% set ns.hourly_data=ns.hourly_data + [(h.isoformat(), price)] %}
           {% endfor -%}
           {{ dict(ns.hourly_data) }}
+
+
+    - unique_id: luzboa_spot_btn_simples
+      unit_of_measurement: '€/MWh'
+      availability: "{{ state_attr('sensor.omie_spot_price_pt', 'today_average') != None }}"
+      state_class: measurement
+      state: >
+        {% set OMIE = state_attr('sensor.omie_spot_price_pt', 'today_average') -%}
+        {% set CGS = state_attr(this.entity_id, 'CGS') -%}
+        {% set Perdas = state_attr(this.entity_id, 'Perdas') -%}
+        {% set FA = state_attr(this.entity_id, 'FA') -%}
+        {% set k = state_attr(this.entity_id, 'k') -%}
+
+        {% set TAR = state_attr(this.entity_id, 'TAR') -%}
+        
+        {% if None in [OMIE, CGS, Perdas, FA, k, TAR] %}
+          {{ None }}
+        {% else %}
+          {{ ((OMIE+CGS)*Perdas*FA+k+TAR) | round(2) }}
+        {% endif %}
+      attributes:
+        friendly_name: "Luzboa SPOT BTN (tarifário simples)"
+        formula: (OMIE+CGS)*Perdas*FA+k+TAR
+        OMIE: "{{ state_attr('sensor.omie_spot_price_pt', 'today_average') }}"
+        CGS: "{{ 6.5 }}"
+        Perdas: "{{ 1.1507 }}"
+        FA: "{{ 1.02 }}"
+        k: "{{ 5 }}"
+        TAR: "{{ 36.50 }}"
+        today_hours: >
+          {% set OMIE = state_attr('sensor.omie_spot_price_pt', 'today_average') -%}
+          {% set CGS = state_attr(this.entity_id, 'CGS') -%}
+          {% set Perdas = state_attr(this.entity_id, 'Perdas') -%}
+          {% set FA = state_attr(this.entity_id, 'FA') -%}
+          {% set k = state_attr(this.entity_id, 'k') -%}
+          {% set TAR = state_attr(this.entity_id, 'TAR') -%}
+          
+          {% set ns = namespace(hourly_data=[]) %}
+          {% for h in state_attr('sensor.omie_spot_price_pt', 'today_hours') -%}
+            {% if None in [OMIE, CGS, Perdas, FA, k, TAR] %}
+              {% set price = None %}
+            {% else %}
+              {% set price=((OMIE+CGS)*Perdas*FA+k+TAR) | round(2) %}
+            {% endif %}
+            {% set ns.hourly_data=ns.hourly_data + [(h.isoformat(), price)] %}
+          {% endfor -%}
+          {{ dict(ns.hourly_data) }}
+        tomorrow_hours: >
+          {% set OMIE = state_attr('sensor.omie_spot_price_pt', 'tomorrow_average') -%}
+          {% set CGS = state_attr(this.entity_id, 'CGS') -%}
+          {% set Perdas = state_attr(this.entity_id, 'Perdas') -%}
+          {% set FA = state_attr(this.entity_id, 'FA') -%}
+          {% set k = state_attr(this.entity_id, 'k') -%}
+          {% set TAR = state_attr(this.entity_id, 'TAR') -%}
+
+          {% set ns = namespace(hourly_data=[]) %}
+          {% for h in state_attr('sensor.omie_spot_price_pt', 'tomorrow_hours') -%}
+            {% if None in [OMIE, CGS, Perdas, FA, k, TAR] %}
+              {% set price=None %}
+            {% else %}
+              {% set price=((OMIE+CGS)*Perdas*FA+k+TAR) | round(2) %}
+            {% endif %}
+            {% set ns.hourly_data=ns.hourly_data + [(h.isoformat(), price)] %}
+          {% endfor -%}
+          {{ dict(ns.hourly_data) }}
