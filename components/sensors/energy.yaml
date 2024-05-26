@@ -10,7 +10,7 @@
       device_class: monetary
       value_template: >-
         {{ ((float(states.sensor.utm_mensal_vazio.state) * (float(states.input_number.energy_cost_per_kwh_empty_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + float(states.sensor.utm_mensal_fora_de_vazio.state) * (float(states.input_number.energy_cost_per_kwh_full_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + now().day * (float(states.input_number.energy_power_cost_per_day.state) + float(states.input_number.energy_access_cost_per_day.state)) + float(states.input_number.energy_taxes.state) ) * 1.23 ) | default(0) | round(2) }}
-      unit_of_measurement: "€"
+      unit_of_measurement: "EUR"
 
 - platform: template
   sensors:
@@ -19,7 +19,7 @@
       device_class: monetary
       value_template: >-
         {{ ((float(states.sensor.utm_diario_vazio.state) * (float(states.input_number.energy_cost_per_kwh_empty_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + float(states.sensor.utm_diario_fora_de_vazio.state) * (float(states.input_number.energy_cost_per_kwh_full_hours.state) * (1-float(states.input_number.energy_discount.state)/100)) + (float(states.input_number.energy_power_cost_per_day.state) + float(states.input_number.energy_access_cost_per_day.state))) * 1.23 ) | default(0) | round(2) }}
-      unit_of_measurement: "€"
+      unit_of_measurement: "EUR"
 
 # - platform: statistics
 #   name: "Server daily min power"
@@ -59,8 +59,8 @@
       friendly_name: "Fatura Energia Indexada"
       device_class: monetary
       value_template: >-
-        {{ (( (float(states.sensor.utm_mensal_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.sensor.utm_mensal_fora_de_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (now().day * float(states.input_number.energy_access_cost_per_day.state)) + float(states.input_number.energy_taxes.state) ) * 1.23 ) | default(0) | round(2) }}
-      unit_of_measurement: "€"
+        {{ (( (float(states.sensor.utm_mensal_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.sensor.utm_mensal_fora_de_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (now().day * float(states.input_number.energy_access_cost_per_day_indexed.state)) + float(states.input_number.energy_taxes.state) ) * 1.23 ) | default(0) | round(2) }}
+      unit_of_measurement: "EUR"
 
 - platform: template
   sensors:
@@ -68,8 +68,8 @@
       friendly_name: "Fatura Energia diária Indexada"
       device_class: monetary
       value_template: >-
-        {{ (( (float(states.sensor.utm_diario_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.sensor.utm_diario_fora_de_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.input_number.energy_access_cost_per_day.state))) * 1.23 ) | default(0) | round(2) }}
-      unit_of_measurement: "€"
+        {{ (( (float(states.sensor.utm_diario_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.sensor.utm_diario_fora_de_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.input_number.energy_access_cost_per_day_indexed.state))) * 1.23 ) | default(0) | round(2) }}
+      unit_of_measurement: "EUR"
 
 ### Device specific
 - platform: template
@@ -79,4 +79,4 @@
       device_class: monetary
       value_template: >-
         {{ (( (float(states.sensor.utm_server_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.sensor.utm_server_fora_de_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state))) * 1.23 ) | default(0) | round(2) }}
-      unit_of_measurement: "€"
+      unit_of_measurement: "EUR"
