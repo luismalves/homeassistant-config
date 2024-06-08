@@ -3,15 +3,15 @@
 # https://www.home-assistant.io/integrations/qnap/
 #####
 
-- platform: template
-  sensors:
-    homedrive_uptime_friendly:
-      friendly_name: "Homedrive NAS Uptime"
-      value_template: >
-        {% set value = state_attr('sensor.homedrive_status','Uptime') %}
-        {% set dt = as_timestamp(strptime(value, "%jd %Hh %Mm")) | timestamp_custom('%-j') | int(default=0) %}
-        {% if dt > 1 %}
-          {{ dt }} days
-        {% else %}
-          {{ dt }} day
-        {% endif %}
+# - platform: template
+#   sensors:
+#     homedrive_uptime_friendly:
+#       friendly_name: "Homedrive NAS Uptime"
+#       value_template: >
+#         {% set value = state_attr('sensor.homedrive_status','Uptime') %}
+#         {% set dt = as_timestamp(strptime(value, "%jd %Hh %Mm")) | timestamp_custom('%-j') | int(default=0) %}
+#         {% if dt > 1 %}
+#           {{ dt }} days
+#         {% else %}
+#           {{ dt }} day
+#         {% endif %}
