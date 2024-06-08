@@ -7,4 +7,4 @@
   name: Luz Mesa
   entities:
     - light.table_1
-    - light.table_2
+    #- light.table_2
