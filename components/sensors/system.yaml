@@ -3,11 +3,11 @@
 # https://www.home-assistant.io/integrations/systemmonitor
 #####
 
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /home
-    - type: memory_free
+# - platform: systemmonitor
+#   resources:
+#     - type: disk_use_percent
+#       arg: /home
+#     - type: memory_free
 # - platform: command_line
 #   name: CPU Temp
 #   command: "cat /sys/class/thermal/thermal_zone0/temp"
