@@ -22,9 +22,9 @@
     light.table_1:
       state: "on"
       brightness: 100
-    light.table_2:
-      state: "on"
-      brightness: 100
+    # light.table_2:
+    #   state: "on"
+    #   brightness: 100
 
 #####
 # Kitchen
