@@ -9,6 +9,7 @@ purge_keep_days: 10
 
 exclude:
   domains:
+    - button
     - update
     - automation
     - group
