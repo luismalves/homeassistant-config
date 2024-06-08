@@ -297,8 +297,11 @@ google_theme:
       contrast19: var(--black2)
       contrast20: var(--black1)
 
+      # Colors
+      green-tint: rgba(var(--green-rgb),0.7)
+
       # Color tint transparancy
-      color-tint: "0.4"
+      color-tint: "0.45"
 
       # Contrast RGB variables
       contrast1-RGB: "255,255,255"

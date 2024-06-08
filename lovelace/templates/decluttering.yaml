@@ -984,7 +984,7 @@ sensor-number-local:
     type: "custom:button-card"
   default:
     - background: var(--ha-card-background-es-static)
-    - font_name: 12px
+    - font_name: 14px
     - font_state: 28px
     - height: 90px
     - padding_bottom: 5px
@@ -1001,8 +1001,11 @@ sensor-number-gauge:
     type: "custom:button-card"
     custom_fields: !include ../graphs/gauge-x.yaml
   default:
+    - background: var(--ha-card-background-es-static)
+    - font_name: 12px
     - height: auto
     - show_units: true
+    - padding_bottom: 0px
 
 sensor-bill:
   card:
