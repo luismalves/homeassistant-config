@@ -64,6 +64,17 @@ cards:
           - company: "Gascan"
           - type: "gas"
 
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-empty
+          - entity: sensor.omie_spot_price_pt
+          - name: "Valor Spot energia"
+          - height: 82px
+          - show_units: false
+
       - type: "custom:gap-card"
         height: 20
         view_layout:

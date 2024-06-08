@@ -80,3 +80,11 @@
       value_template: >-
         {{ (( (float(states.sensor.utm_server_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state)) + (float(states.sensor.utm_server_fora_de_vazio.state) * float(states.sensor.luzboa_spot_btn_simples_kwh.state))) * 1.23 ) | default(0) | round(2) }}
       unit_of_measurement: "EUR"
+
+### OMIE Specifics
+- platform: statistics
+  name: "Average Spot price"
+  entity_id: sensor.average_omie_spot_price_pt
+  state_characteristic: mean
+  max_age:
+    days: 30
