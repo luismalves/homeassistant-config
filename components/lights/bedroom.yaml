@@ -9,4 +9,4 @@
   entities:
     - light.wled_bed_left
     - light.wled_bed_right
-    - light.wled_bed_master
+    - light.wled_bed_group
