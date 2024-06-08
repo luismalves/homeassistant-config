@@ -27,6 +27,9 @@ vm:
 pihole:
   custom_fields: !include ../icons/pihole.yaml
 
+internet-speed:
+  custom_fields: !include ../icons/internet-speed.yaml
+
 tracker-desktop:
   custom_fields: !include ../icons/tracker-desktop.yaml
 

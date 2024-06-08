@@ -1,10 +1,14 @@
 card:
   - height: var(--height)
-  - background: var(--ha-card-background-es-static)
+  - background: var(--background)
   - font-weight: bold
   - color: "var(--el-es-static-text-color)"
-  - font-size: 12px
+  - font-size: var(--font-size-name)
+  - --background: "[[background]]"
   - --height: "[[height]]"
+  - --font-size-name: "[[font_name]]"
+  - --font-size-state: "[[font_state]]"
+  - --padding-bottom-name: "[[padding_bottom]]"
 
 custom_fields:
   alert:
@@ -13,14 +17,14 @@ custom_fields:
     - font-weight: bold
 
 grid:
-  - grid-template-areas: '"alert" "s" "n"'
+  - grid-template-areas: '"graph" "alert" "s" "n"'
   - grid-template-columns: 1fr
-  - grid-template-rows: min-content 1fr min-content
+  - grid-template-rows: min-content min-content 1fr min-content
 
 name:
   - font-weight: bold
-  - padding-bottom: 10px
+  - padding-bottom: var(--padding-bottom-name)
 
 state:
   - align-self: center
-  - font-size: 28px
+  - font-size: var(--font-size-state)

@@ -944,7 +944,11 @@ sensor-number:
     template: "[[template]]"
     type: "custom:button-card"
   default:
+    - background: var(--ha-card-background-es-static)
+    - font_name: 12px
+    - font_state: 28px
     - height: 90px
+    - padding_bottom: 10px
     - show_units: true
 
 sensor-number-ext:
@@ -959,7 +963,12 @@ sensor-number-ext:
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background: var(--ha-card-background-es-static)
+    - font_name: 12px
+    - font_state: 28px
+    - height: 90px
+    - padding_bottom: 10px
 
 sensor-number-local:
   card:
@@ -973,7 +982,27 @@ sensor-number-local:
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - background: var(--ha-card-background-es-static)
+    - font_name: 12px
+    - font_state: 28px
+    - height: 90px
+    - padding_bottom: 5px
+
+sensor-number-gauge:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: false
+    show_units: "[[show_units]]"
+    styles: !include ../styles/style-card-number.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+    custom_fields: !include ../graphs/gauge-x.yaml
+  default:
+    - height: auto
+    - show_units: true
 
 sensor-bill:
   card:
@@ -1013,6 +1042,20 @@ sensor-bill:
           justify-self: right;
         }
   default: null
+
+sensor-internet:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: none
+    show_icon: false
+    show_state: false
+    #state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-internet.yaml
+    template: "[[template]]"
+    custom_fields: !include ../sensors/sensors-internet.yaml
+    type: "custom:button-card"
 
 #---------------------#
 # Radio cards

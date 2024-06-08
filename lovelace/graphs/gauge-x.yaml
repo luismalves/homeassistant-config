@@ -1,0 +1,30 @@
+graph:
+  card:
+    type: gauge
+    entity: "[[entity]]"
+    severity:
+      green: 0
+      yellow: 80
+      red: 90
+    needle: false
+    card_mod:
+      style:
+        .: |
+          ha-card {
+            padding: 5px 16px 16px 16px !important;
+          }
+          .name {
+            display: none;
+          }
+        ha-gauge:
+          $: |
+            svg .value-text {
+              font-size: 40px;
+            }
+            svg .dial {
+                stroke-width: 10px;
+            }
+            svg .value {
+                stroke-linecap: round;
+                stroke-width: 10px;
+            }

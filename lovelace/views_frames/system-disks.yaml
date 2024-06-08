@@ -21,7 +21,7 @@ cards:
     variables:
       - content: Discos
 
-  - template: sensor-number
+  - template: sensor-number-gauge
     type: "custom:decluttering-card"
     view_layout:
       grid-column: span 3
@@ -30,7 +30,7 @@ cards:
       - entity: sensor.ubuntu_trusted_disk_use_percentage
       - name: "Ubuntu (docker) use"
 
-  - template: sensor-number
+  - template: sensor-number-gauge
     type: "custom:decluttering-card"
     view_layout:
       grid-column: span 3

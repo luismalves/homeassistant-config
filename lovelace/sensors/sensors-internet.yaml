@@ -1,0 +1,47 @@
+card_1:
+  card:
+    template: sensor-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity: sensor.internet_speed_download
+      - name: "Download"
+      - background: var(--contrast1)
+      - height: 46px
+      - font_name: 10px
+      - font_state: 16px
+      - padding_bottom: 0px
+
+card_2:
+  card:
+    template: sensor-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity: sensor.internet_speed_upload
+      - name: "Upload"
+      - background: var(--contrast1)
+      - height: 46px
+      - font_name: 10px
+      - font_state: 16px
+      - padding_bottom: 0px
+
+card_3:
+  card:
+    template: sensor-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity: sensor.internet_speed_ping
+      - name: "Ping"
+      - background: var(--contrast1)
+      - height: 46px
+      - font_name: 10px
+      - font_state: 16px
+      - padding_bottom: 0px

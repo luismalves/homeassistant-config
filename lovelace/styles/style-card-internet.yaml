@@ -1,0 +1,33 @@
+card:
+  #- height: 110px
+  - font-size: 12px
+  - font-family: "var(--paper-ha-card_-_font-family)"
+  - padding-right: 4%
+
+custom_fields:
+  icon_hue:
+    - top: 10%
+    - left: 4.5%
+    - width: 40px
+    - position: absolute
+  info:
+    - align-self: end
+    - font-size: 8px
+    - padding-left: 10px
+    - text-align: left
+    - white-space: normal
+
+grid:
+  - grid-template-areas: '"i card_1" "n card_2" "info card_3"'
+  - grid-template-columns: 80px 1fr
+  - grid-template-rows: 1fr 1fr 1fr
+  - grid-gap: 6px
+
+name:
+  - font-weight: bold
+  - justify-self: start
+  - text-align: left
+  - padding-bottom: 0px
+  - padding-left: 10px
+  - margin-bottom: "-2px"
+  - white-space: normal

@@ -27,6 +27,15 @@ cards:
       - entity: switch.pi_hole
       - name: Pi hole
 
+  - template: sensor-internet
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 2
+    variables:
+      - template: internet-speed
+      - entity: sensor.internet_speed_download
+      - name: "Internet speed"
+
   - type: entities
     view_layout:
       grid-column: span 3
