@@ -87,4 +87,4 @@
   entity_id: sensor.average_omie_spot_price_pt
   state_characteristic: mean
   max_age:
-    days: 30
+    days: 10

@@ -931,7 +931,14 @@ sensor-energy:
     type: "custom:button-card"
     variables:
       bill_entity: "[[entity-bill]]"
-  default: null
+      bill_entity_old: "[[entity-bill-old]]"
+    card_mod:
+      style: |-
+        #sd3:empty {
+          display: none;
+        }
+  default:
+    - entity-bill-old: ""
 
 sensor-number:
   card:

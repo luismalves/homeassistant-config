@@ -6,8 +6,8 @@ card:
   - padding: 0px
 
 grid:
-  - grid-template-areas: '"icon_hue name name" "icon_hue sd1 sd2"'
-  - grid-template-columns: 45px min-content min-content
+  - grid-template-areas: '"icon_hue name name" "icon_hue sd1 sd2" ". sd3 sd3"'
+  - grid-template-columns: 45px min-content 1fr
   - grid-gap: 6px 8px
   - padding: 8px 4px 12px
 
@@ -30,6 +30,16 @@ custom_fields:
     - --ha-icon-display: block
 
   sd2:
+    - background-color: "var(--contrast4)"
+    - border-radius: 25px
+    - color: "var(--ha-card-name-on)"
+    - grid-area: sd2
+    - font-size: 14px
+    - justify-self: flex-start
+    - padding: 5px 10px 4px
+    - --ha-icon-display: block
+
+  sd3:
     - background-color: "var(--contrast4)"
     - border-radius: 25px
     - color: "var(--ha-card-name-on)"

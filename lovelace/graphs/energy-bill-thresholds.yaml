@@ -1,14 +1,16 @@
+- value: 0.6
+  color: "#B0BEC5"
+- value: 0.8
+  color: "#90A4AE"
+- value: 1
+  color: "#78909C"
+- value: 1.1
+  color: "#607D8B"
 - value: 1.2
-  color: "#417656"
-- value: 1.4
-  color: "#579E72"
-- value: 1.5
-  color: "#6EAF88"
-- value: 1.6
   color: "#D1B161"
-- value: 1.7
+- value: 1.3
   color: "#C8A241"
-- value: 1.9
+- value: 1.4
   color: "#7D1224"
-- value: 2.1
+- value: 1.5
   color: "#590D1A"

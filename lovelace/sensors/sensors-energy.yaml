@@ -26,3 +26,18 @@ sd2: >
         </ha-icon><span>${value}€ até hoje</span>`
     }
   ]]]
+
+sd3: >
+  [[[
+    let entity_old = [[ variables.bill_entity_old ]];
+    console.log(entity_old)
+    if(entity_old == '') {
+      return ``;
+    } else {
+      let value_old = states[entity_old].state;
+      return `<ha-icon
+        icon="mdi:wallet-outline"
+        style="height: 12px; width: 12px; margin-right: 4px; --mdc-icon-size: 115%">
+        </ha-icon><span>${value_old}€ por regulado</span>`
+    }
+  ]]]
