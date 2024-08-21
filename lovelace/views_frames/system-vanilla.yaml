@@ -19,7 +19,7 @@ cards:
     view_layout:
       grid-column: span 6
     variables:
-      - content: Home server
+      - content: Hardware
 
   - type: "custom:decluttering-card"
     template: es-switch-energy
@@ -67,10 +67,10 @@ cards:
       - entity: sensor.node_vanilla_last_boot
         name: Last boot
         icon: mdi:timelapse
-      - entity: sensor.storage_local_disk_used_percentage
+      - entity: sensor.storage_vanilla_local_disk_used_percentage
         name: Disco NVME Boot
         icon: mdi:harddisk
-      - entity: sensor.storage_local_lvm_disk_used_percentage
+      - entity: sensor.storage_vanilla_local_lvm_disk_used_percentage
         name: Disco NVME Data
         icon: mdi:harddisk
       - entity: sensor.node_vanilla_memory_used_percentage
