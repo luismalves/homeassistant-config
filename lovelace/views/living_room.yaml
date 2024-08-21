@@ -202,14 +202,14 @@ cards:
       #     - info-attribute: states['sensor.plug_3_power'].state
       #     - confirmation-text: "De certeza?"
 
-      # - template: es-camera
-      #   type: "custom:decluttering-card"
-      #   view_layout:
-      #     grid-column: span 2
-      #   variables:
-      #     - template: camera
-      #     - entity: camera.androidcamera
-      #     - name: "Camera"
+      - template: es-camera
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: camera
+          - entity: camera.android_camera
+          - name: "Camera"
 
       - type: "custom:gap-card"
         height: 10

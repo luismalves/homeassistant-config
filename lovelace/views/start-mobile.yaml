@@ -359,10 +359,10 @@ cards:
       #             background: transparent;
       #           }
 
-      # - type: "custom:gap-card"
-      #   height: 10
-      #   view_layout:
-      #     grid-column: span 6
+      - type: "custom:gap-card"
+        height: 10
+        view_layout:
+          grid-column: span 6
 
       - type: "custom:vertical-stack-in-card"
         view_layout:

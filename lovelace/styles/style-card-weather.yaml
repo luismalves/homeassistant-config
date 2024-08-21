@@ -1,14 +1,14 @@
 |
-  .type-weather-forecast {
+  ha-card {
     color: var(--el-es-static-text-color);
     background: var(--ha-card-background-es-static);
     margin-top: 0px !important;
     border-radius: 10px;
     box-shadow: none;
-    padding: 4px 12px 0px 6px;
+    padding: 4px 12px 0px 6px !important;
   }
 
-  .forecast > div > div:first-child,
+  ha-card > div > div:first-child,
   .temp-attribute .temp,
   .state {
     font-weight: 700;
