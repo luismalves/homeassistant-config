@@ -8,7 +8,7 @@ card_1:
       - template: sensors-empty
       - entity: sensor.internet_speed_download
       - name: "Download"
-      - background: var(--contrast1)
+      - background: var(--contrast3)
       - height: 46px
       - font_name: 10px
       - font_state: 16px
@@ -24,7 +24,7 @@ card_2:
       - template: sensors-empty
       - entity: sensor.internet_speed_upload
       - name: "Upload"
-      - background: var(--contrast1)
+      - background: var(--contrast3)
       - height: 46px
       - font_name: 10px
       - font_state: 16px
@@ -40,7 +40,7 @@ card_3:
       - template: sensors-empty
       - entity: sensor.internet_speed_ping
       - name: "Ping"
-      - background: var(--contrast1)
+      - background: var(--contrast3)
       - height: 46px
       - font_name: 10px
       - font_state: 16px
