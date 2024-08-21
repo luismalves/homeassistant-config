@@ -82,9 +82,9 @@
       unit_of_measurement: "EUR"
 
 ### OMIE Specifics
-- platform: statistics
-  name: "Average Spot price"
-  entity_id: sensor.average_omie_spot_price_pt
-  state_characteristic: mean
-  max_age:
-    days: 10
+# - platform: statistics
+#   name: "Average Spot price"
+#   entity_id: sensor.average_omie_spot_price_pt
+#   state_characteristic: mean
+#   max_age:
+#     days: 10

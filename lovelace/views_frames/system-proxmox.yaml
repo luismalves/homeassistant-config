@@ -71,6 +71,26 @@ cards:
       - entity: binary_sensor.lxc_jellyfin_305_status
       - name: "Jellyfin"
 
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - action: none
+      - entity: binary_sensor.lxc_uptimekuma_304_status
+      - name: "Uptime kuma"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - action: none
+      - entity: binary_sensor.lxc_influxdb_400_status
+      - name: "InfluxDB"
+
   - type: "custom:gap-card"
     height: 25
     view_layout:

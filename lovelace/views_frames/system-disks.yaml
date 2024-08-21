@@ -36,5 +36,14 @@ cards:
       grid-column: span 3
     variables:
       - template: sensors-empty
-      - entity: sensor.storage_local_lvm_disk_used_percentage
+      - entity: sensor.storage_vanilla_local_lvm_disk_used_percentage
       - name: "Proxmox local lvm use"
+
+  - template: sensor-number-gauge
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity: sensor.node_vanilla_disk_used_percentage
+      - name: "Proxmox boot use"
