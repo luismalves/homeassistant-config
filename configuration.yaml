@@ -140,23 +140,32 @@ system_log:
   fire_event: true
 
 influxdb:
+  api_version: 2
+  ssl: false
   host: !secret influxdb_host
   port: 8086
 
-  database: homeassistant
-  default_measurement: state
+  organization: !secret influxdb_org
+  bucket: homeassistant
 
   # Authentication credentials.
-  username: !secret influxdb_username
-  password: !secret influxdb_password
+  token: !secret influxdb_token
 
   # Max number of retries in case of a failure.
   max_retries: 3
 
+  # Tags to mark the data.
+  tags:
+    source: HA
+
   # The list of attribute names which should be reported as tags
   # and not fields to InfluxDB.
   tags_attributes:
-    - device_class
+    - friendly_name
+
+  # Measurement name to use when the measurement_attr state attribute does
+  # not exist, e.g. when an entity doesn’t have a unit.
+  default_measurement: units
 
   # I like to specify (whitelist) each thing I'd like to put
   # into InfluxDB, to keep the database as clean as possible.
