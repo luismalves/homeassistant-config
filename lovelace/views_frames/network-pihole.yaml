@@ -18,14 +18,14 @@ cards:
     view_layout:
       grid-column: span 3
     variables:
-      - content: Pi-hole DNS
+      - content: Local Network
 
   - template: es-switch
     type: "custom:decluttering-card"
     variables:
       - template: pihole
-      - entity: switch.pi_hole
-      - name: Pi hole
+      - entity: switch.adguard_home_protection
+      - name: Adguard home
 
   - template: sensor-internet
     type: "custom:decluttering-card"
@@ -40,10 +40,10 @@ cards:
     view_layout:
       grid-column: span 3
     entities:
-      - entity: sensor.pi_hole_ads_blocked_today
+      - entity: sensor.adguard_home_dns_queries_blocked
         name: Ads blocked today
         icon: mdi:close-octagon-outline
-      - entity: sensor.pi_hole_ads_percentage_blocked_today
+      - entity: sensor.adguard_home_dns_queries_blocked_ratio
         name: Ads Percentage Blocked Today
         icon: mdi:close-octagon-outline
     card_mod:

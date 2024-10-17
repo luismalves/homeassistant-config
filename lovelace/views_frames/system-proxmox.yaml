@@ -29,7 +29,7 @@ cards:
       - template: lxc
       - action: none
       - entity: binary_sensor.lxc_pihole_300_status
-      - name: "Pihole"
+      - name: "Adguard"
 
   - template: es-config
     type: "custom:decluttering-card"
