@@ -86,6 +86,32 @@ cards:
           - circle-3: "playing"
           - circle-4: volume_level
 
+      - type: "custom:layout-card"
+        view_layout:
+          grid-column: span 1
+        layout_type: "custom:grid-layout"
+        layout:
+          card_margin: 0px
+          grid-template-columns: 1fr
+          grid-template-rows: 1fr 1fr 1fr
+          height: 100%
+          margin: 0
+        cards:
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: binary_sensor.athom_presence_sensor_1_occupancy
+              - state-1: "on"
+              - state-2: "off"
+              - icon: mdi:motion-sensor
+              - color-state-on: --ha-card-color-name-on
+          - template: sensor-pill
+            type: "custom:decluttering-card"
+            variables:
+              - entity: sensor.athom_presence_sensor_1_light_sensor
+              - icon: mdi:brightness-6
+              - numeric_precision: 0
+
       - type: "custom:gap-card"
         height: 10
         view_layout:
