@@ -131,7 +131,17 @@ cards:
       - template: vm
       - action: none
       - entity: binary_sensor.qemu_ubuntu_server_trusted_105_status
-      - name: "Ubuntu Server"
+      - name: "Ubuntu Server 1"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: vm
+      - action: none
+      - entity: binary_sensor.qemu_ubuntu_server_2_107_status
+      - name: "Ubuntu Server 2"
 
   - template: es-config
     type: "custom:decluttering-card"
