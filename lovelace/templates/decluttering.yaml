@@ -952,7 +952,7 @@ sensor-number:
         if (entity.state === 'unknown' || entity.state === undefined)
           return "-";
         else
-          return entity.state;
+          return helpers.localize(entity);
       ]]]
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
@@ -979,7 +979,7 @@ sensor-number-ext:
         if (entity.state === 'unknown' || entity.state === undefined)
           return "-";
         else
-          return entity.state;
+          return helpers.localize(entity);
       ]]]
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
@@ -1005,7 +1005,7 @@ sensor-number-local:
         if (entity.state === 'unknown' || entity.state === undefined)
           return "-";
         else
-          return entity.state;
+          return helpers.localize(entity);
       ]]]
     state: !include ../states/state-es-number.yaml
     styles: !include ../styles/style-card-number.yaml
