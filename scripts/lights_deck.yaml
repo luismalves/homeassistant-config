@@ -5,33 +5,81 @@
 turn_off_deck:
   alias: Turn off lights of Deck
   sequence:
-    - service: light.turn_off
-      entity_id: light.mi_lamp
-    - service: light.turn_off
-      entity_id: light.led_strip_deck
-    - service: light.turn_off
-      entity_id: light.deck
-    - service: light.turn_off
-      entity_id: light.mi_lamp_pro
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.mi_lamp
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.mi_lamp
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_strip_deck
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.led_strip_deck
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.deck
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.deck
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.mi_lamp_pro
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.mi_lamp_pro
   mode: single
 
 turn_on_deck:
-  alias: Turn on lights of Deck
+  alias: Turn off lights of Deck
   sequence:
-    - service: light.turn_on
-      entity_id: light.mi_lamp
-    - service: light.turn_on
-      entity_id: light.led_strip_deck
-    - service: light.turn_on
-      entity_id: light.deck
-    - service: light.turn_on
-      entity_id: light.mi_lamp_pro
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.mi_lamp
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.mi_lamp
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_strip_deck
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.led_strip_deck
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.deck
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.deck
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.mi_lamp_pro
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.mi_lamp_pro
   mode: single
 
 set_deck_lights_color:
   alias: Set decks lights to color X
   sequence:
-    - service: light.turn_on
+    - action: light.turn_on
       data:
         entity_id: light.led_strip_deck
         effect: Solid
@@ -43,7 +91,7 @@ set_deck_lights_color:
 set_deck_lights_party:
   alias: Set deck color lights to party mode
   sequence:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.led_strip_deck
       data:

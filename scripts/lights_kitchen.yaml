@@ -5,9 +5,20 @@
 turn_off_kitchen:
   alias: Turn off lights of Kitchen
   sequence:
-    - service: light.turn_off
-      entity_id: light.shelly_kitchen_led_left
-    - service: light.turn_off
-      entity_id: light.shelly_kitchen_light
-    #- service: light.turn_off
-    #  entity_id: light.entrance_1
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.shelly_kitchen_led_left
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.shelly_kitchen_led_left
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.shelly_kitchen_light
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.shelly_kitchen_light
+  mode: single

@@ -5,20 +5,45 @@
 turn_off_bedroom:
   alias: Turn off lights of Bedroom
   sequence:
-    - service: light.turn_off
-      entity_id: light.bedroom_top_1
-    - service: light.turn_off
-      entity_id: light.bedroom_1
-    - service: light.turn_off
-      entity_id: light.bedroom_2
-    - service: light.turn_off
-      entity_id: light.wled_bed_group
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.bedroom_top_1
+              state: 'on'
+          sequence:
+            - action: light.turn_off
+              entity_id: light.bedroom_top_1
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.bedroom_1
+              state: 'on'
+          sequence:
+            - action: light.turn_off
+              entity_id: light.bedroom_1
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.bedroom_2
+              state: 'on'
+          sequence:
+            - action: light.turn_off
+              entity_id: light.bedroom_2
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_bed_group
+              state: 'on'
+          sequence:
+            - action: light.turn_off
+              entity_id: light.wled_bed_group
   mode: single
+
 
 low_light_bedroom:
   alias: Turn on low light on Bedroom
   sequence:
-    service: select.select_option
+    action: select.select_option
     target:
       entity_id: select.wled_bed_preset
     data:
@@ -29,39 +54,39 @@ low_light_bedroom:
 set_read_to_sleep_luis:
   alias: Turn on low light on Bedroom on other side of Luis
   sequence:
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.wled_bed_preset
       data:
         option: "Right blue"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.bedroom_top_1
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.bedroom_1
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.bedroom_2
   mode: single
 
 set_read_to_sleep_margarida:
   alias: Turn on low light on Bedroom on other side of Margarida
   sequence:
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.wled_bed_preset
       data:
         option: "Left blue"
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.bedroom_top_1
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.bedroom_1
-    - service: light.turn_off
+    - action: light.turn_off
       entity_id: light.bedroom_2
   mode: single
 
 set_bedroom_lights_color:
   alias: Set bedroom lights to color X
   sequence:
-    - service: light.turn_on
+    - action: light.turn_on
       data:
         entity_id: light.wled_bed_group
         effect: Solid
@@ -72,7 +97,7 @@ set_bedroom_lights_color:
 
 set_bedroom_lights_white:
   sequence:
-    - service: script.turn_on
+    - action: script.turn_on
       entity_id: script.set_bedroom_lights_color
       data:
         variables:
@@ -83,7 +108,7 @@ set_bedroom_lights_white:
 set_bedroom_lights_party:
   alias: Set bedroom color lights to party mode
   sequence:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.wled_bed_group
       data:
