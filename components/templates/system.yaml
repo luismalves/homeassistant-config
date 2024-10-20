@@ -1,0 +1,71 @@
+#####
+# System Monitor templates
+#
+#####
+
+- sensor:
+    - name: "System Updates"
+      unique_id: system_updates
+      state: >
+        {{
+          expand(states.update)
+          | selectattr('state', 'eq', 'on')
+          | map(attribute='entity_id')
+          | rejectattr('entity_id', 'in', integration_entities('mikrotik_router'))
+          | list
+          | count
+          -
+          states.update
+          | selectattr('state', 'eq', 'on')
+          | selectattr('attributes.model', 'eq', 'plugin')
+          | map(attribute='entity_id')
+          | list
+          | count
+        }}
+      attributes:
+        updates: >
+          {{
+            expand(states.update)
+            | selectattr('state', 'eq', 'on')
+            | rejectattr('entity_id', 'in', integration_entities('mikrotik_router'))
+            | map(attribute='attributes.friendly_name')
+            | list
+          }}
+        versions: >
+          {{
+            expand(states.update)
+            | selectattr('state', 'eq', 'on')
+            | rejectattr('entity_id', 'in', integration_entities('mikrotik_router'))
+            | map(attribute='attributes.latest_version')
+            | list
+          }}
+
+- sensor:
+    - name: "Dashboard Updates"
+      unique_id: dashboard_updates
+      state: >
+        {{
+          states.update
+          | selectattr('state', 'eq', 'on')
+          | selectattr('attributes.model', 'eq', 'plugin')
+          | map(attribute='entity_id')
+          | list
+          | count
+        }}
+      attributes:
+        updates: >
+          {{
+            states.update
+            | selectattr('state', 'eq', 'on')
+            | selectattr('attributes.model', 'eq', 'plugin')
+            | map(attribute='attributes.friendly_name')
+            | list
+          }}
+        versions: >
+          {{
+            states.update
+            | selectattr('state', 'eq', 'on')
+            | selectattr('attributes.model', 'eq', 'plugin')
+            | map(attribute='attributes.latest_version')
+            | list
+          }}
