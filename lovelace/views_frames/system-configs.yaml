@@ -40,3 +40,48 @@ cards:
       - entity: input_number.server_alert_disk_temperature
       - name: "Alerta"
       - description: "Temperatura Disco"
+
+  - type: "custom:gap-card"
+    height: 15
+    view_layout:
+      grid-column: span 6
+
+  - template: es-config-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - entity: input_number.energy_access_cost_per_day
+      - name: "Preço"
+      - description: "Acesso diário energia"
+
+  - template: es-config-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - entity: input_number.energy_power_cost_per_day
+      - name: "Preço"
+      - description: "Potência contratada"
+
+  - template: es-config-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - entity: input_number.energy_cost_per_kwh_full_hours
+      - name: "Preço"
+      - description: "KWh Cheias"
+
+  - template: es-config-number
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: lxc
+      - entity: input_number.energy_cost_per_kwh_empty_hours
+      - name: "Preço"
+      - description: "KWh Vazias"
