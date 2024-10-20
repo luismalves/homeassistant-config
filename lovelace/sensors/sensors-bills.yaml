@@ -22,8 +22,8 @@ table: >
   [[[ 
     let val1 = (entity.attributes.month_2 == undefined || entity.attributes.month_2 == 0) ? '-' : entity.attributes.month_2;
     let val2 = (entity.attributes.month_1 == undefined || entity.attributes.month_2 == 0) ? '-' : entity.attributes.month_1;
-    let val3 = (entity.state == undefined || entity.state == 0) ? '-' : entity.state;
+    let val3 = (entity.state == undefined || entity.state == 'unknown' || entity.state == 0) ? '-' : entity.state;
     return `<div class="pill">${val1} €</div>
             <div class="pill">${val2} €</div>
-            <div class="pill">${val3} €</div>`
+            <div class="pill${val3 === '-' ? ' not-valid' : ''}">${val3} €</div>`
   ]]]

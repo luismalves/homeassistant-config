@@ -1,0 +1,11 @@
+- styles:
+    card:
+      - color: "var(--el-es-static-text-color)"
+  operator: ">"
+  value: "0"
+
+- styles:
+    card:
+      - color: "var(--ha-card-color-name-off)"
+  operator: "<="
+  value: "0"
