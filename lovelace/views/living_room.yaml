@@ -170,6 +170,18 @@ cards:
           - entity: cover.shelly_roller_right
           - name: Estores Direita
 
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.plug_2
+          - name: Extensão
+          - info-attribute: states['sensor.humifier_plug_time_left'].state
+          - info-max: 0
+          - info-unit: ""
+
       - template: es-ping
         type: "custom:decluttering-card"
         view_layout:

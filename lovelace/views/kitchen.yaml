@@ -174,7 +174,9 @@ cards:
           - template: switch
           - entity: switch.plug_1
           - name: Tomada Dyson
-          - entity-power: sensor.plug_1_power
+          - info-attribute: states['sensor.dyson_plug_time_left'].state
+          - info-max: 0
+          - info-unit: ""
 
       # - template: es-light-slider
       #   type: "custom:decluttering-card"

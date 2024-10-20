@@ -217,7 +217,7 @@ es-config-number:
     show_units: true
     show_state: true
     tap_action:
-      action: none
+      action: more-info
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card-number-set.yaml
     custom_fields:
@@ -947,6 +947,13 @@ sensor-number:
     show_icon: false
     show_state: true
     show_units: "[[show_units]]"
+    state_display: >
+      [[[
+        if (entity.state === 'unknown' || entity.state === undefined)
+          return "-";
+        else
+          return entity.state;
+      ]]]
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -967,6 +974,13 @@ sensor-number-ext:
       url_path: "[[url-1]]"
     show_icon: false
     show_state: true
+    state_display: >
+      [[[
+        if (entity.state === 'unknown' || entity.state === undefined)
+          return "-";
+        else
+          return entity.state;
+      ]]]
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -986,6 +1000,14 @@ sensor-number-local:
       navigation_path: "[[url-1]]"
     show_icon: false
     show_state: true
+    state_display: >
+      [[[
+        if (entity.state === 'unknown' || entity.state === undefined)
+          return "-";
+        else
+          return entity.state;
+      ]]]
+    state: !include ../states/state-es-number.yaml
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -1049,6 +1071,10 @@ sensor-bill:
         }
         .pill:nth-of-type(3) {
           background-color:var(--ha-card-background-es-on);
+          justify-self: right;
+        }
+        .pill.not-valid:nth-of-type(3) {
+          background-color:var(--contrast6);
           justify-self: right;
         }
   default: null
