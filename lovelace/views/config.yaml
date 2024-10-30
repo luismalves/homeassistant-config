@@ -59,6 +59,11 @@ cards:
           - name: "Latest version"
           - url-1: https://www.home-assistant.io/blog/categories/release-notes/
 
+      - type: "custom:gap-card"
+        height: 10
+        view_layout:
+          grid-column: span 6
+
       - template: sensor-number-local
         type: "custom:decluttering-card"
         view_layout:
@@ -77,6 +82,16 @@ cards:
           - template: sensors-hacs
           - entity: sensor.dashboard_updates
           - name: "Dashboard updates"
+          - url-1: /config/dashboard
+
+      - template: sensor-number-local
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-hacs
+          - entity: sensor.zigbee_updates
+          - name: "Zigbee updates"
           - url-1: /config/dashboard
 
       - type: "custom:gap-card"

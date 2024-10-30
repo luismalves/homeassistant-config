@@ -10,8 +10,9 @@
         {{
           expand(states.update)
           | selectattr('state', 'eq', 'on')
-          | map(attribute='entity_id')
           | rejectattr('entity_id', 'in', integration_entities('mikrotik_router'))
+          | rejectattr('entity_id', 'in', integration_entities('mqtt'))
+          | map(attribute='entity_id')
           | list
           | count
           -
@@ -28,6 +29,7 @@
             expand(states.update)
             | selectattr('state', 'eq', 'on')
             | rejectattr('entity_id', 'in', integration_entities('mikrotik_router'))
+            | rejectattr('entity_id', 'in', integration_entities('mqtt'))
             | map(attribute='attributes.friendly_name')
             | list
           }}
@@ -36,6 +38,7 @@
             expand(states.update)
             | selectattr('state', 'eq', 'on')
             | rejectattr('entity_id', 'in', integration_entities('mikrotik_router'))
+            | rejectattr('entity_id', 'in', integration_entities('mqtt'))
             | map(attribute='attributes.latest_version')
             | list
           }}
@@ -66,6 +69,36 @@
             states.update
             | selectattr('state', 'eq', 'on')
             | selectattr('attributes.model', 'eq', 'plugin')
+            | map(attribute='attributes.latest_version')
+            | list
+          }}
+
+- sensor:
+    - name: "Zigbee Updates"
+      unique_id: zigbee_updates
+      state: >
+        {{
+          states.update
+          | selectattr('state', 'eq', 'on')
+          | selectattr('entity_id', 'in', integration_entities('mqtt'))
+          | map(attribute='entity_id')
+          | list
+          | count
+        }}
+      attributes:
+        updates: >
+          {{
+            states.update
+            | selectattr('state', 'eq', 'on')
+            | selectattr('entity_id', 'in', integration_entities('mqtt'))
+            | map(attribute='attributes.friendly_name')
+            | list
+          }}
+        versions: >
+          {{
+            states.update
+            | selectattr('state', 'eq', 'on')
+            | selectattr('entity_id', 'in', integration_entities('mqtt'))
             | map(attribute='attributes.latest_version')
             | list
           }}
