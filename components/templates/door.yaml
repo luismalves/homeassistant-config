@@ -1,0 +1,13 @@
+#####
+# Main door sensors
+#
+#####
+
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.openclose_1_contact
+        to: 'on'
+    sensor:
+      - name: "Main door lastly open"
+        unique_id: door_open_last_timestamp
+        state: "{{ now().timestamp() | float(0) }}"
