@@ -7,7 +7,15 @@ homeassistant:
   time_zone: Europe/Lisbon
   country: PT
   customize: !include_dir_merge_named customize
-
+  auth_providers:
+    - type: trusted_networks
+      trusted_networks:
+        - 192.168.30.0/24
+      trusted_users:
+        192.168.30.0/24:
+          - 29e315760200496caf0dda35ef771366
+      allow_bypass_login: true
+    - type: homeassistant
 default_config:
 
 # ########################################
@@ -48,42 +56,24 @@ panel_custom:
     config:
       target: /config/logs
 
+  - name: iframe-fullscreen
+    module_url: "/local/custom_scripts/iframe-fullscreen.js"
+    sidebar_title: "Splitwise"
+    url_path: splitwise
+    config:
+      url: "https://whoami-2.luisalves.me/"
+
 # ########################################
 # ###           INTEGRATIONS           ###
 # ########################################
 
 wake_on_lan:
 
-# nextcloud:
-#   url: http://192.168.1.90:9321
-#   username: !secret nextcloud_username
-#   password: !secret nextcloud_password
-
 lywsd02:
 
 # ########################################
 # ###          NOTIFICATIONS           ###
 # ########################################
-
-# telegram_bot:
-#   - platform: polling
-#     api_key: !secret telegram_bot_key
-#     allowed_chat_ids:
-#       - !secret telegram_chatid_luis
-#       - !secret telegram_chatid_margarida
-
-# notify:
-#   - platform: discord
-#     name: discord
-#     token: !secret discord_bot_token
-
-# - platform: telegram
-#   name: Telegram Luis
-#   chat_id: !secret telegram_chatid_luis
-
-# - platform: telegram
-#   name: Telegram Margarida
-#   chat_id: !secret telegram_chatid_margarida
 
 # ########################################
 # ###             SERVICES             ###
@@ -190,8 +180,8 @@ utility_meter: !include_dir_merge_named components/utility_meter
 camera: !include_dir_merge_list components/cameras
 
 #group: !include_dir_merge_named groups
-#automation: !include_dir_merge_list automations
 automation: !include automations.yaml
+#automation: !include_dir_merge_list automations
 #script: !include scripts.yaml
 script: !include_dir_merge_named scripts
 scene: !include scenes.yaml

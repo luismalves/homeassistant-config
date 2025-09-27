@@ -1,18 +1,18 @@
 sd1: >
   [[[
-    return `<span>Com base nos dados Tronity</span>`
+    return `<span>Com base em faturas</span>`
   ]]]
 
 info1: >
   [[[
-    let state = (states['sensor.my_id_total_charge_cost'].state == 'unavailable' || states['sensor.my_id_total_charge_cost'].state == 'unknown') ? '-' : states['sensor.my_id_total_charge_cost'].state;
-    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR</span>`
+    let state = (states['sensor.current_month_kwh_charged'].state == 'unavailable' || states['sensor.current_month_kwh_charged'].state == 'unknown') ? '-' : states['sensor.current_month_kwh_charged'].state;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">kWh (C)</span>`
   ]]]
 
 info2: >
   [[[
-    let state = (states['sensor.my_id_price_per_kwh'].state == 'unavailable' || states['sensor.my_id_price_per_kwh'].state == 'unknown') ? '-' : states['sensor.my_id_price_per_kwh'].state;
-    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR p/ kWh</span>`
+    let state = (states['sensor.current_month_ev_charging_cost'].state == 'unavailable' || states['sensor.current_month_ev_charging_cost'].state == 'unknown') ? '-' : states['sensor.current_month_ev_charging_cost'].state;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR/kWh (C)</span>`
   ]]]
 
 info3: >
@@ -23,6 +23,6 @@ info3: >
 
 info4: >
   [[[
-    let state = (states['sensor.my_id_total_charge_energy'].state == 'unavailable' || states['sensor.my_id_total_charge_energy'].state == 'unknown') ? '-' : Math.round(states['sensor.my_id_total_charge_energy'].state);
-    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total kWh</span>`
+    let state = (states['sensor.previous_month_ev_charging_cost'].state == 'unavailable' || states['sensor.previous_month_ev_charging_cost'].state == 'unknown') ? '-' : states['sensor.previous_month_ev_charging_cost'].state;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">EUR/kWh (P)</span>`
   ]]]

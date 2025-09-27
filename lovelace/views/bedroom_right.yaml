@@ -1,0 +1,188 @@
+####
+# VIEW
+# Quarto direita
+####
+title: Office Lu
+path: bedroom-right
+background: "var(--background-view-deck)"
+
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
+cards:
+  - height: 15
+    type: "custom:gap-card"
+
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
+    layout:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      margin: 0px
+    cards:
+      - type: "custom:decluttering-card"
+        template: section-header
+        view_layout:
+          grid-column: span 6
+        variables:
+          - name: "Office Lu"
+          - script: script.turn_off_bedroom_right
+          - sensor_entity: sensor.lights_on_bedroom_right
+
+      - type: custom:auto-entities
+        view_layout:
+          grid-column: span 6
+        show_empty: false
+        filter:
+          include:
+            - entity_id: "sensor.environment_2_humidity"
+              state: ">80.0"
+        card:
+          type: markdown
+          card_mod:
+            style: !include ../styles/style-card-alert.yaml
+          content: Humidade muito elevada.
+
+      - !include ../views_items/bedroom_right/light.wled_standingdesk.yaml
+
+      - !include ../views_items/bedroom_right/light.luz_quarto_direita.yaml
+
+      - !include ../views_items/bedroom_right/light.mi_lamp_pro.yaml
+
+      - template: es-switch-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.plug_3
+          - name: Tomada
+          - confirmation-text: "De certeza? Confirma que o PC está desligado se estiveres a desligar a tomada."
+          - info-attribute: states['sensor.plug_3_power'].state
+
+      - template: es-ping
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: sensor-desktop
+          - entity: binary_sensor.windows_desktop_state
+          - name: Desktop
+
+      - template: es-cover
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: shutter
+          - toggle-script: script.toggle_cover_bedroom_right
+          - entity: cover.estores_quarto_direita
+          - name: Estores
+
+      - template: climate-ac
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: ac
+          - entity: climate.quarto_direita
+          - name: A/C
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.presence_bedroom_right
+                - state-1: "Detetado"
+                - state-2: "Vazio"
+                - icon: mdi:motion-sensor
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.atc_a8f6_temperature
+                - icon: mdi:thermometer
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.atc_a8f6_humidity
+                - icon: mdi:water-percent
+                - numeric_precision: 0
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 2fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.openclose_quarto_direita_contact
+                - icon: mdi:door
+                - state-1: "off"
+                - state-2: "on"
+                - color-state-on: --ha-card-color-name-on
+
+      - type: "custom:gap-card"
+        height: 10
+        view_layout:
+          grid-column: span 6
+
+      - template: subsubtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Scenes
+
+      - template: scene
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: scene-hobby
+          - scene: scene.hooby_time
+          - entity: scene.hooby_time
+
+      - template: scene
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: scene-gamming
+          - scene: scene.gamming_time
+          - entity: scene.gamming_time

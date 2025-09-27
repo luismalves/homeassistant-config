@@ -38,7 +38,7 @@ browser_mod:
                   service: light.turn_on
                   service_data:
                     entity_id: "[[entity]]"
-                    white: 255
+                    rgb_color: [255, 255, 255]
                   color: "#ffffff"
                 - action: call-service
                   service: light.turn_on

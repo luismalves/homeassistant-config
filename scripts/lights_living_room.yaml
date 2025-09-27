@@ -8,19 +8,19 @@ turn_off_living_room:
     - choose:
         - conditions:
             - condition: state
-              entity_id: light.shelly_table_light
+              entity_id: light.light_2
               state: "on"
           sequence:
             - action: light.turn_off
-              entity_id: light.shelly_table_light
+              entity_id: light.light_2
     - choose:
         - conditions:
             - condition: state
-              entity_id: light.shelly_living_room_light
+              entity_id: light.led_strip_living_room
               state: "on"
           sequence:
             - action: light.turn_off
-              entity_id: light.shelly_living_room_light
+              entity_id: light.led_strip_living_room
     - if:
         - condition: state
           entity_id: input_boolean.christmas_season
@@ -34,14 +34,6 @@ turn_off_living_room:
               sequence:
                 - action: light.turn_off
                   entity_id: light.wled_xmas
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: light.led_strip_living_room
-              state: "on"
-          sequence:
-            - action: light.turn_off
-              entity_id: light.led_strip_living_room
   mode: single
 
 set_living_room_lights_color:

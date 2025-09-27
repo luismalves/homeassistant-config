@@ -27,8 +27,17 @@ cards:
       grid-column: span 3
     variables:
       - template: sensors-empty
-      - entity: sensor.ubuntu_trusted_disk_use_percentage
-      - name: "Ubuntu (docker) use"
+      - entity: sensor.ubuntu_1_disk_use_percentage
+      - name: "Ubuntu-1 use"
+
+  - template: sensor-number-gauge
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: sensors-empty
+      - entity: sensor.ubuntu_2_disk_use_percentage
+      - name: "Ubuntu-2 use"
 
   - template: sensor-number-gauge
     type: "custom:decluttering-card"

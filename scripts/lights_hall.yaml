@@ -1,0 +1,29 @@
+---
+# Lights group control - Hall
+#
+
+turn_off_hall:
+  alias: Turn off lights of Hall
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_corredor
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.luz_corredor
+  mode: single
+
+turn_on_hall:
+  alias: Turn on lights of Hall
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_corredor
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.luz_corredor
+  mode: single

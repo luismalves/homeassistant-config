@@ -1,0 +1,36 @@
+card:
+  - background: var(--yellow-gradient, var(--ha-card-background-es-on))
+  - border-radius: 30px
+  - color: var(--el-es-static-text-color-light)
+  - height: var(--height)
+  - width: 70px
+  - padding: 4px 2px 2px 2px
+  - --height: "[[height]]"
+  - pointer-events: initial
+
+custom_fields:
+  icon_hue:
+    - align-self: center
+    - justify-self: center
+    - padding-top: 1px
+    - width: >
+        [[[
+          console.log(parseInt(variables["height"]))
+          if(!variables["height"]) {
+            return "20px"
+          } else {
+            if(parseInt(variables["height"]) < 40) {
+              return "20px"
+            } else {
+              return "26px"
+            }
+          }
+        ]]]
+
+grid:
+  - grid-template-areas: '"icon_hue"'
+  - grid-template-columns: 1fr
+  - grid-template-rows: 1fr
+
+state:
+  - display: none

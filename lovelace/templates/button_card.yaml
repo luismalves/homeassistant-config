@@ -3,6 +3,9 @@
 # https://github.com/custom-cards/button-card#configuration-templates
 #####
 
+ac:
+  custom_fields: !include ../icons/ac.yaml
+
 alarm:
   custom_fields: !include ../icons/alarm.yaml
 
@@ -29,6 +32,9 @@ pihole:
 
 internet-speed:
   custom_fields: !include ../icons/internet-speed.yaml
+
+privacy:
+  custom_fields: !include ../icons/privacy.yaml
 
 tracker-desktop:
   custom_fields: !include ../icons/tracker-desktop.yaml
@@ -81,8 +87,20 @@ toggle-debug-code:
 #---------------------#
 # Lights
 #---------------------#
-light-spot:
-  custom_fields: !include ../icons/light-spot.yaml
+light-spot-v1:
+  custom_fields: !include ../icons/light-spot-v1.yaml
+
+light-spot-v2:
+  custom_fields: !include ../icons/light-spot-v2.yaml
+
+light-spot-v3:
+  custom_fields: !include ../icons/light-spot-v3.yaml
+
+light-spot-v4:
+  custom_fields: !include ../icons/light-spot-v4.yaml
+
+light-mushroom:
+  custom_fields: !include ../icons/light-mushroom.yaml
 
 light-pendant:
   custom_fields: !include ../icons/light-pendant.yaml
@@ -135,11 +153,14 @@ path-living-room:
 path-kitchen:
   custom_fields: !include ../icons/path-kitchen.yaml
 
-path-deck:
-  custom_fields: !include ../icons/path-deck.yaml
+path-bedroom-right:
+  custom_fields: !include ../icons/path-bedroom-right.yaml
 
-path-bedroom:
-  custom_fields: !include ../icons/path-bedroom.yaml
+path-bedroom-left:
+  custom_fields: !include ../icons/path-bedroom-left.yaml
+
+path-bedroom-suite:
+  custom_fields: !include ../icons/path-bedroom-suite.yaml
 
 path-car:
   custom_fields: !include ../icons/path-car.yaml
@@ -253,6 +274,9 @@ scene-christmas:
 #---------------------#
 script-lights-off:
   custom_fields: !include ../icons/script-lights-off.yaml
+
+script-turn-off:
+  custom_fields: !include ../icons/script-turn-off.yaml
 
 #---------------------#
 # Buttons

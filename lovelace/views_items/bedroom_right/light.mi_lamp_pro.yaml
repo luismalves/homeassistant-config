@@ -1,0 +1,8 @@
+template: es-light-temperature
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-desk
+  - entity: light.mi_lamp_pro
+  - name: "Mi Lamp Pro"

@@ -15,8 +15,8 @@ google_theme:
   header-height: 50px;
 
   # Main Interface Colors
-  primary-color: var(--blue)
-  accent-color: var(--blue)
+  primary-color: "#4285F4"
+  accent-color: "#174EA6"
   primary-background-color: var(--contrast1)
   secondary-background-color: var(--contrast2)
   divider-color: var(--contrast3)
@@ -32,8 +32,11 @@ google_theme:
   sidebar-icon-color: var(--contrast6)
   sidebar-text-color: var(--contrast20)
   sidebar-background-color: var(--contrast2)
-  sidebar-selected-icon-color: var(--blue)
-  sidebar-selected-text-color: var(--blue)
+  sidebar-selected-icon-color: var(--primary-color)
+  sidebar-selected-text-color: var(--white)
+
+  # Scrollbar
+  scrollbar-thumb-color: var(--contrast3)
 
   # Cards
   card-background-color: var(--contrast4)
@@ -129,17 +132,18 @@ google_theme:
   info-color: rgb(0, 122, 255)
 
   #Fonts
-  paper-font-subhead_-_font-family: "Google Sans"
-  paper-font-caption_-_font-family: "Google Sans"
-  paper-font-button_-_font-family: "Google Sans"
-  paper-font-title_-_font-family: "Google Sans"
-  paper-font-display1_-_font-family: "Google Sans"
-  paper-font-display2_-_font-family: "Google Sans"
-  paper-font-display3_-_font-family: "Google Sans"
-  paper-font-display4_-_font-family: "Google Sans"
-  paper-font-display5_-_font-family: "Google Sans"
-  paper-ha-card_-_font-family: "Google Sans"
-  mdc-typography-font-family: "Google Sans"
+  paper-font-subhead_-_font-family: "'Google Sans', Roboto"
+  paper-font-caption_-_font-family: "'Google Sans', Roboto"
+  paper-font-button_-_font-family: "'Google Sans', Roboto"
+  paper-font-title_-_font-family: "'Google Sans', Roboto"
+  paper-font-display1_-_font-family: "'Google Sans', Roboto"
+  paper-font-display2_-_font-family: "'Google Sans', Roboto"
+  paper-font-display3_-_font-family: "'Google Sans', Roboto"
+  paper-font-display4_-_font-family: "'Google Sans', Roboto"
+  paper-font-display5_-_font-family: "'Google Sans', Roboto"
+  paper-ha-card_-_font-family: "'Google Sans', Roboto"
+  mdc-typography-font-family: "'Google Sans', Roboto"
+  md-list-item-label-text-font: "'Google Sans', Roboto"
 
   #######################################################
   ############### Custom global variables ###############
@@ -183,6 +187,7 @@ google_theme:
   # white1: "#FFFFFF"
 
   # Colors
+  # Ref: https://partnermarketinghub.withgoogle.com/brands/google-news/visual-identity/color-palette/
   purple: rgb(var(--purple-rgb))
   yellow: rgb(var(--yellow-rgb))
   orange: rgb(var(--orange-rgb))
@@ -199,10 +204,19 @@ google_theme:
   blue-tint: rgba(var(--blue-rgb),var(--color-tint))
 
   # Gradients
+  blue-gradient: linear-gradient(135deg, rgba(144, 191, 255,0.8) 0%, rgba(144, 191, 255,0.6) 100%)
+  yellow-gradient: linear-gradient(135deg, rgba(var(--yellow-rgb),0.9) 0%, rgba(var(--yellow-rgb),0.6) 100%)
+  pink-gradient: linear-gradient(135deg, rgba(253, 168, 208, 0.8) 0%, rgba(253, 168, 208, 0.65) 100%)
+  purple-gradient: linear-gradient(135deg,rgba(233,221,255,1) 0%, rgba(233,221,255,0.4) 100%)
+  red-gradient: linear-gradient(135deg, rgba(255, 130, 155, 0.7) 0%, rgba(255, 130, 155, 0.5) 100%)
+
   brightness: linear-gradient(90deg, rgba(var(--brightness-low-rgb), 0.4) 0%, rgba(var(--brightness-high-rgb), 1) 100%)
   brightness-tint: linear-gradient(90deg, rgba(var(--brightness-low-rgb), 0.06) 0%, rgba(var(--brightness-high-rgb), var(--color-tint)) 100%)
   temperature: linear-gradient(90deg, rgba(var(--temperature-low-rgb), 01) 0%, rgba(var(--temperature-high-rgb), 1) 100%)
   temperature-tint: linear-gradient(90deg, rgba(var(--temperature-low-rgb), var(--color-tint)) 0%, rgba(var(--temperature-high-rgb), var(--color-tint)) 100%)
+
+  # Vignettes
+  vignete-car: radial-gradient(circle, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.2) 100%)
 
   # Color RGB variables
   purple-rgb: 239, 177, 255
@@ -221,7 +235,7 @@ google_theme:
   ##########################
   # Custom cards backgrounds
   ha-card-background-es-off: var(--contrast2)
-  ha-card-background-es-on: var(--blue-tint)
+  ha-card-background-es-on: var(--blue-gradient)
   ha-card-background-es-static: var(--contrast2)
   ha-card-background-path: var(--contrast2)
   ha-card-background-task: var(--contrast2)
@@ -234,6 +248,7 @@ google_theme:
   ha-card-color-state-off: var(--contrast6)
   ha-card-color-name-off: var(--contrast10)
   ha-card-border-off: "2px solid var(--contrast7)"
+  ha-card-border-undefined: "2px dashed var(--contrast7)"
   ha-card-alert-text: var(--contrast1)
 
   ha-card-bar-background: var(--contrast1)
@@ -352,6 +367,13 @@ google_theme:
       # Color tint transparancy
       color-tint: "0.3"
 
+      # Gradients
+      blue-gradient: linear-gradient(135deg, rgba(144, 191, 255,0.4) 0%, rgba(144, 191, 255,0.3) 100%)
+      yellow-gradient: linear-gradient(135deg, rgba(var(--yellow-rgb),0.4) 0%, rgba(var(--yellow-rgb),0.3) 100%)
+      pink-gradient: linear-gradient(135deg, rgba(253, 168, 208, 0.4) 0%, rgba(253, 168, 208, 0.3) 100%)
+      purple-gradient: linear-gradient(135deg,rgba(101, 85, 143, 0.5) 0%, rgba(101, 85, 143, 0.3) 100%)
+      red-gradient: linear-gradient(135deg, rgba(255, 130, 155, 0.5) 0%, rgba(255, 130, 155, 0.3) 100%)
+
       # Contrast RGB variables
       contrast1-RGB: "0,0,0"
 
@@ -410,25 +432,47 @@ google_theme:
       background: unset !important;
     }
 
+  # Ref: https://community.home-assistant.io/t/card-mod-super-charge-your-themes/212176/145
   card-mod-root-yaml: |
+    sl-tab$: |
+      .: {
+        border-radius: 60px !important;
+        overflow: hidden;
+      }
+
+      .tab {
+        border-radius: 60px !important;
+        color: var(--contrast20) !important;
+        height: calc(100% - 16px);
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        margin: 8px 0;
+        text-transform: uppercase;
+        --sl-spacing-large: 16px;
+        overflow: hidden;
+      }
+      .tab.tab--active {
+        color: var(--contrast1) !important;
+        background: var(--contrast20);
+      }
+
     .: |
       /* ___________ Top bar ___________  */
       :host([scrolled]) .header {
         box-shadow: none !important;
       }
-      paper-tab {
-        color: var(--contrast10);
-        border-radius: 15px;
-      }
-      paper-tab {
+      .tab {
         border-radius: 60px;
+        color: var(--contrast20);
         height: calc(100% - 16px);
         margin: 8px 0;
       }
-      paper-tab.iron-selected {
+      .tab.tab--active {
         color: var(--contrast1);
         background: var(--contrast20);
       }
+
+    home-assistant$: |
       /* ___________ Side bar ___________  */
       ha-menu-button, ha-button-menu {
         color: var(--contrast10);

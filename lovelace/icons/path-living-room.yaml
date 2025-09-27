@@ -52,6 +52,14 @@ icon_hue: >
         stroke-width="1"/></g></svg>`; ]]]
 sd1: >
   [[[
+    return `<ha-icon
+      icon="mdi:thermometer-low"
+      style="width: 10px; height: 10px;">
+      </ha-icon><span><span>${Number(states['sensor.environment_1_temperature'].state).toFixed(1)}º</span></span>`
+  ]]]
+
+sd2: >
+  [[[
     let numlight = states['sensor.lights_on_living_room'].state;
     if (numlight == 1) return `<span> ${states['sensor.lights_on_living_room'].state} luz</span>`;
     else if (numlight > 1) return `<span> ${states['sensor.lights_on_living_room'].state} luzes</span>`;

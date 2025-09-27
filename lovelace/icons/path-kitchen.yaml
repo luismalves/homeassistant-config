@@ -6,16 +6,9 @@ sd1: >
     return `<ha-icon
       icon="mdi:thermometer-low"
       style="width: 10px; height: 10px;">
-      </ha-icon><span><span>${states['sensor.environment_1_temperature'].state}º</span></span>`
+      </ha-icon><span><span>${states['climate.sala'].attributes.current_temperature}º</span></span>`
   ]]]
 sd2: >
-  [[[
-    return `<ha-icon
-      icon="mdi:water-percent"
-      style="width: 10px; height: 10px;">
-      </ha-icon><span><span>${states['sensor.environment_1_humidity'].state}%</span></span>`
-  ]]]
-sd3: >
   [[[
     let numlight = states['sensor.lights_on_kitchen'].state;
     if (numlight == 1) return `<span> ${states['sensor.lights_on_kitchen'].state} luz</span>`;

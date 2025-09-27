@@ -1,5 +1,5 @@
 info: >
-  [[[ if (entity.state === '[[circle-3]]' && [[circle-1]]) {
+  [[[ if (entity && entity.state === '[[circle-3]]' && [[circle-1]]) {
   const [[circle-4]] = Math.round([[circle-1]] / [[circle-2]]);
   const radius = 20.5; const circumference = radius * 2 * Math.PI; 
   return `<svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="${radius}" stroke="var(--el-state-circle-dash)" stroke-width="1.5" fill="none" style="

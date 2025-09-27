@@ -1,0 +1,86 @@
+#####
+# Pet related
+#
+#####
+
+# Litter
+- sensor:
+    - unique_id: "days_since_cat_litter_change"
+      name: "Dias desde a última revisão da areia"
+      state: >
+        {% set last_change = states('input_datetime.last_cat_litter_change') %}
+        {% if last_change not in ['unknown', 'unavailable'] %}
+          {% set last_datetime = last_change | as_datetime | as_local %}
+          {% set hours_diff = (now() - last_datetime).total_seconds() / 3600 %}
+          {{ (hours_diff / 24) | round(0, 'floor') | int }}
+        {% else %}
+          unavailable
+        {% endif %}
+      unit_of_measurement: "dias"
+      icon: mdi:delete-variant
+      device_class: duration
+
+- sensor:
+    - unique_id: "days_since_cat_litter_full_change"
+      name: "Dias desde a última troca total da areia"
+      state: >
+        {% set last_change = states('input_datetime.last_full_cat_litter_change') %}
+        {% if last_change not in ['unknown', 'unavailable'] %}
+          {% set last_datetime = last_change | as_datetime | as_local %}
+          {% set hours_diff = (now() - last_datetime).total_seconds() / 3600 %}
+          {{ (hours_diff / 24) | round(0, 'floor') | int }}
+        {% else %}
+          unavailable
+        {% endif %}
+      unit_of_measurement: "dias"
+      icon: mdi:delete-variant
+      device_class: duration
+
+# Fountain
+- sensor:
+    - unique_id: "petlibro_fountain_tank_status"
+      name: "Pet foutain Tank Status"
+      state: >
+        {% if is_state('binary_sensor.petlibro_plwf105_tank_removed', 'off') %}
+          Conectado
+        {% else %}
+          Removido
+        {% endif %}
+      icon: >
+        {% if is_state('binary_sensor.petlibro_plwf105_tank_removed', 'off') %}
+          mdi:water-check
+        {% else %}
+          mdi:water-alert
+        {% endif %}
+
+- sensor:
+    - unique_id: "days_since_last_tank_disconnection"
+      name: "Days since last tank disconnection"
+      state: >
+        {% if states('binary_sensor.petlibro_plwf105_tank_removed') in ['unavailable', 'unknown'] %}
+          unavailable
+        {% else %}
+          {% set last_changed = states.binary_sensor.petlibro_plwf105_tank_removed.last_changed %}
+          {% set days_diff = (now() - last_changed).days %}
+          {{ days_diff }}
+        {% endif %}
+      unit_of_measurement: "dias"
+      device_class: duration
+      icon: "mdi:calendar-clock"
+
+# Feeder
+- sensor:
+    - unique_id: "pet_feeder_status"
+      name: "Pet feeder status"
+      state: >
+        {% if is_state('binary_sensor.aqara_pet_feeder_error', 'off') %}
+          OK
+        {% else %}
+          Erro
+        {% endif %}
+      icon: >
+        {% if is_state('binary_sensor.aqara_pet_feeder_error', 'off') %}
+          mdi:food-drumstick
+        {% else %}
+          mdi:food-drumstick-off
+        {% endif %}

@@ -10,7 +10,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 20
+    height: 15
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -216,6 +216,7 @@ cards:
               plotOptions:
                 bar:
                   borderRadius: 6
+                  borderRadiusApplication: "end"
                   columnWidth: "90%"
               xaxis:
                 tickPlacement: "on"
@@ -240,10 +241,53 @@ cards:
           - name: "Clima"
           - template: sensors-climate
 
-      - type: "custom:decluttering-card"
-        template: car-charge-stats
-        variables:
-          - name: "Rácio corrente"
+      # - type: "custom:decluttering-card"
+      #   template: car-charge-stats
+      #   variables:
+      #     - name: "Rácio corrente"
+
+      - type: custom:mod-card
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-number
+              type: "custom:decluttering-card"
+              variables:
+                - template: sensors-empty
+                - entity: sensor.waze_travel_time_work
+                - name: "Tempo p/ trabalho"
+                - color: var(--black9)
+                - background_morning: radial-gradient(circle, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.2) 100%),url('/local/images/cars/map-on.png')
+                - background_afternoon: url('/local/images/cars/map.png')
+                - height: 78px
+                - localize: false
+                - unit: " min"
+
+            - template: sensor-number
+              type: "custom:decluttering-card"
+              variables:
+                - template: sensors-empty
+                - entity: sensor.waze_travel_time_home
+                - name: "Tempo p/ casa"
+                - color: var(--black9)
+                - background_morning: url('/local/images/cars/map.png')
+                - background_afternoon: radial-gradient(circle, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.2) 100%), url('/local/images/cars/map-on.png')
+                - height: 78px
+                - localize: false
+                - unit: " min"
 
   - type: "custom:gap-card"
     height: 15

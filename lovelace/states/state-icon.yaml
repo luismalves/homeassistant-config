@@ -1,6 +1,6 @@
 - styles:
     card:
-      - background-color: "transparent"
+      - background: "transparent"
       - overflow: hidden
     name:
       - color: "transparent"
@@ -10,7 +10,7 @@
 
 - styles:
     card:
-      - background-color: "transparent"
+      - background: "transparent"
     name:
       - color: "transparent"
     state:

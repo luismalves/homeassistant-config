@@ -2,9 +2,9 @@
 # Living room lights
 # https://www.home-assistant.io/integrations/light.group/
 #####
-
-- platform: group
-  name: Luz Mesa
-  entities:
-    - light.table_1
-    #- light.table_2
+[]
+# - platform: group
+#   name: Luz Mesa
+#   entities:
+#     - light.table_1
+#     #- light.table_2

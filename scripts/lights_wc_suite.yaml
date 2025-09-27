@@ -1,0 +1,45 @@
+---
+# Lights group control - WC (Suite)
+#
+
+turn_off_wc_suite:
+  alias: Turn off lights of WC (Suite)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.extrator_wc_suite
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.extrator_wc_suite
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_suite
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.led_wc_suite
+  mode: single
+
+turn_on_wc_suite:
+  alias: Turn on lights of WC (Suite)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.extrator_wc_suite
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.extrator_wc_suite
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_suite
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.led_wc_suite
+  mode: single

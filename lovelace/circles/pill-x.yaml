@@ -1,10 +1,11 @@
 info: >
   [[[
-    if (entity.state === '[[info-state]]' && [[info-attribute]] && [[info-max]] > 0 ) {
+
+    if (entity && entity.state === '[[info-state]]' && [[info-attribute]] && [[info-max]] > 0 ) {
       const value = Math.round([[info-attribute]] / [[info-max]]) + '[[info-unit]]';
       return `<div style="display:flex;align-items:center;justify-content:center;padding: 0 8px;height:25px;border-radius:25px;background-color:var(--contrast2)">
       <span>${value}</span></div>`;
-    } else if( entity.state === '[[info-state]]' && [[info-max]] === 0 ) {
+    } else if(entity && entity.state === '[[info-state]]' && [[info-max]] === 0 ) {
       const value = [[info-attribute]] + '[[info-unit]]';
       return `<div style="display:flex;align-items:center;justify-content:center;padding: 0 8px;height:25px;border-radius:25px;background-color:var(--contrast2)">
       <span>${value}</span></div>`;}

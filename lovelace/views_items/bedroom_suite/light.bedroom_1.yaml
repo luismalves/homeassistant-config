@@ -1,0 +1,8 @@
+template: es-light-temperature
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-bedroom
+  - entity: light.bedroom_1
+  - name: "Luz Direita"

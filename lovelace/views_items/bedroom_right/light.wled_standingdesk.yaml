@@ -1,0 +1,8 @@
+template: es-light-wled
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-strip
+  - entity: light.wled_standingdesk
+  - name: "LED Strip"

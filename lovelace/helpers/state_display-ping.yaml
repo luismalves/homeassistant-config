@@ -1,0 +1,15 @@
+>
+  [[[
+    if (entity) {
+      switch (entity.state) {
+        case 'unknown':
+          return "Desconhecido"
+        default:
+          return helpers.localize(entity);
+      }
+    }
+    else
+    {
+      return "Não existe";
+    }
+  ]]]

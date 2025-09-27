@@ -43,3 +43,7 @@ splitwise.conf
 # Ignore database
 *.db
 home-assistant_v2.db
+
+# Ignore coding agents
+.claude
+claude-config

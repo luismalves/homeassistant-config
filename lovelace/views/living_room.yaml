@@ -1,3 +1,7 @@
+####
+# VIEW
+# Sala
+####
 title: Sala
 path: living
 background: "var(--background-view-living)"
@@ -9,7 +13,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 20
+    height: 15
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -18,31 +22,14 @@ cards:
       grid-template-rows: auto
       margin: 0px
     cards:
-      - template: title
-        type: "custom:decluttering-card"
+      - type: "custom:decluttering-card"
+        template: section-header
         view_layout:
           grid-column: span 6
         variables:
-          - content: Sala de estar
-
-      - type: markdown
-        view_layout:
-          grid-column: span 6
-        card_mod:
-          style: >
-            ha-card {
-              box-shadow: none;
-              height: 100%;
-              background: none;
-              font-weight: 700;
-              font-size: 1.2em;
-              color: var(--el-title-color);
-              margin-left: -15px;
-              margin-top: -17px;
-              margin-bottom: 0px;
-            }
-        content: >
-          {% if states.sensor.lights_on_living_room.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_living_room.state == "1" %} {{states.sensor.lights_on_living_room.state}} luz ligada. {% else %} {{states.sensor.lights_on_living_room.state}} luzes ligadas. {% endif %}
+          - name: "Sala de estar"
+          - script: script.turn_off_living_room
+          - sensor_entity: sensor.lights_on_living_room
 
       - type: custom:auto-entities
         view_layout:
@@ -58,38 +45,95 @@ cards:
             style: !include ../styles/style-card-alert.yaml
           content: Humidade muito elevada.
 
-      - template: es-light-tasmota
-        view_layout:
-          grid-column: span 2
-        type: "custom:decluttering-card"
-        variables:
-          - template: light-strip
-          - entity: light.led_strip_living_room
-          - name: "LED Strip"
+      - !include ../views_items/living_room/light.led_strip_living_room.yaml
 
-      - template: es-light-switch
-        view_layout:
-          grid-column: span 2
-        type: "custom:decluttering-card"
-        variables:
-          - template: light-pendant
-          - entity: light.living_room_1
-          - entity-switch: light.shelly_living_room_light
-          - name: "Luz Sala"
-          - info-attribute: states['light.living_room_1'].attributes.brightness
+      - !include ../views_items/living_room/light.light_2.yaml
 
-      - template: es-light-switch-2
+      - !include ../views_items/living_room/light.luz_corredor.yaml
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.athom_presence_sensor_1_occupancy
+                - state-1: "on"
+                - state-2: "off"
+                - icon: mdi:motion-sensor
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.environment_1_temperature
+                - icon: mdi:thermometer
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.environment_1_humidity
+                - icon: mdi:water-percent
+                - numeric_precision: 0
+
+      - template: es-tv
         view_layout:
           grid-column: span 2
         type: "custom:decluttering-card"
         variables:
-          - template: light-pendant
-          - entity: light.luz_mesa
-          - entity-2: light.table_1
-          - entity-3: light.table_2
-          - entity-switch: light.shelly_table_light
-          - name: "Luz Mesa"
-          - info-attribute: states['light.luz_mesa'].attributes.brightness
+          - template: tv
+          - entity: remote.tv
+          - name: "Samsung TV"
+
+      - template: es-ping
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: sensor-xbox
+          - entity: binary_sensor.xbox_one_x_state
+          - name: XBOX
+
+      - template: climate-ac
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: ac
+          - entity: climate.sala
+          - name: A/C
+
+      - template: es-switch-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.askvader_switch
+          - name: Vynil
+          - confirmation-text: "De certeza? Confirma que o Vynil não está a funcionar se estiveres a desligar a tomada."
+
+      - template: es-cover
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: shutter
+          - toggle-script: script.toggle_cover_living_room
+          - entity: cover.estores_sala
+          - name: Estores
 
       - template: es-light
         view_layout:
@@ -101,179 +145,94 @@ cards:
           - name: "Relógio Matrix"
           - info-attribute: states['light.ulanzi_click_matrix'].attributes.brightness
 
-      - template: es-tv
+      - type: custom:mod-card
         view_layout:
           grid-column: span 2
-        type: "custom:decluttering-card"
-        variables:
-          - template: tv
-          - entity: remote.android_tv
-          - name: "Android TV"
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor
+                - icon: mdi:toilet
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: Social
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor_2
+                - icon: mdi:toilet
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: Grande
+            - type: "custom:gap-card"
+              height: 10
 
-      # - template: sensor-living_room
-      #   view_layout:
-      #     grid-column: span 2
-      #   type: "custom:decluttering-card"
-      #   variables:
-      #     - template: sensors-living_room
-      #     - entity: sensor.presence_1_occupancy
-      #     - name: "Sensores"
-
-      - type: "custom:layout-card"
+      - type: custom:mod-card
         view_layout:
           grid-column: span 2
-        layout_type: "custom:grid-layout"
-        layout:
-          card_margin: 0px
-          grid-template-columns: 1fr
-          grid-template-rows: 1fr 1fr 1fr
-          height: 100%
-          margin: 0
-        cards:
-          - template: sensor-pill
-            type: "custom:decluttering-card"
-            variables:
-              - entity: sensor.presence_living_room
-              - state-1: "Detetado"
-              - state-2: "Vazio"
-              - icon: mdi:motion-sensor
-              - color-state-on: --ha-card-color-name-on
-          - template: sensor-pill
-            type: "custom:decluttering-card"
-            variables:
-              - entity: sensor.environment_1_temperature
-              - icon: mdi:thermometer
-          - template: sensor-pill
-            type: "custom:decluttering-card"
-            variables:
-              - entity: sensor.environment_1_humidity
-              - icon: mdi:water-percent
-              - numeric_precision: 0
-
-      - template: es-cover
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: shutter
-          - toggle-script: script.toggle_cover_left
-          - entity: cover.shelly_roller_left
-          - name: Estores Esquerda
-
-      - template: es-cover
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: shutter
-          - toggle-script: script.toggle_cover_right
-          - entity: cover.shelly_roller_right
-          - name: Estores Direita
-
-      - template: es-switch
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: switch
-          - entity: switch.plug_2
-          - name: Extensão
-          - info-attribute: states['sensor.humifier_plug_time_left'].state
-          - info-max: 0
-          - info-unit: ""
-
-      - template: es-ping
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: sensor-xbox
-          - entity: binary_sensor.xbox_one_x_state
-          - name: XBOX
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 1
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: script-sensor
+              type: "custom:decluttering-card"
+              variables:
+                - template: shutter
+                - entity: binary_sensor.estores_sala_breeze_mode
+                - script: script.set_cover_sala_breeze
+                - name: Ventilação
+                - state-1: "on"
+                - state-2: "off"
 
       # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
-      # - template: es-light-wled
-      #   type: "custom:decluttering-card"
-      #   view_layout:
-      #     grid-column: span 2
-      #   variables:
-      #     - template: light-xmas
-      #     - entity: light.wled_xmas
-      #     - entity-speed: number.wled_xmas_speed
-      #     - entity-intensity: number.wled_xmas_intensity
-      #     - name: "Árvore Natal"
+      # - !include ../views_items/living_room/light.wled_xmas.yaml
 
-      # - template: es-switch-confirmation
-      #   view_layout:
-      #     grid-column: span 2
-      #   type: "custom:decluttering-card"
-      #   variables:
-      #     - template: switch
-      #     - entity: switch.plug_3
-      #     - name: Tomada Server
-      #     - info-attribute: states['sensor.plug_3_power'].state
-      #     - confirmation-text: "De certeza?"
-
-      # - template: es-camera
-      #   type: "custom:decluttering-card"
-      #   view_layout:
-      #     grid-column: span 2
-      #   variables:
-      #     - template: camera
-      #     - entity: camera.android_camera
-      #     - name: "Camera"
-
-      - type: "custom:gap-card"
-        height: 10
+      - template: subsubtitle
+        type: "custom:decluttering-card"
         view_layout:
           grid-column: span 6
+        variables:
+          - content: Scenes
 
       # Final section of scenes
       - template: scene
         type: "custom:decluttering-card"
         view_layout:
-          grid-column: span 2
+          grid-column: span 3
         variables:
           - template: scene-movie
           - scene: scene.movie_time
           - entity: scene.movie_time
-
-      - template: scene
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: scene-bird
-          - scene: scene.bird_rest_time
-          - entity: scene.bird_rest_time
-
-      - template: es-boolean
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: shutter-temp
-          - entity: input_boolean.open_blinds_temporarly
-          - name: Abrir por hoje
-          - state-1: "on"
-          - state-2: "off"
-
-      - type: conditional
-        view_layout:
-          grid-column: span 2
-        conditions:
-          - entity: sensor.lights_on_living_room
-            state_not: "0"
-        card:
-          type: horizontal-stack
-          cards:
-            - type: "custom:decluttering-card"
-              template: script
-              variables:
-                - entity: sensor.lights_on_living_room
-                - template: script-lights-off
-                - script: script.turn_off_living_room
-                - name: "Desligar luzes"
 
       - type: "custom:gap-card"
         height: 10

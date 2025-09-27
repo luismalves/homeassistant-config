@@ -1,0 +1,10 @@
+#####
+# Kitchenlights
+# https://www.home-assistant.io/integrations/light.group/
+#####
+
+- platform: group
+  name: Luz Cozinha
+  entities:
+    - light.luz_cozinha_1
+    - light.luz_cozinha_2

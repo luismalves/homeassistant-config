@@ -8,7 +8,15 @@
     padding: 4px 12px 0px 6px !important;
   }
 
-  ha-card > div > div:first-child,
+  .forecast {
+    justify-content: space-between;
+  }
+
+  .forecast > div > div:first-child {
+    font-size: 12px;
+  }
+
+  .forecast > div > div:first-child,
   .temp-attribute .temp,
   .state {
     font-weight: 700;

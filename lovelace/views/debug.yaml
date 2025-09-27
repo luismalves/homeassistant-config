@@ -8,36 +8,21 @@ panel: true
 #icon: mdi:cog-box
 visible: true
 background: "var(--background-view-ev)"
-
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
 cards:
-  - type: custom:layout-card
-    layout_type: custom:vertical-layout
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
     layout:
-      width: 350
-      max_width: 350
-      column_widths: 100%
+      grid-template-columns: 1fr
+      grid-template-rows: calc(100vh - 56px)
+      margin: 0px
     cards:
-      - type: "custom:decluttering-card"
-        template: car-state
-        variables:
-          - entity_range: number.clock_alarm_volume
-          - entity-battery: sensor.tradfri_remote_control_battery_level
-
-      - type: "custom:decluttering-card"
-        template: map-card
-
-      - type: horizontal-stack
-        cards:
-          - type: "custom:decluttering-card"
-            template: climate-hvac
-            variables:
-              - entity-climate: sensor.cpu_temperature
-              - name: "Clima"
-              - template: sensors-climate
-
-          - type: "custom:decluttering-card"
-            template: car-charge-1
-            variables:
-              - entity: sensor.cpu_temperature
-              - name: "Carregamento"
-              - template: sensors-car-charge-1
+      - type: iframe
+        view_layout:
+          grid-column: span 1
+        url: https://splitwise.luisalves.me?apikey=12345
+        aspect_ratio: 1%

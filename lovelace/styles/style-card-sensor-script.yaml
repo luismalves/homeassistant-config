@@ -1,0 +1,44 @@
+card:
+  - background-color: var(--ha-card-background-es-static)
+  - color: "var(--el-es-static-text-color-light)"
+  - height: 50px
+  - font-size: 12px
+  - font-weight: bold
+  - padding: 8px 4px 8px 10px
+
+custom_fields:
+  icon_hue:
+    - align-self: center
+    - justify-self: center
+    - width: 20px
+
+  sd1:
+    - font-size: 12px
+    - margin-bottom: 10px
+    - text-align: center
+
+  type:
+    - background-color: var(--contrast4)
+    - color: var(--contrast8)
+    - font-size: 12px
+    - margin-top: 7px
+    - text-align: center
+    - padding: 1px 0 2px
+    - width: 100%
+
+grid:
+  - grid-template-areas: '"icon_hue n" "icon_hue s"'
+  - grid-template-columns: min-content 1fr
+  - grid-template-rows: 1fr 1fr
+  - grid-gap: 0 4px
+
+name:
+  - justify-self: flex-start
+  - text-align: left
+  - font-weight: bold
+  - font-size: 12px
+  - color: "var(--el-scene-name-color)"
+
+state:
+  - justify-self: flex-start
+  - text-align: left

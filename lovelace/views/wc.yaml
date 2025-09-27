@@ -1,0 +1,96 @@
+####
+# VIEW
+# WCs
+####
+title: WC
+path: bedroom-wc
+background: "var(--background-view-bedroom)"
+
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
+cards:
+  - type: "custom:gap-card"
+    height: 15
+
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
+    layout:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      margin: 0px
+    cards:
+      - type: "custom:decluttering-card"
+        template: section-header
+        view_layout:
+          grid-column: span 6
+        variables:
+          - name: "WC"
+          - script: script.turn_off_wc_suite
+          - sensor_entity: sensor.lights_on_wc_suite
+
+      - !include ../views_items/wc_suite/light.led_wc_suite.yaml
+
+      - template: es-light
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: light-spot-v2
+          - entity: light.extrator_wc_suite
+          - name: "Luz WC"
+
+      - template: es-cover
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: shutter
+          - toggle-script: script.toggle_cover_wc_suite
+          - entity: cover.estores_wc_suite
+          - name: Estores WC
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 1
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.openclose_wc_suite_contact
+                - state-1: "off"
+                - state-2: "on"
+                - icon: mdi:door
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.environment_2_temperature
+                - icon: mdi:thermometer
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.environment_2_humidity
+                - icon: mdi:cloud-percent
+
+      - type: "custom:gap-card"
+        height: 20
+        view_layout:
+          grid-column: span 6

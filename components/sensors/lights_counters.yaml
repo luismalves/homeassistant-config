@@ -5,29 +5,13 @@
 
 - platform: template
   sensors:
-    lights_on_deck:
-      friendly_name: "Luzes ligadas no Deck"
-      unit_of_measurement: "on"
-      value_template: >
-        {% set lights = [
-          states.light.led_strip_deck,
-          states.light.mi_lamp,
-          states.light.deck,
-          states.light.mi_lamp_pro,
-          ] %}
-        {{ lights | selectattr('state','eq','on') | list | count }}
-
-- platform: template
-  sensors:
     lights_on_living_room:
       friendly_name: "Luzes ligadas na Sala"
       unit_of_measurement: "on"
       value_template: >
         {% set lights = [
           states.light.led_strip_living_room,
-          states.light.shelly_table_light,
-          states.light.shelly_living_room_light,
-          states.light.wled_xmas
+          states.light.light_2
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -38,23 +22,61 @@
       unit_of_measurement: "on"
       value_template: >
         {% set lights = [
-          states.light.entrance_1,
-          states.light.shelly_kitchen_light,
-          states.light.shelly_kitchen_led_left,
+          states.light.luz_entrada,
+          states.light.luz_cozinha_1,
+          states.light.luz_cozinha_2,
+          states.light.luz_mesa
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
 - platform: template
   sensors:
-    lights_on_bedroom:
-      friendly_name: "Luzes ligadas no Quarto"
+    lights_on_bedroom_suite:
+      friendly_name: "Luzes ligadas no Quarto (Suite)"
       unit_of_measurement: "on"
       value_template: >
         {% set lights = [
-          states.light.bedroom_top_1,
           states.light.bedroom_1,
           states.light.bedroom_2,
-          states.light.wled_bed_group,
+          states.light.luz_suite
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_wc_suite:
+      friendly_name: "Luzes ligadas no WC (Suite)"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.light.led_wc_suite,
+          states.light.extrator_wc_suite
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_bedroom_right:
+      friendly_name: "Luzes ligadas no Quarto (Direita)"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.light.wled_standingdesk,
+          states.light.mi_lamp_pro,
+          states.light.luz_quarto_direita
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_bedroom_left:
+      friendly_name: "Luzes ligadas no Quarto (Esquerda)"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.light.luz_quarto_esquerda,
+          states.light.mi_lamp,
+          states.light.led_strip_deck
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -64,4 +86,4 @@
       friendly_name: "Luzes ligadas na casa"
       unit_of_measurement: "on"
       value_template: >
-        {{ states('sensor.lights_on_deck')|int + states('sensor.lights_on_living_room')|int + states('sensor.lights_on_living_room')|int + states('sensor.lights_on_bedroom')|int }}
+        {{ states('sensor.lights_on_bedroom_left')|int + states('sensor.lights_on_kitchen')|int + states('sensor.lights_on_living_room')|int + states('sensor.lights_on_bedroom_suite')|int + states('sensor.lights_on_bedroom_right')|int }}

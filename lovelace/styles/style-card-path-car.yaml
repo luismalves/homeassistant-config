@@ -1,5 +1,5 @@
 card:
-  - background-color: "var(--ha-card-background-path)"
+  - background: "var(--ha-card-background-path)"
   - color: "var(--el-text-color-light)"
   - height: 50px
   - font-weight: bold

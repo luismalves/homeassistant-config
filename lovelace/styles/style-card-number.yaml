@@ -1,10 +1,41 @@
 card:
-  - height: var(--height)
-  - background: var(--background)
+  - height: >
+      [[[
+        if(!!variables["image-url"]) {
+          return "140px";
+        } else {
+          return 'var(--height)'; 
+        }
+      ]]]
+  - background: >
+      [[[
+        console.log(variables.background_morning)
+        if(!!variables.background_morning) {
+          const hour = new Date().getHours();
+          console.log(hour)
+          if (hour < 12) {
+            return variables.background_morning;
+          } else {
+            return variables.background_afternoon;
+          }
+        } else {
+          return "var(--background)";
+        }
+      ]]]
+  - background-size: cover
   - font-weight: bold
-  - color: "var(--el-es-static-text-color)"
+  - color: var(--color)
   - font-size: var(--font-size-name)
+  - padding: >
+      [[[
+        if(!!variables["image-url"]) {
+          return "0 !important";
+        } else {
+          return "inherit"; 
+        }
+      ]]]
   - --background: "[[background]]"
+  - --color: "[[color]]"
   - --height: "[[height]]"
   - --font-size-name: "[[font_name]]"
   - --font-size-state: "[[font_state]]"
@@ -17,9 +48,9 @@ custom_fields:
     - font-weight: bold
 
 grid:
-  - grid-template-areas: '"graph" "alert" "s" "n"'
+  - grid-template-areas: '"image" "graph" "alert" "s" "n"'
   - grid-template-columns: 1fr
-  - grid-template-rows: min-content min-content 1fr min-content
+  - grid-template-rows: min-content min-content min-content 1fr min-content
 
 name:
   - font-weight: bold

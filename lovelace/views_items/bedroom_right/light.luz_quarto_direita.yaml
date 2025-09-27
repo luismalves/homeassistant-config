@@ -1,0 +1,8 @@
+template: es-light
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-pendant
+  - entity: light.luz_quarto_direita
+  - name: "Candeeiro"

@@ -1,0 +1,14 @@
+type: conditional
+conditions:
+  - entity: sensor.lights_on_living_room
+    state_not: "0"
+view_layout:
+  grid-column: span 2
+card:
+  template: script
+  type: "custom:decluttering-card"
+  variables:
+    - entity: sensor.lights_on_living_room
+    - template: script-lights-off
+    - script: script.turn_off_living_room
+    - name: "Desligar luzes"

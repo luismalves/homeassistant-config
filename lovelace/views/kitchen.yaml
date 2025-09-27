@@ -1,3 +1,7 @@
+####
+# VIEW
+# Cozinha & Entrada
+####
 title: Cozinha
 path: kitchen
 background: "var(--background-view-kitchen)"
@@ -9,7 +13,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 20
+    height: 15
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -18,31 +22,14 @@ cards:
       grid-template-rows: auto
       margin: 0px
     cards:
-      - template: title
-        type: "custom:decluttering-card"
+      - type: "custom:decluttering-card"
+        template: section-header
         view_layout:
           grid-column: span 6
         variables:
-          - content: Cozinha
-
-      - type: markdown
-        view_layout:
-          grid-column: span 6
-        card_mod:
-          style: >
-            ha-card {
-              box-shadow: none;
-              height: 100%;
-              background: none;
-              font-weight: 700;
-              font-size: 1.2em;
-              color: var(--el-title-color);
-              margin-left: -15px;
-              margin-top: -17px;
-              margin-bottom: 0px;
-            }
-        content: >
-          {% if states.sensor.lights_on_kitchen.state == "0" %} Não existem luzes ligadas.{% elif states.sensor.lights_on_kitchen.state == "1" %} {{states.sensor.lights_on_kitchen.state}} luz ligada. {% else %} {{states.sensor.lights_on_kitchen.state}} luzes ligadas. {% endif %}
+          - name: "Cozinha"
+          - script: script.turn_off_kitchen
+          - sensor_entity: sensor.lights_on_kitchen
 
       - type: custom:auto-entities
         view_layout:
@@ -58,99 +45,13 @@ cards:
             style: !include ../styles/style-card-alert.yaml
           content: Humidade muito elevada.
 
-      - template: es-switch
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: light-pendant-long
-          - entity: light.shelly_kitchen_light
-          - name: "Luz Cozinha"
-          - background-on: --yellow-tint, var(--ha-card-background-es-on)
+      - !include ../views_items/kitchen/light.luz_entrada.yaml
 
-      - template: es-switch
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: light-strip
-          - entity: light.shelly_kitchen_led_left
-          - name: "LED Strip"
-          - background-on: --yellow-tint, var(--ha-card-background-es-on)
+      - !include ../views_items/kitchen/light.luz_cozinha_2.yaml
 
-      - template: es-light
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: light-outdoor
-          - entity: light.entrance_1
-          - name: Luz entrada
+      - !include ../views_items/kitchen/light.luz_cozinha_1.yaml
 
-      - type: "custom:layout-card"
-        view_layout:
-          grid-column: span 2
-        layout_type: "custom:grid-layout"
-        layout:
-          card_margin: 0px
-          grid-template-columns: 1fr
-          grid-template-rows: 1fr 1fr 1fr
-          height: 100%
-          margin: 0
-        cards:
-          - template: sensor-pill
-            type: "custom:decluttering-card"
-            variables:
-              - entity: sensor.presence_kitchen
-              - state-1: "Detetado"
-              - state-2: "Vazio"
-              - icon: mdi:motion-sensor
-              - color-state-on: --ha-card-color-name-on
-          - template: sensor-pill
-            type: "custom:decluttering-card"
-            variables:
-              - entity: sensor.water_sensor
-              - icon: mdi:water-alert
-              - state-1: "ALERTA"
-              - state-2: "OK"
-          - template: sensor-pill
-            type: "custom:decluttering-card"
-            variables:
-              - entity: sensor.water_sensor_2
-              - icon: mdi:water-alert
-              - state-1: "ALERTA"
-              - state-2: "OK"
-
-      # - template: sensor-kitchen
-      #   type: "custom:decluttering-card"
-      #   view_layout:
-      #     grid-column: span 3
-      #   variables:
-      #     - template: sensors-kitchen
-      #     - entity: sensor.presence_kitchen
-      #     - name: "Sensores"
-
-      - type: "custom:mini-graph-card"
-        view_layout:
-          grid-column: span 4
-        entities:
-          - entity: sensor.environment_1_temperature
-          - entity: sensor.environment_1_humidity
-            show_state: true
-            show_graph: false
-        name: Temperatura
-        show:
-          name: false
-          icon: false
-          labels: true
-        tap_action:
-          action: none
-        hours_to_show: 72
-        font_size: 65
-        points_per_hour: 1
-        color_thresholds: !include ../graphs/temp-thresholds.yaml
-        card_mod:
-          style: !include ../styles/style-graph.yaml
+      - !include ../views_items/kitchen/light.luz_mesa.yaml
 
       - template: es-speaker
         type: "custom:decluttering-card"
@@ -166,17 +67,127 @@ cards:
           - circle-3: "playing"
           - circle-4: volume_level
 
-      - template: es-switch
-        type: "custom:decluttering-card"
+      - type: custom:mod-card
         view_layout:
           grid-column: span 2
-        variables:
-          - template: switch
-          - entity: switch.plug_1
-          - name: Tomada Dyson
-          - info-attribute: states['sensor.dyson_plug_time_left'].state
-          - info-max: 0
-          - info-unit: ""
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.presence_kitchen
+                - state-1: "Detetado"
+                - state-2: "Vazio"
+                - icon: mdi:motion-sensor
+                - color-state-on: --ha-card-color-name-on
+            - type: "custom:gap-card"
+              height: 10
+            - type: "custom:gap-card"
+              height: 10
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor_4
+                - icon: mdi:water-alert
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: Balcão
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor_6
+                - icon: mdi:water-alert
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: MLR
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor_5
+                - icon: mdi:water-alert
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: AQS
+
+      # - template: sensor-kitchen
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 3
+      #   variables:
+      #     - template: sensors-kitchen
+      #     - entity: sensor.presence_kitchen
+      #     - name: "Sensores"
+
+      # - type: "custom:mini-graph-card"
+      #   view_layout:
+      #     grid-column: span 4
+      #   entities:
+      #     - entity: sensor.environment_1_temperature
+      #     - entity: sensor.environment_1_humidity
+      #       show_state: true
+      #       show_graph: false
+      #   name: Temperatura
+      #   show:
+      #     name: false
+      #     icon: false
+      #     labels: true
+      #   tap_action:
+      #     action: none
+      #   hours_to_show: 72
+      #   font_size: 65
+      #   points_per_hour: 1
+      #   color_thresholds: !include ../graphs/temp-thresholds.yaml
+      #   card_mod:
+      #     style: !include ../styles/style-graph.yaml
+
+      # - template: es-switch
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 2
+      #   variables:
+      #     - template: switch
+      #     - entity: switch.plug_1
+      #     - name: Tomada Dyson
+      #     - info-attribute: states['sensor.dyson_plug_time_left'].state
+      #     - info-max: 0
+      #     - info-unit: ""
 
       # - template: es-light-slider
       #   type: "custom:decluttering-card"
@@ -198,15 +209,17 @@ cards:
       #     - entity: switch.plug_2
       #     - name: Luz Azul
 
-      - type: "custom:gap-card"
-        height: 10
+      - template: subsubtitle
+        type: "custom:decluttering-card"
         view_layout:
           grid-column: span 6
+        variables:
+          - content: Scenes
 
       - template: scene
         type: "custom:decluttering-card"
         view_layout:
-          grid-column: span 2
+          grid-column: span 3
         variables:
           - template: scene-cooking
           - scene: scene.cooking_time
@@ -214,25 +227,10 @@ cards:
       - template: scene
         type: "custom:decluttering-card"
         view_layout:
-          grid-column: span 2
+          grid-column: span 3
         variables:
           - template: scene-meal
           - scene: scene.meal_time
-
-      - type: conditional
-        view_layout:
-          grid-column: span 2
-        conditions:
-          - entity: sensor.lights_on_kitchen
-            state_not: "0"
-        card:
-          template: script
-          type: "custom:decluttering-card"
-          variables:
-            - entity: sensor.lights_on_kitchen
-            - template: script-lights-off
-            - script: script.turn_off_kitchen
-            - name: "Desligar luzes"
 
       - type: "custom:gap-card"
         height: 10

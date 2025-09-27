@@ -2,6 +2,7 @@ card:
   - background-color: transparent
   - color: var(--el-es-static-text-color)
   - font-size: 10px
+  - padding-bottom: 0
 
 custom_fields:
   icon_hue:

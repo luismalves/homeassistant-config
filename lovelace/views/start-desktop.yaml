@@ -30,6 +30,6 @@ cards:
           grid-template-columns: 365px 356px
           grid-template-rows: auto
           column-gap: 40px
-        cards: !include ../views_frames/start-desktop-rooms.yaml
+        cards: !include_dir_merge_list ../views_frames/start-rooms
         view_layout:
           grid-area: main

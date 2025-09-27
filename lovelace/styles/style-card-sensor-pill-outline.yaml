@@ -1,0 +1,32 @@
+card:
+  - height: 28px # Disable when card_margin is working in layout
+  - color: var(--el-es-static-text-color)
+  - background-color: transparent
+  - border-style: solid
+  - border-width: 1px
+  - padding: 2px 10px
+
+grid:
+  - grid-template-areas: '"i . n s"'
+  - grid-template-columns: 25px 2px min-content 1fr
+  - grid-template-rows: 1fr
+
+icon:
+  - width: 70%
+
+name:
+  - justify-self: start
+  - font-weight: bold
+  - font-size: 12px
+  - color: var(--ha-card-color-name-off);
+  - margin-right: 3px
+
+state:
+  - justify-self: start
+  - font-weight: bold
+  - font-size: 12px
+  - color: var(--ha-card-color-name-off);
+  - text-transform: >
+      [[[
+        return variables["show-name"] ? "lowercase" :  "capitalize";
+      ]]]

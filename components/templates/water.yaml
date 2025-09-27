@@ -1,0 +1,64 @@
+#####
+# Water leakage
+#
+#####
+
+- sensor:
+    - name: "Water leak status"
+      unique_id: sensor.water_sensor
+      state: >-
+        {% if is_state('binary_sensor.alarm_1_water_leak', 'off') or is_state('binary_sensor.alarm_1_water_leak', 'unknown') %}
+          OK
+        {% elif is_state('binary_sensor.alarm_1_water_leak', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Water leak 2 status"
+      unique_id: sensor.water_sensor_2
+      state: >-
+        {% if is_state('binary_sensor.alarm_2_water_leak', 'off') or is_state('binary_sensor.alarm_2_water_leak', 'unknown') %}
+          OK
+        {% elif is_state('binary_sensor.alarm_2_water_leak', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Water leak 4 status"
+      unique_id: sensor.water_sensor_4
+      state: >-
+        {% if is_state('binary_sensor.alarm_4_water_leak', 'off') or is_state('binary_sensor.alarm_4_water_leak', 'unknown') %}
+          OK
+        {% elif is_state('binary_sensor.alarm_4_water_leak', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Water leak 5 status"
+      unique_id: sensor.water_sensor_5
+      state: >-
+        {% if is_state('binary_sensor.alarm_5_occupancy', 'off') or is_state('binary_sensor.alarm_5_occupancy', 'unknown') %}
+          OK
+        {% elif is_state('binary_sensor.alarm_5_occupancy', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Water leak 6 status"
+      unique_id: sensor.water_sensor_6
+      state: >-
+        {% if is_state('binary_sensor.alarm_6_occupancy', 'off') or is_state('binary_sensor.alarm_6_occupancy', 'unknown') %}
+          OK
+        {% elif is_state('binary_sensor.alarm_6_occupancy', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}

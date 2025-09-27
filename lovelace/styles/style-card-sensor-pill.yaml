@@ -2,29 +2,37 @@ card:
   - height: 30px # Disable when card_margin is working in layout
   - color: var(--el-es-static-text-color)
   - background-color: "var(--ha-card-background-es-static)"
-  - padding: 2px 10px
+  - padding: 2px 8px
 
 grid:
   - grid-template-areas: '"i . n s"'
-  - grid-template-columns: 25px 2px min-content 1fr
+  - grid-template-columns: 25px 1px min-content 1fr
   - grid-template-rows: 1fr
 
 icon:
+  - color: >
+      [[[
+        return variables["show-name"] ? "white" :  "black";
+      ]]]
   - width: 70%
 
 name:
   - justify-self: start
   - font-weight: bold
   - font-size: 12px
-  - color: var(--ha-card-color-name-off);
+  - color: var(--ha-card-color-name-off)
   - margin-right: 3px
 
 state:
   - justify-self: start
   - font-weight: bold
   - font-size: 12px
-  - color: var(--ha-card-color-name-off);
+  - color: var(--ha-card-color-name-off)
   - text-transform: >
       [[[
-        return variables["show-name"] ? "lowercase" :  "capitalize";
+        return variables["show-name"] ? "lowercase" :  "capitalize"
+      ]]]
+  - overflow: >
+      [[[
+        return variables["show-overflow"] ? "visible" :  "hidden"
       ]]]

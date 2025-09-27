@@ -1,0 +1,28 @@
+####
+# START-VIEW
+# Quarto suite
+####
+- type: vertical-stack
+  cards:
+    - type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+        grid-template-rows: auto
+        margin: 0px
+      cards:
+        - type: "custom:decluttering-card"
+          template: section-header
+          view_layout:
+            grid-column: span 6
+          variables:
+            - name: "Suite"
+            - is_small: true
+            - script: script.turn_off_bedroom_suite
+            - sensor_entity: sensor.lights_on_bedroom_suite
+
+        - !include ../../views_items/bedroom_suite/light.bedroom_2.yaml
+
+        - !include ../../views_items/bedroom_suite/light.bedroom_1.yaml
+
+        - !include ../../views_items/bedroom_suite/light.luz_suite.yaml

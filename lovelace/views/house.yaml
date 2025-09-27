@@ -10,7 +10,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 20
+    height: 15
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -24,10 +24,69 @@ cards:
         view_layout:
           grid-column: span 6
         variables:
-          - content: Faturas
+          - content: Sensores
+
+      - type: "custom:gap-card"
+        height: 5
+        view_layout:
+          grid-column: span 6
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.presence_kitchen
+                - state-1: "Detetado"
+                - state-2: "Vazio"
+                - icon: mdi:motion-sensor
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor
+                - icon: mdi:water-alert
+                - state-1: "ALERTA"
+                - state-2: "OK"
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor_2
+                - icon: mdi:water-alert
+                - state-1: "ALERTA"
+                - state-2: "OK"
 
       - type: "custom:gap-card"
         height: 20
+        view_layout:
+          grid-column: span 6
+
+      - template: title
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Faturas
+
+      - type: "custom:gap-card"
+        height: 5
         view_layout:
           grid-column: span 6
 
@@ -53,28 +112,6 @@ cards:
           - company: "SIMAS"
           - type: "water"
 
-      - template: sensor-bill
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: sensor-bills
-          - entity: sensor.gas_bill
-          - title: "Gás"
-          - company: "Gascan"
-          - type: "gas"
-
-      - template: sensor-number
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: sensors-empty
-          - entity: sensor.omie_spot_price_pt
-          - name: "Valor Spot energia"
-          - height: 82px
-          - show_units: false
-
       - type: "custom:gap-card"
         height: 20
         view_layout:
@@ -88,7 +125,7 @@ cards:
           - content: Segurança
 
       - type: "custom:gap-card"
-        height: 20
+        height: 5
         view_layout:
           grid-column: span 6
 
@@ -97,11 +134,6 @@ cards:
           grid-column: span 6
         entity: alarm_control_panel.alarmo
         button_scale_keypad: 1.5
-
-      - type: "custom:gap-card"
-        height: 20
-        view_layout:
-          grid-column: span 6
 
       - template: es-person
         type: "custom:decluttering-card"

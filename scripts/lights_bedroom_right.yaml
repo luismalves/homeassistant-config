@@ -1,0 +1,83 @@
+---
+# Lights group control - Bedroom (Right)
+#
+
+turn_off_bedroom_right:
+  alias: Turn off lights of Bedroom (Right)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.mi_lamp_pro
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.mi_lamp_pro
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_standingdesk
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.wled_standingdesk
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_quarto_direita
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.luz_quarto_direita
+  mode: single
+
+turn_on_bedroom_right:
+  alias: Turn off lights of Bedroom (Right)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.mi_lamp_pro
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.mi_lamp_pro
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_standingdesk
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.wled_standingdesk
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_quarto_direita
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.luz_quarto_direita
+  mode: single
+# set_deck_lights_color:
+#   alias: Set decks lights to color X
+#   sequence:
+#     - action: light.turn_on
+#       data:
+#         entity_id: light.led_strip_deck
+#         effect: Solid
+#         rgb_color:
+#           - "{{ red }}"
+#           - "{{ green }}"
+#           - "{{ blue }}"
+
+# set_deck_lights_party:
+#   alias: Set deck color lights to party mode
+#   sequence:
+#     - action: light.turn_on
+#       target:
+#         entity_id: light.led_strip_deck
+#       data:
+#         color_name: green
+#         effect: Cycle up
+# brightness_step: 255

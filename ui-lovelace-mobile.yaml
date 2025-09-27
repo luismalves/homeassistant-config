@@ -20,14 +20,18 @@ swipe_nav:
 views:
   - !include lovelace/views/start-mobile.yaml
   - !include lovelace/views/living_room.yaml
-  - !include lovelace/views/deck.yaml
   - !include lovelace/views/kitchen.yaml
-  - !include lovelace/views/bedroom.yaml
+  - !include lovelace/views/bedroom_suite.yaml
+  - !include lovelace/views/wc.yaml
+  - !include lovelace/views/bedroom_right.yaml
+  - !include lovelace/views/bedroom_left.yaml
   - !include lovelace/views/ev.yaml
+  - !include lovelace/views/pet.yaml
   #- !include lovelace/views/tasks.yaml
   #- !include lovelace/views/plants.yaml
   - !include lovelace/views/house.yaml
-  - !include lovelace/views/config.yaml
-  - !include lovelace/views/system-mobile.yaml
-  - !include lovelace/views/network-mobile.yaml
+  #- !include lovelace/views/config.yaml
+  #- !include lovelace/views/system-mobile.yaml
+  #- !include lovelace/views/network-mobile.yaml
   #- !include lovelace/views/nas.yaml
+  #- !include lovelace/views/debug.yaml

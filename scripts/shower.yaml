@@ -1,0 +1,39 @@
+---
+# Shower scripts
+#
+
+set_suite_shower_conditions:
+  alias: "Prepares Suite for a shower"
+  description: "Sets cover position to privacy only if cover is open and privacy mode is off"
+  sequence:
+    # Handle room cover with choose block
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_suite
+              state: "open"
+            - condition: state
+              entity_id: binary_sensor.estores_suite_privacy_mode
+              state: "off"
+          sequence:
+            - action: cover.set_cover_position
+              target:
+                entity_id: cover.estores_suite
+              data:
+                position: 60
+    # Handle WC cover with choose block
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.your_second_cover # Replace with your actual second cover entity
+              state: "open"
+            - condition: state
+              entity_id: binary_sensor.estores_suite_privacy_mode
+              state: "off"
+          sequence:
+            - action: cover.set_cover_position
+              target:
+                entity_id: cover.estores_wc_suite # Replace with your actual second cover entity
+              data:
+                position: 10
+  mode: single

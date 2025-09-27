@@ -1,0 +1,40 @@
+#####
+# Cover sensors
+#
+#####
+
+- binary_sensor:
+    - unique_id: "estores_suite_privacy_mode"
+      name: "Estores Suite privacy mode"
+      state: >
+        {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
+        {{ position >= 14 and position <= 65 }}
+
+# Breeze sensors
+- binary_sensor:
+    - unique_id: "estores_sala_breeze_mode"
+      name: "Estores Sala breeze mode"
+      state: >
+        {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
+        {{ position > 0 and position <= 14 }}
+
+- binary_sensor:
+    - unique_id: "estores_suite_breeze_mode"
+      name: "Estores Suite breeze mode"
+      state: >
+        {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
+        {{ position > 0 and position <= 23 }}
+
+- binary_sensor:
+    - unique_id: "estores_bedroom_left_breeze_mode"
+      name: "Estores Bedroom Left breeze mode"
+      state: >
+        {% set position = state_attr('cover.estores_quarto_esquerda', 'current_position') | int(0) %}
+        {{ position > 0 and position <= 23 }}
+
+- binary_sensor:
+    - unique_id: "estores_bedroom_right_breeze_mode"
+      name: "Estores Bedroom Right breeze mode"
+      state: >
+        {% set position = state_attr('cover.estores_quarto_direita', 'current_position') | int(0) %}
+        {{ position > 0 and position <= 23 }}

@@ -8,17 +8,33 @@ turn_off_kitchen:
     - choose:
         - conditions:
             - condition: state
-              entity_id: light.shelly_kitchen_led_left
+              entity_id: light.luz_entrada
               state: "on"
           sequence:
             - action: light.turn_off
-              entity_id: light.shelly_kitchen_led_left
+              entity_id: light.luz_entrada
     - choose:
         - conditions:
             - condition: state
-              entity_id: light.shelly_kitchen_light
+              entity_id: light.luz_cozinha_1
               state: "on"
           sequence:
             - action: light.turn_off
-              entity_id: light.shelly_kitchen_light
+              entity_id: light.luz_cozinha_1
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_cozinha_2
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.luz_cozinha_2
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_mesa
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.luz_mesa
   mode: single

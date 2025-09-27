@@ -1,0 +1,7 @@
+>
+  [[[
+    if (entity)
+      return helpers.localize(entity);
+    else
+      return "Não existe";
+  ]]]

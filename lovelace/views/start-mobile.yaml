@@ -37,17 +37,17 @@ cards:
         content: |
           Olá {{user}}
 
-      - type: conditional
-        view_layout:
-          grid-column: span 6
-        conditions:
-          - entity: alarm_control_panel.alarmo
-            state_not: "disarmed"
-        card:
-          type: markdown
-          card_mod:
-            style: !include ../styles/style-card-alert.yaml
-          content: Alarme ligado!
+      # - type: conditional
+      #   view_layout:
+      #     grid-column: span 6
+      #   conditions:
+      #     - entity: alarm_control_panel.alarmo
+      #       state_not: "disarmed"
+      #   card:
+      #     type: markdown
+      #     card_mod:
+      #       style: !include ../styles/style-card-alert.yaml
+      #     content: Alarme ligado!
 
       - type: custom:auto-entities
         view_layout:
@@ -70,187 +70,78 @@ cards:
           grid-column: span 6
 
       # Path Living Room
-      - type: conditional
+      - type: "custom:decluttering-card"
+        template: path-mobile
         view_layout:
           grid-column: span 3
-        conditions:
+        variables:
+          - card-template: path-living-room
           - entity: sensor.lights_on_living_room
-            state: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-living-room
-            - entity: sensor.lights_on_living_room
-            - name: "Sala"
-            - navigation_path: /dashboard-mobile/living
-            - rows-on: 1.5fr 1fr
-            - rows-off: 1fr 0.35fr
-
-      - type: conditional
-        view_layout:
-          grid-column: span 2
-        conditions:
-          - entity: sensor.lights_on_living_room
-            state_not: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-living-room
-            - entity: sensor.lights_on_living_room
-            - name: "Sala"
-            - navigation_path: /dashboard-mobile/living
-            - rows-on: 1.5fr 1fr
-            - rows-off: 1fr 0.35fr
-
-      - type: conditional
-        conditions:
-          - entity: sensor.lights_on_living_room
-            state_not: "0"
-        card:
-          type: "custom:decluttering-card"
-          template: script-button
-          variables:
-            - template: script-lights-off
-            - script: script.turn_off_living_room
+          - name: "Sala"
+          - path: /dashboard-mobile/living
+          - script: script.turn_off_living_room
+          - rows-on: 1.5fr 1fr
+          - rows-off: 1fr 0.35fr
 
       # Path Kitchen
-      - type: conditional
+      - type: "custom:decluttering-card"
+        template: path-mobile
         view_layout:
           grid-column: span 3
-        conditions:
+        variables:
+          - card-template: path-kitchen
           - entity: sensor.lights_on_kitchen
-            state: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-kitchen
-            - entity: sensor.lights_on_kitchen
-            - name: "Cozinha"
-            - navigation_path: /dashboard-mobile/kitchen
+          - name: "Cozinha"
+          - path: /dashboard-mobile/kitchen
+          - script: script.turn_off_kitchen
+          - rows-on: 1.5fr 1fr
+          - rows-off: 1fr 0.35fr
 
-      - type: conditional
-        view_layout:
-          grid-column: span 2
-        conditions:
-          - entity: sensor.lights_on_kitchen
-            state_not: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-kitchen
-            - entity: sensor.lights_on_kitchen
-            - name: "Cozinha"
-            - navigation_path: /dashboard-mobile/kitchen
-
-      - type: conditional
-        conditions:
-          - entity: sensor.lights_on_kitchen
-            state_not: "0"
-        card:
-          type: "custom:decluttering-card"
-          template: script-button
-          variables:
-            - template: script-lights-off
-            - script: script.turn_off_kitchen
-
-      # Path Deck
-      - type: conditional
+      # Path Bedroom Right
+      - type: "custom:decluttering-card"
+        template: path-mobile
         view_layout:
           grid-column: span 3
-        conditions:
-          - entity: sensor.lights_on_deck
-            state: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-deck
-            - entity: sensor.lights_on_deck
-            - name: "Deck"
-            - navigation_path: /dashboard-mobile/deck
+        variables:
+          - card-template: path-bedroom-right
+          - entity: sensor.lights_on_bedroom_right
+          - name: "Office Lu"
+          - path: /dashboard-mobile/bedroom-right
+          - script: script.turn_off_deck_right
 
-      - type: conditional
-        view_layout:
-          grid-column: span 2
-        conditions:
-          - entity: sensor.lights_on_deck
-            state_not: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-deck
-            - entity: sensor.lights_on_deck
-            - name: "Deck"
-            - navigation_path: /dashboard-mobile/deck
-
-      - type: conditional
-        conditions:
-          - entity: sensor.lights_on_deck
-            state_not: "0"
-        card:
-          type: "custom:decluttering-card"
-          template: script-button
-          variables:
-            - template: script-lights-off
-            - script: script.turn_off_deck
-
-      # Path Bedroom
-      - type: conditional
+      # Path Suite
+      - type: "custom:decluttering-card"
+        template: path-mobile
         view_layout:
           grid-column: span 3
-        conditions:
-          - entity: sensor.lights_on_bedroom
-            state: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-bedroom
-            - entity: sensor.lights_on_bedroom
-            - name: "Quarto"
-            - navigation_path: /dashboard-mobile/bedroom
-            - rows-on: 1.5fr 1fr
-            - rows-off: 1fr 0.35fr
+        variables:
+          - card-template: path-bedroom-suite
+          - entity: sensor.lights_on_bedroom_suite
+          - name: "Suite"
+          - path: /dashboard-mobile/bedroom-suite
+          - script: script.turn_off_bedroom_suite
+          - rows-on: 1.5fr 1fr
+          - rows-off: 1fr 0.35fr
 
-      - type: conditional
+      # Path Bedroom Left
+      - type: "custom:decluttering-card"
+        template: path-mobile
         view_layout:
-          grid-column: span 2
-        conditions:
-          - entity: sensor.lights_on_bedroom
-            state_not: "0"
-        card:
-          template: path-division
-          type: "custom:decluttering-card"
-          variables:
-            - template: path-bedroom
-            - entity: sensor.lights_on_bedroom
-            - name: "Quarto"
-            - navigation_path: /dashboard-mobile/bedroom
-            - rows-on: 1.5fr 1fr
-            - rows-off: 1fr 0.35fr
-
-      - type: conditional
-        conditions:
-          - entity: sensor.lights_on_bedroom
-            state_not: "0"
-        card:
-          type: "custom:decluttering-card"
-          template: script-button
-          variables:
-            - template: script-lights-off
-            - script: script.turn_off_bedroom
+          grid-column: span 3
+        variables:
+          - card-template: path-bedroom-left
+          - entity: sensor.lights_on_bedroom_left
+          - name: "Office Ma"
+          - path: /dashboard-mobile/bedroom-left
+          - script: script.turn_off_bedroom_left
+          - rows-on: 1.5fr 1fr
+          - rows-off: 1fr 0.35fr
 
       # Path car
       - type: custom:state-switch
         view_layout:
           grid-column: span 6
         entity: user
-        #default: default
         states:
           Luís:
             type: "custom:decluttering-card"
@@ -307,7 +198,8 @@ cards:
 
       - type: weather-forecast
         entity: weather.home
-        show_forecast: false
+        show_forecast: true
+        forecast_type: daily
         view_layout:
           grid-column: span 6
         card_mod:
@@ -359,57 +251,57 @@ cards:
       #             background: transparent;
       #           }
 
-      - type: "custom:gap-card"
-        height: 10
-        view_layout:
-          grid-column: span 6
+      # - type: "custom:gap-card"
+      #   height: 10
+      #   view_layout:
+      #     grid-column: span 6
 
-      - type: "custom:vertical-stack-in-card"
-        view_layout:
-          grid-column: span 6
-        horizontal: false
-        card_mod:
-          style: |-
-            ha-card.type-custom-vertical-stack-in-card {
-              background: var(--ha-card-background-es-static);
-              border-radius: 10px;
-            }
-        cards:
-          - template: sensor-energy
-            type: "custom:decluttering-card"
-            variables:
-              - name: Consumo energético indexado
-              - template: sensors-energy
-              - entity-bill: sensor.energy_bill_omie
-              - entity-bill-old: sensor.energy_bill
+      # - type: "custom:vertical-stack-in-card"
+      #   view_layout:
+      #     grid-column: span 6
+      #   horizontal: false
+      #   card_mod:
+      #     style: |-
+      #       ha-card.type-custom-vertical-stack-in-card {
+      #         background: var(--ha-card-background-es-static);
+      #         border-radius: 10px;
+      #       }
+      #   cards:
+      #     - template: sensor-energy
+      #       type: "custom:decluttering-card"
+      #       variables:
+      #         - name: Consumo energético indexado
+      #         - template: sensors-energy
+      #         - entity-bill: sensor.energy_bill_omie
+      #         - entity-bill-old: sensor.energy_bill
 
-          - type: custom:apexcharts-card
-            experimental:
-              color_threshold: true
-            graph_span: 7d
-            span:
-              end: day
-            yaxis:
-              - show: false
-                min: 0
-            series:
-              - entity: sensor.energy_bill_omie_daily
-                type: column
-                color_threshold: !include ../graphs/energy-bill-thresholds.yaml
-                fill_raw: zero
-                group_by:
-                  duration: 1d
-                  func: last
-                  fill: zero
-                  start_with_last: true
-                show:
-                  datalabels: true
-            apex_config: !include ../graphs/energy-bill-apexconfig.yaml
-            card_mod:
-              style: |-
-                ha-card.type-custom-apexcharts-card {
-                  background: transparent;
-                }
+      #     - type: custom:apexcharts-card
+      #       experimental:
+      #         color_threshold: true
+      #       graph_span: 7d
+      #       span:
+      #         end: day
+      #       yaxis:
+      #         - show: false
+      #           min: 0
+      #       series:
+      #         - entity: sensor.energy_bill_omie_daily
+      #           type: column
+      #           color_threshold: !include ../graphs/energy-bill-thresholds.yaml
+      #           fill_raw: zero
+      #           group_by:
+      #             duration: 1d
+      #             func: last
+      #             fill: zero
+      #             start_with_last: true
+      #           show:
+      #             datalabels: true
+      #       apex_config: !include ../graphs/energy-bill-apexconfig.yaml
+      #       card_mod:
+      #         style: |-
+      #           ha-card.type-custom-apexcharts-card {
+      #             background: transparent;
+      #           }
 
       - type: "custom:gap-card"
         height: 10
@@ -447,37 +339,37 @@ cards:
           - name: "Casa"
           - state-1: "on"
           - state-2: "off"
-          - background-on: --green-tint, var(--ha-card-background-es-on)
+          - background-on: --purple-gradient, var(--ha-card-background-es-on)
 
-      - template: path
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: alarm
-          - entity: alarm_control_panel.alarmo
-          - name: "Alarme"
-          - navigation_path: /dashboard-mobile/security
+      # - template: path
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 2
+      #   variables:
+      #     - template: alarm
+      #     - entity: alarm_control_panel.alarmo
+      #     - name: "Alarme"
+      #     - navigation_path: /dashboard-mobile/security
 
-      - template: es-boolean
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: shutter-temp
-          - entity: input_boolean.open_blinds_temporarly
-          - name: Abrir por hoje
-          - state-1: "on"
-          - state-2: "off"
+      # - template: es-boolean
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 2
+      #   variables:
+      #     - template: shutter-temp
+      #     - entity: input_boolean.open_blinds_temporarly
+      #     - name: Abrir por hoje
+      #     - state-1: "on"
+      #     - state-2: "off"
 
-      - template: btn-moods
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: light-strip-3
-          - entity: sensor.any_mood_enabled
-          - name: "Moods"
+      # - template: btn-moods
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 2
+      #   variables:
+      #     - template: light-strip-3
+      #     - entity: sensor.any_mood_enabled
+      #     - name: "Moods"
 
       # Desativo até ao próximo natal
       # - template: es-script

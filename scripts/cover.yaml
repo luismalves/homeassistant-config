@@ -2,58 +2,164 @@
 # Set cover action based on state
 #
 
-toggle_cover_right:
+# Helpers for covers
+toggle_cover_living_room:
   sequence:
-    - service_template:
-        "{% if is_state('cover.shelly_roller_right', 'opening') %}\
-        cover.stop_cover{% elif is_state('cover.shelly_roller_right', 'closing')\
-        \ %}  cover.stop_cover{% elif is_state('cover.shelly_roller_right', 'open')\
+    - action: "{% if is_state('cover.estores_sala', 'opening') %}\
+        cover.stop_cover{% elif is_state('cover.estores_sala', 'closing')\
+        \ %}  cover.stop_cover{% elif is_state('cover.estores_sala', 'open')\
         \ %}  cover.close_cover{% else %}  cover.open_cover{% endif %}"
-      entity_id: cover.shelly_roller_right
+      entity_id: cover.estores_sala
   mode: single
-  alias: Toggle Shelly Cover Right
+  alias: Toggle Estores Sala
   icon: mdi:window-shutter
 
-toggle_cover_left:
+toggle_cover_suite:
   sequence:
-    - service_template:
-        "{% if is_state('cover.shelly_roller_left', 'opening') %}\
-        \  cover.stop_cover{% elif is_state('cover.shelly_roller_left', 'closing')\
-        \ %}  cover.stop_cover{% elif is_state('cover.shelly_roller_left', 'open')\
+    - action: "{% if is_state('cover.estores_suite', 'opening') %}\
+        cover.stop_cover{% elif is_state('cover.estores_suite', 'closing')\
+        \ %}  cover.stop_cover{% elif is_state('cover.estores_suite', 'open')\
         \ %}  cover.close_cover{% else %}  cover.open_cover{% endif %}"
-      entity_id: cover.shelly_roller_left
+      entity_id: cover.estores_suite
   mode: single
-  alias: Toggle Shelly Cover Left
+  alias: Toggle Estores Suite
   icon: mdi:window-shutter
 
-open_cover_right:
+toggle_cover_bedroom_right:
   sequence:
-    - service: cover.open_cover
-      entity_id: cover.shelly_roller_right
+    - action: "{% if is_state('cover.estores_quarto_direita', 'opening') %}\
+        \  cover.stop_cover{% elif is_state('cover.estores_quarto_direita', 'closing')\
+        \ %}  cover.stop_cover{% elif is_state('cover.estores_quarto_direita', 'open')\
+        \ %}  cover.close_cover{% else %}  cover.open_cover{% endif %}"
+      entity_id: cover.estores_quarto_direita
   mode: single
-  alias: Open Shelly Cover Right
+  alias: Toggle Estores Quarto Direita
   icon: mdi:window-shutter
 
-open_cover_left:
+toggle_cover_bedroom_left:
   sequence:
-    - service: cover.open_cover
-      entity_id: cover.shelly_roller_left
+    - action: "{% if is_state('cover.estores_quarto_esquerda', 'opening') %}\
+        \  cover.stop_cover{% elif is_state('cover.estores_quarto_esquerda', 'closing')\
+        \ %}  cover.stop_cover{% elif is_state('cover.estores_quarto_esquerda', 'open')\
+        \ %}  cover.close_cover{% else %}  cover.open_cover{% endif %}"
+      entity_id: cover.estores_quarto_esquerda
   mode: single
-  alias: Open Shelly Cover Left
+  alias: Toggle Estores Quarto Esquerda
   icon: mdi:window-shutter
 
-close_cover_right:
+toggle_cover_wc_suite:
   sequence:
-    - service: cover.close_cover
-      entity_id: cover.shelly_roller_right
+    - action: "{% if is_state('cover.estores_wc_suite', 'opening') %}\
+        \  cover.stop_cover{% elif is_state('cover.estores_wc_suite', 'closing')\
+        \ %}  cover.stop_cover{% elif is_state('cover.estores_wc_suite', 'open')\
+        \ %}  cover.close_cover{% else %}  cover.open_cover{% endif %}"
+      entity_id: cover.estores_wc_suite
   mode: single
-  alias: Close Shelly Cover Right
+  alias: Toggle Estores WC Suite
   icon: mdi:window-shutter
 
-close_cover_left:
+close_all_rooms_covers:
   sequence:
-    - service: cover.close_cover
-      entity_id: cover.shelly_roller_left
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_quarto_esquerda
+              state: "open"
+          sequence:
+            - action: cover.close_cover
+              entity_id: cover.estores_quarto_esquerda
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_quarto_direita
+              state: "open"
+          sequence:
+            - action: cover.close_cover
+              entity_id: cover.estores_quarto_direita
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_suite
+              state: "open"
+          sequence:
+            - action: cover.close_cover
+              entity_id: cover.estores_suite
   mode: single
-  alias: Close Shelly Cover Left
+  alias: Close all rooms covers
+  icon: mdi:window-shutter
+
+# Privacy positions
+set_cover_suite_privacy:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
+                {{ position > 23 and position <= 65 }}
+            - condition: sun
+              after: sunset
+              before: sunrise
+          sequence:
+            - action: cover.close_cover
+              entity_id: cover.estores_suite
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
+                {{ position > 23 and position <= 65 }}
+            - condition: sun
+              after: sunrise
+              before: sunset
+          sequence:
+            - action: cover.open_cover
+              entity_id: cover.estores_suite
+      default:
+        - action: cover.set_cover_position
+          entity_id: cover.estores_suite
+          data:
+            position: 60
+  mode: single
+  alias: Open suite cover to privacy position
+  icon: mdi:window-shutter
+
+# Night breeze positions
+set_cover_suite_breeze:
+  sequence:
+    - action: cover.set_cover_position
+      entity_id: cover.estores_suite
+      data:
+        position: 23
+  mode: single
+  alias: Open suite cover to breeze position
+  icon: mdi:window-shutter
+
+set_cover_living_room_breeze:
+  sequence:
+    - action: cover.set_cover_position
+      entity_id: cover.estores_sala
+      data:
+        position: 23
+  mode: single
+  alias: Open living room cover to breeze position
+  icon: mdi:window-shutter
+
+set_cover_bedroom_right_breeze:
+  sequence:
+    - action: cover.set_cover_position
+      entity_id: cover.estores_quarto_direita
+      data:
+        position: 23
+  mode: single
+  alias: Open bedroom right cover to breeze position
+  icon: mdi:window-shutter
+
+set_cover_bedroom_left_breeze:
+  sequence:
+    - action: cover.set_cover_position
+      entity_id: cover.estores_quarto_esquerda
+      data:
+        position: 23
+  mode: single
+  alias: Open bedroom left cover to breeze position
   icon: mdi:window-shutter

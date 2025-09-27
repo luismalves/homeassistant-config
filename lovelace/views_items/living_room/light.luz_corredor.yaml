@@ -1,0 +1,8 @@
+template: es-light
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-spot-v3
+  - entity: light.luz_corredor
+  - name: "Corredor"

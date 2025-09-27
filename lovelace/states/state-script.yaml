@@ -1,6 +1,6 @@
 - styles:
     card:
-      - background-color: "var(--ha-card-background-scene)"
+      - background: "var(--ha-card-background-scene)"
     name:
       - color: "var(--el-scene-name-color)"
     custom_fields:

@@ -150,5 +150,15 @@ cards:
     variables:
       - template: vm
       - action: none
+      - entity: binary_sensor.qemu_ubuntu_server_3_109_status
+      - name: "Ubuntu Server 3"
+
+  - template: es-config
+    type: "custom:decluttering-card"
+    view_layout:
+      grid-column: span 3
+    variables:
+      - template: vm
+      - action: none
       - entity: binary_sensor.qemu_dns_reflector_106_status
       - name: "DNS Reflector"

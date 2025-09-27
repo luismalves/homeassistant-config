@@ -1,0 +1,8 @@
+template: es-light
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-mushroom
+  - entity: light.light_2
+  - name: "Cogumelo"

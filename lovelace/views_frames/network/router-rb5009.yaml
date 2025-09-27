@@ -1,5 +1,5 @@
 ####
-# Mikrotik hAP AC3
+# Mikrotik RB5009
 #
 ####
 type: "custom:layout-card"
@@ -18,7 +18,7 @@ cards:
     view_layout:
       grid-column: span 6
     variables:
-      - content: Mikrotik hAP AC^3
+      - content: Mikrotik RB5009
 
   - type: entities
     view_layout:

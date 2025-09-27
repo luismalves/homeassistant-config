@@ -83,6 +83,29 @@ subtitle:
   default:
     - color: --el-title-color
 
+subsubtitle:
+  card:
+    card_mod:
+      style: >
+        ha-card {
+          height: 100%;
+          background: none;
+          font-family: var(--paper-ha-card_-_font-family);
+          font-weight: 600;
+          font-size: 14px;
+          color: var(--[[color]]);
+          margin-bottom: -6px;
+          margin-top: 12px;
+        }
+        ha-markdown {
+          padding: 0 !important;
+        }
+    type: markdown
+    content: |
+      [[content]]
+  default:
+    - color: --el-title-color
+
 device:
   card:
     card_mod:
@@ -102,6 +125,92 @@ device:
     content: |
       [[content]]
   default: null
+
+section-header:
+  card:
+    name: "[[name]]"
+    show_icon: false
+    show_state: false
+    show_name: true
+    action: none
+    tap_action:
+      action: none
+    hold_action:
+      action: none
+    double_tap_action:
+      action: none
+    variables:
+      sensor_entity: "[[sensor_entity]]"
+      is_small: "[[is_small]]"
+    triggers_update:
+      - "[[sensor_entity]]"
+    styles:
+      card:
+        - background: transparent
+        - border-radius: 0px
+        - color: var(--el-title-color)
+        - font-family: var(--paper-ha-card_-_font-family)
+        - margin-bottom: >
+            [[[
+              return variables["is_small"] ? "0px" :  "16px";
+            ]]]
+        - padding: 0
+        - --mdc-ripple-press-opacity: 0
+        - -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        - -webkit-focus-ring-color: rgba(0, 0, 0, 0);
+        - outline: none !important;
+        - pointer-events: none
+      grid:
+        - grid-template-areas: '"n actions" "subtitle actions"'
+        - grid-template-columns: 1fr min-content
+        - grid-template-rows: min-content min-content
+      name:
+        - place-self: flex-start
+        - font-weight: 700
+        - font-size: >
+            [[[
+              return variables["is_small"] ? "18px" :  "24px";
+            ]]]
+        - margin-bottom: 4px
+      custom_fields:
+        subtitle:
+          - place-self: flex-start
+          - font-weight: 700
+          - font-size: 16px
+    custom_fields:
+      subtitle: >
+        [[[ 
+          if(variables.is_small) {
+            return
+          }
+          if (states[variables.sensor_entity].state == "0") {
+            return "Não existem luzes ligadas.";
+          } else if (states[variables.sensor_entity].state == "1") {
+            return states[variables.sensor_entity].state + " luz ligada.";
+          } else {
+            return states[variables.sensor_entity].state + " luzes ligadas.";
+          }
+        ]]]
+      actions:
+        card:
+          type: conditional
+          conditions:
+            - entity: "[[sensor_entity]]"
+              state_not: "0"
+          card:
+            type: "custom:decluttering-card"
+            template: script-round-button
+            variables:
+              - entity: "[[sensor_entity]]"
+              - template: script-turn-off
+              - script: "[[script]]"
+              - height: >
+                  [[[
+                    return variables["is_small"] ? "25px" :  "50px";
+                  ]]]
+    type: "custom:button-card"
+  default:
+    - is_small: false
 
 #---------------------#
 # Entity state cards
@@ -134,28 +243,6 @@ es:
     type: "custom:button-card"
   default: null
 
-# Shows the state of an input boolean entity
-es-boolean:
-  card:
-    entity: "[[entity]]"
-    name: "[[name]]"
-    tap_action:
-      action: toggle
-    show_icon: false
-    show_state: true
-    state: !include ../states/state-x.yaml
-    styles: !include ../styles/style-card-centered.yaml
-    template: "[[template]]"
-    type: "custom:button-card"
-  default:
-    - background-on: --ha-card-background-es-on
-    - color-name-on: --ha-card-color-name-on
-    - color-name-off: --ha-card-color-name-off
-    - color-state-on: --ha-card-color-state-on
-    - color-state-off: --ha-card-color-state-off
-    - state-1: "on"
-    - state-2: "off"
-
 # Shows if a person is at home or not
 es-person:
   card:
@@ -170,7 +257,7 @@ es-person:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --green-tint, var(--ha-card-background-es-on)
+    - background-on: --purple-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -289,17 +376,19 @@ es-light:
     custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity]]"
     name: "[[name]]"
-    hold_action: !include ../holds/hold-action-es-lights.yaml
+    hold_action:
+      action: more-info
     tap_action:
       action: toggle
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - background-on: --yellow-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -322,12 +411,13 @@ es-light-wled:
       action: toggle
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - background-on: --yellow-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -350,12 +440,13 @@ es-light-tasmota:
       action: toggle
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - background-on: --yellow-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -378,12 +469,13 @@ es-light-temperature:
       action: toggle
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - background-on: --yellow-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -406,12 +498,13 @@ es-light-switch:
       action: toggle
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - background-on: --yellow-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -435,12 +528,13 @@ es-light-switch-2:
       action: toggle
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --yellow-tint, var(--ha-card-background-es-on)
+    - background-on: --yellow-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -486,6 +580,7 @@ es-switch:
       action: toggle
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
@@ -595,6 +690,28 @@ es-switch-energy:
     - info-unit: "W"
     - info-state: "on"
 
+# Small card for boolean config switches
+es-boolean:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-sensor-script.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
+
 # Devices state obtained with ping integration
 es-ping:
   card:
@@ -603,7 +720,8 @@ es-ping:
     tap_action:
       action: none
     show_icon: false
-    show_state: false
+    show_state: true
+    state_display: !include ../helpers/state_display-ping.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
@@ -623,18 +741,21 @@ es-cover:
   card:
     entity: "[[entity]]"
     name: "[[name]]"
-    hold_action: !include ../holds/hold-action-es-cover.yaml
+    hold_action:
+      action: more-info
     tap_action:
       action: call-service
       service: "[[toggle-script]]"
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --ha-card-background-es-on
+    #- background-on: --ha-card-background-es-on
+    - background-on: --pink-gradient
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -668,12 +789,13 @@ es-tv:
     tap_action: !include ../holds/hold-action-es-tv.yaml
     show_icon: false
     show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --purple-tint, var(--ha-card-background-es-on)
+    - background-on: --red-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on
@@ -788,6 +910,65 @@ path-car:
     type: "custom:button-card"
   default: null
 
+# Mobile path card
+path-mobile:
+  card:
+    type: custom:mod-card
+    card_mod:
+      style:
+        layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 2px 0; align-items: center;}"
+    card:
+      type: "custom:layout-card"
+      layout_type: "custom:grid-layout"
+      layout:
+        grid-template-columns: 1fr 1fr 1fr
+        grid-template-rows: auto
+        margin: 0px
+        padding: 0px
+      cards:
+        - type: conditional
+          view_layout:
+            grid-column: span 3
+          conditions:
+            - entity: "[[entity]]"
+              state: "0"
+          card:
+            template: path-division
+            type: "custom:decluttering-card"
+            variables:
+              - template: "[[card-template]]"
+              - entity: "[[entity]]"
+              - name: "[[name]]"
+              - navigation_path: "[[path]]"
+              - rows-on: "[[rows-on]]"
+              - rows-off: "[[rows-off]]"
+
+        - type: conditional
+          view_layout:
+            grid-column: span 2
+          conditions:
+            - entity: "[[entity]]"
+              state_not: "0"
+          card:
+            template: path-division
+            type: "custom:decluttering-card"
+            variables:
+              - template: "[[card-template]]"
+              - entity: "[[entity]]"
+              - name: "[[name]]"
+              - navigation_path: "[[path]]"
+
+        - type: conditional
+          conditions:
+            - entity: "[[entity]]"
+              state_not: "0"
+          card:
+            type: "custom:decluttering-card"
+            template: script-button
+            variables:
+              - template: script-lights-off
+              - script: "[[script]]"
+
 #---------------------#
 # Scene, Scripts cards
 #---------------------#
@@ -804,7 +985,7 @@ scene:
     show_icon: false
     show_state: false
     state: !include ../states/state-btn.yaml
-    styles: !include ../styles/style-card-centered.yaml
+    styles: !include ../styles/style-card-scene.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
@@ -828,6 +1009,31 @@ script:
   default:
     - name: "[[[ return entity.attributes.friendly_name ]]]"
 
+# Shows the state of an script executor with sensor state
+script-sensor:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: true
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-sensor-script.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
+
 script-button:
   card:
     entity: "[[script]]"
@@ -844,6 +1050,26 @@ script-button:
     template: "[[template]]"
     type: "custom:button-card"
   default: null
+
+script-round-button:
+  card:
+    entity: "[[script]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      service_data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_name: false
+    show_state: false
+    variables:
+      height: "[[height]]"
+    state: !include ../states/state-script.yaml
+    styles: !include ../styles/style-card-round.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - height: 50px
 
 script-mood-outline:
   card:
@@ -874,13 +1100,14 @@ sensor-pill:
     show_name: "[[show-name]]"
     numeric_precision: "[[numeric_precision]]"
     tap_action:
-      action: none
+      action: more-info
     state: !include ../states/state-x.yaml
     styles: !include ../styles/style-card-sensor-pill.yaml
     #template: "[[template]]"
     type: "custom:button-card"
     variables:
       show-name: "[[show-name]]"
+      show-overflow: "[[show-overflow]]"
   default:
     - background-on: --ha-card-background-es-on
     - background-default: --orange-tint, var(--ha-card-background-es-on)
@@ -892,6 +1119,7 @@ sensor-pill:
     - state-1: "on"
     - state-2: "off"
     - show-name: false
+    - show-overflow: false
 
 # sensor-kitchen:
 #   card:
@@ -947,23 +1175,37 @@ sensor-number:
     show_icon: false
     show_state: true
     show_units: "[[show_units]]"
+    numeric_precision: 0
+    variables:
+      unit: "[[unit]]"
+      numeric_precision: "[[numeric_precision]]"
+      background_morning: "[[background_morning]]"
+      background_afternoon: "[[background_afternoon]]"
     state_display: >
       [[[
-        if (entity.state === 'unknown' || entity.state === undefined)
+        if (entity && entity.state === 'unknown' || entity.state === undefined)
           return "-";
         else
-          return helpers.localize(entity);
+          if ([[localize]]) {
+            return helpers.localize(entity, undefined, undefined, [[show_units]], variables.unit);
+          } else {
+            return entity.state + variables.unit;
+          }
       ]]]
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - background: var(--ha-card-background-es-static)
+    - color: var(--el-es-static-text-color)
     - font_name: 12px
     - font_state: 28px
     - height: 90px
     - padding_bottom: 10px
     - show_units: true
+    - numeric_precision: undefined
+    - localize: true
+    - unit: undefined
 
 sensor-number-ext:
   card:
@@ -986,6 +1228,7 @@ sensor-number-ext:
     type: "custom:button-card"
   default:
     - background: var(--ha-card-background-es-static)
+    - color: var(--el-es-static-text-color)
     - font_name: 12px
     - font_state: 28px
     - height: 90px
@@ -1013,10 +1256,62 @@ sensor-number-local:
     type: "custom:button-card"
   default:
     - background: var(--ha-card-background-es-static)
+    - color: var(--el-es-static-text-color)
     - font_name: 14px
     - font_state: 28px
     - height: 90px
     - padding_bottom: 5px
+
+sensor-number-image:
+  card:
+    type: "custom:button-card"
+    name: "[[name]]"
+    entity: "[[entity]]"
+    show_icon: false
+    show_state: true
+    show_units: "[[show_units]]"
+    variables:
+      image-url: "[[image-url]]"
+    state_display: >
+      [[[
+        if (entity && entity.state === 'unknown' || entity.state === undefined)
+          return "-";
+        else
+          return helpers.localize(entity, undefined, undefined, [[show_units]]);
+      ]]]
+    styles: !include ../styles/style-card-number.yaml
+    template: "[[template]]"
+    custom_fields:
+      image:
+        card:
+          type: picture
+          image: "[[image-url]]"
+          card_mod:
+            style: |
+              ha-card.type-picture {
+                background: transparent;
+                border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0 0 !important;
+                height: 40px;
+                position: relative;
+              }
+              ha-card.type-picture:before {
+                content: ' ';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                box-shadow: 0 0 100px rgba(0,0,0,0.3) inset;
+              }
+
+  default:
+    - background: var(--ha-card-background-es-static)
+    - color: var(--el-es-static-text-color)
+    - font_name: 12px
+    - font_state: 28px
+    - height: 90px
+    - padding_bottom: 10px
+    - show_units: true
 
 sensor-number-gauge:
   card:
@@ -1031,6 +1326,7 @@ sensor-number-gauge:
     custom_fields: !include ../graphs/gauge-x.yaml
   default:
     - background: var(--ha-card-background-es-static)
+    - color: var(--el-es-static-text-color)
     - font_name: 12px
     - height: auto
     - show_units: true
@@ -1250,7 +1546,7 @@ map-card:
               background: transparent;
               height: 0px;
             }
-            ha-markdown.no-header {
+            ha-markdown {
               bottom: -80px;
               color: var(--el-text-color);
               font-size: 12px;
@@ -1270,7 +1566,7 @@ map-card:
               background: transparent;
               height: 0px;
             }
-            ha-markdown.no-header {
+            ha-markdown {
               bottom: -96px;
               color: var(--el-text-color);
               font-size: 12px;
@@ -1312,6 +1608,32 @@ map-card:
 #---------------------#
 # Climate
 #---------------------#
+
+climate-ac:
+  card:
+    custom_fields: !include ../circles/pill-x.yaml
+    entity: "[[entity]]"
+    name: "[[name]]"
+    #hold_action: !include ../holds/hold-action-es-lights.yaml
+    tap_action:
+      action: more-info
+    show_icon: false
+    show_state: true
+    state_display: !include ../helpers/state_display-ac.yaml
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - background-on: --blue-tint, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-2: "off"
+    - state-5: "off"
+    - info-attribute: entity.attributes.temperature
+    - info-state: "on"
 
 climate-vw:
   card:
@@ -1419,6 +1741,340 @@ climate-vw:
         }
 
 #---------------------#
+# Pets
+#---------------------#
+
+pet-litter:
+  default: null
+  card:
+    type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          background: var(--ha-card-background-es-static);
+          background-position: bottom;
+          background-image: url('/local/images/pets/litter-1.png');
+          background-size: 125%;
+          border-radius: var(--ha-card-border-radius);
+          height: 133px;
+          padding: 4px 8px;
+        }
+    card:
+      type: "custom:layout-card"
+      layout_type: "custom:grid-layout"
+      layout:
+        grid-template-columns: 1fr
+        grid-template-rows: 1fr min-content
+        grid-template-areas: |
+          "sensor-top" "sensors-pill"
+        margin: 0px
+        padding: 0px
+        height: 100%
+      cards:
+        - type: markdown
+          view_layout:
+            grid-area: sensor-top
+          content: |
+            {% set days = states.sensor.days_since_cat_litter_change.state %}
+
+            <b>{{ days }} dias</b>
+            desde a última revisão
+          card_mod:
+            style:
+              .: |
+                ha-card.type-markdown {
+                  background: transparent;
+                }
+                ha-markdown {
+                  color: var(--white1);
+                  font-size: 10px;
+                  line-height: 1;
+                  padding: 8px 14px 0px !important;
+                }
+              "ha-markdown $ ha-markdown-element": |
+                p {
+                  margin: 0;
+                }
+                b {
+                  color: var(--white1);
+                  font-size: 28px;
+                  line-height: 1;
+                }
+
+pet-fountain:
+  default: null
+  card:
+    type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          background: var(--ha-card-background-es-static);
+          background-position: center;
+          background-position-y: 85%;
+          background-image: url('/local/images/pets/fountain.png');
+          background-size: cover;
+          border-radius: var(--ha-card-border-radius);
+          height: 160px;
+          padding: 4px 8px;
+        }
+
+    card:
+      type: "custom:layout-card"
+      layout_type: "custom:grid-layout"
+      layout:
+        grid-template-columns: 1fr 1fr min-content
+        grid-template-rows: 1fr min-content
+        grid-template-areas: |
+          "sensor-top sensor-top ." "sensors-pill sensors-pill sensors-pill"
+        margin: 0px
+        padding: 0px
+        height: 100%
+      cards:
+        - type: "custom:button-card"
+          custom_fields: !include ../icons/glow.yaml
+          view_layout:
+            justify-self: flex-end
+          entity: switch.petlibro_plwf105_pump
+          show_name: off
+          show_icon: off
+          show_state: off
+          styles:
+            card:
+              - background: transparent
+              - height: 20px
+              - width: 20px
+              - position: relative
+            custom_fields:
+              glow:
+                - height: 20px
+                - position: absolute
+                - top: 0
+                - right: 0
+                - width: 20px
+          state:
+            - value: "off"
+              styles:
+                custom_fields:
+                  glow:
+                    - display: none
+        - type: markdown
+          view_layout:
+            grid-area: sensor-top
+          content: |
+            {% set sensor_value = states.sensor.petlibro_plwf105_last_drink_amount_ml.state | float | round(0) %}
+            {% set timestamp = states.sensor.petlibro_plwf105_last_drink_amount_ml.last_changed %}
+
+            <b>{{ sensor_value }} ml</b>
+            Às {{ (as_timestamp(timestamp)) | timestamp_custom("%-Hh%M", true) }}
+          card_mod:
+            style:
+              .: |
+                ha-card.type-markdown {
+                  background: transparent;
+                }
+                ha-markdown {
+                  color: var(--white1);
+                  font-size: 10px;
+                  line-height: 1;
+                  padding: 10px 14px !important;
+                }
+              "ha-markdown $ ha-markdown-element": |
+                b {
+                  color: var(--white1);
+                  font-size: 28px;
+                  line-height: 1;
+                }
+        - type: "custom:layout-card"
+          layout_type: "custom:grid-layout"
+          layout:
+            grid-template-columns: min-content min-content min-content
+            grid-template-rows: 1fr
+          view_layout:
+            grid-area: sensors-pill
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.petlibro_plwf105_water_level
+                - icon: mdi:water-thermometer
+                - numeric_precision: 0
+                - color-state-on: --ha-card-color-name-on
+                - show-overflow: true
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.pet_foutain_tank_status
+                - icon: mdi:connection
+                - color-state-on: --ha-card-color-name-on
+                - show-overflow: true
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.days_since_last_tank_disconnection
+                - icon: mdi:repeat-variant
+                - numeric_precision: 0
+                - color-state-on: --ha-card-color-name-on
+                - show-overflow: true
+
+pet-feeder:
+  default: null
+  card:
+    type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          background: var(--ha-card-background-es-static);
+          background-position: center;
+          background-position-y: 85%;
+          background-image: url('/local/images/pets/feeder.png');
+          background-size: cover;
+          border-radius: var(--ha-card-border-radius);
+          height: 200px;
+          padding: 4px 8px;
+        }
+    card:
+      type: "custom:layout-card"
+      layout_type: "custom:grid-layout"
+      layout:
+        grid-template-columns: 1fr 1fr 1fr
+        grid-template-rows: 1fr min-content
+        grid-template-areas: |
+          "sensor-top sensor-top schedule" "sensors-pill sensors-pill sensors-pill"
+        margin: 0px
+        padding: 0px
+        height: 100%
+      cards:
+        - type: markdown
+          view_layout:
+            grid-area: sensor-top
+          content: |
+            {% set sensor_value = states.sensor.aqara_pet_feeder_weight_per_day.state | float | round(0) %}
+
+            <b>{{ sensor_value }} g</b>
+            Hoje
+          card_mod:
+            style:
+              .: |
+                ha-card.type-markdown {
+                  background: transparent;
+                }
+                ha-markdown {
+                  color: var(--white1);
+                  font-size: 10px;
+                  line-height: 1;
+                  padding: 10px 14px !important;
+                }
+              "ha-markdown $ ha-markdown-element": |
+                b {
+                  color: var(--white1);
+                  font-size: 28px;
+                  line-height: 1;
+                }
+        - type: markdown
+          view_layout:
+            grid-area: schedule
+          content: |
+            {% set feeding_schedule = [
+              {'days': 'everyday', 'hour': 8, 'minute': 30, 'size': 2},
+              {'days': 'everyday', 'hour': 13, 'minute': 0, 'size': 1},
+              {'days': 'everyday', 'hour': 18, 'minute': 0, 'size': 2},
+              {'days': 'everyday', 'hour': 22, 'minute': 0, 'size': 1}
+            ] %}
+            {% set current_day = now().strftime('%a').lower() %}
+            {% set current_weekday = now().weekday() %}
+            {% set current_time_minutes = now().hour * 60 + now().minute %}
+            {% set day_mapping = {
+              'mon': 0, 'tue': 1, 'wed': 2, 'thu': 3, 'fri': 4, 'sat': 5, 'sun': 6
+            } %}
+
+            <h5>Schedule</h5>
+            {% for schedule in feeding_schedule %}
+              {% set show_schedule = false %}
+              
+              {# Check if schedule applies to today #}
+              {% if schedule.days == 'everyday' %}
+                {% set show_schedule = true %}
+              {% elif schedule.days == 'workdays' and current_weekday < 5 %}
+                {% set show_schedule = true %}
+              {% elif schedule.days == 'weekend' and current_weekday >= 5 %}
+                {% set show_schedule = true %}
+              {% elif schedule.days in ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'] and day_mapping[schedule.days] == current_weekday %}
+                {% set show_schedule = true %}
+              {% elif schedule.days == 'mon-wed-fri-sun' and current_weekday in [0, 2, 4, 6] %}
+                {% set show_schedule = true %}
+              {% elif schedule.days == 'tue-thu-sat' and current_weekday in [1, 3, 5] %}
+                {% set show_schedule = true %}
+              {% endif %}
+
+              {% if show_schedule %}
+                {% set schedule_time_minutes = schedule.hour * 60 + schedule.minute %}
+                {% set is_future = schedule_time_minutes > current_time_minutes %}
+              <{% if is_future %}div{% else %}p{% endif %}>{{ schedule.hour }}h{{ "%02d"|format(schedule.minute) }}  {% for i in range(schedule.size) %}<ha-icon icon="mdi:fish"></ha-icon>{% endfor %}<{% if is_future %}/div{% else %}/p{% endif %}>
+              {% else %}
+              <p>No feed</p>
+              {% endif %}
+            {% endfor %}
+          card_mod:
+            style:
+              .: |
+                ha-card.type-markdown {
+                  background: transparent;
+                }
+                ha-markdown {
+                  color: var(--ha-card-background-es-off);
+                  display: flex;
+                  padding: 10px 12px 0 12px !important;
+                  text-align: right;
+                }
+              "ha-markdown $ ha-markdown-element": |
+                h5 {
+                  margin: 0 0 4px 0;
+                }
+                div, p{
+                  border-radius: 16px;
+                  font-size: 10px;
+                  font-weight: bold;
+                  line-height: 1;
+                  margin: 0 0 4px 0;
+                  padding: 4px 8px;
+                  --mdc-icon-size: 10px;  
+                }
+                p {
+                  border: 1.5px solid;
+                  border-color: var(--ha-card-background-es-off);
+                }
+                div {
+                  color: var(--ha-card-background-es-off);
+                }
+                div {
+                  background: var(--ha-card-background-es-on);
+                  color: var(--ha-card-color-name-on);
+                }
+        - type: "custom:layout-card"
+          layout_type: "custom:grid-layout"
+          layout:
+            grid-template-columns: min-content min-content min-content
+            grid-template-rows: 1fr
+          view_layout:
+            grid-area: sensors-pill
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.pet_feeder_status
+                - icon: mdi:connection
+                - color-state-on: --ha-card-color-name-on
+                - show-overflow: true
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: select.aqara_pet_feeder_mode
+                - icon: mdi:repeat-variant
+                - numeric_precision: 0
+                - color-state-on: --ha-card-color-name-on
+                - show-overflow: true
+
+#---------------------#
 # Cars
 #---------------------#
 
@@ -1461,13 +2117,13 @@ car-state:
               background: transparent;
               margin-bottom: -45px;
             }
-            ha-markdown.no-header {
+            ha-markdown {
               color: var(--el-text-color-light);
               font-size: 10px;
               margin-top: -35px;
-              padding-bottom: 0px;
+              padding-bottom: 0px !important;
               padding-top: 0px !important;
-              text-align: center;
+              text-align: center !important;
             }
 
       - type: custom:state-switch
@@ -1488,7 +2144,7 @@ car-state:
                   width: 100%;
                   --mdc-icon-size: 12px;
                 }
-                ha-markdown.no-header {
+                ha-markdown {
                   background-color: var(--ha-card-background-es-off);
                   border-radius: 40px;
                   color: var(--el-text-color);
@@ -1496,10 +2152,10 @@ car-state:
                   font-weight: bold;
                   height: 18px;
                   margin-top: -45px;
-                  padding-bottom: 10px;
-                  padding-left: 16px;
+                  padding-bottom: 10px !important;
+                  padding-left: 16px !important;
                   padding-top: 10px !important;
-                  padding-right: 16px;
+                  padding-right: 16px !important;
                 }
 
       - type: custom:layout-card
@@ -1598,14 +2254,14 @@ car-state:
                     ha-card.type-markdown {
                       background: transparent;
                     }
-                    ha-markdown.no-header {
+                    ha-markdown {
                       color: var(--el-text-color-light);
                       font-size: 11px;
                       font-weight: bold;
                       margin-top: -6px;
-                      padding-bottom: 0px;
+                      padding-bottom: 0px !important;
                       padding-top: 0px !important;
-                      text-align: center;
+                      text-align: center !important;
                     }
 
 car-odometer:

@@ -22,9 +22,9 @@ browser_mod:
                 - icon: power
                 - tap_action:
                     action: call-service
-                    service: wake_on_lan.send_magic_packet
+                    service: media_player.turn_on
                     service_data:
-                      mac: !secret android_tv_mac
+                      entity_id: media_player.tv
             - type: custom:decluttering-card
               template: btn-icon-text
               variables:
@@ -34,7 +34,7 @@ browser_mod:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: remote.tv
                       command: UP
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -43,9 +43,9 @@ browser_mod:
                 - icon: power-off
                 - tap_action:
                     action: call-service
-                    service: remote.turn_off
+                    service: media_player.turn_off
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: media_player.tv
 
             ###################################################################################################
             # 2 row - 3 Navigation Buttons using template: btn-icon-text
@@ -60,7 +60,7 @@ browser_mod:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: remote.tv
                       command: LEFT
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -71,7 +71,7 @@ browser_mod:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: remote.tv
                       command: ENTER
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -82,7 +82,7 @@ browser_mod:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: remote.tv
                       command: RIGHT
             ###################################################################################################
             # 3 row - 3 Navigation Buttons using template: btn-icon-text
@@ -97,7 +97,7 @@ browser_mod:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: remote.tv
                       command: BACK
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -108,7 +108,7 @@ browser_mod:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: remote.tv
                       command: DOWN
             - type: custom:decluttering-card
               template: btn-icon-text
@@ -119,7 +119,7 @@ browser_mod:
                     action: call-service
                     service: remote.send_command
                     service_data:
-                      entity_id: remote.android_tv
+                      entity_id: remote.tv
                       command: HOME
         - height: 10
           size: 30

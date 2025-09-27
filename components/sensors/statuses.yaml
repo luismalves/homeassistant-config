@@ -7,9 +7,9 @@
     door_openclose:
       friendly_name: "Main door status"
       value_template: >-
-        {% if is_state('binary_sensor.openclose_1_contact', 'on') %}
+        {% if is_state('binary_sensor.openclose_main_contact', 'on') %}
           Aberta
-        {% elif is_state('binary_sensor.openclose_1_contact', 'off') %}
+        {% elif is_state('binary_sensor.openclose_main_contact', 'off') %}
           Fechada
         {% else %}
           Erro
@@ -25,9 +25,9 @@
     presence_kitchen:
       friendly_name: "Kitchen motion status"
       value_template: >-
-        {% if is_state('binary_sensor.presence_3_occupancy', 'on') %}
+        {% if is_state('binary_sensor.presence_2_occupancy', 'on') %}
           Detetado
-        {% elif is_state('binary_sensor.presence_3_occupancy', 'off') %}
+        {% elif is_state('binary_sensor.presence_2_occupancy', 'off') %}
           Vazio
         {% else %}
           Erro
@@ -35,46 +35,39 @@
 
 - platform: template
   sensors:
-    presence_living_room:
+    presence_hall:
       friendly_name: "Living room motion status"
       value_template: >-
-        {% if is_state('binary_sensor.presence_1_occupancy', 'on') %}
+        {% if is_state('binary_sensor.presence_hall_motion', 'on') %}
           Detetado
-        {% elif is_state('binary_sensor.presence_1_occupancy', 'off') %}
+        {% elif is_state('binary_sensor.presence_hall_motion', 'off') %}
           Vazio
         {% else %}
           Erro
         {% endif %}
 
-#####
-# Water leakage
-#
-#####
-
 - platform: template
   sensors:
-    water_sensor:
-      friendly_name: "Water leak status"
-      unique_id: sensor.water_sensor
+    presence_bedroom_right:
+      friendly_name: "Bedroom right motion status"
       value_template: >-
-        {% if is_state('binary_sensor.alarm_1_water_leak', 'off') or is_state('binary_sensor.alarm_1_water_leak', 'unknown') %}
-          OK
-        {% elif is_state('binary_sensor.alarm_1_water_leak', 'on') %}
-          ALERTA
+        {% if is_state('binary_sensor.human_presence_1_presence', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.human_presence_1_presence', 'off') %}
+          Vazio
         {% else %}
           Erro
         {% endif %}
 
 - platform: template
   sensors:
-    water_sensor:
-      friendly_name: "Water leak 2 status"
-      unique_id: sensor.water_sensor_2
+    presence_bedroom_left:
+      friendly_name: "Bedroom left motion status"
       value_template: >-
-        {% if is_state('binary_sensor.alarm_2_water_leak', 'off') or is_state('binary_sensor.alarm_1_water_leak', 'unknown') %}
-          OK
-        {% elif is_state('binary_sensor.alarm_2_water_leak', 'on') %}
-          ALERTA
+        {% if is_state('binary_sensor.occupancy_sensor_c56f_occupancy', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.occupancy_sensor_c56f_occupancy', 'off') %}
+          Vazio
         {% else %}
           Erro
         {% endif %}

@@ -1,0 +1,22 @@
+---
+# SCRIPTS
+# Cat related
+#
+
+set_current_litter_change:
+  alias: "Set current date for litter change"
+  sequence:
+    - action: input_datetime.set_datetime
+      target:
+        entity_id: input_datetime.last_cat_litter_change
+      data:
+        datetime: "{{ now() }}"
+
+set_current_litter_full_change:
+  alias: "Set current date for full litter change"
+  sequence:
+    - action: input_datetime.set_datetime
+      target:
+        entity_id: input_datetime.last_full_cat_litter_change
+      data:
+        datetime: "{{ now() }}"

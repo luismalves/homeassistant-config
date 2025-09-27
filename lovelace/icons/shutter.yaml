@@ -1,5 +1,5 @@
 icon_hue: >
-  [[[ if (entity.state === 'open') return '<svg id="entks3jq2knq1"
+  [[[ if (entity && entity.state === 'open') return '<svg id="entks3jq2knq1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"
   shape-rendering="geometricPrecision"
@@ -194,6 +194,6 @@ icon_hue: >
 
 info: >
   [[[
-    if (entity.attributes.current_position > 0)
+    if (entity && entity.attributes.current_position > 0)
       return `<div style="display:flex;align-items:center;justify-content:center;padding: 0 8px;height:25px;border-radius:25px;background-color:var(--contrast2)"><span>${entity.attributes.current_position}%</span></div>`
   ]]]

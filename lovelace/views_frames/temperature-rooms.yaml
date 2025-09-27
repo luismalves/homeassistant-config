@@ -1,5 +1,5 @@
 ####
-# Cozinha
+# Sala
 #
 ####
 - type: vertical-stack
@@ -19,7 +19,7 @@
           view_layout:
             grid-column: span 2
           variables:
-            - content: Cozinha
+            - content: Sala
 
         - type: "custom:mini-graph-card"
           entities:
@@ -56,7 +56,7 @@
             style: !include ../styles/style-graph-wtitle.yaml
 
 ####
-# Deck
+# Casa de banho suite
 #
 ####
 - type: vertical-stack
@@ -76,7 +76,7 @@
           view_layout:
             grid-column: span 2
           variables:
-            - content: Deck
+            - content: WC Suite
 
         - type: "custom:mini-graph-card"
           entities:

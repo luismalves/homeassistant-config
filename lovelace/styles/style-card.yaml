@@ -5,10 +5,11 @@ card:
 
 custom_fields:
   icon_hue:
-    - top: 10%
-    - left: 4.5%
+    - top: 10px
+    - left: 9px
     - width: 40px
     - position: absolute
+    - overflow: visible
   info:
     - position: absolute
     - top: 14px

@@ -1,0 +1,28 @@
+####
+# START-VIEW
+# Quarto esquerda
+####
+- type: vertical-stack
+  cards:
+    - type: custom:layout-card
+      layout_type: custom:grid-layout
+      layout:
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+        grid-template-rows: auto
+        margin: 0px
+      cards:
+        - type: "custom:decluttering-card"
+          template: section-header
+          view_layout:
+            grid-column: span 6
+          variables:
+            - name: "Office Ma"
+            - is_small: true
+            - script: script.turn_off_bedroom_left
+            - sensor_entity: sensor.lights_on_bedroom_left
+
+        - !include ../../views_items/bedroom_left/light.led_strip_deck.yaml
+
+        - !include ../../views_items/bedroom_left/light.mi_lamp.yaml
+
+        - !include ../../views_items/bedroom_left/light.luz_quarto_esquerda.yaml

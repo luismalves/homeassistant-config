@@ -1,0 +1,6 @@
+template: es-light
+type: "custom:decluttering-card"
+variables:
+  - template: light-xmas
+  - entity: light.wled_xmas
+  - name: "Árvore Natal"

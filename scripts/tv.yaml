@@ -5,28 +5,27 @@
 turn_on_tv:
   alias: Turn on TV
   sequence:
-    - service: wake_on_lan.send_magic_packet
-      data:
-        mac: !secret android_tv_mac
+    - action: remote.turn_on
+      entity_id: remote.tv
 
 turn_off_tv:
   alias: Turn off TV
   sequence:
-    - service: remote.turn_off
-      entity_id: remote.android_tv
+    - action: remote.turn_off
+      entity_id: remote.tv
 
-# Start applications
-#
-start_netflix_tv:
-  alias: Start Netflix on TV
-  sequence:
-    - service: script.turn_on
-      entity_id: script.turn_on_tv
-    - delay: "15"
-    - service: androidtv.adb_command
-      entity_id: media_player.mi_tv
-      data:
-        command: "am start -a android.intent.action.VIEW -d -n com.netflix.ninja/.MainActivity"
+# # Start applications
+# #
+# start_netflix_tv:
+#   alias: Start Netflix on TV
+#   sequence:
+#     - service: script.turn_on
+#       entity_id: script.turn_on_tv
+#     - delay: "15"
+#     - service: androidtv.adb_command
+#       entity_id: media_player.mi_tv
+#       data:
+#         command: "am start -a android.intent.action.VIEW -d -n com.netflix.ninja/.MainActivity"
 
 # Reference: https://stackoverflow.com/questions/27391326/how-to-change-the-volume-using-adb-shell-service-call-audio
 # Set TV Volume
@@ -36,7 +35,7 @@ volume_down_tv:
   sequence:
     - service: remote.send_command
       target:
-        entity_id: remote.android_tv
+        entity_id: remote.tv
       data:
         command: VOLUME_UP
 
@@ -45,7 +44,7 @@ volume_up_tv:
   sequence:
     - service: remote.send_command
       target:
-        entity_id: remote.android_tv
+        entity_id: remote.tv
       data:
         command: VOLUME_DOWN
 
@@ -54,7 +53,7 @@ set_volume_tv_x:
   sequence:
     - service: remote.send_command
       data:
-        entity_id: remote.android_tv
+        entity_id: remote.tv
         command: "service call audio 7 i32 3 i32 {{ volume }} i32 1"
 
 set_volume_tv_10:

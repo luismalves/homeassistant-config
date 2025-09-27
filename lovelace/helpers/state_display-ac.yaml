@@ -1,0 +1,12 @@
+>
+  [[[
+    if (entity) {
+      if (entity.attributes.current_temperature) {
+        return `${helpers.localize(entity)} - ${entity.attributes.current_temperature}ºC`;
+      } else {
+        return helpers.localize(entity);
+      }
+    } else {
+      return "Não existe";
+    }
+  ]]]

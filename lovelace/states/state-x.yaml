@@ -1,6 +1,6 @@
 - styles:
     card:
-      - background-color: "var([[background-on]])"
+      - background: "var([[background-on]])"
       - overflow: hidden
     name:
       - color: "var([[color-name-on]])"
@@ -20,7 +20,7 @@
 
 - styles:
     card:
-      - background-color: "var(--ha-card-background-es-off)"
+      - background: "var(--ha-card-background-es-off)"
     name:
       - color: "var([[color-name-off]])"
     state:
@@ -36,7 +36,7 @@
 
 - styles:
     card:
-      - background-color: "var([[background-on]])"
+      - background: "var([[background-on]])"
       - overflow: hidden
     name:
       - color: "var(--ha-card-color-name-on)"
@@ -53,7 +53,7 @@
 
 - styles:
     card:
-      - background-color: "var(--ha-card-background-es-off)"
+      - background: "var(--ha-card-background-es-off)"
     name:
       - color: "var(--ha-card-color-name-off)"
     state:
@@ -69,7 +69,28 @@
 
 - styles:
     card:
-      - background-color: "transparent"
+      - background: "var([[background-on]])"
+      - overflow: hidden
+    name:
+      - color: "var([[color-name-on]])"
+    state:
+      - color: "var([[color-state-on]])"
+    icon:
+      - color: "var([[color-state-on]])"
+    custom_fields:
+      sd1:
+        - color: "var([[color-state-on]])"
+      info:
+        - color: var(--contrast18)
+        - font-size: 11px
+      s:
+        - color: "var([[color-state-on]])"
+  operator: "!="
+  value: "[[state-5]]"
+
+- styles:
+    card:
+      - background: "transparent"
       - border: "var(--ha-card-border-off)"
     name:
       - color: "var(--ha-card-color-name-off)"
@@ -80,7 +101,18 @@
 
 - styles:
     card:
-      - background-color: "transparent"
+      - background: "transparent"
+      - border-color: "var([[color-name-on]])"
+    name:
+      - color: "var(--ha-card-color-name-off)"
+    custom_fields:
+      sd1:
+        - color: "var(--ha-card-color-state-off)"
+  value: "[[state-outline-1]]"
+
+- styles:
+    card:
+      - background: "transparent"
       - border: "var(--ha-card-border-off)"
     name:
       - color: "var(--ha-card-color-name-off)"
@@ -90,7 +122,34 @@
 
 - styles:
     card:
-      - background-color: "var([[background-default]])"
+      - background: "transparent"
+      - border: "var(--ha-card-border-off)"
+    name:
+      - color: "var(--ha-card-color-name-off)"
+    state:
+      - color: "var(--ha-card-color-state-off)"
+  value: "unknown"
+
+- styles:
+    card:
+      - background: "transparent"
+      - border: "var(--ha-card-border-undefined)"
+    name:
+      - color: "var(--ha-card-color-name-off)"
+    state:
+      - color: "var(--ha-card-color-state-off)"
+  value: >
+    [[[
+      if (entity)
+        return false;
+      else
+        return true;
+    ]]]
+  operator: template
+
+- styles:
+    card:
+      - background: "var([[background-default]])"
     name:
       - color: "var(--el-es-static-text-color)"
     state:

@@ -1,6 +1,6 @@
 - styles:
     card:
-      - background-color: "var(--ha-card-background-es-on)"
+      - background: "var(--ha-card-background-es-on)"
     grid:
       - grid-template-rows: "[[rows-on]]"
     custom_fields:

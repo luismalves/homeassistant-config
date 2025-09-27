@@ -1,6 +1,6 @@
 card:
   - height: 70px
-  - background-color: "var(--ha-card-background-path)"
+  - background: "var(--yellow-gradient)"
   - padding: 10px
 
 custom_fields:

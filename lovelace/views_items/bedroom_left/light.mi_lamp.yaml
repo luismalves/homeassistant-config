@@ -1,0 +1,12 @@
+template: es-light
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-desk
+  - entity: light.mi_lamp
+  - name: "Mi Lamp"
+  - info-attribute: entity.attributes.brightness
+  - info-max: (254 / 100)
+  - info-unit: "%"
+  - info-state: "on"

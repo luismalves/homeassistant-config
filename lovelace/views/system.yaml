@@ -24,9 +24,4 @@ cards:
       column_widths: 350px 350px
       column-gap: 40px
       min_height: 1
-    cards:
-      - !include ../views_frames/system-vanilla.yaml
-      - !include ../views_frames/system-proxmox.yaml
-      - !include ../views_frames/system-databases.yaml
-      - !include ../views_frames/system-disks.yaml
-      - !include ../views_frames/system-configs.yaml
+    cards: !include_dir_merge_list ../views_frames/system
