@@ -1,0 +1,81 @@
+card:
+  - height: 80px
+  - font-size: 12px
+  - font-family: "var(--paper-ha-card_-_font-family)"
+  - padding: 4px 8px
+  - pointer-events: none
+  - position: relative
+
+custom_fields:
+  description:
+    - align-self: center
+    - color: var(--ha-card-color-state-on)
+    - font-weight: bold
+    - justify-self: start
+    - padding-left: 8px
+    - z-index: 1
+
+  bar:
+    - background: var(--ha-card-background-es-on)
+    - bottom: 0
+    - left: 0
+    - position: absolute
+    - top: 50%
+    - right: 0
+    - width: |
+        [[[
+          // Check if entity exists and has the required attributes
+          if (!entity || !entity.attributes) return '0%';
+          
+          const duration = entity.attributes.duration;
+          const finishesAt = entity.attributes.finishes_at;
+          
+          // If timer is not running (no finishes_at), return 0%
+          if (!finishesAt || !duration) return '0%';
+          
+          // Convert time strings (HH:MM:SS or H:MM:SS) to seconds
+          function timeToSeconds(timeStr) {
+            if (!timeStr || typeof timeStr !== 'string') return 0;
+            const parts = timeStr.split(':').map(Number);
+            if (parts.length === 3) {
+              return parts[0] * 3600 + parts[1] * 60 + parts[2];
+            }
+            return 0;
+          }
+          
+          const durationSeconds = timeToSeconds(duration);
+          if (durationSeconds === 0) return '0%';
+          
+          // Calculate remaining time from finishes_at
+          const finishTime = new Date(finishesAt);
+          const now = new Date();
+          const remainingSeconds = Math.max(0, (finishTime - now) / 1000);
+          
+          const percentage = (remainingSeconds / durationSeconds) * 100;
+          return Math.max(0, Math.min(100, percentage)).toFixed(1) + '%';
+        ]]]
+    - z-index: 0
+  timer:
+    - font-size: 16px
+    - font-weight: bold
+    - justify-self: start
+    - padding-bottom: 4px
+  script-cancel:
+    - justify-self: flex-end
+    - padding: 0 8px
+  icon_hue:
+    - height: 20px
+    - padding-bottom: 4px
+    - width: 20px
+
+grid:
+  - grid-template-areas: '"icon_hue timer timer . script-cancel" "description description script-1 script-2 script-3"'
+  - grid-template-columns: min-content 1fr min-content min-content min-content
+  - grid-template-rows: 1fr 1fr
+  - grid-gap: 4px
+
+state:
+  - font-weight: bold
+  - justify-self: start
+  - padding-left: 10px
+  - padding-bottom: 5px

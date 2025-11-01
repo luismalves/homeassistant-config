@@ -151,145 +151,57 @@
       card_mod:
         style: !include ../styles/style-card-weather.yaml
 
-    # - type: "custom:vertical-stack-in-card"
-    #   view_layout:
-    #     grid-column: span 6
-    #   horizontal: false
-    #   card_mod:
-    #     style: |-
-    #       ha-card.type-custom-vertical-stack-in-card {
-    #         background: var(--ha-card-background-es-static);
-    #         border-radius: 10px;
-    #       }
-    #   cards:
-    #     - template: sensor-energy
-    #       type: "custom:decluttering-card"
-    #       variables:
-    #         - name: Consumo energético
-    #         - template: sensors-energy
-    #         - entity-bill: sensor.energy_bill
-    #         - entity-bill-old: sensor.energy_bill
+    - type: "custom:gap-card"
+      height: 10
+      view_layout:
+        grid-column: span 6
 
-    #     - type: custom:apexcharts-card
-    #       experimental:
-    #         color_threshold: true
-    #       graph_span: 7d
-    #       span:
-    #         end: day
-    #       yaxis:
-    #         - show: false
-    #           min: 0
-    #       series:
-    #         - entity: sensor.energy_bill_daily
-    #           type: column
-    #           color_threshold: !include ../graphs/energy-bill-thresholds.yaml
-    #           fill_raw: zero
-    #           group_by:
-    #             duration: 1d
-    #             func: last
-    #             fill: zero
-    #             start_with_last: true
-    #           show:
-    #             datalabels: true
-    #       apex_config: !include ../graphs/energy-bill-apexconfig.yaml
-    #       card_mod:
-    #         style: |-
-    #           ha-card.type-custom-apexcharts-card {
-    #             background: transparent;
-    #           }
+    - type: "custom:vertical-stack-in-card"
+      view_layout:
+        grid-column: span 6
+      horizontal: false
+      card_mod:
+        style: |-
+          ha-card.type-custom-vertical-stack-in-card {
+            background: var(--ha-card-background-es-static);
+            border-radius: 10px;
+          }
+      cards:
+        - template: sensor-energy
+          type: "custom:decluttering-card"
+          variables:
+            - name: Consumo energético
+            - template: sensors-energy
+            - entity: sensor.shelly_pro_3em_total_active_power
+            - entity-bill: sensor.monthly_energy_bill
 
-    # - type: "custom:gap-card"
-    #   height: 10
-    #   view_layout:
-    #     grid-column: span 6
-
-    # - type: "custom:vertical-stack-in-card"
-    #   view_layout:
-    #     grid-column: span 6
-    #   horizontal: false
-    #   card_mod:
-    #     style: |-
-    #       ha-card.type-custom-vertical-stack-in-card {
-    #         background: var(--ha-card-background-es-static);
-    #         border-radius: 10px;
-    #       }
-    #   cards:
-    #     - template: sensor-energy
-    #       type: "custom:decluttering-card"
-    #       variables:
-    #         - name: Consumo energético indexado
-    #         - template: sensors-energy
-    #         - entity-bill: sensor.energy_bill_omie
-    #         - entity-bill-old: sensor.energy_bill
-
-    #     - type: custom:apexcharts-card
-    #       experimental:
-    #         color_threshold: true
-    #       graph_span: 7d
-    #       span:
-    #         end: day
-    #       yaxis:
-    #         - show: false
-    #           min: 0
-    #       series:
-    #         - entity: sensor.energy_bill_omie_daily
-    #           type: column
-    #           color_threshold: !include ../graphs/energy-bill-thresholds.yaml
-    #           fill_raw: zero
-    #           group_by:
-    #             duration: 1d
-    #             func: last
-    #             fill: zero
-    #             start_with_last: true
-    #           show:
-    #             datalabels: true
-    #       apex_config: !include ../graphs/energy-bill-apexconfig.yaml
-    #       card_mod:
-    #         style: |-
-    #           ha-card.type-custom-apexcharts-card {
-    #             background: transparent;
-    #           }
-
-    # - type: "custom:mini-graph-card"
-    #   entities:
-    #     - entity: sensor.energy_bill_daily
-    #       name: Energia diária
-    #       show_legend: false
-    #       show_state: false
-    #   show:
-    #     name: false
-    #     icon: false
-    #     state: false
-    #     #labels: true
-    #     #labels_secondary: true
-    #     graph: bar
-    #   tap_action:
-    #     action: none
-    #   hours_to_show: 168
-    #   lower_bound: 0
-    #   aggregate_func: max
-    #   group_by: date
-    #   font_size: 65
-    #   color_thresholds:
-    #     - value: 0.8
-    #       color: "#417656"
-    #     - value: 1
-    #       color: "#579E72"
-    #     - value: 1.1
-    #       color: "#6EAF88"
-    #     - value: 1.2
-    #       color: "#D1B161"
-    #     - value: 1.3
-    #       color: "#C8A241"
-    #     - value: 1.4
-    #       color: "#7D1224"
-    #     - value: 1.5
-    #       color: "#590D1A"
-    #   style: |
-    #     ha-card {
-    #       background: var(--ha-card-background-es-static);
-    #       padding: 0;
-    #     }
+        - type: custom:apexcharts-card
+          experimental:
+            color_threshold: true
+          graph_span: 7d
+          span:
+            end: day
+          yaxis:
+            - show: false
+              min: 0
+          series:
+            - entity: sensor.daily_energy_bill
+              type: column
+              color_threshold: !include ../graphs/energy-bill-thresholds.yaml
+              fill_raw: zero
+              group_by:
+                duration: 1d
+                func: last
+                fill: zero
+                start_with_last: true
+              show:
+                datalabels: true
+          apex_config: !include ../graphs/energy-bill-apexconfig.yaml
+          card_mod:
+            style: |-
+              ha-card.type-custom-apexcharts-card {
+                background: transparent;
+              }
 
     - type: "custom:gap-card"
       height: 10

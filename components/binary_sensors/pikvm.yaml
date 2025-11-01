@@ -1,0 +1,16 @@
+#####
+# For piKVM
+# https://docs.pikvm.org/api/#atx-power-management
+#####
+- platform: rest
+  name: "PiKVM Power State"
+  unique_id: pikvm_server_power
+  resource: !secret pikvm_api
+  headers:
+    X-KVMD-User: "admin"
+    X-KVMD-Passwd: !secret pikvm_pwd
+  verify_ssl: false
+  scan_interval: 60 # Check every 30 seconds
+  timeout: 20
+  value_template: "{{ value_json.result.leds.power }}"
+  device_class: power # Shows as a power icon

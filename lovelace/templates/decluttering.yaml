@@ -155,7 +155,7 @@ section-header:
               return variables["is_small"] ? "0px" :  "16px";
             ]]]
         - padding: 0
-        - --mdc-ripple-press-opacity: 0
+        - --button-card-ripple-press-opacity: 0
         - -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         - -webkit-focus-ring-color: rgba(0, 0, 0, 0);
         - outline: none !important;
@@ -212,6 +212,35 @@ section-header:
   default:
     - is_small: false
 
+banner:
+  card:
+    type: "custom:button-card"
+    name: "[[content]]"
+    entity: "[[entity]]"
+    show_icon: true
+    show_state: false
+    show_name: true
+    icon: "[[icon]]"
+    styles:
+      card:
+        - background: var(--ha-card-background-alert)
+        - font-size: 14px
+        - font-weight: bold
+        - padding: 4px 12px
+      grid:
+        - grid-template-areas: "'i n'"
+        - grid-template-rows: 1fr
+        - grid-template-columns: min-content 1fr
+      img_cell:
+        - margin-right: 5px
+        - width: 15px
+        - padding-bottom: 1px
+      icon:
+        - width: 100%
+      name:
+        - place-self: flex-start
+  default: null
+
 #---------------------#
 # Entity state cards
 #---------------------#
@@ -241,7 +270,6 @@ es:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
 
 # Shows if a person is at home or not
 es-person:
@@ -883,11 +911,30 @@ path-division:
     name: "[[name]]"
     tap_action:
       action: navigate
-      navigation_path: "[[navigation_path]]"
+      navigation_path: "[[path]]"
     show_icon: false
     show_state: false
     state: !include ../states/state-path-division.yaml
     styles: !include ../styles/style-card-path-division.yaml
+    extra_styles: |
+      .pill {
+        align-items: center;
+        background: var(--ha-card-background-es-off);
+        border-radius: 30px;
+        display: flex;
+        padding: 1px 5px;
+      }
+    custom_fields:
+      scripts:
+        card:
+          type: "custom:decluttering-card"
+          template: script-round-button
+          variables:
+            - template: script-turn-off
+            - script: "[[script]]"
+            - border-radius: 12px
+            - height: 45px
+            - width: 45px
     template: "[[template]]"
     type: "custom:button-card"
   default:
@@ -909,65 +956,6 @@ path-car:
     template: "[[template]]"
     type: "custom:button-card"
   default: null
-
-# Mobile path card
-path-mobile:
-  card:
-    type: custom:mod-card
-    card_mod:
-      style:
-        layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 2px 0; align-items: center;}"
-    card:
-      type: "custom:layout-card"
-      layout_type: "custom:grid-layout"
-      layout:
-        grid-template-columns: 1fr 1fr 1fr
-        grid-template-rows: auto
-        margin: 0px
-        padding: 0px
-      cards:
-        - type: conditional
-          view_layout:
-            grid-column: span 3
-          conditions:
-            - entity: "[[entity]]"
-              state: "0"
-          card:
-            template: path-division
-            type: "custom:decluttering-card"
-            variables:
-              - template: "[[card-template]]"
-              - entity: "[[entity]]"
-              - name: "[[name]]"
-              - navigation_path: "[[path]]"
-              - rows-on: "[[rows-on]]"
-              - rows-off: "[[rows-off]]"
-
-        - type: conditional
-          view_layout:
-            grid-column: span 2
-          conditions:
-            - entity: "[[entity]]"
-              state_not: "0"
-          card:
-            template: path-division
-            type: "custom:decluttering-card"
-            variables:
-              - template: "[[card-template]]"
-              - entity: "[[entity]]"
-              - name: "[[name]]"
-              - navigation_path: "[[path]]"
-
-        - type: conditional
-          conditions:
-            - entity: "[[entity]]"
-              state_not: "0"
-          card:
-            type: "custom:decluttering-card"
-            template: script-button
-            variables:
-              - template: script-lights-off
-              - script: "[[script]]"
 
 #---------------------#
 # Scene, Scripts cards
@@ -1063,13 +1051,79 @@ script-round-button:
     show_name: false
     show_state: false
     variables:
+      border-radius: "[[border-radius]]"
       height: "[[height]]"
+      width: "[[width]]"
     state: !include ../states/state-script.yaml
     styles: !include ../styles/style-card-round.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - height: 50px
+    - width: 70px
+    - border-radius: 30px
+
+script-timer-time-button:
+  card:
+    name: "[[name]]"
+    entity: "[[entity]]"
+    tap_action:
+      action: call-service
+      service: timer.start
+      service_data:
+        entity_id: "[[entity]]"
+        duration: "[[duration]]"
+    show_icon: false
+    show_name: true
+    show_state: false
+    variables:
+      border-radius: "[[border-radius]]"
+      height: "[[height]]"
+      width: "[[width]]"
+    styles:
+      card:
+        - background: var(--contrast5)
+        - border-radius: var(--border-radius)
+        - color: var(--ha-card-color-name-off)
+        - font-size: 12px
+        - font-weight: bold
+        - height: var(--height)
+        - width: var(--width)
+        - padding: 3px 2px 2px 2px
+        - pointer-events: initial
+        - --height: "[[height]]"
+        - --width: "[[width]]"
+        - --border-radius: "[[border-radius]]"
+    type: "custom:button-card"
+  default:
+    - height: 25px
+    - width: 60px
+    - border-radius: 30px
+
+script-timer-cancel-button:
+  card:
+    entity: "[[entity]]"
+    icon: mdi:stop
+    tap_action:
+      action: call-service
+      service: timer.cancel
+      service_data:
+        entity_id: "[[entity]]"
+    show_icon: true
+    show_name: false
+    show_state: false
+    styles:
+      card:
+        - background: none
+        - height: 25px
+        - width: 25px
+        - padding: 3px 2px 2px 2px
+        - pointer-events: initial
+      icon:
+        - color: var(--ha-card-color-state-on)
+        - width: 100%
+    type: "custom:button-card"
+  default: null
 
 script-mood-outline:
   card:
@@ -1150,10 +1204,11 @@ sensor-pill:
 sensor-energy:
   card:
     name: "[[name]]"
+    entity: "[[entity]]"
     show_icon: false
     show_state: false
-    tap_action:
-      action: none
+    #tap_action:
+    #  action: none
     styles: !include ../styles/style-card-energy.yaml
     template: "[[template]]"
     type: "custom:button-card"
@@ -1358,19 +1413,19 @@ sensor-bill:
           padding: 2px 12px 0px 12px;
         }
         .pill:nth-of-type(1) {
-          background-color:var(--contrast4);
+          background:var(--contrast4);
           justify-self: left;
         }
         .pill:nth-of-type(2) {
-          background-color:var(--contrast5);
+          background:var(--contrast5);
           justify-self: center;
         }
         .pill:nth-of-type(3) {
-          background-color:var(--ha-card-background-es-on);
+          background:var(--ha-card-background-es-on);
           justify-self: right;
         }
         .pill.not-valid:nth-of-type(3) {
-          background-color:var(--contrast6);
+          background:var(--contrast6);
           justify-self: right;
         }
   default: null
@@ -1606,6 +1661,42 @@ map-card:
             }
 
 #---------------------#
+# Timer
+#---------------------#
+
+timer-ac:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: more-info
+    show_icon: false
+    show_state: false
+    show_name: false
+    #state_display: !include ../helpers/state_display-ac.yaml
+    state:
+      - styles:
+          card:
+            - background: var(--pink-gradient)
+            - height: 45px
+          grid:
+            - grid-template-areas: '"icon_hue timer script-1 script-2 script-3"'
+            - grid-template-rows: 1fr
+          custom_fields:
+            timer:
+              - font-size: 13px
+              - padding-bottom: 0
+            description:
+              - display: none
+            script-cancel:
+              - display: none
+        value: "idle"
+    styles: !include ../styles/style-card-timer.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+    custom_fields: !include ../icons/ac-timer.yaml
+
+#---------------------#
 # Climate
 #---------------------#
 
@@ -1625,7 +1716,7 @@ climate-ac:
     template: "[[template]]"
     type: "custom:button-card"
   default:
-    - background-on: --blue-tint, var(--ha-card-background-es-on)
+    - background-on: --pink-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
     - color-name-off: --ha-card-color-name-off
     - color-state-on: --ha-card-color-state-on

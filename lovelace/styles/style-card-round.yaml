@@ -1,11 +1,13 @@
 card:
   - background: var(--yellow-gradient, var(--ha-card-background-es-on))
-  - border-radius: 30px
+  - border-radius: var(--border-radius)
   - color: var(--el-es-static-text-color-light)
   - height: var(--height)
-  - width: 70px
+  - width: var(--width)
   - padding: 4px 2px 2px 2px
   - --height: "[[height]]"
+  - --width: "[[width]]"
+  - --border-radius: "[[border-radius]]"
   - pointer-events: initial
 
 custom_fields:
@@ -15,7 +17,6 @@ custom_fields:
     - padding-top: 1px
     - width: >
         [[[
-          console.log(parseInt(variables["height"]))
           if(!variables["height"]) {
             return "20px"
           } else {

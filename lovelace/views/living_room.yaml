@@ -45,6 +45,21 @@ cards:
             style: !include ../styles/style-card-alert.yaml
           content: Humidade muito elevada.
 
+      - type: conditional
+        view_layout:
+          grid-column: span 6
+        conditions:
+          - entity: climate.sala
+            state_not: "off"
+        card:
+          template: timer-ac
+          type: "custom:decluttering-card"
+          variables:
+            - template: ac
+            - entity: timer.ac_living_room
+            - entity-ac: climate.sala
+            - name: "A/C a funcionar"
+
       - !include ../views_items/living_room/light.led_strip_living_room.yaml
 
       - !include ../views_items/living_room/light.light_2.yaml

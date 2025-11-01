@@ -31,6 +31,21 @@ cards:
           - script: script.turn_off_bedroom_suite
           - sensor_entity: sensor.lights_on_bedroom_suite
 
+      - type: conditional
+        view_layout:
+          grid-column: span 6
+        conditions:
+          - entity: climate.suite
+            state_not: "off"
+        card:
+          template: timer-ac
+          type: "custom:decluttering-card"
+          variables:
+            - template: ac
+            - entity: timer.ac_bedroom_suite
+            - entity-ac: climate.suite
+            - name: "A/C a funcionar"
+
       - !include ../views_items/bedroom_suite/light.bedroom_2.yaml
 
       - !include ../views_items/bedroom_suite/light.luz_suite.yaml
@@ -89,14 +104,14 @@ cards:
             margin: 0
             padding: 0
           cards:
-            - template: sensor-pill
-              type: "custom:decluttering-card"
-              variables:
-                - entity: binary_sensor.athom_presence_sensor_1_occupancy
-                - state-1: "on"
-                - state-2: "off"
-                - icon: mdi:motion-sensor
-                - color-state-on: --ha-card-color-name-on
+            # - template: sensor-pill
+            #   type: "custom:decluttering-card"
+            #   variables:
+            #     - entity: binary_sensor.athom_presence_sensor_1_occupancy
+            #     - state-1: "on"
+            #     - state-2: "off"
+            #     - icon: mdi:motion-sensor
+            #     - color-state-on: --ha-card-color-name-on
             - template: sensor-pill
               type: "custom:decluttering-card"
               variables:

@@ -222,6 +222,20 @@ cards:
         view_layout:
           grid-column: span 6
 
+      - type: conditional
+        view_layout:
+          grid-column: span 6
+        conditions:
+          - entity: binary_sensor.pet_feeder_is_paused
+            state: "on"
+        card:
+          type: "custom:decluttering-card"
+          template: banner
+          variables:
+            - entity: select.aqara_pet_feeder_mode
+            - content: "[[[ return 'Em modo manual até às ' + new Date((states['input_datetime.pet_feeder_paused_until'].state)).toLocaleTimeString('en-US',{ hour12: false, hour: '2-digit',minute: '2-digit' }); ]]]"
+            - icon: mdi:alert-circle
+
       - template: pet-feeder
         type: "custom:decluttering-card"
         view_layout:

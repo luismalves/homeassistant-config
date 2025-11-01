@@ -9,10 +9,8 @@ card:
       ]]]
   - background: >
       [[[
-        console.log(variables.background_morning)
         if(!!variables.background_morning) {
           const hour = new Date().getHours();
-          console.log(hour)
           if (hour < 12) {
             return variables.background_morning;
           } else {

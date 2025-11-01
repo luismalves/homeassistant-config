@@ -9,9 +9,6 @@ layout:
   margin: 0px
   max_width: 350
 cards:
-  - type: "custom:gap-card"
-    height: 25
-
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
     layout:
@@ -71,11 +68,11 @@ cards:
 
       # Path Living Room
       - type: "custom:decluttering-card"
-        template: path-mobile
+        template: path-division
         view_layout:
           grid-column: span 3
         variables:
-          - card-template: path-living-room
+          - template: path-living-room
           - entity: sensor.lights_on_living_room
           - name: "Sala"
           - path: /dashboard-mobile/living
@@ -85,11 +82,11 @@ cards:
 
       # Path Kitchen
       - type: "custom:decluttering-card"
-        template: path-mobile
+        template: path-division
         view_layout:
           grid-column: span 3
         variables:
-          - card-template: path-kitchen
+          - template: path-kitchen
           - entity: sensor.lights_on_kitchen
           - name: "Cozinha"
           - path: /dashboard-mobile/kitchen
@@ -99,23 +96,23 @@ cards:
 
       # Path Bedroom Right
       - type: "custom:decluttering-card"
-        template: path-mobile
+        template: path-division
         view_layout:
           grid-column: span 3
         variables:
-          - card-template: path-bedroom-right
+          - template: path-bedroom-right
           - entity: sensor.lights_on_bedroom_right
           - name: "Office Lu"
           - path: /dashboard-mobile/bedroom-right
-          - script: script.turn_off_deck_right
+          - script: script.turn_off_bedroom_right
 
       # Path Suite
       - type: "custom:decluttering-card"
-        template: path-mobile
+        template: path-division
         view_layout:
           grid-column: span 3
         variables:
-          - card-template: path-bedroom-suite
+          - template: path-bedroom-suite
           - entity: sensor.lights_on_bedroom_suite
           - name: "Suite"
           - path: /dashboard-mobile/bedroom-suite
@@ -125,11 +122,11 @@ cards:
 
       # Path Bedroom Left
       - type: "custom:decluttering-card"
-        template: path-mobile
+        template: path-division
         view_layout:
           grid-column: span 3
         variables:
-          - card-template: path-bedroom-left
+          - template: path-bedroom-left
           - entity: sensor.lights_on_bedroom_left
           - name: "Office Ma"
           - path: /dashboard-mobile/bedroom-left
@@ -205,103 +202,57 @@ cards:
         card_mod:
           style: !include ../styles/style-card-weather.yaml
 
-      # - type: "custom:vertical-stack-in-card"
-      #   view_layout:
-      #     grid-column: span 6
-      #   horizontal: false
-      #   card_mod:
-      #     style: |-
-      #       ha-card.type-custom-vertical-stack-in-card {
-      #         background: var(--ha-card-background-es-static);
-      #         border-radius: 10px;
-      #       }
-      #   cards:
-      #     - template: sensor-energy
-      #       type: "custom:decluttering-card"
-      #       variables:
-      #         - name: Consumo energético
-      #         - template: sensors-energy
-      #         - entity-bill: sensor.energy_bill
+      - type: "custom:gap-card"
+        height: 5
+        view_layout:
+          grid-column: span 6
 
-      #     - type: custom:apexcharts-card
-      #       experimental:
-      #         color_threshold: true
-      #       graph_span: 7d
-      #       span:
-      #         end: day
-      #       yaxis:
-      #         - show: false
-      #           min: 0
-      #       series:
-      #         - entity: sensor.energy_bill_daily
-      #           type: column
-      #           color_threshold: !include ../graphs/energy-bill-thresholds.yaml
-      #           fill_raw: zero
-      #           group_by:
-      #             duration: 1d
-      #             func: last
-      #             fill: zero
-      #             start_with_last: true
-      #           show:
-      #             datalabels: true
-      #       apex_config: !include ../graphs/energy-bill-apexconfig.yaml
-      #       card_mod:
-      #         style: |-
-      #           ha-card.type-custom-apexcharts-card {
-      #             background: transparent;
-      #           }
+      - type: "custom:vertical-stack-in-card"
+        view_layout:
+          grid-column: span 6
+        horizontal: false
+        card_mod:
+          style: |-
+            ha-card.type-custom-vertical-stack-in-card {
+              background: var(--ha-card-background-es-static);
+              border-radius: 10px;
+            }
+        cards:
+          - template: sensor-energy
+            type: "custom:decluttering-card"
+            variables:
+              - name: Consumo energético
+              - template: sensors-energy
+              - entity: sensor.shelly_pro_3em_total_active_power
+              - entity-bill: sensor.monthly_energy_bill
 
-      # - type: "custom:gap-card"
-      #   height: 10
-      #   view_layout:
-      #     grid-column: span 6
-
-      # - type: "custom:vertical-stack-in-card"
-      #   view_layout:
-      #     grid-column: span 6
-      #   horizontal: false
-      #   card_mod:
-      #     style: |-
-      #       ha-card.type-custom-vertical-stack-in-card {
-      #         background: var(--ha-card-background-es-static);
-      #         border-radius: 10px;
-      #       }
-      #   cards:
-      #     - template: sensor-energy
-      #       type: "custom:decluttering-card"
-      #       variables:
-      #         - name: Consumo energético indexado
-      #         - template: sensors-energy
-      #         - entity-bill: sensor.energy_bill_omie
-      #         - entity-bill-old: sensor.energy_bill
-
-      #     - type: custom:apexcharts-card
-      #       experimental:
-      #         color_threshold: true
-      #       graph_span: 7d
-      #       span:
-      #         end: day
-      #       yaxis:
-      #         - show: false
-      #           min: 0
-      #       series:
-      #         - entity: sensor.energy_bill_omie_daily
-      #           type: column
-      #           color_threshold: !include ../graphs/energy-bill-thresholds.yaml
-      #           fill_raw: zero
-      #           group_by:
-      #             duration: 1d
-      #             func: last
-      #             fill: zero
-      #             start_with_last: true
-      #           show:
-      #             datalabels: true
-      #       apex_config: !include ../graphs/energy-bill-apexconfig.yaml
-      #       card_mod:
-      #         style: |-
-      #           ha-card.type-custom-apexcharts-card {
-      #             background: transparent;
-      #           }
+          - type: custom:apexcharts-card
+            experimental:
+              color_threshold: true
+            graph_span: 7d
+            span:
+              end: day
+            yaxis:
+              - show: false
+                min: 0
+            series:
+              - entity: sensor.daily_energy_bill
+                type: column
+                color_threshold: !include ../graphs/energy-bill-thresholds.yaml
+                fill_raw: zero
+                group_by:
+                  duration: 1d
+                  func: last
+                  fill: zero
+                  start_with_last: true
+                show:
+                  datalabels: true
+            apex_config: !include ../graphs/energy-bill-apexconfig.yaml
+            card_mod:
+              style: |-
+                ha-card.type-custom-apexcharts-card {
+                  background: transparent;
+                }
 
       - type: "custom:gap-card"
         height: 10

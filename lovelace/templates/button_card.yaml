@@ -6,6 +6,9 @@
 ac:
   custom_fields: !include ../icons/ac.yaml
 
+ac-timer:
+  custom_fields: !include ../icons/ac-timer.yaml
+
 alarm:
   custom_fields: !include ../icons/alarm.yaml
 
@@ -14,6 +17,9 @@ alert:
 
 house:
   custom_fields: !include ../icons/house.yaml
+
+fire:
+  custom_fields: !include ../icons/fire.yaml
 
 plants:
   custom_fields: !include ../icons/plants.yaml

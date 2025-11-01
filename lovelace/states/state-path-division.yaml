@@ -2,9 +2,9 @@
     card:
       - background: "var(--ha-card-background-es-on)"
     grid:
-      - grid-template-rows: "[[rows-on]]"
+      - grid-template-areas: '"icon_hue n n" "sensors sensors ." "sensors sensors ."'
     custom_fields:
-      sd2:
-        - display: none
+      scripts:
+        - display: initial
   operator: ">"
   value: 0

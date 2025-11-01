@@ -25,7 +25,7 @@ cards:
       column-gap: 40px
       min_height: 1
     cards:
-      - !include ../views_frames/network-guest.yaml
-      - !include ../views_frames/network-pihole.yaml
-      - !include ../views_frames/network-ac3.yaml
-      - !include ../views_frames/network-audience.yaml
+      #- !include ../views_frames/network/guest.yaml
+      #- !include ../views_frames/network/adblocker.yaml
+      #- !include ../views_frames/network/router-rb5009.yaml
+      #- !include ../views_frames/network/router-audience.yaml

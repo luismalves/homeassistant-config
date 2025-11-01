@@ -5,26 +5,12 @@
 - name: Movie time
   icon: mdi:theater
   entities:
-    light.shelly_kitchen_light: "off"
-    light.shelly_kitchen_led_left: "off"
-    light.shelly_table_light: "off"
+    light.luz_cozinha_1: "off"
+    light.luz_cozinha_2: "off"
+    light.luz_entrada: "off"
+    light.luz_mesa: "off"
     light.led_strip_living_room:
       state: "on"
-    light.bedroom_1: "off"
-    light.bedroom_2: "off"
-    light.bedroom_top_1: "off"
-
-- name: Bird rest time
-  icon: mdi:bird
-  entities:
-    light.shelly_kitchen_light: "off"
-    light.shelly_table_light: "on"
-    light.table_1:
-      state: "on"
-      brightness: 100
-    # light.table_2:
-    #   state: "on"
-    #   brightness: 100
 
 #####
 # Kitchen
@@ -33,53 +19,55 @@
 - name: Meal time
   icon: mdi:food-fork-drink
   entities:
-    light.shelly_kitchen_led_left: "off"
-    light.shelly_kitchen_light: "off"
-    light.shelly_living_room_light: "off"
-    light.shelly_table_light: "on"
+    light.luz_cozinha_1: "off"
+    light.luz_cozinha_2: "off"
+    light.luz_entrada: "off"
     light.luz_mesa:
       state: "on"
-      brightness: 254
-    light.led_strip_living_room: "off"
+      brightness: 40
+    light.led_strip_living_room: "on"
+    light.luz_quarto_esquerda: "off"
     light.led_strip_deck: "off"
-    light.deck: "off"
     light.mi_lamp: "off"
+    light.luz_quarto_direita: "off"
+    light.wled_standingdesk: "off"
     light.mi_lamp_pro: "off"
     light.bedroom_2: "off"
     light.bedroom_1: "off"
-    light.bedroom_top_1: "off"
+    light.luz_suite: "off"
 
 - name: Cooking time
   icon: mdi:pasta
   entities:
-    light.shelly_kitchen_led_left: "on"
-    light.shelly_kitchen_light: "on"
-    light.shelly_table_light: "off"
+    light.luz_cozinha_1:
+      state: "on"
+      brightness: 255
+    light.luz_cozinha_2:
+      state: "on"
+      brightness: 255
+    light.luz_entrada: "off"
 
 #####
-# Deck
+# Bedroom right
 #####
 
 - name: Hooby time
   icon: mdi:gamepad-variant-outline
   entities:
-    light.led_strip_deck:
+    light.wled_standingdesk:
       state: "on"
       brightness: 255
       white_value: 255
-    light.mi_lamp:
-      state: "on"
-      brightness: 185
-      rgb_color: [255, 255, 255]
     light.mi_lamp_pro:
       state: "on"
       brightness: 255
       color_temp: 270
+    light.luz_quarto_direita: "off"
 
 - name: Gamming time
   icon: mdi:gamepad-variant-outline
   entities:
-    light.led_strip_deck:
+    light.wled_standingdesk:
       state: "on"
       brightness: 255
       rgb_color: [0, 16, 255]
@@ -87,6 +75,7 @@
       state: "on"
       brightness: 148
       color_temp: 208
+    light.luz_quarto_direita: "off"
 
 #####
 # Bedroom
@@ -97,11 +86,11 @@
   entities:
     light.bedroom_2:
       state: "on"
-      brightness: 254
+      brightness: 255
     light.bedroom_1:
       state: "on"
-      brightness: 254
-    light.bedroom_top_1: "off"
+      brightness: 255
+    light.luz_suite: "off"
 
 - name: S-FM
   icon: mdi:radio

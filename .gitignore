@@ -47,3 +47,6 @@ home-assistant_v2.db
 # Ignore coding agents
 .claude
 claude-config
+
+# Ignore lock files
+*.lock

@@ -9,7 +9,7 @@ grid:
   - grid-template-areas: '"icon_hue name name" "icon_hue sd1 sd2" ". sd3 sd3"'
   - grid-template-columns: 45px min-content 1fr
   - grid-gap: 6px 8px
-  - padding: 8px 4px 12px
+  - padding: 8px 4px 2px
 
 name:
   - font-weight: bold

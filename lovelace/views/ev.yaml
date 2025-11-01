@@ -267,7 +267,7 @@ cards:
               type: "custom:decluttering-card"
               variables:
                 - template: sensors-empty
-                - entity: sensor.waze_travel_time_work
+                - entity: sensor.max_travel_time_to_luis_work
                 - name: "Tempo p/ trabalho"
                 - color: var(--black9)
                 - background_morning: radial-gradient(circle, rgba(255, 255, 255, 0.5) 30%, rgba(255, 255, 255, 0.2) 100%),url('/local/images/cars/map-on.png')
@@ -280,7 +280,7 @@ cards:
               type: "custom:decluttering-card"
               variables:
                 - template: sensors-empty
-                - entity: sensor.waze_travel_time_home
+                - entity: sensor.max_travel_time_to_home_from_luis_work
                 - name: "Tempo p/ casa"
                 - color: var(--black9)
                 - background_morning: url('/local/images/cars/map.png')

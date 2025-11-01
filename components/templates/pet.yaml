@@ -84,3 +84,11 @@
         {% else %}
           mdi:food-drumstick-off
         {% endif %}
+
+- binary_sensor:
+    - name: "Pet Feeder Is Paused"
+      state: >
+        {% set pause_time = states('input_datetime.pet_feeder_paused_until') %}
+        {{ pause_time not in ['unknown', 'unavailable'] and 
+            as_timestamp(pause_time) > as_timestamp(now()) }}
+      icon: mdi:pause-circle

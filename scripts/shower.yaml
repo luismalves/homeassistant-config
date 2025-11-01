@@ -25,7 +25,7 @@ set_suite_shower_conditions:
     - choose:
         - conditions:
             - condition: state
-              entity_id: cover.your_second_cover # Replace with your actual second cover entity
+              entity_id: cover.estores_wc_suite
               state: "open"
             - condition: state
               entity_id: binary_sensor.estores_suite_privacy_mode
@@ -33,7 +33,7 @@ set_suite_shower_conditions:
           sequence:
             - action: cover.set_cover_position
               target:
-                entity_id: cover.estores_wc_suite # Replace with your actual second cover entity
+                entity_id: cover.estores_wc_suite
               data:
                 position: 10
   mode: single

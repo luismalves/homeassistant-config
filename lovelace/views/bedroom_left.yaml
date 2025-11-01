@@ -45,6 +45,21 @@ cards:
             style: !include ../styles/style-card-alert.yaml
           content: Humidade muito elevada.
 
+      - type: conditional
+        view_layout:
+          grid-column: span 6
+        conditions:
+          - entity: climate.quarto_esquerda
+            state_not: "off"
+        card:
+          template: timer-ac
+          type: "custom:decluttering-card"
+          variables:
+            - template: ac
+            - entity: timer.ac_bedroom_left
+            - entity-ac: climate.quarto_esquerda
+            - name: "A/C a funcionar"
+
       - !include ../views_items/bedroom_left/light.led_strip_deck.yaml
 
       - !include ../views_items/bedroom_left/light.luz_quarto_esquerda.yaml
@@ -152,27 +167,27 @@ cards:
         view_layout:
           grid-column: span 6
 
-      - template: subsubtitle
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 6
-        variables:
-          - content: Scenes
+      # - template: subsubtitle
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 6
+      #   variables:
+      #     - content: Scenes
 
-      - template: scene
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: scene-hobby
-          - scene: scene.hooby_time
-          - entity: scene.hooby_time
+      # - template: scene
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 3
+      #   variables:
+      #     - template: scene-hobby
+      #     - scene: scene.hooby_time
+      #     - entity: scene.hooby_time
 
-      - template: scene
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: scene-gamming
-          - scene: scene.gamming_time
-          - entity: scene.gamming_time
+      # - template: scene
+      #   type: "custom:decluttering-card"
+      #   view_layout:
+      #     grid-column: span 3
+      #   variables:
+      #     - template: scene-gamming
+      #     - scene: scene.gamming_time
+      #     - entity: scene.gamming_time

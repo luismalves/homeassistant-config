@@ -3,19 +3,19 @@ icon_hue: >
 
 sd1: >
   [[[
-    if(states['sensor.shelly_em_channel_1_power'].state == 'unavailable') {
+    if(states['sensor.shelly_pro_3em_total_active_power'].state == 'unavailable') {
       return `<span>- W</span>`
     } else {
       return `<ha-icon
         icon="mdi:lightning-bolt-outline"
         style="height: 12px; width: 12px; margin-right: 2px; --mdc-icon-size: 115%">
-        </ha-icon><span>${Math.round(states['sensor.shelly_em_channel_1_power'].state)} W</span>`
+        </ha-icon><span>${Math.round(states['sensor.shelly_pro_3em_total_active_power'].state)} W</span>`
     }
   ]]]
 
 sd2: >
   [[[
-    if(states['sensor.shelly_em_channel_1_power'].state == 'unavailable') {
+    if(states['sensor.shelly_pro_3em_total_active_power'].state == 'unavailable') {
       return `<span>- €</span>`;
     } else {
       let entity = [[ variables.bill_entity ]];
@@ -30,7 +30,6 @@ sd2: >
 sd3: >
   [[[
     let entity_old = [[ variables.bill_entity_old ]];
-    console.log(entity_old)
     if(entity_old == '') {
       return ``;
     } else {

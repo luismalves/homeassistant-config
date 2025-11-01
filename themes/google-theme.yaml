@@ -434,42 +434,42 @@ google_theme:
 
   # Ref: https://community.home-assistant.io/t/card-mod-super-charge-your-themes/212176/145
   card-mod-root-yaml: |
-    sl-tab$: |
-      .: {
-        border-radius: 60px !important;
-        overflow: hidden;
-      }
-
+    ha-tab-group-tab$: |
       .tab {
-        border-radius: 60px !important;
-        color: var(--contrast20) !important;
-        height: calc(100% - 16px);
+        text-transform: uppercase;
+        padding-left: 0px !important;
+        padding-right: 0px !important;
         padding-top: 0px !important;
         padding-bottom: 0px !important;
         margin: 8px 0;
-        text-transform: uppercase;
-        --sl-spacing-large: 16px;
         overflow: hidden;
-      }
-      .tab.tab--active {
-        color: var(--contrast1) !important;
-        background: var(--contrast20);
       }
 
     .: |
-      /* ___________ Top bar ___________  */
-      :host([scrolled]) .header {
+      .header {
         box-shadow: none !important;
       }
-      .tab {
-        border-radius: 60px;
-        color: var(--contrast20);
-        height: calc(100% - 16px);
+
+      ha-tab-group-tab {
+        border-radius: 60px !important;
+        color: var(--contrast20) !important;
         margin: 8px 0;
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        padding-top: 0px !important;
+        padding-bottom: 0px !important;
+        text-transform: uppercase;
+        overflow: hidden;
       }
-      .tab.tab--active {
-        color: var(--contrast1);
+
+      ha-tab-group-tab[active] {
         background: var(--contrast20);
+        border-radius: 60px;
+        color: var(--contrast1) !important;
+        height: calc(100% - 18px);
+        margin: 8px 0;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
       }
 
     home-assistant$: |

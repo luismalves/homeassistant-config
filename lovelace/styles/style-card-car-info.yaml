@@ -1,5 +1,5 @@
 card:
-  - background-color: "var(--ha-card-background-es-static)"
+  - background: "var(--ha-card-background-es-static)"
   - color: var(--el-es-static-text-color)
   - height: 165px
   - font-size: 10px

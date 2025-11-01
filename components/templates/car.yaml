@@ -11,3 +11,27 @@
     - name: Last My VW ID charge
       device_class: timestamp
       state: "{{ now() }}"
+
+- sensor:
+    - name: "Max Travel Time to Luis Work"
+      unique_id: max_travel_time_work
+      state: >
+        {% set google = states('sensor.google_travel_time_work') | float(0) %}
+        {% set waze = states('sensor.waze_travel_time_work') | float(0) %}
+        {{ max(google, waze) | round(0) }}
+      unit_of_measurement: "min"
+      state_class: measurement
+      device_class: duration
+      icon: mdi:car-clock
+
+- sensor:
+    - name: "Max Travel Time to Home from Luis Work"
+      unique_id: max_travel_time_home_luis_work
+      state: >
+        {% set google = states('sensor.google_travel_time_home') | float(0) %}
+        {% set waze = states('sensor.waze_travel_time_home') | float(0) %}
+        {{ max(google, waze) | round(0) }}
+      unit_of_measurement: "min"
+      state_class: measurement
+      device_class: duration
+      icon: mdi:car-clock

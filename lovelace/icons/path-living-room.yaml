@@ -50,17 +50,22 @@ icon_hue: >
         d="M9.528000,9.539000C10.851000,8.218000,12.994000,8.218000,14.317000,9.539000C14.364000,9.589000,14.429000,9.615000,14.496000,9.615000C14.563000,9.615000,14.628000,9.588000,14.674000,9.539000C14.772000,9.441000,14.772000,9.282000,14.674000,9.183000C13.155000,7.663000,10.689000,7.663000,9.170000,9.183000C9.044000,9.331000,9.125000,9.560000,9.316000,9.597000C9.392000,9.611000,9.470000,9.590000,9.528000,9.539000Z"
         opacity="0" fill="rgb(255,255,255)" stroke="none"
         stroke-width="1"/></g></svg>`; ]]]
-sd1: >
+sensors: >
   [[[
-    return `<ha-icon
+    const sensor1 = `<div class="pill"><ha-icon
       icon="mdi:thermometer-low"
-      style="width: 10px; height: 10px;">
-      </ha-icon><span><span>${Number(states['sensor.environment_1_temperature'].state).toFixed(1)}º</span></span>`
-  ]]]
+      style="width: 10px;">
+      </ha-icon><span><span>${Number(states['sensor.environment_1_temperature'].state).toFixed(1)}º</span></span></div>`
 
-sd2: >
-  [[[
-    let numlight = states['sensor.lights_on_living_room'].state;
-    if (numlight == 1) return `<span> ${states['sensor.lights_on_living_room'].state} luz</span>`;
-    else if (numlight > 1) return `<span> ${states['sensor.lights_on_living_room'].state} luzes</span>`;
+    const sensor2 = `<div class="pill"><ha-icon
+      icon="mdi:water-percent"
+      style="width: 10px;">
+      </ha-icon><span>${states['sensor.environment_1_humidity'].state}%</span></div>`
+
+    let sensor3 = "";
+    const numlight = states['sensor.lights_on_living_room'].state;
+    if (numlight == 1) sensor3 = `<div class="pill"><span> ${states['sensor.lights_on_living_room'].state} luz</span></div>`;
+    else if (numlight > 1) sensor3 = `<div class="pill"><span> ${states['sensor.lights_on_living_room'].state} luzes</span></div>`;
+
+    return sensor1 + sensor2 + sensor3;
   ]]]

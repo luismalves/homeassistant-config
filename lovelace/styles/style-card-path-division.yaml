@@ -1,44 +1,37 @@
 card:
-  - height: 70px
+  - height: 95px
   - font-weight: bold
   - font-size: 12px
   - background: "var(--ha-card-background-path)"
   - color: "var(--el-text-color-light)"
-  - padding: 4px 8px
+  - padding: 4px 4px
 
 custom_fields:
   icon_hue:
-    - align-self: center
-    - padding: 18px 6px 18px 2px
-    - width: 30px
-  info:
-    - top: 0px
-    - left: 20px
-    - width: 40px
-    - position: absolute
-    - letter-spacing: 0.03vw
-  sd1:
-    - font-size: 12px
-    - align-self: flex-start
-    - justify-self: flex-start
+    - place-self: center-left
+    - padding-left: 4px
+    - width: 25px
 
-  sd2:
-    - font-size: 12px
-    - align-self: flex-start
-    - align-self: flex-start
-  sd3:
-    - font-size: 12px
-    - align-self: flex-start
-    - justify-self: flex-start
+  sensors:
+    - display: flex
+    - gap: 4px 2px
+    - flex-wrap: wrap
+    - place-self: flex-start
+
+  scripts:
+    - bottom: 5px
+    - right: 5px
+    - position: absolute
+    - display: none
 
 grid:
-  - grid-template-areas: '"icon_hue n n" "icon_hue sd1 sd2" "icon_hue sd3 sd3"'
-  - grid-template-columns: min-content 1fr 1fr
-  - grid-template-rows: "[[rows-off]]"
+  - grid-template-areas: '"icon_hue n n" "sensors sensors sensors" "sensors sensors sensors"'
+  - grid-template-columns: 34px 1fr 45px
+  - grid-template-rows: 40px 1fr 1fr
   - grid-gap: 2px 0
 
 name:
-  - align-self: flex-end
+  - place-self: center-left
   - color: "var(--ha-card-color-name-on)"
   - justify-self: start
   - font-weight: bold

@@ -1,5 +1,5 @@
 card:
-  - background-color: "var(--ha-card-background-es-static)"
+  - background: "var(--ha-card-background-es-static)"
   - color: var(--el-es-static-text-color)
   #- height: 165px
   - font-size: 10px
@@ -28,7 +28,7 @@ custom_fields:
     - padding: 0 10px
 
   info1:
-    - background-color: var(--contrast4)
+    - background: var(--contrast4)
     - color: var(--contrast8)
     - font-size: 10px
     - line-height: 1.25

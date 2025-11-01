@@ -1,0 +1,170 @@
+bar: ""
+
+description: |
+  [[[
+    if(entity.state == 'active') {
+      return 'Temporizador A/C'
+    }
+  ]]]
+
+timer: |
+  [[[
+    // Check if entity exists and has the required attributes
+    if (!entity || !entity.attributes) return '0:00';
+    
+    if (entity.state == 'idle') return 'A/C ligado';
+
+    const finishesAt = entity.attributes.finishes_at;
+    
+    // If timer is not running, return the remaining attribute or 0:00
+    if (!finishesAt) {
+      return entity.attributes.remaining || '0:00';
+    }
+    
+    // Calculate remaining time from finishes_at
+    const finishTime = new Date(finishesAt);
+    const now = new Date();
+    const totalSeconds = Math.max(0, Math.floor((finishTime - now) / 1000));
+    
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    
+    // Format intelligently
+    if (hours > 0) {
+      return `${hours}h ${minutes.toString().padStart(2, '0')}min`;
+    } else if (minutes > 0) {
+      return `${minutes}min ${seconds.toString().padStart(2, '0')}s`;
+    } else {
+      return `${seconds}s`;
+    }
+  ]]]
+
+script-1:
+  card:
+    type: "custom:decluttering-card"
+    template: script-timer-time-button
+    variables:
+      - template: script-turn-off
+      - name: |
+          [[[
+            return entity && entity.state === "active" ? '+15min' : '30min';
+          ]]]
+      - entity: "[[entity]]"
+      - duration: |
+          [[[
+            if (!entity || entity.state !== 'active') return '00:30:00';
+            
+            const finishesAt = entity.attributes.finishes_at;
+            if (!finishesAt) return '00:30:00';
+            
+            // Calculate current remaining time
+            const finishTime = new Date(finishesAt);
+            const now = new Date();
+            const remainingSeconds = Math.max(0, Math.floor((finishTime - now) / 1000));
+            
+            // Add 15 minutes (900 seconds)
+            const newTotalSeconds = remainingSeconds + 900;
+            
+            const hours = Math.floor(newTotalSeconds / 3600);
+            const minutes = Math.floor((newTotalSeconds % 3600) / 60);
+            const seconds = newTotalSeconds % 60;
+            
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+          ]]]
+
+script-2:
+  card:
+    type: "custom:decluttering-card"
+    template: script-timer-time-button
+    variables:
+      - template: script-turn-off
+      - name: |
+          [[[
+            return entity && entity.state === 'active' ? '+30min' : '1h';
+          ]]]
+      - entity: "[[entity]]"
+      - duration: |
+          [[[
+            if (!entity || entity.state !== 'active') return '01:00:00';
+            
+            const finishesAt = entity.attributes.finishes_at;
+            if (!finishesAt) return '01:00:00';
+            
+            // Calculate current remaining time
+            const finishTime = new Date(finishesAt);
+            const now = new Date();
+            const remainingSeconds = Math.max(0, Math.floor((finishTime - now) / 1000));
+            
+            // Add 30 minutes (1800 seconds)
+            const newTotalSeconds = remainingSeconds + 1800;
+            
+            const hours = Math.floor(newTotalSeconds / 3600);
+            const minutes = Math.floor((newTotalSeconds % 3600) / 60);
+            const seconds = newTotalSeconds % 60;
+            
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+          ]]]
+
+script-3:
+  card:
+    type: "custom:decluttering-card"
+    template: script-timer-time-button
+    variables:
+      - template: script-turn-off
+      - name: |
+          [[[
+            return entity && entity.state === 'active' ? '+1h' : '2h';
+          ]]]
+      - entity: "[[entity]]"
+      - duration: |
+          [[[
+            if (!entity || entity.state !== 'active') return '02:00:00';
+            
+            const finishesAt = entity.attributes.finishes_at;
+            if (!finishesAt) return '02:00:00';
+            
+            // Calculate current remaining time
+            const finishTime = new Date(finishesAt);
+            const now = new Date();
+            const remainingSeconds = Math.max(0, Math.floor((finishTime - now) / 1000));
+            
+            // Add 1 hour (3600 seconds)
+            const newTotalSeconds = remainingSeconds + 3600;
+            
+            const hours = Math.floor(newTotalSeconds / 3600);
+            const minutes = Math.floor((newTotalSeconds % 3600) / 60);
+            const seconds = newTotalSeconds % 60;
+            
+            return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+          ]]]
+
+script-cancel:
+  card:
+    type: "custom:decluttering-card"
+    template: script-timer-cancel-button
+    variables:
+      - entity: "[[entity]]"
+
+icon_hue: >
+  [[[
+    let heating = `<svg viewBox="-33 0 255 255" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid"><defs><linearGradient id="prefix__a" gradientUnits="userSpaceOnUse" x1="94.141" y1="255" x2="94.141" y2=".188"><stop offset="0" stop-color="#ff4c0d"/><stop offset="1" stop-color="#fc9502"/></linearGradient></defs><g fill-rule="evenodd"><path d="M187.899 164.809c-2.096 50.059-43.325 90.003-93.899 90.003-51.915 0-94-43.5-94-94 0-6.75-.121-20.24 10-43 6.057-13.621 9.856-22.178 12-30 1.178-4.299 3.469-11.129 10 0 3.851 6.562 4 16 4 16s14.328-10.995 24-32c14.179-30.793 2.866-49.2-1-62-1.338-4.428-2.178-12.386 7-9 9.352 3.451 34.076 20.758 47 39 18.445 26.035 25 51 25 51s5.906-7.33 8-15c2.365-8.661 2.4-17.239 9.999-7.999 7.227 8.787 17.96 25.3 24.001 40.999 10.969 28.509 7.899 55.997 7.899 55.997z" fill="url(#prefix__a)"/><path d="M94 254.812c-35.899 0-65-29.101-65-65 0-21.661 8.729-34.812 26.896-52.646 11.632-11.419 22.519-25.444 27.146-34.994.911-1.88 2.984-11.677 10.977-.206 4.193 6.016 10.766 16.715 14.981 25.846 7.266 15.743 9 31 9 31s7.121-4.196 12-15c1.573-3.482 4.753-16.664 13.643-3.484C150.166 150 159.127 167.39 159 189.812c0 35.899-29.102 65-65 65z" fill="#fc9502"/><path d="M95 183.812c9.25 0 9.25 17.129 21 40 7.824 15.229-3.879 31-21 31s-26-13.879-26-31c0-17.12 16.75-40 26-40z" fill="#fce202"/></g></svg>`;
+    let cold = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="6.729 5.164 423.587 489.083"><g><path class="prefix__prefix__prefix__prefix__prefix__cls-1" d="M218.525 494.247V310.948m0-122.272V5.164M289.759 56.2l-71.234 71.238-71.238-71.238m71.238 438.048V310.948m0-122.272V5.164m-71.238 438.048l71.238-71.234 71.234 71.234m140.557-71.234l-105.897-61.03-52.95-30.62m-105.893-61.242L6.73 127.436m79.744-36.363l26.153 97.603-97.39 25.944" fill="none" stroke="gray" stroke-miterlimit="10" stroke-width="40.827397409999996"/><path class="prefix__prefix__prefix__prefix__prefix__cls-1" d="M430.316 371.978l-105.897-61.03-52.95-30.62m-105.893-61.242L6.73 127.436" fill="none" stroke="gray" stroke-miterlimit="10" stroke-width="40.827397409999996"/><path class="prefix__prefix__prefix__prefix__prefix__cls-1" d="M350.575 408.339l-26.156-97.39 97.39-26.157m-256.233-4.467L6.73 371.978m264.74-152.892l52.952-30.41 105.894-61.24" fill="none" stroke="gray" stroke-miterlimit="10" stroke-width="40.827397409999996"/><path class="prefix__prefix__prefix__prefix__prefix__cls-1" d="M350.575 91.073l-26.156 97.603 97.39 25.944m-256.233 65.705L6.73 371.978" fill="none" stroke="gray" stroke-miterlimit="10" stroke-width="40.827397409999996"/><path class="prefix__prefix__prefix__prefix__prefix__cls-1" d="M271.47 219.086l52.952-30.41 105.894-61.24M86.47 408.34l26.157-97.39-97.39-26.157m264.527-35.086c.15 47.314-50.949 77.042-92.009 53.524-41.04-23.497-41.253-82.636-.366-106.43 29.368-17.097 67.03-7.102 84.08 22.286a61.705 61.705 0 018.295 30.62z" fill="none" stroke="gray" stroke-miterlimit="10" stroke-width="40.827397409999996"/></g></svg>`;
+    let dry = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="140.9 23.7 169.5 169.5"><path fill="#0f5e9c" d="M278.638 129.638c8.515 34.057-17.867 63.57-52.973 63.57-35.107 0-61.59-29.094-52.973-63.57 5.294-21.189 31.784-52.973 52.973-105.946 21.189 52.973 47.678 84.757 52.973 105.946z"/></svg>`;
+
+    // Check if entity-ac is valid
+    if (!states['[[entity-ac]]']) {
+      return '';
+    }
+    let ac_state = states['[[entity-ac]]'].state;
+    
+    if(ac_state == 'dry') {
+      return dry;
+    } else if(ac_state == 'cool') {
+      return cold;
+    } else if(ac_state == 'heat') {
+      return cold;
+    } else {
+      return dry;
+    }
+  ]]]
