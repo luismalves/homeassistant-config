@@ -8,7 +8,8 @@ button_card_templates: !include lovelace/templates/button_card.yaml
 decluttering_templates: !include lovelace/templates/decluttering.yaml
 
 ## Dashboard settings
-title: Home Control (mobile)
+title: Home (mobile)
+icon: mdi:tablet-cellphone
 
 swipe_nav:
   wrap: false
@@ -30,7 +31,8 @@ views:
   #- !include lovelace/views/tasks.yaml
   #- !include lovelace/views/plants.yaml
   - !include lovelace/views/house.yaml
-  #- !include lovelace/views/config.yaml
+  - !include lovelace/views/storage.yaml
+  - !include lovelace/views/config.yaml
   #- !include lovelace/views/system-mobile.yaml
   #- !include lovelace/views/network-mobile.yaml
   #- !include lovelace/views/nas.yaml

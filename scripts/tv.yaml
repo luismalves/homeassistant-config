@@ -5,14 +5,26 @@
 turn_on_tv:
   alias: Turn on TV
   sequence:
-    - action: remote.turn_on
-      entity_id: remote.tv
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: remote.tv
+              state: "off"
+          sequence:
+            - action: remote.turn_on
+              entity_id: remote.tv
 
 turn_off_tv:
   alias: Turn off TV
   sequence:
-    - action: remote.turn_off
-      entity_id: remote.tv
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: remote.tv
+              state: "on"
+          sequence:
+            - action: remote.turn_off
+              entity_id: remote.tv
 
 # # Start applications
 # #
@@ -37,7 +49,7 @@ volume_down_tv:
       target:
         entity_id: remote.tv
       data:
-        command: VOLUME_UP
+        command: VOLUME_DOWN
 
 volume_up_tv:
   alias: Volume up tv
@@ -46,7 +58,7 @@ volume_up_tv:
       target:
         entity_id: remote.tv
       data:
-        command: VOLUME_DOWN
+        command: VOLUME_UP
 
 set_volume_tv_x:
   alias: Set volume to x

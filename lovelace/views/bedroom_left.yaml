@@ -66,6 +66,8 @@ cards:
 
       - !include ../views_items/bedroom_left/light.mi_lamp.yaml
 
+      - !include ../views_items/bedroom_left/light.led_strip_living_room.yaml
+
       - type: custom:mod-card
         view_layout:
           grid-column: span 2

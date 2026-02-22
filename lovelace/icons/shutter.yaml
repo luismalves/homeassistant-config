@@ -197,3 +197,9 @@ info: >
     if (entity && entity.attributes.current_position > 0)
       return `<div style="display:flex;align-items:center;justify-content:center;padding: 0 8px;height:25px;border-radius:25px;background-color:var(--contrast2)"><span>${entity.attributes.current_position}%</span></div>`
   ]]]
+
+type: >
+  [[[
+    if (variables.show_type == true)
+      return `action`
+  ]]]

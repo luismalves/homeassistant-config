@@ -1,8 +1,8 @@
-template: es-light-tasmota
+template: es-light
 type: "custom:decluttering-card"
 view_layout:
   grid-column: span 2
 variables:
   - template: light-strip
-  - entity: light.led_strip_living_room
-  - name: "LED TV"
+  - entity: light.wled_sideboard
+  - name: "LED Aparador"

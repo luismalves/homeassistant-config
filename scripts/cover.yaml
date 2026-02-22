@@ -88,6 +88,17 @@ close_all_rooms_covers:
   alias: Close all rooms covers
   icon: mdi:window-shutter
 
+# Morning positions
+open_bedroom_cover_morning:
+  sequence:
+    - action: cover.set_cover_position
+      entity_id: cover.estores_suite
+      data:
+        position: 35
+  mode: single
+  alias: Open bedroom cover to morning position
+  icon: mdi:window-shutter
+
 # Privacy positions
 set_cover_suite_privacy:
   sequence:

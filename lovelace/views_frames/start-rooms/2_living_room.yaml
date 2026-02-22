@@ -24,11 +24,13 @@
             - script: script.turn_off_living_room
             - sensor_entity: sensor.lights_on_living_room
 
-        - !include ../../views_items/living_room/light.led_strip_living_room.yaml
+        - !include ../../views_items/living_room/light.wled_tv.yaml
 
         - !include ../../views_items/living_room/light.light_2.yaml
 
         - !include ../../views_items/living_room/light.luz_corredor.yaml
+
+        - !include ../../views_items/living_room/light.wled_sideboard.yaml
 
         # After christmas, comment ligth code
         # - !include ../../views_items/living_room/light.wled_xmas.yaml

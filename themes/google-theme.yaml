@@ -102,8 +102,8 @@ google_theme:
   graphs-border-radius: 6px;
 
   # Labels
-  # label-badge-background-color: var(--secondary-background-color)
-  # label-badge-text-color: var(--primary-text-color)
+  label-badge-background-color: var(--secondary-background-color)
+  label-badge-text-color: var(--primary-text-color)
   # label-badge-red: rgb(255, 69, 58)
   # label-badge-green: rgb(50, 215, 75)
   # label-badge-blue: rgb(0, 122, 255)
@@ -434,8 +434,8 @@ google_theme:
 
   # Ref: https://community.home-assistant.io/t/card-mod-super-charge-your-themes/212176/145
   card-mod-root-yaml: |
-    ha-tab-group-tab$: |
-      .tab {
+    hui-root$: |
+      .toolbar {
         text-transform: uppercase;
         padding-left: 0px !important;
         padding-right: 0px !important;
@@ -472,12 +472,22 @@ google_theme:
         padding-right: 18px !important;
       }
 
+    hui-state-badge-element:
+      $:
+        ha-state-label-badge:
+          $:
+            ha-label-badge:
+              $: |
+                .label-badge {
+                  border: none !important;
+                }
+
     home-assistant$: |
       /* ___________ Side bar ___________  */
       ha-menu-button, ha-button-menu {
         color: var(--contrast10);
       }
-      .iron-selected paper-icon-item::before, 
+      .iron-selected paper-icon-item::before,
       a:not(.iron-selected):focus::before {
         border-radius: 30px;
       }

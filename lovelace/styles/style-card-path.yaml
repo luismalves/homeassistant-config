@@ -3,8 +3,8 @@ card:
   - color: "var(--ha-card-color-name-on)"
   - font-size: 12px
   - font-weight: bold
-  - height: 110px
-  - padding: 10px 0 0 0
+  - height: 80px
+  - padding: 10px
 
 custom_fields:
   icon_hue:
@@ -12,16 +12,21 @@ custom_fields:
     - justify-self: center
     - width: 45px
 
-  sd1:
+  icon_external:
     - color: var(--ha-card-color-state-on)
     - font-size: 12px
     - margin-bottom: 10px
     - text-align: center
+    - height: 12px
+    - width: 12px
+    - right: 6px
+    - top: 6px
+    - position: absolute
 
 grid:
-  - grid-template-areas: '"icon_hue" "n" "sd1" "type"'
+  - grid-template-areas: '"icon_hue" "n"'
   - grid-template-columns: 1fr
-  - grid-template-rows: 1fr min-content min-content min-content
+  - grid-template-rows: 1fr min-content
 
 name:
   - align-self: center

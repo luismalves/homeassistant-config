@@ -17,7 +17,7 @@ info2: >
 
 info3: >
   [[[
-    let state = (states['sensor.my_id_odometer'].state == 'unavailable' || states['sensor.my_id_odometer'].state == 'unknown') ? '-' : states['sensor.my_id_odometer'].state;
+    let state = (states['sensor.id3_odometer'].state == 'unavailable' || states['sensor.id3_odometer'].state == 'unknown') ? '-' : states['sensor.id3_odometer'].state;
     return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">Total KMs</span>`
   ]]]
 

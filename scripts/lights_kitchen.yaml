@@ -37,4 +37,12 @@ turn_off_kitchen:
           sequence:
             - action: light.turn_off
               entity_id: light.luz_mesa
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_entrance
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.wled_entrance
   mode: single

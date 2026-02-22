@@ -17,7 +17,8 @@
         {% set power_daily = states('input_number.energy_power_cost_per_day') | float(0) %}
         {% set access_daily = states('input_number.energy_access_cost_per_day') | float(0) %}
         {% set taxes = states('input_number.energy_taxes') | float(0) %}
-        {% set days = now().day %}
+        {% set last_reset = state_attr('sensor.monthly_energy', 'last_reset') | as_datetime | as_local %}
+        {% set days = (now() - last_reset).days + 1 %}
 
         {% set energy_cost = (empty_kwh * empty_rate * (1 - discount)) + (full_kwh * full_rate * (1 - discount)) %}
         {% set energy_tax = (empty_kwh * 0.001) +  (full_kwh * 0.001) %}

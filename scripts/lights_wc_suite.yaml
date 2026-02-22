@@ -4,12 +4,21 @@
 
 turn_off_wc_suite:
   alias: Turn off lights of WC (Suite)
+  fields:
+    presence_mode:
+      description: Leaves presence lights on
+      example: "false"
+      default: false
+      selector:
+        boolean:
   sequence:
     - choose:
         - conditions:
             - condition: state
               entity_id: light.extrator_wc_suite
               state: "on"
+            - condition: template
+              value_template: "{{ not presence_mode }}"
           sequence:
             - action: light.turn_off
               entity_id: light.extrator_wc_suite

@@ -1,5 +1,5 @@
 chart:
-  height: "50px"
+  height: "45px"
   fontFamily: "var(--paper-ha-card_-_font-family)"
   sparkline:
     enabled: true

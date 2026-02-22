@@ -1,17 +1,9 @@
 ---
-# Goobye script, to run when leaving the house
-#
+# Goodbye script, to run when leaving the house
+# MANAGED IN NODE-RED
 
 goodbye:
   alias: Goodbye
-  sequence:
-    - service: script.turn_on
-      entity_id: script.turn_off_living_room
-    - service: script.turn_on
-      entity_id: script.turn_off_bedroom
-    - service: script.turn_on
-      entity_id: script.turn_off_kitchen
-    - service: script.turn_on
-      entity_id: script.turn_off_deck
+  sequence: []
   mode: single
   icon: mdi:account-arrow-right-outline

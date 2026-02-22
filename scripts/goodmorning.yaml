@@ -1,0 +1,10 @@
+---
+# Goodmorning script
+#
+
+goodmorning:
+  alias: Goodmorning
+  sequence:
+    - action: script.open_bedroom_cover_morning
+  mode: single
+  icon: mdi:weather-sunny

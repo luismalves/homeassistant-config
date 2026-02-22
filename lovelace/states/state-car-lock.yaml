@@ -6,10 +6,10 @@
 - styles:
     card:
       - background: "var(--ha-card-background-es-off)"
-  value: "unlocked"
+  value: "on"
 
 - styles:
     card:
       - background: "var(--ha-card-background-es-on)"
   operator: "!="
-  value: "locked"
+  value: "off"

@@ -10,8 +10,10 @@
       unit_of_measurement: "on"
       value_template: >
         {% set lights = [
-          states.light.led_strip_living_room,
-          states.light.light_2
+          states.light.led_tv,
+          states.light.light_2,
+          states.light.wled_sideboard,
+          states.light.wled_xmas
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -25,7 +27,8 @@
           states.light.luz_entrada,
           states.light.luz_cozinha_1,
           states.light.luz_cozinha_2,
-          states.light.luz_mesa
+          states.light.luz_mesa,
+          states.light.wled_entrance
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -38,7 +41,10 @@
         {% set lights = [
           states.light.bedroom_1,
           states.light.bedroom_2,
-          states.light.luz_suite
+          states.light.luz_suite,
+          states.light.wled_roupeiro_suite_segment_1,
+          states.light.wled_roupeiro_suite_segment_2,
+          states.light.led_bed
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -76,9 +82,29 @@
         {% set lights = [
           states.light.luz_quarto_esquerda,
           states.light.mi_lamp,
-          states.light.led_strip_deck
+          states.light.led_strip_deck,
+          states.light.led_strip_living_room,
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_storage:
+      friendly_name: "Luzes ligadas na Arrecadação"
+      unit_of_measurement: "on"
+      value_template: >
+        {% set lights = [
+          states.switch.shelly_1pm_mini_storage
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+- platform: template
+  sensors:
+    lights_on_kitchen_living_room:
+      friendly_name: "Luzes ligadas na Cozinha e Sala"
+      unit_of_measurement: "on"
+      value_template: >
+        {{ states('sensor.lights_on_kitchen')|int + states('sensor.lights_on_living_room')|int }}
 
 - platform: template
   sensors:

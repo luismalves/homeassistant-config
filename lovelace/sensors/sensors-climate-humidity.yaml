@@ -1,0 +1,19 @@
+icon1: >
+  [[[
+    const hum = parseFloat(entity.state);
+    let color = 'var(--el-es-static-text-color)';
+    if (!isNaN(hum)) {
+      if (hum < 30) color = '#FFA726';
+      else if (hum < 80) color = '#4FC3F7';
+      else color = '#EF5350';
+    }
+    return `<ha-icon icon="mdi:water-percent" style="--mdc-icon-size: 18px; color: ${color};"></ha-icon>`;
+  ]]]
+
+text1: >
+  [[[
+    const hum = parseFloat(entity.state);
+    const val = isNaN(hum) ? '-' : hum.toFixed(0);
+    const unit = entity.attributes.unit_of_measurement || '%';
+    return `<span>${val}${unit}</span>`;
+  ]]]

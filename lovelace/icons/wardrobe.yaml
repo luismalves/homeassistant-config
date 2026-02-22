@@ -1,0 +1,4 @@
+icon_hue: >
+  [[[ if (entity && entity.state === 'on') return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.943 94.892" width="32"><path fill=rgb(87,168,215) d="M65.947 90.644V4.247H4.996v86.397h60.951zM7.996 87.645V7.247h26.207v80.398H7.996zm29.207 0V7.247h25.744v80.398H37.203z"/><path d="M27.811 41.797h3v10.604h-3zM40.575 41.797h3v10.604h-3z"/></svg>';
+      else return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.943 94.892" width="32"><path fill="#d8d8d8" opacity=0.35 d="M7.605 6.832h55.063v80.914H7.605z"/><path fill=rgb(95,98,103) d="M65.947 90.644V4.247H4.996v86.397h60.951zM7.996 87.645V7.247h26.207v80.398H7.996zm29.207 0V7.247h25.744v80.398H37.203z"/><path fill=rgb(158,160,162) d="M27.811 41.797h3v10.604h-3zM40.575 41.797h3v10.604h-3z"/></svg>';
+  ]]]

@@ -29,6 +29,14 @@ turn_off_bedroom_left:
           sequence:
             - action: light.turn_off
               entity_id: light.luz_quarto_esquerda
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_strip_living_room
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.led_strip_living_room
   mode: single
 
 turn_on_bedroom_left:
@@ -58,4 +66,12 @@ turn_on_bedroom_left:
           sequence:
             - action: light.turn_on
               entity_id: light.luz_quarto_esquerda
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_strip_living_room
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.led_strip_living_room
   mode: single

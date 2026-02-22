@@ -1,15 +1,9 @@
 ---
 # Goodnight script, to run when want to shutdown everything at night
-#
+# MANAGED IN NODE-RED
 
 goodnight:
   alias: Goodnight
-  sequence:
-    - service: script.turn_on
-      entity_id: script.turn_off_kitchen
-    - service: script.turn_on
-      entity_id: script.turn_off_bedroom
-    - service: script.turn_on
-      entity_id: script.turn_off_living_room
-    - service: script.turn_on
-      entity_id: script.turn_off_deck
+  sequence: []
+  mode: single
+  icon: mdi:weather-night

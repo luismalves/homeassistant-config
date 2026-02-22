@@ -1,0 +1,13 @@
+- platform: template
+  sensors:
+    show_weather_forecast:
+      friendly_name: "Show Weather Forecast"
+      value_template: >-
+        {% set hour = now().hour %}
+        {{ (hour >= 6 and hour < 10) or (hour >= 19 and hour < 22) }}
+
+    show_covers_close:
+      friendly_name: "Show Covers Close Buttons"
+      value_template: >-
+        {% set hour = now().hour %}
+        {{ hour >= 17 or hour < 5 }}

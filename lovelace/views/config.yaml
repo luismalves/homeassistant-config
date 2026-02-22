@@ -203,6 +203,19 @@ cards:
           grid-column: span 3
         variables:
           - template: toggle-auto-brightness
+          - entity: input_boolean.enable_wc_suite_lights_automation
+          - name: "Automação luz WC suite"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
           - entity: input_boolean.enable_bedroom_left_lights_automation
           - name: "Automação luz office Ma"
           - state-1: "on"
@@ -299,6 +312,15 @@ cards:
           - state-2: "off"
           - align-self-name: center
           - grid-template-rows: 1fr
+
+      - template: es-light
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: speaker-nest-hub
+          - entity: light.pi_screen
+          - name: "Pi screen"
 
       - type: "custom:gap-card"
         height: 25

@@ -19,6 +19,7 @@
             line-height: 1em;
             color: var(--el-title-color);
             margin-left: -15px;
+            overflow-y: visible !important;
           }
           ha-markdown {
             padding-bottom: 0px !important;

@@ -2,7 +2,8 @@
   [[[
     if (entity) {
       if (entity.attributes.current_temperature) {
-        return `${helpers.localize(entity)} - ${entity.attributes.current_temperature}ºC`;
+        const temp = entity.attributes.current_temperature - 1.5;
+        return `${helpers.localize(entity)} - ${temp}ºC`;
       } else {
         return helpers.localize(entity);
       }

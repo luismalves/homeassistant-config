@@ -26,3 +26,5 @@
         - !include ../../views_items/bedroom_left/light.mi_lamp.yaml
 
         - !include ../../views_items/bedroom_left/light.luz_quarto_esquerda.yaml
+
+        - !include ../../views_items/bedroom_left/light.led_strip_living_room.yaml

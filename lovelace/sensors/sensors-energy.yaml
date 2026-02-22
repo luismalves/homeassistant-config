@@ -23,20 +23,20 @@ sd2: >
       return `<ha-icon
         icon="mdi:wallet-outline"
         style="height: 12px; width: 12px; margin-right: 4px; --mdc-icon-size: 115%">
-        </ha-icon><span>${value}€ até hoje</span>`
+        </ha-icon><span>${value}€</span>`
     }
   ]]]
 
 sd3: >
   [[[
-    let entity_old = [[ variables.bill_entity_old ]];
-    if(entity_old == '') {
-      return ``;
+    let monthly_entity = 'sensor.monthly_energy';
+    if(states[monthly_entity].state == 'unavailable') {
+      return `<span>- kWh</span>`;
     } else {
-      let value_old = states[entity_old].state;
+      let current_value = parseFloat(states[monthly_entity].state);
       return `<ha-icon
-        icon="mdi:wallet-outline"
+        icon="mdi:lightning-bolt-outline"
         style="height: 12px; width: 12px; margin-right: 4px; --mdc-icon-size: 115%">
-        </ha-icon><span>${value_old}€ por regulado</span>`
+        </ha-icon><span>${current_value.toFixed(0)} kWh</span>`
     }
   ]]]

@@ -8,7 +8,7 @@ button_card_templates: !include lovelace/templates/button_card.yaml
 decluttering_templates: !include lovelace/templates/decluttering.yaml
 
 ## Dashboard settings
-title: Home Control
+title: Home
 
 ## Views
 views:
@@ -25,6 +25,7 @@ views:
   #- !include lovelace/views/tasks.yaml
   #- !include lovelace/views/plants.yaml
   - !include lovelace/views/house.yaml
+  - !include lovelace/views/storage.yaml
   - !include lovelace/views/config.yaml
   #- !include lovelace/views/system.yaml
   - !include lovelace/views/maintenance.yaml

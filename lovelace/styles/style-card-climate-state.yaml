@@ -1,0 +1,28 @@
+card:
+  - background: var(--ha-card-background-es-static)
+  - height: var(--height)
+  - --height: "[[height]]"
+  - font-weight: bold
+  - color: var(--el-es-static-text-color)
+  - padding: 2px
+
+grid:
+  - grid-template-areas: '"icon1 text1 ." "n n n"'
+  - grid-template-columns: 40px 1fr 40px
+  - grid-template-rows: 1fr min-content
+  - align-content: center
+
+name:
+  - color: var(--ha-card-color-state-off)
+  - font-size: 12px
+  - font-weight: bold
+
+custom_fields:
+  icon1:
+    - align-self: center
+    - justify-self: end
+  text1:
+    - align-self: center
+    - font-size: 20px
+    - font-weight: bold
+    - justify-self: center

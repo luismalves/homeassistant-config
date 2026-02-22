@@ -1,0 +1,125 @@
+#####
+# Motion/Presence detection
+#
+#####
+
+- sensor:
+    - name: "Living room motion status"
+      unique_id: presence_living_room
+      state: >-
+        {% if is_state('binary_sensor.everything_presence_lite_5d1fc0_occupancy', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.everything_presence_lite_5d1fc0_occupancy', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Kitchen motion status"
+      unique_id: presence_kitchen
+      state: >-
+        {% if is_state('binary_sensor.presence_2_occupancy', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.presence_2_occupancy', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Hall motion status"
+      unique_id: presence_hall
+      state: >-
+        {% if is_state('binary_sensor.presence_1_motion', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.presence_1_motion', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Bedroom right motion status"
+      unique_id: presence_bedroom_right
+      state: >-
+        {% if is_state('binary_sensor.human_presence_1_presence', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.human_presence_1_presence', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Bedroom left motion status"
+      unique_id: presence_bedroom_left
+      state: >-
+        {% if is_state('binary_sensor.athom_presence_sensor_1_occupancy', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.athom_presence_sensor_1_occupancy', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "Bedroom suite motion status"
+      unique_id: presence_bedroom_suite
+      state: >-
+        {% if is_state('binary_sensor.everything_presence_lite_675740_zone_1_occupancy', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.everything_presence_lite_675740_zone_1_occupancy', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- sensor:
+    - name: "WC suite motion status"
+      unique_id: presence_wc_suite
+      state: >-
+        {% if is_state('binary_sensor.everything_presence_lite_675740_zone_2_occupancy', 'on') %}
+          Detetado
+        {% elif is_state('binary_sensor.everything_presence_lite_675740_zone_2_occupancy', 'off') %}
+          Vazio
+        {% else %}
+          Erro
+        {% endif %}
+
+- binary_sensor:
+    - name: "Kitchen and Living room presence"
+      unique_id: presence_kitchen_living_room
+      state: >-
+        {{ is_state('binary_sensor.presence_2_occupancy', 'on') or
+           is_state('binary_sensor.everything_presence_lite_5d1fc0_occupancy', 'on') }}
+
+- binary_sensor:
+    - name: "Bedroom left activity"
+      unique_id: bedroom_left_activity
+      state: >-
+        {% set sensor = 'binary_sensor.athom_presence_sensor_1_occupancy' %}
+        {% set is_on = is_state(sensor, 'on') %}
+        {% set last_changed = states[sensor].last_changed %}
+        {% set minutes_since_change = (now() - last_changed).total_seconds() / 60 %}
+        {{ is_on or minutes_since_change < 30 }}
+
+- binary_sensor:
+    - name: "Bedroom right activity"
+      unique_id: bedroom_right_activity
+      state: >-
+        {% set sensor = 'binary_sensor.human_presence_1_presence' %}
+        {% set is_on = is_state(sensor, 'on') %}
+        {% set last_changed = states[sensor].last_changed %}
+        {% set minutes_since_change = (now() - last_changed).total_seconds() / 60 %}
+        {{ is_on or minutes_since_change < 30 }}
+
+- binary_sensor:
+    - name: "Bedroom suite activity"
+      unique_id: bedroom_suite_activity
+      state: >-
+        {% set sensor = 'binary_sensor.everything_presence_lite_675740_occupancy' %}
+        {% set is_on = is_state(sensor, 'on') %}
+        {% set last_changed = states[sensor].last_changed %}
+        {% set minutes_since_change = (now() - last_changed).total_seconds() / 60 %}
+        {{ is_on or minutes_since_change < 30 }}

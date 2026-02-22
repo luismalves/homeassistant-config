@@ -6,7 +6,7 @@ sensors: >
     const sensor1 = `<div class="pill"><ha-icon
       icon="mdi:thermometer-low"
       style="width: 10px;">
-      </ha-icon><span>${states['climate.quarto_esquerda'].attributes.current_temperature}º</span></div>`
+      </ha-icon><span>${states['sensor.atc_e69d_temperature'].state}º</span></div>`
 
     const sensor2 = `<div class="pill"><ha-icon
       icon="mdi:water-percent"

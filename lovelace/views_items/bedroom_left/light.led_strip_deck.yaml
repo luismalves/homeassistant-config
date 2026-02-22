@@ -5,4 +5,4 @@ view_layout:
 variables:
   - template: light-strip
   - entity: light.led_strip_deck
-  - name: "LED Strip"
+  - name: "LED Desk"

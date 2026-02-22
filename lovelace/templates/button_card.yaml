@@ -51,6 +51,9 @@ shutter:
 shutter-temp:
   custom_fields: !include ../icons/shutter-temp.yaml
 
+wardrobe:
+  custom_fields: !include ../icons/wardrobe.yaml
+
 #---------------------#
 # Media
 #---------------------#
@@ -168,8 +171,14 @@ path-bedroom-left:
 path-bedroom-suite:
   custom_fields: !include ../icons/path-bedroom-suite.yaml
 
+path-storage:
+  custom_fields: !include ../icons/path-storage.yaml
+
 path-car:
   custom_fields: !include ../icons/path-car.yaml
+
+path-generic:
+  custom_fields: !include ../icons/path-generic.yaml
 
 #---------------------#
 # Persons
@@ -203,6 +212,12 @@ sensors-living_room:
 
 sensors-climate:
   custom_fields: !include ../sensors/sensors-climate.yaml
+
+sensors-climate-temp:
+  custom_fields: !include ../sensors/sensors-climate-temp.yaml
+
+sensors-climate-humidity:
+  custom_fields: !include ../sensors/sensors-climate-humidity.yaml
 
 sensors-energy:
   custom_fields: !include ../sensors/sensors-energy.yaml

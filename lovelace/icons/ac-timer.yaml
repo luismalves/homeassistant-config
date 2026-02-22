@@ -41,6 +41,7 @@ timer: |
   ]]]
 
 script-1:
+  force_recreate: true
   card:
     type: "custom:decluttering-card"
     template: script-timer-time-button
@@ -74,6 +75,7 @@ script-1:
           ]]]
 
 script-2:
+  force_recreate: true
   card:
     type: "custom:decluttering-card"
     template: script-timer-time-button
@@ -107,6 +109,7 @@ script-2:
           ]]]
 
 script-3:
+  force_recreate: true
   card:
     type: "custom:decluttering-card"
     template: script-timer-time-button
@@ -140,6 +143,7 @@ script-3:
           ]]]
 
 script-cancel:
+  force_recreate: true
   card:
     type: "custom:decluttering-card"
     template: script-timer-cancel-button
@@ -163,7 +167,7 @@ icon_hue: >
     } else if(ac_state == 'cool') {
       return cold;
     } else if(ac_state == 'heat') {
-      return cold;
+      return heating;
     } else {
       return dry;
     }

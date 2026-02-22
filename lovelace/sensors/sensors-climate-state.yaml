@@ -1,0 +1,44 @@
+icon1: >
+  [[[
+    const temp = parseFloat(entity.state);
+    let color = 'var(--el-es-static-text-color)';
+    if (!isNaN(temp)) {
+      if (temp < 16) color = '#4FC3F7';
+      else if (temp < 20) color = '#29B6F6';
+      else if (temp < 24) color = '#FFA726';
+      else color = '#EF5350';
+    }
+    return `<ha-icon icon="mdi:thermometer" style="--mdc-icon-size: 18px; color: ${color};"></ha-icon>`;
+  ]]]
+
+text1: >
+  [[[
+    const temp = parseFloat(entity.state);
+    const val = isNaN(temp) ? '-' : temp.toFixed(1);
+    const unit = entity.attributes.unit_of_measurement || '°C';
+    return `<span>${val}${unit}</span>`;
+  ]]]
+
+icon2: >
+  [[[
+    const e2 = states[variables.entity_2];
+    if (!e2) return '';
+    const hum = parseFloat(e2.state);
+    let color = 'var(--el-es-static-text-color)';
+    if (!isNaN(hum)) {
+      if (hum < 30) color = '#FFA726';
+      else if (hum < 80) color = '#4FC3F7';
+      else color = '#EF5350';
+    }
+    return `<ha-icon icon="mdi:water-percent" style="--mdc-icon-size: 18px; color: ${color};"></ha-icon>`;
+  ]]]
+
+text2: >
+  [[[
+    const e2 = states[variables.entity_2];
+    if (!e2) return '';
+    const hum = parseFloat(e2.state);
+    const val = isNaN(hum) ? '-' : hum.toFixed(0);
+    const unit = e2.attributes.unit_of_measurement || '%';
+    return `<span>${val}${unit}</span>`;
+  ]]]

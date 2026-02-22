@@ -29,6 +29,30 @@ turn_off_bedroom_suite:
           sequence:
             - action: light.turn_off
               entity_id: light.luz_suite
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_bed_main
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.wled_bed_main
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_roupeiro_suite_segment_1
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.wled_roupeiro_suite_segment_1
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_roupeiro_suite_segment_2
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.wled_roupeiro_suite_segment_2
   mode: single
 
 turn_on_bedroom_suite:
@@ -58,6 +82,14 @@ turn_on_bedroom_suite:
           sequence:
             - action: light.turn_on
               entity_id: light.luz_suite
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.wled_bed_main
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.wled_bed_main
   mode: single
 # low_light_bedroom:
 #   alias: Turn on low light on Bedroom

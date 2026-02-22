@@ -1,0 +1,8 @@
+template: es-light-tasmota
+type: "custom:decluttering-card"
+view_layout:
+  grid-column: span 2
+variables:
+  - template: light-strip
+  - entity: light.led_strip_living_room
+  - name: "LED Móvel"

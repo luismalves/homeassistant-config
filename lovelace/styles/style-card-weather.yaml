@@ -5,6 +5,7 @@
     margin-top: 0px !important;
     border-radius: 10px;
     box-shadow: none;
+    height: 185px;
     padding: 4px 12px 0px 6px !important;
   }
 

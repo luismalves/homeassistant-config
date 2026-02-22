@@ -20,7 +20,7 @@ custom_fields:
     - align-self: start
     - color: >
         [[[
-          if (variables.state == variables.state_on && variables.state != 'unavailable')
+          if (variables.state != variables.state_off && variables.state != 'unavailable')
             return "var(--ha-card-color-state-on)";
           else
             return "var(--el-text-color-light)";

@@ -1,0 +1,18 @@
+---
+# General house scripts
+#
+
+turn_off_common_areas:
+  alias: Turn off Hall, Kitchen, Living Room and TV
+  sequence:
+    - action: script.turn_off_hall
+    - action: script.turn_off_kitchen
+    - action: script.turn_off_living_room
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: remote.tv
+              state: "on"
+          sequence:
+            - action: script.turn_off_tv
+  mode: single

@@ -85,8 +85,8 @@
         - font-size: 11px
       s:
         - color: "var([[color-state-on]])"
-  operator: "!="
-  value: "[[state-5]]"
+  operator: regex
+  value: "^(cool|dry|fan_only|heat|auto)$"
 
 - styles:
     card:
@@ -94,6 +94,8 @@
       - border: "var(--ha-card-border-off)"
     name:
       - color: "var(--ha-card-color-name-off)"
+    icon:
+      - color: "var(--ha-card-color-state-off)"
     custom_fields:
       sd1:
         - color: "var(--ha-card-color-state-off)"
@@ -118,6 +120,8 @@
       - color: "var(--ha-card-color-name-off)"
     state:
       - color: "var(--ha-card-color-state-off)"
+    icon:
+      - color: "var(--ha-card-color-state-off)"
   value: "unavailable"
 
 - styles:
@@ -128,6 +132,8 @@
       - color: "var(--ha-card-color-name-off)"
     state:
       - color: "var(--ha-card-color-state-off)"
+    icon:
+      - color: "var(--ha-card-color-state-off)"
   value: "unknown"
 
 - styles:
@@ -137,6 +143,8 @@
     name:
       - color: "var(--ha-card-color-name-off)"
     state:
+      - color: "var(--ha-card-color-state-off)"
+    icon:
       - color: "var(--ha-card-color-state-off)"
   value: >
     [[[

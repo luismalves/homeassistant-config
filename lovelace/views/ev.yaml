@@ -56,8 +56,8 @@ cards:
         view_layout:
           grid-column: span 2
         variables:
-          - entity_range: sensor.my_id_range
-          - entity-battery: sensor.my_id_state_of_charge
+          - entity_range: sensor.id3_electric_range
+          - entity-battery: sensor.id3_battery_level
 
       # - type: "custom:decluttering-card"
       #   template: map-card
@@ -95,14 +95,14 @@ cards:
               action: none
             styles: !include ../styles/style-card-car-header.yaml
             triggers_update:
-              - sensor.my_id_state_of_charge
+              - sensor.id3_battery_level
             custom_fields:
               subtitle: >
                 [[[
-                  if(states['sensor.my_id_state_of_charge'].state == 'unavailable') { 
+                  if(states['sensor.id3_battery_level'].state == 'unavailable') { 
                     return `<span>Informação indisponível</span>`
                   } else {
-                    let needed_battery = states['sensor.my_id_state_of_charge'].state > 80 ? 100 - states['sensor.my_id_state_of_charge'].state : 80 - states['sensor.my_id_state_of_charge'].state;
+                    let needed_battery = states['sensor.id3_battery_level'].state > 80 ? 100 - states['sensor.id3_battery_level'].state : 80 - states['sensor.id3_battery_level'].state;
                     return `<span>Para um carregamento de ${needed_battery}%</span>`
                   }
                 ]]]
@@ -112,7 +112,7 @@ cards:
               - type: "custom:decluttering-card"
                 template: car-charge-option
                 variables:
-                  - entity: sensor.my_id_state_of_charge
+                  - entity: sensor.id3_battery_level
                   - type: "DC"
                   - icon: mdi:power-plug-outline
                   - rate: "2"
@@ -121,7 +121,7 @@ cards:
               - type: "custom:decluttering-card"
                 template: car-charge-option
                 variables:
-                  - entity: sensor.my_id_state_of_charge
+                  - entity: sensor.id3_battery_level
                   - type: "AC"
                   - icon: mdi:ev-plug-type2
                   - rate: "3.7"
@@ -130,7 +130,7 @@ cards:
               - type: "custom:decluttering-card"
                 template: car-charge-option
                 variables:
-                  - entity: sensor.my_id_state_of_charge
+                  - entity: sensor.id3_battery_level
                   - type: "AC"
                   - icon: mdi:ev-plug-type2
                   - rate: "11"
@@ -139,7 +139,7 @@ cards:
               - type: "custom:decluttering-card"
                 template: car-charge-option
                 variables:
-                  - entity: sensor.my_id_state_of_charge
+                  - entity: sensor.id3_battery_level
                   - type: "DC"
                   - icon: mdi:ev-plug-ccs2
                   - rate: "50"
@@ -168,8 +168,8 @@ cards:
             custom_fields:
               subtitle: >
                 [[[
-                  if(states['sensor.my_id_odometer'].state == 'unavailable') { return `<span>Total indisponível</span>` }
-                  else { return `<span>Total de ${states['sensor.my_id_odometer'].state} KMs</span>` }
+                  if(states['sensor.id3_odometer'].state == 'unavailable') { return `<span>Total indisponível</span>` }
+                  else { return `<span>Total de ${states['sensor.id3_odometer'].state} KMs</span>` }
                 ]]]
 
           - type: custom:apexcharts-card
@@ -184,7 +184,7 @@ cards:
                     left: 0
                     right: 0
             series:
-              - entity: sensor.my_id_odometer
+              - entity: sensor.id3_odometer
                 type: column
                 color: "var(--el-graph-bar-color)"
                 group_by:
@@ -235,9 +235,8 @@ cards:
       - type: "custom:decluttering-card"
         template: climate-vw
         variables:
-          - entity-climate-state: sensor.my_id_climatisation_state
-          - entity-climate-target: input_number.target_vw_id_3_temperature
-          - entity-climate-current: number.my_id_target_climate_temperature
+          - entity-climate: climate.id3_electric_climatisation
+          - entity-climate-goal: input_number.target_vw_id_3_temperature
           - name: "Clima"
           - template: sensors-climate
 

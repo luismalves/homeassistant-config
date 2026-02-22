@@ -9,7 +9,8 @@
     light.luz_cozinha_2: "off"
     light.luz_entrada: "off"
     light.luz_mesa: "off"
-    light.led_strip_living_room:
+    light.led_strip_living_room: "off"
+    light.led_tv:
       state: "on"
 
 #####
@@ -25,7 +26,8 @@
     light.luz_mesa:
       state: "on"
       brightness: 40
-    light.led_strip_living_room: "on"
+    light.led_strip_living_room: "off"
+    light.luz_corredor: "off"
     light.luz_quarto_esquerda: "off"
     light.led_strip_deck: "off"
     light.mi_lamp: "off"
@@ -35,6 +37,7 @@
     light.bedroom_2: "off"
     light.bedroom_1: "off"
     light.luz_suite: "off"
+    light.led_bed: "off"
 
 - name: Cooking time
   icon: mdi:pasta

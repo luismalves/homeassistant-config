@@ -241,6 +241,26 @@ cards:
         view_layout:
           grid-column: span 6
 
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-script
+          - service: select.select_last
+          - entity: select.aqara_pet_feeder_feed
+          - name: "Dar comida 1x"
+
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-script
+          - service: button.press
+          - entity: button.cat_feeder_pause
+          - name: "Pausar comida"
+
       - type: "custom:gap-card"
         height: 10
         view_layout:

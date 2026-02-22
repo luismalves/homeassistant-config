@@ -1,0 +1,22 @@
+#####
+# Lovelace Dashboard
+# For Raspberry pi usage
+#####
+
+## Templates
+button_card_templates: !include lovelace/templates/button_card.yaml
+decluttering_templates: !include lovelace/templates/decluttering.yaml
+
+## Dashboard settings
+title: Dashboard control
+icon: mdi:tablet
+
+swipe_nav:
+  wrap: false
+  animate: fade
+  prevent_default: true
+  swipe_amount: 30
+
+## Views
+views:
+  - !include lovelace/views/start-dashboard.yaml

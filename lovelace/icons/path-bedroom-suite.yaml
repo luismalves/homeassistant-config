@@ -6,7 +6,7 @@ sensors: >
     const sensor1 = `<div class="pill"><ha-icon
       icon="mdi:thermometer-low"
       style="width: 10px;">
-      </ha-icon><span>${states['climate.suite'].attributes.current_temperature}º</span></div>`
+      </ha-icon><span>${states['sensor.environment_3_temperature'].state}º</span></div>`
 
     let sensor2 = "";
     let numlight = states['sensor.lights_on_bedroom_suite'].state;

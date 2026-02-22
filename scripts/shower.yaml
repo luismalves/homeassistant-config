@@ -27,9 +27,9 @@ set_suite_shower_conditions:
             - condition: state
               entity_id: cover.estores_wc_suite
               state: "open"
-            - condition: state
-              entity_id: binary_sensor.estores_suite_privacy_mode
-              state: "off"
+            # - condition: state
+            #   entity_id: binary_sensor.
+            #   state: "off"
           sequence:
             - action: cover.set_cover_position
               target:

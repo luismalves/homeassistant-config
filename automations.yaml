@@ -36,3 +36,43 @@
     data:
       name: google_theme
   mode: single
+- id: '1763936913505'
+  alias: Reolink Motion Recording
+  description: Record to /media/nvr for 60s, re-evaluate if motion continues
+  triggers:
+  - entity_id:
+    - binary_sensor.e1_pro_malu_motion
+    to: 'on'
+    trigger: state
+  conditions: []
+  actions:
+  - repeat:
+      while:
+      - condition: state
+        entity_id: binary_sensor.e1_pro_malu_motion
+        state: 'on'
+      sequence:
+      - action: camera.record
+        data:
+          filename: /media/nvr/e1_{{ now().strftime('%Y%m%d_%H%M%S') }}.mp4
+          duration: 60
+        target:
+          entity_id: camera.e1_pro_malu_fluent
+      - wait_for_trigger:
+        - entity_id: binary_sensor.reolink_e1_pro_motion
+          to: 'off'
+          trigger: state
+        timeout:
+          hours: 0
+          minutes: 0
+          seconds: 60
+          milliseconds: 0
+      - condition: state
+        entity_id: binary_sensor.e1_pro_malu_motion
+        state: 'on'
+      - delay:
+          hours: 0
+          minutes: 0
+          seconds: 1
+          milliseconds: 0
+  mode: restart

@@ -3,29 +3,29 @@ icon_hue: >
 
 sd1: >
   [[[
-    if(states['sensor.my_id_state_of_charge'].state == 'unavailable') {
+    if(states['sensor.id3_battery_level'].state == 'unavailable') {
       return `<span>Informação indisponível</span>`
     } else {
       return `<ha-icon
         icon="mdi:battery"
         style="width: 12px; height: 10px;">
-        </ha-icon><span>${states['sensor.my_id_state_of_charge'].state}%</span>`
+        </ha-icon><span>${states['sensor.id3_battery_level'].state}%</span>`
     }
   ]]]
 
 sd2: >
   [[[
-    if(states['sensor.my_id_charging_state'].state == 'charging')
+    if(states['switch.id3_charging'].state == 'on')
       return `<ha-icon
         icon="mdi:ev-station"
         style="width: 14px; height: 12px;">
-        </ha-icon><span>${Math.round(states['sensor.my_id_charge_power'].state)}kW</span>`
+        </ha-icon><span>${Math.round(states['sensor.id3_charging_power'].state)}kW</span>`
   ]]]
 
 sd3: >
   [[[
-    if(states['sensor.my_id_charging_state'].state == 'charging') {
-      let remaining_min = states['sensor.my_id_remaining_charging_time'].state;
+    if(states['switch.id3_charging'].state == 'on') {
+      let remaining_min = states['sensor.id3_charging_time_left'].state;
       let remaining_text = '';
       if(remaining_min < 60) {
         remaining_text = remaining_min + 'min';
@@ -43,7 +43,7 @@ sd3: >
 
 sd4: >
   [[[
-    if(states['sensor.my_id_door_lock_status'].state == 'unlocked') {
+    if(states['binary_sensor.id3_doors_locked'].state == 'unlocked') {
       return `<ha-icon
         icon="mdi:lock-open-alert-outline"
         style="width: 12px; height: 10px;">

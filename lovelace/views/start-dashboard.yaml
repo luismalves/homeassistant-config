@@ -1,0 +1,261 @@
+title: Home
+path: home
+icon: mdi:home-circle
+background: "var(--background-view-home)"
+
+type: custom:layout-card
+layout_type: custom:grid-layout
+layout:
+  grid-template-columns: 1fr 350px 350px
+  grid-template-rows: min-content
+  grid-gap: 12px
+  padding: 0px
+  max_width: 1066
+cards:
+  ### Column 1
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      margin: 0
+    cards:
+      # - type: "custom:decluttering-card"
+      #   template: section-header
+      #   view_layout:
+      #     grid-column: span 6
+      #   variables:
+      #     - name: "Cozinha"
+      #     - is_small: true
+      #     - script: script.turn_off_kitchen
+      #     - sensor_entity: sensor.lights_on_kitchen
+
+      - !include ../views_items/kitchen/light.luz_entrada.yaml
+
+      - !include ../views_items/kitchen/light.luz_cozinha_2.yaml
+
+      - !include ../views_items/kitchen/light.luz_cozinha_1.yaml
+
+      - !include ../views_items/kitchen/light.wled_entrance.yaml
+
+      - !include ../views_items/kitchen/light.luz_mesa.yaml
+
+      # - type: "custom:decluttering-card"
+      #   template: section-header
+      #   view_layout:
+      #     grid-column: span 6
+      #   variables:
+      #     - name: "Sala de estar"
+      #     - is_small: true
+      #     - script: script.turn_off_living_room
+      #     - sensor_entity: sensor.lights_on_living_room
+
+      - type: "custom:gap-card"
+        height: 10
+        view_layout:
+          grid-column: span 5
+
+      - !include ../views_items/living_room/light.wled_tv.yaml
+
+      - !include ../views_items/living_room/light.light_2.yaml
+
+      - !include ../views_items/living_room/light.wled_sideboard.yaml
+
+  ### Column 2
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      margin: 2px 0px
+    cards:
+      - type: conditional
+        view_layout:
+          grid-column: span 6
+        conditions:
+          - condition: state
+            entity: sensor.show_weather_forecast
+            state: "True"
+        card:
+          type: weather-forecast
+          entity: weather.home
+          forecast_type: daily
+          card_mod:
+            style: !include ../styles/style-card-weather.yaml
+
+      - type: conditional
+        view_layout:
+          grid-column: span 3
+        conditions:
+          - condition: state
+            entity: sensor.show_weather_forecast
+            state: "False"
+        card:
+          type: weather-forecast
+          entity: weather.home
+          card_mod:
+            style: !include ../styles/style-card-weather-no-forecast.yaml
+
+      - type: conditional
+        view_layout:
+          grid-column: span 3
+        conditions:
+          - condition: state
+            entity: sensor.show_weather_forecast
+            state: "False"
+        card:
+          type: custom:mod-card
+          card_mod:
+            style:
+              layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+          card:
+            type: "custom:layout-card"
+            view_layout:
+              grid-column: span 1
+            layout_type: "custom:grid-layout"
+            layout:
+              card_margin: 0px
+              grid-template-columns: 1fr
+              grid-template-rows: 1fr 1fr
+              height: 100%
+              margin: 0
+              padding: 0
+            cards:
+              - type: "custom:decluttering-card"
+                template: sensor-climate-temp
+                variables:
+                  - entity: sensor.environment_1_temperature
+              - type: "custom:decluttering-card"
+                template: sensor-climate-humidity
+                variables:
+                  - entity: sensor.environment_1_humidity
+
+      - type: "custom:vertical-stack-in-card"
+        view_layout:
+          grid-column: span 6
+        horizontal: false
+        card_mod:
+          style: |-
+            ha-card.type-custom-vertical-stack-in-card {
+              background: var(--ha-card-background-es-static);
+              border-radius: 10px;
+            }
+        cards:
+          - template: sensor-energy
+            type: "custom:decluttering-card"
+            variables:
+              - name: Consumo energético
+              - template: sensors-energy
+              - entity: sensor.shelly_pro_3em_total_active_power
+              - entity-bill: sensor.monthly_energy_bill
+          - type: custom:apexcharts-card
+            experimental:
+              color_threshold: true
+            graph_span: 7d
+            span:
+              end: day
+            yaxis:
+              - show: false
+                min: 0
+            series:
+              - entity: sensor.daily_energy_bill
+                type: column
+                color_threshold: !include ../graphs/energy-bill-thresholds.yaml
+                fill_raw: zero
+                group_by:
+                  duration: 1d
+                  func: last
+                  fill: zero
+                  start_with_last: true
+                show:
+                  datalabels: true
+            apex_config: !include ../graphs/energy-bill-apexconfig.yaml
+            card_mod:
+              style: |-
+                ha-card.type-custom-apexcharts-card {
+                  background: transparent;
+                }
+
+  ### Column 3
+  - type: custom:layout-card
+    layout_type: custom:grid-layout
+    layout:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      margin: 0px
+    cards:
+      - type: conditional
+        view_layout:
+          grid-column: span 3
+        conditions:
+          - condition: state
+            entity: sensor.show_weather_forecast
+            state: "True"
+        card:
+          type: "custom:decluttering-card"
+          template: sensor-climate-temp
+          variables:
+            - entity: sensor.environment_1_temperature
+
+      - type: conditional
+        view_layout:
+          grid-column: span 3
+        conditions:
+          - condition: state
+            entity: sensor.show_weather_forecast
+            state: "True"
+        card:
+          type: "custom:decluttering-card"
+          template: sensor-climate-humidity
+          variables:
+            - entity: sensor.environment_1_humidity
+
+      - template: pet-litter-dashboard
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+
+      - template: pet-fountain-dashboard
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+
+      - type: conditional
+        view_layout:
+          grid-column: span 3
+        conditions:
+          - condition: state
+            entity: sensor.show_covers_close
+            state: "True"
+          - condition: numeric_state
+            entity: sensor.covers_open_rooms
+            above: 0
+        card:
+          type: "custom:decluttering-card"
+          template: btn
+          variables:
+            - entity: script.close_all_rooms_covers
+            - name: Fechar quartos
+            - service: script.turn_on
+            - template: shutter
+            - show_type: true
+
+      - type: conditional
+        view_layout:
+          grid-column: span 3
+        conditions:
+          - condition: state
+            entity: sensor.show_covers_close
+            state: "True"
+          - condition: numeric_state
+            entity: sensor.covers_open_all
+            above: 0
+        card:
+          type: "custom:decluttering-card"
+          template: btn
+          variables:
+            - entity: button.close_all_covers
+            - name: Fechar todos
+            - service: button.press
+            - template: shutter
+            - show_type: true

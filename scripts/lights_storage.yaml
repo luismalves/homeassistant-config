@@ -1,0 +1,16 @@
+---
+# Lights group control - Storage
+#
+
+turn_off_storage:
+  alias: Turn off lights of Storage
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: switch.shelly_1pm_mini_storage
+              state: "on"
+          sequence:
+            - action: switch.turn_off
+              entity_id: switch.shelly_1pm_mini_storage
+  mode: single

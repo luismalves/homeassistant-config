@@ -1,0 +1,233 @@
+title: Storage
+path: storage
+#icon: mdi:server
+background: "var(--background-view-house)"
+
+type: custom:vertical-layout
+layout:
+  card_margin: 8px 0px
+  margin: 0px
+  max_width: 350
+cards:
+  - type: "custom:gap-card"
+    height: 15
+
+  - type: "custom:layout-card"
+    layout_type: "custom:grid-layout"
+    layout:
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr
+      grid-template-rows: auto
+      margin: 0px
+    cards:
+      - type: "custom:decluttering-card"
+        template: section-header
+        view_layout:
+          grid-column: span 6
+        variables:
+          - name: "Arrecadação"
+          - script: script.turn_off_storage
+          - sensor_entity: sensor.lights_on_storage
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: light-spot-v2
+          - entity: switch.shelly_1pm_mini_storage
+          - name: "Luz"
+
+      - template: es-speaker
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: speaker-nest-hub
+          - entity: media_player.nest_hub
+          - name: "Home mini"
+          - room: "Arrecadação"
+          - circle-1: entity.attributes.volume_level
+          - circle-2: 0.01
+          - circle-3: "playing"
+          - circle-4: volume_level
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.openclose_storage_contact
+                - icon: mdi:door-open
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.vibration_1_vibration
+                - icon: mdi:vibrate
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.presence_5_occupancy
+                - icon: mdi:motion-sensor
+                - color-state-on: --ha-card-color-name-on
+
+      - template: subsubtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Camera
+
+      - type: picture-entity
+        show_name: true
+        camera_view: auto
+        fit_mode: cover
+        entity: camera.e1_pro_malu_fluent
+        camera_image: camera.e1_pro_malu_fluent
+        view_layout:
+          grid-column: span 4
+        card_mod:
+          style:
+            .: |
+              .footer {
+                color: var(--ha-card-color-state-off) !important;
+                font-size: 12px !important;
+              }
+            hui-image:
+              $: |
+                #brokenImage {
+                  background: url("/static/images/image-broken.svg") center center / 36px no-repeat var(--ha-card-background-es-off) !important;
+                }
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.e1_pro_malu_motion
+                - icon: mdi:camera-wireless
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.e1_pro_malu_day_night_state
+                - icon: mdi:theme-light-dark
+                - color-state-on: --ha-card-color-name-on
+                - state-1: "day"
+                - state-2: "night"
+
+      - template: subsubtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Último movimento
+
+      - type: custom:button-card
+        view_layout:
+          grid-column: span 6
+        entity: sensor.video_frame_extractor_camera_e1_pro_snapshots
+        show_name: false
+        show_icon: false
+        show_state: false
+        tap_action:
+          action: none
+        styles:
+          card:
+            - padding: 0
+            - background: transparent
+          grid:
+            - grid-template-areas: '"picture1 picture2" "picture3 picture3"'
+            - grid-template-columns: 1fr 1fr
+            - grid-template-rows: auto auto
+            - grid-gap: 8px
+        custom_fields:
+          picture1:
+            card:
+              type: picture
+              image: >
+                [[[
+                  if (entity.attributes && entity.attributes.frames && entity.attributes.frames.frame_1) {
+                    return `media-source://media_source/local/nvr/snapshots/${entity.attributes.frames.frame_1}`;
+                  }
+                  return '/static/images/image-broken.svg';
+                ]]]
+          picture2:
+            card:
+              type: picture
+              image: >
+                [[[
+                  if (entity.attributes && entity.attributes.frames && entity.attributes.frames.frame_15) {
+                    return `media-source://media_source/local/nvr/snapshots/${entity.attributes.frames.frame_15}`;
+                  }
+                  return '/static/images/image-broken.svg';
+                ]]]
+          picture3:
+            card:
+              type: picture
+              image: >
+                [[[
+                  if (entity.attributes && entity.attributes.frames && entity.attributes.frames.frame_30) {
+                    return `media-source://media_source/local/nvr/snapshots/${entity.attributes.frames.frame_30}`;
+                  }
+                  return '/static/images/image-broken.svg';
+                ]]]
+
+      - type: "custom:decluttering-card"
+        template: path
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: path-generic
+          - name: "Media library"
+          - path: /media-browser/browser/app%2Cmedia-source%3A%2F%2Fmedia_source/%2Cmedia-source%3A%2F%2Fmedia_source%2Flocal%2Fnvr/%2Cmedia-source%3A%2F%2Fmedia_source%2Flocal%2Fnvr%2Frecordings
+
+      - type: "custom:gap-card"
+        height: 15
+        view_layout:
+          grid-column: span 6
+
+      - template: subsubtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: 3D Printer
+
+      - !include ../views_items/storage/printer_ams.yaml
+      - !include ../views_items/storage/printer.yaml

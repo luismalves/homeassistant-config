@@ -60,7 +60,7 @@ cards:
             - entity-ac: climate.sala
             - name: "A/C a funcionar"
 
-      - !include ../views_items/living_room/light.led_strip_living_room.yaml
+      - !include ../views_items/living_room/light.wled_tv.yaml
 
       - !include ../views_items/living_room/light.light_2.yaml
 
@@ -86,9 +86,9 @@ cards:
             - template: sensor-pill
               type: "custom:decluttering-card"
               variables:
-                - entity: binary_sensor.athom_presence_sensor_1_occupancy
-                - state-1: "on"
-                - state-2: "off"
+                - entity: sensor.presence_living_room
+                - state-1: "Detetado"
+                - state-2: "Vazio"
                 - icon: mdi:motion-sensor
                 - color-state-on: --ha-card-color-name-on
             - template: sensor-pill
@@ -136,7 +136,7 @@ cards:
           grid-column: span 2
         variables:
           - template: switch
-          - entity: switch.askvader_switch
+          - entity: switch.vynil_plug
           - name: Vynil
           - confirmation-text: "De certeza? Confirma que o Vynil não está a funcionar se estiveres a desligar a tomada."
 
@@ -150,6 +150,8 @@ cards:
           - entity: cover.estores_sala
           - name: Estores
 
+      - !include ../views_items/living_room/light.wled_sideboard.yaml
+
       - template: es-light
         view_layout:
           grid-column: span 2
@@ -159,6 +161,38 @@ cards:
           - entity: light.ulanzi_click_matrix
           - name: "Relógio Matrix"
           - info-attribute: states['light.ulanzi_click_matrix'].attributes.brightness
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 1
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: script-sensor
+              type: "custom:decluttering-card"
+              variables:
+                - template: shutter
+                - entity: binary_sensor.estores_sala_breeze_mode
+                - script: script.set_cover_sala_breeze
+                - name: Ventilação
+                - state-1: "on"
+                - state-2: "off"
+
+      # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
+      # - !include ../views_items/living_room/light.wled_xmas.yaml
 
       - type: custom:mod-card
         view_layout:
@@ -199,38 +233,6 @@ cards:
                 - name: Grande
             - type: "custom:gap-card"
               height: 10
-
-      - type: custom:mod-card
-        view_layout:
-          grid-column: span 2
-        card_mod:
-          style:
-            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
-        card:
-          type: "custom:layout-card"
-          view_layout:
-            grid-column: span 1
-          layout_type: "custom:grid-layout"
-          layout:
-            card_margin: 0px
-            grid-template-columns: 1fr
-            grid-template-rows: 1fr 1fr
-            height: 100%
-            margin: 0
-            padding: 0
-          cards:
-            - template: script-sensor
-              type: "custom:decluttering-card"
-              variables:
-                - template: shutter
-                - entity: binary_sensor.estores_sala_breeze_mode
-                - script: script.set_cover_sala_breeze
-                - name: Ventilação
-                - state-1: "on"
-                - state-2: "off"
-
-      # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
-      # - !include ../views_items/living_room/light.wled_xmas.yaml
 
       - template: subsubtitle
         type: "custom:decluttering-card"

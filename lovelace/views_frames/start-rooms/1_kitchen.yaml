@@ -30,4 +30,6 @@
 
         - !include ../../views_items/kitchen/light.luz_cozinha_1.yaml
 
+        - !include ../../views_items/kitchen/light.wled_entrance.yaml
+
         - !include ../../views_items/kitchen/light.luz_mesa.yaml

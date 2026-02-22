@@ -1,0 +1,41 @@
+|
+  ha-card {
+    color: var(--el-es-static-text-color);
+    background: var(--ha-card-background-es-static);
+    margin-top: 0px !important;
+    border-radius: 10px;
+    box-shadow: none;
+    padding: 8px 12px 4px 6px !important;
+  }
+
+  ha-card.short {
+    height: 110px;
+  }
+
+  .temp-attribute .temp,
+  .state {
+    font-weight: 700;
+  }
+
+  .temp-attribute .temp {
+    color: var(--ha-card-color-name-on);
+  }
+
+  .info {
+    padding-top: 0 !important;
+  }
+
+  .temp,
+  .temp span {
+    color: var(--ha-card-color-name-on);
+    font-size: 14px !important;
+  }
+
+  .icon-image {
+    min-width: unset !important;
+    width: 45px;
+  }
+
+  .icon-image > * {
+    flex: unset !important;
+  }

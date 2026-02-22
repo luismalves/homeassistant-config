@@ -32,7 +32,7 @@ turn_off_bedroom_right:
   mode: single
 
 turn_on_bedroom_right:
-  alias: Turn off lights of Bedroom (Right)
+  alias: Turn on lights of Bedroom (Right)
   sequence:
     - choose:
         - conditions:

@@ -1,0 +1,26 @@
+- platform: template
+  sensors:
+    covers_open_rooms:
+      friendly_name: "Estores abertos (quartos)"
+      unit_of_measurement: "open"
+      value_template: >
+        {% set covers = [
+          states.cover.estores_quarto_esquerda,
+          states.cover.estores_quarto_direita,
+          states.cover.estores_suite,
+          states.cover.estores_wc_suite
+          ] %}
+        {{ covers | rejectattr('state','eq','closed') | list | count }}
+
+    covers_open_all:
+      friendly_name: "Estores abertos (todos)"
+      unit_of_measurement: "open"
+      value_template: >
+        {% set covers = [
+          states.cover.estores_sala,
+          states.cover.estores_quarto_esquerda,
+          states.cover.estores_quarto_direita,
+          states.cover.estores_suite,
+          states.cover.estores_wc_suite
+          ] %}
+        {{ covers | rejectattr('state','eq','closed') | list | count }}

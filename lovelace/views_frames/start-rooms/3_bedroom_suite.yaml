@@ -26,3 +26,5 @@
         - !include ../../views_items/bedroom_suite/light.bedroom_1.yaml
 
         - !include ../../views_items/bedroom_suite/light.luz_suite.yaml
+
+        - !include ../../views_items/bedroom_suite/light.wled_bed.yaml

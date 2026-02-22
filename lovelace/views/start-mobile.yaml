@@ -134,6 +134,20 @@ cards:
           - rows-on: 1.5fr 1fr
           - rows-off: 1fr 0.35fr
 
+      # Path Storage
+      - type: "custom:decluttering-card"
+        template: path-division
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: path-storage
+          - entity: sensor.lights_on_storage
+          - name: "Arrecadação"
+          - path: /dashboard-mobile/storage
+          - script: script.turn_off_storage
+          - rows-on: 1.5fr 1fr
+          - rows-off: 1fr 0.35fr
+
       # Path car
       - type: custom:state-switch
         view_layout:
@@ -147,7 +161,7 @@ cards:
             template: path-car
             variables:
               - template: path-car
-              - entity: sensor.my_id_door_lock_status
+              - entity: binary_sensor.id3_doors_locked
               - name: "Carro"
               - navigation_path: /dashboard-mobile/ev
 

@@ -551,7 +551,9 @@ es-light-switch-2:
     custom_fields: !include ../circles/pill-x.yaml
     entity: "[[entity-switch]]"
     name: "[[name]]"
-    hold_action: !include ../holds/hold-action-es-lights-2.yaml
+    hold_action:
+      action: more-info
+      entity: "[[entity]]"
     tap_action:
       action: toggle
     show_icon: false
@@ -896,7 +898,7 @@ path:
     name: "[[name]]"
     tap_action:
       action: navigate
-      navigation_path: "[[navigation_path]]"
+      navigation_path: "[[path]]"
     show_icon: false
     show_state: false
     styles: !include ../styles/style-card-path.yaml
@@ -979,6 +981,24 @@ scene:
   default:
     - name: "[[[ return entity.attributes.friendly_name ]]]"
 
+button:
+  card:
+    entity: "[[script]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: button.press
+      data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+
 script:
   card:
     entity: "[[script]]"
@@ -992,6 +1012,25 @@ script:
     show_state: false
     state: !include ../states/state-btn.yaml
     styles: !include ../styles/style-card-centered.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+
+# Shows same look and feel as scene but is a script
+script-as-scene:
+  card:
+    entity: "[[script]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: script.turn_on
+      data:
+        entity_id: "[[script]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-scene.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
@@ -1152,6 +1191,7 @@ sensor-pill:
     show_icon: true
     show_state: true
     show_name: "[[show-name]]"
+    show_units: "[[show-units]]"
     numeric_precision: "[[numeric_precision]]"
     tap_action:
       action: more-info
@@ -1174,32 +1214,7 @@ sensor-pill:
     - state-2: "off"
     - show-name: false
     - show-overflow: false
-
-# sensor-kitchen:
-#   card:
-#     entity: "[[entity]]"
-#     name: "[[name]]"
-#     show_icon: false
-#     show_state: false
-#     tap_action:
-#       action: none
-#     styles: !include ../styles/style-card-sensors.yaml
-#     template: "[[template]]"
-#     type: "custom:button-card"
-#   default: null
-
-# sensor-living_room:
-#   card:
-#     entity: "[[entity]]"
-#     name: "[[name]]"
-#     show_icon: false
-#     show_state: false
-#     tap_action:
-#       action: none
-#     styles: !include ../styles/style-card-sensors-small.yaml
-#     template: "[[template]]"
-#     type: "custom:button-card"
-#   default: null
+    - show-units: true
 
 sensor-energy:
   card:
@@ -1222,6 +1237,42 @@ sensor-energy:
         }
   default:
     - entity-bill-old: ""
+
+sensor-climate-temp:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: false
+    show_name: "[[show_name]]"
+    tap_action:
+      action: more-info
+    styles: !include ../styles/style-card-climate-state.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - template: sensors-climate-temp
+    - height: 40px
+    - show_name: false
+    - name: ""
+
+sensor-climate-humidity:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: false
+    show_name: "[[show_name]]"
+    tap_action:
+      action: more-info
+    styles: !include ../styles/style-card-climate-state.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - template: sensors-climate-humidity
+    - height: 40px
+    - show_name: false
+    - name: ""
 
 sensor-number:
   card:
@@ -1481,11 +1532,14 @@ btn:
     show_state: false
     state: !include ../states/state-btn.yaml
     styles: !include ../styles/style-card-centered.yaml
+    variables:
+      show_type: "[[show_type]]"
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - action: call-service
     - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - show_type: false
 
 btn-small:
   card:
@@ -1722,7 +1776,7 @@ climate-ac:
     - color-state-on: --ha-card-color-state-on
     - color-state-off: --ha-card-color-state-off
     - state-2: "off"
-    - state-5: "off"
+    - state-5: "^(cool|dry|fan_only|heat|auto)$"
     - info-attribute: entity.attributes.temperature
     - info-state: "on"
 
@@ -1731,7 +1785,7 @@ climate-vw:
     type: custom:vertical-stack-in-card
     cards:
       - type: "custom:button-card"
-        entity: "[[entity-climate-state]]"
+        entity: "[[entity-climate]]"
         name: "[[name]]"
         show_icon: false
         show_state: true
@@ -1742,28 +1796,36 @@ climate-vw:
         variables:
           current_temp: >
             [[[
-              if(states['[[entity-climate-current]]'].state == 'unavailable') { return -1 }
-              else { return `${states['[[entity-climate-current]]'].state}`; }
+              if(entity.state == "off") {
+                if(states['[[entity-climate]]'].attributes.temperature == undefined || states['[[entity-climate]]'].state == 'unavailable') { return -1 }
+                else { return `${states['[[entity-climate]]'].attributes.temperature}`; }
+              } else {
+                if(states['[[entity-climate]]'].attributes.current_temperature == undefined || states['[[entity-climate]]'].state == 'unavailable') { return -1 }
+                else { return `${states['[[entity-climate]]'].attributes.current_temperature}`; }
+              }
+
+              if(states['[[entity-climate]]'].attributes.current_temperature == undefined || states['[[entity-climate]]'].state == 'unavailable') { return -1 }
+              else { return `${states['[[entity-climate]]'].attributes.current_temperature}`; }
             ]]]
           target_temp: >
             [[[
-              if(states['[[entity-climate-target]]'].state == 'unavailable') { return -1 }
-              else { return `${states['[[entity-climate-target]]'].state}`; }
+              if(states['[[entity-climate-goal]]'].state == undefined || states['[[entity-climate-goal]]'].state == 'unavailable') { return -1 }
+              else { return `${states['[[entity-climate-goal]]'].state}`; }
             ]]]
           state: >
             [[[
               return entity.state;
             ]]]
-          state_on: "active"
+          state_off: "off"
 
       - type: custom:mod-card
         card_mod:
           style: |
             ha-card {
-              {% if (is_state('sensor.my_id_climatisation_state','on')) %}  
-              background: var(--ha-card-color-name-on);
-              {% else %}
+              {% if (is_state('climate.id3_electric_climatisation','off')) %}  
               background: var(--ha-card-background-climate-control);
+              {% else %}
+              background: var(--ha-card-color-name-on);
               {% endif %}
               border-radius: 180px !important;
               padding: 4px;              
@@ -1784,7 +1846,7 @@ climate-vw:
                 action: call-service
                 service: input_number.decrement
                 data:
-                  entity_id: "[[entity-climate-target]]"
+                  entity_id: "[[entity-climate-goal]]"
             - type: "custom:button-card"
               aspect_ratio: 1/1
               icon: mdi:play
@@ -1794,9 +1856,13 @@ climate-vw:
                   - background: transparent
               tap_action:
                 action: call-service
-                service: input_number.increment
-                data:
-                  entity_id: "[[service-set-target]]"
+                service: climate.set_temperature
+                service_data:
+                  entity_id: "[[entity-climate]]"
+                  temperature: >
+                    [[[
+                      return parseFloat(states['[[entity-climate-goal]]'].state);
+                    ]]]
             - type: "custom:button-card"
               aspect_ratio: 1/1
               icon: mdi:plus
@@ -1809,15 +1875,15 @@ climate-vw:
                 action: call-service
                 service: input_number.increment
                 data:
-                  entity_id: "[[entity-climate-target]]"
+                  entity_id: "[[entity-climate-goal]]"
     default: null
     card_mod:
       style: |
         ha-card {
-          {% if (is_state('sensor.my_id_climatisation_state','on')) %}  
-          background: var(--ha-card-background-es-on);
-          {% else %}
+          {% if (is_state('climate.id3_electric_climatisation','off')) %}  
           background: var(--ha-card-background-es-off);
+          {% else %}
+          background: var(--ha-card-background-es-on);
           {% endif %}
           height: 165px;
           width: 165px;
@@ -1892,6 +1958,69 @@ pet-litter:
                   line-height: 1;
                 }
 
+pet-litter-dashboard:
+  default: null
+  card:
+    type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          background: var(--ha-card-background-es-static);
+          border-radius: var(--ha-card-border-radius);
+          height: 110px;
+          padding: 4px 8px;
+          position: relative;
+          overflow: hidden;
+        }
+        ha-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-position: bottom;
+          background-image: url('/local/images/pets/litter-1.png');
+          background-size: 125%;
+          z-index: 0;
+          {% set days = states.sensor.days_since_cat_litter_change.state | int(0) %}
+          {% if days < 3 %}
+          filter: grayscale(100%) brightness(0.6);
+          {% endif %}
+        }
+        ha-card > * {
+          position: relative;
+          z-index: 1;
+        }
+    card:
+      type: markdown
+      content: |
+        {% set days = states.sensor.days_since_cat_litter_change.state %}
+
+        <b>{{ days }} dias</b>
+        última troca
+      card_mod:
+        style:
+          .: |
+            ha-card.type-markdown {
+              background: transparent;
+            }
+            ha-markdown {
+              color: var(--white1);
+              font-size: 12px;
+              line-height: 1;
+              padding: 8px 14px 0px !important;
+            }
+          "ha-markdown $ ha-markdown-element": |
+            p {
+              margin: 0;
+            }
+            b {
+              color: var(--white1);
+              font-size: 28px;
+              line-height: 1;
+            }
+
 pet-fountain:
   default: null
   card:
@@ -1962,6 +2091,7 @@ pet-fountain:
               .: |
                 ha-card.type-markdown {
                   background: transparent;
+                  overflow: visible;
                 }
                 ha-markdown {
                   color: var(--white1);
@@ -2006,6 +2136,70 @@ pet-fountain:
                 - numeric_precision: 0
                 - color-state-on: --ha-card-color-name-on
                 - show-overflow: true
+
+pet-fountain-dashboard:
+  default: null
+  card:
+    type: custom:mod-card
+    card_mod:
+      style: |
+        ha-card {
+          background: var(--ha-card-background-es-static);
+          border-radius: var(--ha-card-border-radius);
+          height: 110px;
+          padding: 4px 8px;
+          position: relative;
+          overflow: hidden;
+        }
+        ha-card::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-position-y: 85%;
+          background-image: url('/local/images/pets/fountain.png');
+          background-size: cover;
+          z-index: 0;
+          {% set level = states('sensor.petlibro_plwf105_water_level') | int(0) %}
+          {% if level > 15 %}
+          filter: grayscale(100%) brightness(0.6);
+          {% endif %}
+        }
+        ha-card > * {
+          position: relative;
+          z-index: 1;
+        }
+    card:
+      type: markdown
+      content: |
+        {% set level = states('sensor.petlibro_plwf105_water_level') | int(0) %}
+
+        <b>{{ level }}%</b>
+        nível de água
+      card_mod:
+        style:
+          .: |
+            ha-card.type-markdown {
+              background: transparent;
+            }
+            ha-markdown {
+              color: var(--white1);
+              font-size: 12px;
+              line-height: 1;
+              padding: 8px 14px 0px !important;
+            }
+          "ha-markdown $ ha-markdown-element": |
+            p {
+              margin: 0;
+            }
+            b {
+              color: var(--white1);
+              font-size: 28px;
+              line-height: 1;
+            }
 
 pet-feeder:
   default: null
@@ -2069,7 +2263,7 @@ pet-feeder:
               {'days': 'everyday', 'hour': 8, 'minute': 30, 'size': 2},
               {'days': 'everyday', 'hour': 13, 'minute': 0, 'size': 1},
               {'days': 'everyday', 'hour': 18, 'minute': 0, 'size': 2},
-              {'days': 'everyday', 'hour': 22, 'minute': 0, 'size': 1}
+              {'days': 'everyday', 'hour': 22, 'minute': 0, 'size': 2}
             ] %}
             {% set current_day = now().strftime('%a').lower() %}
             {% set current_weekday = now().weekday() %}
@@ -2195,18 +2389,23 @@ car-state:
             }
       - type: markdown
         content: |
-          {% set timestamp_1 = states.binary_sensor.my_id_car_is_active.last_changed %}
-          {% set timestamp_2 = states.sensor.my_id_state_of_charge.last_changed %}
-          {% if timestamp_1 > timestamp_2 %}
-          Atualizado à {{ (as_timestamp(now()) - as_timestamp(timestamp_1)) | timestamp_custom("%-Hh e %Mmin", false) }}
+          {% set ts_1 = as_timestamp(states('sensor.id3_last_data_refresh'), 0) %}
+          {% set ts_2 = as_timestamp(states('sensor.id3_last_connected'), 0) %}
+          {% set latest = max(ts_1, ts_2) %}
+          {% set diff = as_timestamp(now()) - latest %}
+          {% set hours = (diff / 3600) | int %}
+          {% set minutes = ((diff % 3600) / 60) | int %}
+          {% if hours > 0 %}
+            Atualizado à {{ hours }}h e {{ minutes }}min
           {% else %}
-          Atualizado à {{ (as_timestamp(now()) - as_timestamp(timestamp_2)) | timestamp_custom("%-Hh e %Mmin", false) }}
+            Atualizado à {{ minutes }}min
           {% endif %}
         card_mod:
           style: |
             ha-card.type-markdown {
               background: transparent;
               margin-bottom: -45px;
+              overflow: visible;
             }
             ha-markdown {
               color: var(--el-text-color-light);
@@ -2218,10 +2417,10 @@ car-state:
             }
 
       - type: custom:state-switch
-        entity: sensor.my_id_door_lock_status
+        entity: binary_sensor.id3_doors_locked
         default: default
         states:
-          unlocked:
+          "on":
             type: markdown
             content: |
               <ha-icon icon="mdi:lock-open-alert-outline"></ha-icon> Aberto
@@ -2232,6 +2431,7 @@ car-state:
                   display: flex;
                   justify-content: center;
                   margin-bottom: -45px;
+                  overflow: visible;
                   width: 100%;
                   --mdc-icon-size: 12px;
                 }

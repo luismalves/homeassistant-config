@@ -20,3 +20,10 @@ set_current_litter_full_change:
         entity_id: input_datetime.last_full_cat_litter_change
       data:
         datetime: "{{ now() }}"
+
+feed_pet:
+  alias: "Feed pet"
+  sequence:
+    - action: select.select_last
+      target:
+        entity_id: select.aqara_pet_feeder_feed

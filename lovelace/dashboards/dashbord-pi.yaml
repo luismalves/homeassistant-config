@@ -1,0 +1,10 @@
+#####
+# Lovelace Dashboard
+# For RASPBERRY PI usage
+#####
+
+dashboard-pi:
+  mode: yaml
+  title: Dashboard
+  show_in_sidebar: false
+  filename: ui-lovelace-pi.yaml
