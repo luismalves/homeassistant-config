@@ -23,6 +23,7 @@ blueprints
 python_scripts
 ssh
 tts
+everything-presence-zone-configurator
 
 # Ensure these YAML files are ignored, otherwise your secret data/credentials will leak.
 ip_bans.yaml
