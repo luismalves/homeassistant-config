@@ -239,6 +239,7 @@ cards:
               - template: sensors-energy
               - entity: sensor.shelly_pro_3em_total_active_power
               - entity-bill: sensor.monthly_energy_bill
+              - monthly_entity: sensor.monthly_energy
 
           - type: custom:apexcharts-card
             experimental:
@@ -305,6 +306,26 @@ cards:
           - state-1: "on"
           - state-2: "off"
           - background-on: --purple-gradient, var(--ha-card-background-es-on)
+
+      - type: conditional
+        view_layout:
+          grid-column: span 2
+        conditions:
+          - condition: state
+            entity: sensor.show_covers_close
+            state: "True"
+          - condition: numeric_state
+            entity: sensor.covers_open_all
+            above: 0
+        card:
+          type: "custom:decluttering-card"
+          template: btn
+          variables:
+            - entity: button.close_all_covers
+            - name: Fechar todos
+            - service: button.press
+            - template: shutter
+            - show_type: true
 
       # - template: path
       #   type: "custom:decluttering-card"

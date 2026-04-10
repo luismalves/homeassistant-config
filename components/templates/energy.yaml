@@ -27,6 +27,24 @@
 
         {{ total | round(2) }}
 
+- sensor:
+    - name: "Monthly Energy Bill Storage"
+      unique_id: energy_bill_monthly_storage
+      device_class: monetary
+      unit_of_measurement: "EUR"
+      state: >
+        {% set empty_kwh = 0 | float(0) %}
+        {% set full_kwh = states('sensor.monthly_energy_storage') | float(0) %}
+        {% set empty_rate = states('input_number.energy_cost_per_kwh_empty_hours') | float(0) %}
+        {% set full_rate = states('input_number.energy_cost_per_kwh_full_hours') | float(0) %}
+        {% set discount = states('input_number.energy_discount') | float(0) / 100 %}
+
+        {% set energy_cost = (empty_kwh * empty_rate * (1 - discount)) + (full_kwh * full_rate * (1 - discount)) %}
+        {% set energy_tax = (empty_kwh * 0.001) +  (full_kwh * 0.001) %}
+        {% set total = (energy_cost + energy_tax) * 1.23 %}
+
+        {{ total | round(2) }}
+
     - name: "Daily Energy Bill"
       unique_id: energy_bill_daily
       device_class: monetary
@@ -44,5 +62,24 @@
         {% set energy_tax = (empty_kwh * 0.001) +  (full_kwh * 0.001) %}
         {% set daily_cost = power_daily + access_daily %}
         {% set total = (energy_cost + energy_tax + daily_cost) * 1.23 %}
+
+        {{ total | round(2) }}
+
+    - name: "Daily Energy Bill Storage"
+      unique_id: energy_bill_daily_storage
+      device_class: monetary
+      unit_of_measurement: "EUR"
+      state: >
+        {% set empty_kwh = 0 | float(0) %}
+        {% set full_kwh = states('sensor.daily_energy_storage') | float(0) %}
+        {% set empty_rate = states('input_number.energy_cost_per_kwh_empty_hours') | float(0) %}
+        {% set full_rate = states('input_number.energy_cost_per_kwh_full_hours') | float(0) %}
+        {% set discount = states('input_number.energy_discount') | float(0) / 100 %}
+        {% set power_daily = states('input_number.energy_power_cost_per_day') | float(0) %}
+        {% set access_daily = states('input_number.energy_access_cost_per_day') | float(0) %}
+
+        {% set energy_cost = (empty_kwh * empty_rate * (1 - discount)) + (full_kwh * full_rate * (1 - discount)) %}
+        {% set energy_tax = (empty_kwh * 0.001) +  (full_kwh * 0.001) %}
+        {% set total = (energy_cost + energy_tax) * 1.23 %}
 
         {{ total | round(2) }}

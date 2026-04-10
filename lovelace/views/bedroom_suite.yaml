@@ -222,6 +222,26 @@ cards:
           - entity: light.wled_roupeiro_suite_segment_1
           - name: "Roupeiro Ma"
 
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.plug_2
+          - name: Tomada porta
+          - info-attribute: states['sensor.plug_2_power'].state
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.plug_1
+          - name: Tomada janela
+          - info-attribute: states['sensor.plug_1_power'].state
+
       - template: subsubtitle
         type: "custom:decluttering-card"
         view_layout:

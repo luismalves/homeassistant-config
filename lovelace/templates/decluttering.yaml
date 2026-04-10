@@ -1230,6 +1230,7 @@ sensor-energy:
     variables:
       bill_entity: "[[entity-bill]]"
       bill_entity_old: "[[entity-bill-old]]"
+      monthly_entity: "[[monthly_entity]]"
     card_mod:
       style: |-
         #sd3:empty {
@@ -1237,6 +1238,7 @@ sensor-energy:
         }
   default:
     - entity-bill-old: ""
+    - monthly_entity: sensor.monthly_energy
 
 sensor-climate-temp:
   card:
@@ -2224,7 +2226,7 @@ pet-feeder:
         grid-template-columns: 1fr 1fr 1fr
         grid-template-rows: 1fr min-content
         grid-template-areas: |
-          "sensor-top sensor-top schedule" "sensors-pill sensors-pill sensors-pill"
+          "sensor-top sensor-top schedule" "sensors-pill sensors-pill schedule"
         margin: 0px
         padding: 0px
         height: 100%
@@ -2262,8 +2264,9 @@ pet-feeder:
             {% set feeding_schedule = [
               {'days': 'everyday', 'hour': 8, 'minute': 30, 'size': 2},
               {'days': 'everyday', 'hour': 13, 'minute': 0, 'size': 1},
-              {'days': 'everyday', 'hour': 18, 'minute': 0, 'size': 2},
-              {'days': 'everyday', 'hour': 22, 'minute': 0, 'size': 2}
+              {'days': 'everyday', 'hour': 17, 'minute': 30, 'size': 2},
+              {'days': 'everyday', 'hour': 20, 'minute': 0, 'size': 1},
+              {'days': 'everyday', 'hour': 22, 'minute': 0, 'size': 1}
             ] %}
             {% set current_day = now().strftime('%a').lower() %}
             {% set current_weekday = now().weekday() %}
@@ -2536,8 +2539,8 @@ car-state:
                     }
               - type: markdown
                 content: |
-                  {% if not(is_state('sensor.my_id_remaining_charging_time', '0')) %}
-                  {% set ct = states('sensor.my_id_remaining_charging_time') | int %}
+                  {% if not(is_state('sensor.id3_charging_time_left', '0')) %}
+                  {% set ct = states('sensor.id3_charging_time_left') | int %}
                     {% if ct > 60 %}{{ ct // 60 }}:{{ '{:0>2d}'.format(ct%60) }}min{% else %}{{ct}}min{% endif %} restantes
                   {% endif %}
                 card_mod:
@@ -2549,7 +2552,6 @@ car-state:
                       color: var(--el-text-color-light);
                       font-size: 11px;
                       font-weight: bold;
-                      margin-top: -6px;
                       padding-bottom: 0px !important;
                       padding-top: 0px !important;
                       text-align: center !important;
@@ -2625,3 +2627,41 @@ car-charge-option:
     variables:
       rate: "[[rate]]"
   default: null
+
+car-charge-btn:
+  card:
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: "custom:button-card"
+        entity: "[[entity]]"
+        name: "[[name]]"
+        show_icon: false
+        show_state: true
+        tap_action:
+          action: none
+        styles: !include ../styles/style-card-climate.yaml
+        template: "[[template]]"
+        variables:
+          current_temp: >
+            [[[
+              if(entity.state == "off") {
+                if(states['[[entity-climate]]'].attributes.temperature == undefined || states['[[entity-climate]]'].state == 'unavailable') { return -1 }
+                else { return `${states['[[entity-climate]]'].attributes.temperature}`; }
+              } else {
+                if(states['[[entity-climate]]'].attributes.current_temperature == undefined || states['[[entity-climate]]'].state == 'unavailable') { return -1 }
+                else { return `${states['[[entity-climate]]'].attributes.current_temperature}`; }
+              }
+
+              if(states['[[entity-climate]]'].attributes.current_temperature == undefined || states['[[entity-climate]]'].state == 'unavailable') { return -1 }
+              else { return `${states['[[entity-climate]]'].attributes.current_temperature}`; }
+            ]]]
+          target_temp: >
+            [[[
+              if(states['[[entity-climate-goal]]'].state == undefined || states['[[entity-climate-goal]]'].state == 'unavailable') { return -1 }
+              else { return `${states['[[entity-climate-goal]]'].state}`; }
+            ]]]
+          state: >
+            [[[
+              return entity.state;
+            ]]]
+          state_off: "off"

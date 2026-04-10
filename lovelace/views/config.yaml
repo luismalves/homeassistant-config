@@ -360,8 +360,8 @@ cards:
           grid-column: span 3
         variables:
           - template: btn-script
-          - service: script.toggle
-          - entity: switch.valve_1
-          - name: "Rodar torneira água"
+          - service: button.press
+          - entity: button.pi_screen_reboot
+          - name: "Reboot pi screen"
 
       - !include ../views_frames/config-devices.yaml

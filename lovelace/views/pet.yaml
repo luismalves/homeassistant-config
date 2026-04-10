@@ -261,6 +261,16 @@ cards:
           - entity: button.cat_feeder_pause
           - name: "Pausar comida"
 
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-script
+          - service: button.press
+          - entity: button.start_vacuum_clean_of_wc_maior
+          - name: "Limpar divisão"
+
       - type: "custom:gap-card"
         height: 10
         view_layout:

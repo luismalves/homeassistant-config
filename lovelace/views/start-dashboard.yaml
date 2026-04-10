@@ -148,6 +148,7 @@ cards:
               - template: sensors-energy
               - entity: sensor.shelly_pro_3em_total_active_power
               - entity-bill: sensor.monthly_energy_bill
+              - monthly_entity: sensor.monthly_energy
           - type: custom:apexcharts-card
             experimental:
               color_threshold: true
