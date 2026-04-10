@@ -16,8 +16,8 @@ elements:
         tap_action:
           action: none
         style:
-          top: 77%
-          left: 9.6%
+          top: 60%
+          left: 50%
           text-align: center
           font-size: 0.8em
           background-color: rgba(0,0,0,0)
@@ -25,23 +25,48 @@ elements:
           border-radius: 10px
           pointer-events: none
           color: "#FFFFFF"
-  - type: custom:config-template-card
-    entities:
-      - sensor.p2s_ams_tray_1
-    element:
-      type: state-icon
-      entity: sensor.p2s_ams_tray_1
-      icon: >-
-        ${states['sensor.p2s_ams_tray_1'].state.toLowerCase() != 'empty' ?
-        'fapro:filament-2' : 'mdi:tray' }
-    style:
-      top: 28%
-      left: 21.4%
-      "--paper-item-icon-color": var(--tray_1_color)
-      background-color: rgba(0,0,0,0.5)
-      box-shadow: 0 0 5px 5px var(--tray_1_bg)
-      border-radius: 50px
-      "--mdc-icon-size": 2.4em
+
+  # Tray 1
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_1
+        state_not:
+          - empty
+          - Empty
+          - unavailable
+          - unknown
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_1
+        icon: mdi:circle
+        style:
+          top: 28%
+          left: 21.4%
+          "--state-icon-color": var(--tray_1_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_1_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_1
+        state:
+          - empty
+          - Empty
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_1
+        icon: mdi:tray
+        style:
+          top: 28%
+          left: 21.4%
+          "--state-icon-color": var(--tray_1_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_1_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
   - type: state-label
     entity: sensor.p2s_ams_tray_1
     attribute: type
@@ -56,24 +81,50 @@ elements:
       box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4)
       border-radius: 50px
       pointer-events: none
+      font-weight: 700
       color: "#FFFFFF"
-  - type: custom:config-template-card
-    entities:
-      - sensor.p2s_ams_tray_2
-    element:
-      type: state-icon
-      entity: sensor.p2s_ams_tray_2
-      icon: >-
-        ${states['sensor.p2s_ams_tray_2'].state.toLowerCase() != 'empty' ?
-        'fapro:filament-2' : 'mdi:tray' }
-    style:
-      top: 28%
-      left: 39.7%
-      "--paper-item-icon-color": var(--tray_2_color)
-      background-color: rgba(0,0,0,0.5)
-      box-shadow: 0 0 5px 5px var(--tray_2_bg)
-      border-radius: 50px
-      "--mdc-icon-size": 2.4em
+
+  # Tray 2
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_2
+        state_not:
+          - empty
+          - Empty
+          - unavailable
+          - unknown
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_2
+        icon: mdi:circle
+        style:
+          top: 28%
+          left: 39.7%
+          "--state-icon-color": var(--tray_2_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_2_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_2
+        state:
+          - empty
+          - Empty
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_2
+        icon: mdi:tray
+        style:
+          top: 28%
+          left: 39.7%
+          "--state-icon-color": var(--tray_2_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_2_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
   - type: state-label
     entity: sensor.p2s_ams_tray_2
     attribute: type
@@ -88,24 +139,50 @@ elements:
       box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4)
       border-radius: 50px
       pointer-events: none
+      font-weight: 700
       color: "#FFFFFF"
-  - type: custom:config-template-card
-    entities:
-      - sensor.p2s_ams_tray_3
-    element:
-      type: state-icon
-      entity: sensor.p2s_ams_tray_3
-      icon: >-
-        ${states['sensor.p2s_ams_tray_3'].state.toLowerCase() != 'empty' ?
-        'fapro:filament-2' : 'mdi:tray' }
-    style:
-      top: 28%
-      left: 59.7%
-      "--paper-item-icon-color": var(--tray_3_color)
-      background-color: rgba(0,0,0,0.5)
-      box-shadow: 0 0 5px 5px var(--tray_3_bg)
-      border-radius: 50px
-      "--mdc-icon-size": 2.4em
+
+  # Tray 3
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_3
+        state_not:
+          - empty
+          - Empty
+          - unavailable
+          - unknown
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_3
+        icon: mdi:circle
+        style:
+          top: 28%
+          left: 59.7%
+          "--state-icon-color": var(--tray_3_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_3_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_3
+        state:
+          - empty
+          - Empty
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_3
+        icon: mdi:tray
+        style:
+          top: 28%
+          left: 59.7%
+          "--state-icon-color": var(--tray_3_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_3_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
   - type: state-label
     entity: sensor.p2s_ams_tray_3
     attribute: type
@@ -120,24 +197,50 @@ elements:
       box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4)
       border-radius: 50px
       pointer-events: none
+      font-weight: 700
       color: "#FFFFFF"
-  - type: custom:config-template-card
-    entities:
-      - sensor.p2s_ams_tray_4
-    element:
-      type: state-icon
-      entity: sensor.p2s_ams_tray_4
-      icon: >-
-        ${states['sensor.p2s_ams_tray_4'].state.toLowerCase() != 'empty' ?
-        'fapro:filament-2' : 'mdi:tray' }
-    style:
-      top: 28%
-      left: 79.6%
-      "--paper-item-icon-color": var(--tray_4_color)
-      background-color: rgba(0,0,0,0.5)
-      box-shadow: 0 0 5px 5px var(--tray_4_bg)
-      border-radius: 50px
-      "--mdc-icon-size": 2.4em
+
+  # Tray 4
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_4
+        state_not:
+          - empty
+          - Empty
+          - unavailable
+          - unknown
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_4
+        icon: mdi:circle
+        style:
+          top: 28%
+          left: 79.6%
+          "--state-icon-color": var(--tray_4_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_4_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.p2s_ams_tray_4
+        state:
+          - empty
+          - Empty
+    elements:
+      - type: state-icon
+        entity: sensor.p2s_ams_tray_4
+        icon: mdi:tray
+        style:
+          top: 28%
+          left: 79.6%
+          "--state-icon-color": var(--tray_4_color)
+          background-color: rgba(0,0,0,0.5)
+          box-shadow: 0 0 5px 5px var(--tray_4_bg)
+          border-radius: 50px
+          "--mdc-icon-size": 2.4em
   - type: state-label
     entity: sensor.p2s_ams_tray_4
     attribute: type
@@ -152,42 +255,48 @@ elements:
       box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.4)
       border-radius: 50px
       pointer-events: none
+      font-weight: 700
       color: "#FFFFFF"
+
   - type: conditional
     conditions:
-      - entity: sensor.p2s_print_status
+      - condition: state
+        entity: sensor.p2s_print_status
         state_not: offline
     elements:
       - type: conditional
         conditions:
-          - entity: sensor.p2s_ams_temperature
+          - condition: state
+            entity: sensor.p2s_ams_temperature
             state_not:
               - "unavailable"
               - "unknown"
         elements:
           - entity: sensor.p2s_ams_temperature
-            type: state-badge
+            type: state-label
             style:
               top: 50.75%
-              left: 8%
+              left: 46%
               font-size: 0.75em
-              color: rgba(0,0,0,0)
-      # - type: custom:config-template-card
-      #   entities:
-      #     - sensor.p2s_ams_humidity_index
-      #   element:
-      #     type: state-icon
-      #     entity: sensor.p2s_ams_humidity_index
-      #     icon: >-
-      #       ${'fapro:humidity-level-dark-' +
-      #       states['sensor.p2s_ams_humidity_index'].state + '#fullcolor'}
-      #   style:
-      #     top: 38.5%
-      #     left: 92.5%
-      #     background-color: "#1c1c1c"
-      #     border-radius: 50px
-      #     border: 0.12em solid var(--humidity-border-color)
-      #     "--mdc-icon-size": 2.05em
+              font-weight: 500
+              color: "#FFFFFF"
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: sensor.p2s_ams_humidity_index
+            state_not:
+              - "unavailable"
+              - "unknown"
+        elements:
+          - entity: sensor.p2s_ams_humidity
+            type: state-label
+            style:
+              top: 50.75%
+              left: 55%
+              font-size: 0.75em
+              font-weight: 500
+              color: "#FFFFFF"
+
 image: /local/images/printer/AMS_2.png
 card_mod:
   style: |
@@ -195,7 +304,6 @@ card_mod:
       background: none !important;
       border: none !important;
       box-shadow: none !important;
-      --humidity-border-color: {% if states('sensor.p2s_ams_humidity_index')  != 'unavailable' and states('sensor.p2s_ams_humidity_index') | int > 3 %} rgba(255, 255, 126, 0.5); {% elif states('sensor.p2s_ams_humidity_index')  != 'unavailable' and states('sensor.p2s_ams_humidity_index') | int > 1 %} rgba(228,127,97,1.0); {% else %} rgba(194,74,72,1.0); {% endif %}
       --tray_1_color: {% if is_state_attr('sensor.p2s_ams_tray_1', 'color', '#00000000') %} rgb(255, 255, 255); {% else %} {{state_attr('sensor.p2s_ams_tray_1', 'color') }}; {% endif %}
       --tray_2_color: {% if is_state_attr('sensor.p2s_ams_tray_2', 'color', '#00000000') %} rgb(255, 255, 255); {% else %} {{state_attr('sensor.p2s_ams_tray_2', 'color') }}; {% endif %}
       --tray_3_color: {% if is_state_attr('sensor.p2s_ams_tray_3', 'color', '#00000000') %} rgb(255, 255, 255); {% else %} {{state_attr('sensor.p2s_ams_tray_3', 'color') }}; {% endif %}
@@ -204,4 +312,4 @@ card_mod:
       --tray_2_bg: {% if is_state_attr('sensor.p2s_ams_tray_2', 'active', true) %} rgba(255, 255, 126, 0.5); {% else %} rgba(0,0,0,0.5); {% endif %}
       --tray_3_bg: {% if is_state_attr('sensor.p2s_ams_tray_3', 'active', true) %} rgba(255, 255, 126, 0.5); {% else %} rgba(0,0,0,0.5); {% endif %}
       --tray_4_bg: {% if is_state_attr('sensor.p2s_ams_tray_4', 'active', true) %} rgba(255, 255, 126, 0.5); {% else %} rgba(0,0,0,0.5); {% endif %}
-    }
+      }

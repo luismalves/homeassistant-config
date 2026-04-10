@@ -4,38 +4,10 @@ view_layout:
 elements:
   - type: conditional
     conditions:
-      - entity: sensor.p2s_print_status
+      - condition: state
+        entity: sensor.p2s_print_status
         state_not: offline
     elements:
-      # - type: custom:config-template-card
-      #   entities:
-      #     - sensor.p2s_wi_fi_signal
-      #   element:
-      #     type: state-icon
-      #     entity: sensor.p2s_wi_fi_signal
-      #     icon: |
-      #       ${states['sensor.p2s_wi_fi_signal'].state > -50 ?
-      #       'mdi:wifi-strength-4' :
-      #         states['sensor.p2s_wi_fi_signal'].state > -60 ?
-      #       'mdi:wifi-strength-3' :
-      #         states['sensor.p2s_wi_fi_signal'].state > -67 ?
-      #       'mdi:wifi-strength-2' :
-      #         states['sensor.p2s_wi_fi_signal'].state > -70 ?
-      #       'mdi:wifi-strength-1-alert' : 'mdi:wifi-strength-outline'}
-      #   style:
-      #     left: 67%
-      #     top: 13.2%
-      #     font-size: 0.8em
-      #     color: rgba(0,0,0,0)
-      #     "--paper-item-icon-color": >-
-      #       ${states['sensor.p2s_wi_fi_signal'].state > -50 ?
-      #       'green' :
-      #         states['sensor.p2s_wi_fi_signal'].state > -60 ?
-      #       'yellow' :
-      #         states['sensor.p2s_wi_fi_signal'].state > -67 ?
-      #       'orange' :
-      #         states['sensor.p2s_wi_fi_signal'].state > -70 ?
-      #       'red' : 'red'}
       - entity: light.p2s_chamber_light
         type: state-icon
         style:
@@ -48,70 +20,86 @@ elements:
         type: state-label
         style:
           top: 6.5%
-          left: 23.69%
-          font-size: 1em
+          left: 26.5%
+          font-size: 0.9em
+          font-weight: 500
           color: "#FFFFFF"
       - type: conditional
         conditions:
-          - entity: sensor.p2s_print_status
+          - condition: state
+            entity: sensor.p2s_print_status
             state:
               - running
               - pause
         elements:
           - type: conditional
             conditions:
-              - entity: image.p2s_cover_image
+              - condition: state
+                entity: image.p2s_cover_image
                 state_not: unavailable
             elements:
-              - type: custom:hui-element
-                card_type: picture-entity
-                show_name: false
-                show_state: false
+              - type: image
                 entity: image.p2s_cover_image
+                tap_action:
+                  action: none
                 style:
                   top: 50%
                   left: 50%
-                  transform: translate(-45%, -40%) scale(75%, 75%)
-                  "--ha-card-border-width": 0px
-                  "--ha-card-background": none
-          - entity: sensor.p2s_print_progress
-            type: state-badge
+                  width: 55%
+                  height: 55%
+                  transform: translate(-50%, -50%)
+          - entity: sensor.p2s_remaining_time
+            type: state-label
             tap_action:
               action: none
             style:
-              top: 18.5%
+              top: 13%
+              left: 22%
+              font-size: 0.85em
+              font-weight: 500
+              color: "#FFFFFF"
+          - entity: sensor.p2s_print_progress
+            type: state-label
+            tap_action:
+              action: none
+            style:
+              top: 12.5%
               left: 81%
               font-size: 1em
-              color: rgba(0,0,0,0)
-              "--label-badge-red": "#11739D"
+              font-weight: 600
+              color: "#FFFFFF"
       - entity: sensor.p2s_nozzle_temperature
-        type: state-badge
+        type: state-label
         style:
           top: 31%
           left: 51%
-          font-size: 0.8em
-          color: rgba(0,0,0,0)
+          font-size: 0.85em
+          font-weight: 500
+          color: "#FFFFFF"
       - entity: sensor.p2s_bed_temperature
-        type: state-badge
+        type: state-label
         style:
           top: 78%
           left: 51%
-          font-size: 0.8em
-          color: rgba(0,0,0,0)
+          font-size: 0.85em
+          font-weight: 500
+          color: "#FFFFFF"
       - type: conditional
         conditions:
-          - entity: sensor.p2s_chamber_temperature
+          - condition: state
+            entity: sensor.p2s_chamber_temperature
             state_not:
               - "unavailable"
               - "unknown"
         elements:
           - entity: sensor.p2s_chamber_temperature
-            type: state-badge
+            type: state-label
             style:
-              font-size: 0.8em
+              font-size: 0.85em
+              font-weight: 500
               top: 31%
               left: 19%
-              color: rgba(0,0,0,0)
+              color: "#FFFFFF"
 card_mod:
   style: |
     ha-card {
