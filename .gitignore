@@ -11,6 +11,7 @@
 # Ignore folders:
 .storage
 .cloud
+.cache
 node-red
 google_assistant
 components/shell_command/*
