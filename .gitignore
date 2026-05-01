@@ -17,6 +17,7 @@ google_assistant
 components/shell_command/*
 image
 esphome
+logs
 custom_components
 www/*
 appdaemon/*
