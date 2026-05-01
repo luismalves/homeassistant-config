@@ -43,7 +43,7 @@ frontend:
     - /hacsfiles/lovelace-card-mod/card-mod.js
 
 lovelace:
-  mode: yaml
+  resource_mode: yaml
   resources: !include_dir_list lovelace/resources
   dashboards: !include_dir_merge_named lovelace/dashboards
 
