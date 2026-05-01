@@ -52,6 +52,7 @@ name:
   - margin: var(--margin-name, 0px)
   - font-size: 12px
   - padding-right: 5px
+  - text-align: left
   - text-overflow: none
   - width: calc(100% - 5px)
   - white-space: initial

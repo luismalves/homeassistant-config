@@ -94,7 +94,10 @@
       unit_of_measurement: "on"
       value_template: >
         {% set lights = [
-          states.switch.shelly_1pm_mini_storage
+          states.switch.shelly_1pm_mini_storage,
+          states.light.wled_storage_segment_1,
+          states.light.wled_storage_segment_2,
+          states.light.wled_storage_segment_3
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 

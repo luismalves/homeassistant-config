@@ -18,8 +18,8 @@ info1: >
 
 info2: >
   [[[
-    let state = (states['sensor.id3_charging_rate'].state == 0 || states['sensor.id3_charging_rate'].state == 'unavailable') ? '-' : states['sensor.id3_charging_rate'].state ;
-    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">km/h</span>`
+    let state = (states['sensor.id3_charger_max_ac_setting'].state == 'unavailable') ? '-' : (states['sensor.id3_charger_max_ac_setting'].state == 'reduced' ? 'on' : 'off') ;
+    return `<span>${state}</span><span style="color:var(--el-text-color-light);font-size:10px;font-weight:400;">AC limiter</span>`
   ]]]
 
 info3: >

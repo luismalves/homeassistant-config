@@ -434,7 +434,10 @@ google_theme:
 
   # Ref: https://community.home-assistant.io/t/card-mod-super-charge-your-themes/212176/145
   card-mod-root-yaml: |
-    hui-root$: |
+    .: |
+      .header {
+        box-shadow: none !important;
+      }
       .toolbar {
         text-transform: uppercase;
         padding-left: 0px !important;
@@ -444,32 +447,17 @@ google_theme:
         margin: 8px 0;
         overflow: hidden;
       }
-
-    .: |
-      .header {
-        box-shadow: none !important;
-      }
-
-      ha-tab-group-tab {
+      .toolbar ha-tab-group-tab::part(base) {
         border-radius: 60px !important;
-        color: var(--contrast20) !important;
-        margin: 8px 0;
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-        padding-top: 0px !important;
-        padding-bottom: 0px !important;
         text-transform: uppercase;
-        overflow: hidden;
       }
-
-      ha-tab-group-tab[active] {
-        background: var(--contrast20);
-        border-radius: 60px;
+      .toolbar ha-tab-group-tab[active]::part(base),
+      .toolbar ha-tab-group-tab[aria-selected="true"]::part(base) {
+        background: var(--contrast20) !important;
+        border-radius: 60px !important;
         color: var(--contrast1) !important;
-        height: calc(100% - 18px);
-        margin: 8px 0;
-        padding-left: 18px !important;
-        padding-right: 18px !important;
+        padding-inline-start: 18px !important;
+        padding-inline-end: 18px !important;
       }
 
     hui-state-badge-element:

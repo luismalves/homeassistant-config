@@ -43,7 +43,7 @@ cards:
           grid-column: span 2
         variables:
           - template: speaker-nest-hub
-          - entity: media_player.nest_hub
+          - entity: media_player.home_mini
           - name: "Home mini"
           - room: "Arrecadação"
           - circle-1: entity.attributes.volume_level
@@ -88,6 +88,33 @@ cards:
                 - entity: binary_sensor.presence_5_occupancy
                 - icon: mdi:motion-sensor
                 - color-state-on: --ha-card-color-name-on
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: light-strip
+          - entity: light.wled_storage_segment_1
+          - name: "LED bancada"
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: light-strip
+          - entity: light.wled_storage_segment_2
+          - name: "LED Esq"
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: light-strip
+          - entity: light.wled_storage_segment_3
+          - name: "LED Dir"
 
       - template: subsubtitle
         type: "custom:decluttering-card"

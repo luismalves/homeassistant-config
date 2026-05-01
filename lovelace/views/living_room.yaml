@@ -239,7 +239,7 @@ cards:
         view_layout:
           grid-column: span 6
         variables:
-          - content: Scenes
+          - content: Ações
 
       # Final section of scenes
       - template: scene
@@ -250,6 +250,17 @@ cards:
           - template: scene-movie
           - scene: scene.movie_time
           - entity: scene.movie_time
+
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-script-vacuum
+          - service: button.press
+          - entity: button.start_vacuum_cleaning_main_area
+          - entity-state: vacuum.roborock_qrevo_edge
+          - name: "Limpar divisão"
 
       - type: "custom:gap-card"
         height: 10

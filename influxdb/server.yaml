@@ -6,3 +6,11 @@
 # Database sizes
 - sensor.influxdb_ha_db_size
 - sensor.homeassistant_db_size
+
+# Disk usage
+- sensor.system_monitor_disk_free
+- sensor.system_monitor_disk_use_percent
+
+# Memory usage
+- sensor.memory_free
+- sensor.system_monitor_memory_use_percent

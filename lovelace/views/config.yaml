@@ -332,6 +332,36 @@ cards:
         view_layout:
           grid-column: span 6
         variables:
+          - content: Zigbee
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.zigbee2mqtt_bridge_permit_join
+          - name: Repairing apt.
+
+      - template: es-switch
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.zigbee2mqtt_bridge_permit_join_2
+          - name: Repairing arrec.
+
+      - type: "custom:gap-card"
+        height: 25
+        view_layout:
+          grid-column: span 6
+
+      - template: subtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
           - content: Actions
 
       - template: btn-small-confirmation

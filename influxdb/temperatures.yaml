@@ -3,15 +3,23 @@
 # to store into InfluxDB.
 #####
 
+# Sala de Estar
 - sensor.environment_1_temperature
-- sensor.environment_2_temperature
-
 - sensor.environment_1_humidity
+- sensor.ulanzi_click_temperature
+- sensor.ulanzi_click_humidity
+
+# Suite
+- sensor.environment_3_temperature
+- sensor.environment_3_humidity
+
+# WC Suite
+- sensor.environment_2_temperature
 - sensor.environment_2_humidity
 
+# System / Devices
 - sensor.shelly_roller_left_temperature
 - sensor.shelly_roller_right_temperature
-
 - sensor.cpu_temperature
 - sensor.disk_temperature
 - sensor.homedrive_system_temperature

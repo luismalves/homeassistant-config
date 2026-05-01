@@ -1291,7 +1291,7 @@ sensor-number:
       background_afternoon: "[[background_afternoon]]"
     state_display: >
       [[[
-        if (entity && entity.state === 'unknown' || entity.state === undefined)
+        if (entity && (entity.state === 'unknown' || entity.state === undefined || entity.state === 'unavailable'))
           return "-";
         else
           if ([[localize]]) {
@@ -1556,6 +1556,11 @@ btn-small:
     show_state: false
     state: !include ../states/state-btn.yaml
     styles: !include ../styles/style-card-small.yaml
+    custom_fields:
+      type: >
+        [[[
+          return `<span>action</span>`
+        ]]]
     template: "[[template]]"
     type: "custom:button-card"
   default:
@@ -1594,7 +1599,9 @@ btn-confirmation:
 btn-small-confirmation:
   card:
     entity: "[[entity]]"
-    name: "[[name]]"
+    name: "[[[ if (variables.entity_state) { var s = hass.states[variables.entity_state]; if (s && s.state === 'cleaning') return 'Terminar limpeza'; } return '[[name]]'; ]]]"
+    variables:
+      entity_state: "[[entity-state]]"
     tap_action:
       action: "[[action]]"
       service: "[[service]]"
@@ -1606,12 +1613,18 @@ btn-small-confirmation:
     styles: !include ../styles/style-card-small.yaml
     confirmation:
       text: "[[confirmation-text]]"
+    custom_fields:
+      type: >
+        [[[
+          return `<span>action</span>`
+        ]]]
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - action: call-service
     - confirmation-text: "De certeza?"
     - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - entity-state: ""
     - card-height: 60px
     - grid-gap: 0
     - grid-template-rows: 1fr min-content min-content min-content
@@ -2140,9 +2153,19 @@ pet-fountain:
                 - show-overflow: true
 
 pet-fountain-dashboard:
-  default: null
+  default:
+    - button_entity: button.start_pet_water_pump
   card:
-    type: custom:mod-card
+    type: custom:button-card
+    entity: "[[button_entity]]"
+    tap_action:
+      action: call-service
+      service: button.press
+      data:
+        entity_id: "[[button_entity]]"
+    show_icon: false
+    show_name: false
+    show_state: false
     card_mod:
       style: |
         ha-card {
@@ -2174,34 +2197,50 @@ pet-fountain-dashboard:
           position: relative;
           z-index: 1;
         }
-    card:
-      type: markdown
-      content: |
-        {% set level = states('sensor.petlibro_plwf105_water_level') | int(0) %}
+    styles:
+      card:
+        - padding: 4px 8px
+      grid:
+        - grid-template-areas: '"content"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr
+      custom_fields:
+        content:
+          - align-self: start
+          - justify-self: start
+          - width: 100%
+    custom_fields:
+      content:
+        card:
+          type: markdown
+          content: |
+            {% set level = states('sensor.petlibro_plwf105_water_level') | int(0) %}
 
-        <b>{{ level }}%</b>
-        nível de água
-      card_mod:
-        style:
-          .: |
-            ha-card.type-markdown {
-              background: transparent;
-            }
-            ha-markdown {
-              color: var(--white1);
-              font-size: 12px;
-              line-height: 1;
-              padding: 8px 14px 0px !important;
-            }
-          "ha-markdown $ ha-markdown-element": |
-            p {
-              margin: 0;
-            }
-            b {
-              color: var(--white1);
-              font-size: 28px;
-              line-height: 1;
-            }
+            <b>{{ level }}%</b>
+            nível de água
+          card_mod:
+            style:
+              .: |
+                ha-card.type-markdown {
+                  background: transparent;
+                  overflow-y: hidden;
+                }
+                ha-markdown {
+                  color: var(--white1);
+                  font-size: 12px;
+                  line-height: 1;
+                  padding: 8px 14px 0px !important;
+                  text-align: left;
+                }
+              "ha-markdown $ ha-markdown-element": |
+                p {
+                  margin: 0;
+                }
+                b {
+                  color: var(--white1);
+                  font-size: 28px;
+                  line-height: 1;
+                }
 
 pet-feeder:
   default: null

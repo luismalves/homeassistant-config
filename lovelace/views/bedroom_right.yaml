@@ -158,7 +158,7 @@ cards:
           layout:
             card_margin: 0px
             grid-template-columns: 1fr
-            grid-template-rows: 1fr 2fr
+            grid-template-rows: 1fr 1fr 1fr
             height: 100%
             margin: 0
             padding: 0
@@ -170,6 +170,12 @@ cards:
                 - icon: mdi:door
                 - state-1: "off"
                 - state-2: "on"
+                - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.vibration_2_vibration
+                - icon: mdi:vibrate
                 - color-state-on: --ha-card-color-name-on
 
       - type: "custom:gap-card"

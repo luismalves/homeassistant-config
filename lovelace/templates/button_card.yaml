@@ -314,6 +314,15 @@ btn-restart:
 btn-script:
   custom_fields: !include ../icons/btn-script.yaml
 
+btn-script-vacuum:
+  custom_fields: !include ../icons/btn-script-vacuum.yaml
+
+btn-irrigation:
+  custom_fields: !include ../icons/btn-irrigation.yaml
+
+btn-pet:
+  custom_fields: !include ../icons/btn-pet.yaml
+
 #---------------------#
 # Tasks
 #---------------------#

@@ -19,6 +19,34 @@ cards:
       grid-template-rows: auto
       margin: 0px
     cards:
+      - template: title
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Rega gota-a-gota
+
+      - template: btn-small-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: btn-irrigation
+          - service: button.press
+          - entity: button.start_irrigation_system
+          - name: "Ligar rega"
+          - entity-state: switch.water_valve
+
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-version
+          - entity: sensor.days_since_irrigation
+          - name: "dias última rega"
+          - height: 62px
+
       # - template: title
       #   type: "custom:decluttering-card"
       #   view_layout:

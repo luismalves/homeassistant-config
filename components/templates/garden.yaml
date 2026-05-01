@@ -1,0 +1,21 @@
+#####
+# Garden/Balcony
+#
+#####
+
+# Irrigation
+- sensor:
+    - unique_id: "days_since_irrigation"
+      name: "Dias desde a última rega"
+      state: >
+        {% set last_change = states('switch.water_valve') %}
+        {% if last_change not in ['unknown', 'unavailable'] %}
+          {% set last_datetime = last_change | as_datetime | as_local %}
+          {% set hours_diff = (now() - last_datetime).total_seconds() / 3600 %}
+          {{ (hours_diff / 24) | round(0, 'floor') | int }}
+        {% else %}
+          unavailable
+        {% endif %}
+      unit_of_measurement: "dias"
+      icon: mdi:sprinkler
+      device_class: duration
