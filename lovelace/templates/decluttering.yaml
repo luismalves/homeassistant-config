@@ -1546,7 +1546,14 @@ btn:
 btn-small:
   card:
     entity: "[[entity]]"
-    name: "[[name]]"
+    name: >
+      [[[
+        if (variables.entity_state && variables.name_active) {
+          var s = hass.states[variables.entity_state];
+          if (s && s.state === variables.state_active) return variables.name_active;
+        }
+        return variables.name_default;
+      ]]]
     tap_action:
       action: "[[action]]"
       service: "[[service]]"
@@ -1561,11 +1568,19 @@ btn-small:
         [[[
           return `<span>action</span>`
         ]]]
+    variables:
+      entity_state: "[[entity-state]]"
+      name_default: "[[name]]"
+      name_active: "[[name-active]]"
+      state_active: "[[state-active]]"
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - action: call-service
     - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - entity-state: ""
+    - name-active: ""
+    - state-active: "on"
     - card-height: 60px
     - grid-gap: 0
     - grid-template-rows: 1fr min-content min-content min-content
@@ -1599,9 +1614,19 @@ btn-confirmation:
 btn-small-confirmation:
   card:
     entity: "[[entity]]"
-    name: "[[[ if (variables.entity_state) { var s = hass.states[variables.entity_state]; if (s && s.state === 'cleaning') return 'Terminar limpeza'; } return '[[name]]'; ]]]"
+    name: >
+      [[[
+        if (variables.entity_state && variables.name_active) {
+          var s = hass.states[variables.entity_state];
+          if (s && s.state === variables.state_active) return variables.name_active;
+        }
+        return variables.name_default;
+      ]]]
     variables:
       entity_state: "[[entity-state]]"
+      name_default: "[[name]]"
+      name_active: "[[name-active]]"
+      state_active: "[[state-active]]"
     tap_action:
       action: "[[action]]"
       service: "[[service]]"
@@ -1625,6 +1650,8 @@ btn-small-confirmation:
     - confirmation-text: "De certeza?"
     - name: "[[[ return entity.attributes.friendly_name ]]]"
     - entity-state: ""
+    - name-active: ""
+    - state-active: "cleaning"
     - card-height: 60px
     - grid-gap: 0
     - grid-template-rows: 1fr min-content min-content min-content
@@ -2235,6 +2262,7 @@ pet-fountain-dashboard:
               "ha-markdown $ ha-markdown-element": |
                 p {
                   margin: 0;
+                  text-align: left;
                 }
                 b {
                   color: var(--white1);

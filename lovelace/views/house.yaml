@@ -35,7 +35,9 @@ cards:
           - service: button.press
           - entity: button.start_irrigation_system
           - name: "Ligar rega"
+          - name-active: "Desligar rega"
           - entity-state: switch.water_valve
+          - state-active: "on"
 
       - template: sensor-number
         type: "custom:decluttering-card"

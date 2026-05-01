@@ -271,6 +271,7 @@ cards:
           - entity: button.start_vacuum_clean_of_wc_maior
           - entity-state: vacuum.roborock_qrevo_edge
           - name: "Limpar divisão"
+          - name-active: "Terminar limpeza"
 
       - type: "custom:gap-card"
         height: 10
