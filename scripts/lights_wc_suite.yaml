@@ -18,7 +18,7 @@ turn_off_wc_suite:
               entity_id: light.extrator_wc_suite
               state: "on"
             - condition: template
-              value_template: "{{ not presence_mode }}"
+              value_template: "{{ not (presence_mode | default(false)) }}"
           sequence:
             - action: light.turn_off
               entity_id: light.extrator_wc_suite

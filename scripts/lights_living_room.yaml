@@ -18,7 +18,7 @@ turn_off_living_room:
               entity_id: light.light_2
               state: "on"
             - condition: template
-              value_template: "{{ not presence_mode }}"
+              value_template: "{{ not (presence_mode | default(false)) }}"
           sequence:
             - action: light.turn_off
               entity_id: light.light_2
@@ -36,7 +36,7 @@ turn_off_living_room:
               entity_id: light.wled_sideboard
               state: "on"
             - condition: template
-              value_template: "{{ not presence_mode }}"
+              value_template: "{{ not (presence_mode | default(false)) }}"
           sequence:
             - action: light.turn_off
               entity_id: light.wled_sideboard
