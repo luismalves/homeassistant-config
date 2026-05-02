@@ -66,6 +66,37 @@ cards:
         view_layout:
           grid-column: span 6
 
+      - type: custom:state-switch
+        view_layout:
+          grid-column: span 6
+        entity: template
+        template: "{{ 'night' if (now().hour >= 23 or now().hour < 3) and not is_state('input_boolean.night_state', 'on') else 'day' }}"
+        states:
+          night:
+            template: script-as-scene
+            type: "custom:decluttering-card"
+            view_layout:
+              grid-column: span 6
+            variables:
+              - template: scene-reading
+              - script: script.goodnight
+              - entity: script.goodnight
+              - name: Ativar modo de dormir
+              - glow: true
+              - font-size: 16px
+              - columns: 60px 1fr
+              - justify-self: flex-start
+
+      - type: custom:state-switch
+        view_layout:
+          grid-column: span 6
+        entity: template
+        template: "{{ 'night' if (now().hour >= 23 or now().hour < 3) and not is_state('input_boolean.night_state', 'on') else 'day' }}"
+        states:
+          night:
+            type: custom:gap-card
+            height: 6
+
       # Path Living Room
       - type: "custom:decluttering-card"
         template: path-division

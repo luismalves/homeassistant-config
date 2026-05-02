@@ -1029,12 +1029,37 @@ script-as-scene:
         entity_id: "[[script]]"
     show_icon: false
     show_state: false
+    variables:
+      font_size: "[[font-size]]"
+      columns: "[[columns]]"
+      justify_self: "[[justify-self]]"
     state: !include ../states/state-btn.yaml
     styles: !include ../styles/style-card-scene.yaml
+    extra_styles: >
+      [[[
+        if ([[glow]]) { return `
+          @keyframes scene-glow {
+            0%, 100% {
+              background: rgba(144, 191, 255, 0.15);
+              box-shadow: inset 0 0 0 1px rgba(144, 191, 255, 0.3), 0 0 4px rgba(144, 191, 255, 0.2);
+            }
+            50% {
+              background: rgba(144, 191, 255, 0.45);
+              box-shadow: inset 0 0 0 2px rgba(144, 191, 255, 0.8), 0 0 10px rgba(144, 191, 255, 0.5);
+            }
+          }
+          ha-card { animation: scene-glow 5s ease-in-out infinite !important; }
+        `; }
+        return '';
+      ]]]
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - glow: false
+    - font-size: 12px
+    - columns: 1fr 2fr
+    - justify-self: center
 
 # Shows the state of an script executor with sensor state
 script-sensor:

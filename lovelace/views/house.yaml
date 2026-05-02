@@ -48,6 +48,7 @@ cards:
           - entity: sensor.days_since_irrigation
           - name: "dias última rega"
           - height: 62px
+          - font_state: 20px
 
       # - template: title
       #   type: "custom:decluttering-card"

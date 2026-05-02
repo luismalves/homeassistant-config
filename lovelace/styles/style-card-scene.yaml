@@ -24,14 +24,23 @@ custom_fields:
 
 grid:
   - grid-template-areas: '"icon_hue n"'
-  - grid-template-columns: 1fr 2fr
+  - grid-template-columns: >
+      [[[
+        return variables["columns"] || "1fr 2fr";
+      ]]]
   - grid-template-rows: 1fr
 
 name:
-  - align-self: center
+  - justify-self: >
+      [[[
+        return variables["justify_self"] || "center";
+      ]]]
   - text-align: center
   - font-weight: bold
-  - font-size: 12px
+  - font-size: >
+      [[[
+        return variables["font_size"] || "12px";
+      ]]]
   - line-height: 1
   - color: "var(--el-scene-name-color)"
   - padding: 0 2px
