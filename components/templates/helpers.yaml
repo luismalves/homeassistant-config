@@ -1,0 +1,14 @@
+#####
+# Helper sensors
+#
+#####
+
+- sensor:
+  - name: Is a mood toggle activated
+    unique_id: any_mood_enabled
+    state: >
+      {% if is_state('input_select.lights_mood', 'none') %}
+        off
+      {% else %}
+        on
+      {% endif %}

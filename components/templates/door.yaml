@@ -11,3 +11,45 @@
     - name: "Main door lastly open"
       unique_id: door_open_last_timestamp
       state: "{{ now().timestamp() | float(0) }}"
+
+- sensor:
+  - name: Main door status
+    unique_id: door_openclose
+    state: >-
+      {% if is_state('binary_sensor.openclose_main_contact', 'on') %}
+        Aberta
+      {% elif is_state('binary_sensor.openclose_main_contact', 'off') %}
+        Fechada
+      {% else %}
+        Erro
+      {% endif %}
+
+  - name: Main door open for
+    unique_id: door_open_for
+    unit_of_measurement: "minutes"
+    state: >
+      {% set t = 0 if (states('binary_sensor.openclose_main_contact') == 'off' or states('binary_sensor.openclose_main_contact') == 'unavailable') else now().timestamp() - states.binary_sensor.openclose_main_contact.last_changed.timestamp() %}
+      {{ t | timestamp_custom('%M', false) | int }}
+
+  - name: Main door lastly open
+    unique_id: door_open_last
+    unit_of_measurement: "minutes"
+    state: >
+      {% set last_timestamp = states('sensor.main_door_lastly_open') %}
+      {% set t = 0 if states('binary_sensor.openclose_main_contact') == 'on' else (now().timestamp() | float(0) - last_timestamp | float(0) if last_timestamp != 'unknown' else -1) %}
+      {% if t == -1 %}
+        -1
+      {% else %}
+        {% set h = t | timestamp_custom('%H', false) | int %}
+        {% set m = t | timestamp_custom('%M', false) | int %}
+        {{ h * 60 + m | int }}
+      {% endif %}
+
+  - name: Show door times in frontend
+    unique_id: door_show_time
+    state: >-
+      {% if now().timestamp() - as_timestamp(states('sensor.uptime')) > 3600.0 and (states('sensor.door_open_last') | int < 60 and states('sensor.door_open_last') | int >= 0) or states('sensor.door_open_for') | int > 0%}
+        on
+      {% else %}
+        off
+      {% endif %}

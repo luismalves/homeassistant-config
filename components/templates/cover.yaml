@@ -38,3 +38,40 @@
       state: >
         {% set position = state_attr('cover.estores_quarto_direita', 'current_position') | int(0) %}
         {{ position > 1 and position <= 23 }}
+
+- sensor:
+  - name: Shutters status
+    unique_id: shutters_status
+    state: >-
+      {% if is_state('input_boolean.open_blinds_temporarly', 'on') %}
+        Temp. abertos
+      {% elif state_attr("cover.shelly_roller_left","current_position") == 0 and state_attr("cover.shelly_roller_right","current_position") == 0 %}
+        Fechados
+      {% else %}
+        Abertos
+      {% endif %}
+
+  - name: Estores abertos (quartos)
+    unique_id: covers_open_rooms
+    unit_of_measurement: "open"
+    state: >
+      {% set covers = [
+        states.cover.estores_quarto_esquerda,
+        states.cover.estores_quarto_direita,
+        states.cover.estores_suite,
+        states.cover.estores_wc_suite
+        ] %}
+      {{ covers | rejectattr('state','eq','closed') | list | count }}
+
+  - name: Estores abertos (todos)
+    unique_id: covers_open_all
+    unit_of_measurement: "open"
+    state: >
+      {% set covers = [
+        states.cover.estores_sala,
+        states.cover.estores_quarto_esquerda,
+        states.cover.estores_quarto_direita,
+        states.cover.estores_suite,
+        states.cover.estores_wc_suite
+        ] %}
+      {{ covers | rejectattr('state','eq','closed') | list | count }}

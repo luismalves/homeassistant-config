@@ -1,0 +1,53 @@
+#####
+# Proxmox VM switches
+#
+#####
+
+- switch:
+  - name: Ubuntu Desktop VM
+    unique_id: proxmox_ubuntudesktop_vm
+    state: "{{ is_state('binary_sensor.alpaca_ubuntu_desktop_running', 'on') }}"
+    turn_on:
+      - action: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 103
+          command: start
+    turn_off:
+      - action: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 103
+          command: stop
+
+  - name: Ubuntu Server VM
+    unique_id: proxmox_ubuntuserver_vm
+    state: "{{ is_state('binary_sensor.alpaca_ubuntu_server_running', 'on') }}"
+    turn_on:
+      - action: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 105
+          command: start
+    turn_off:
+      - action: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 105
+          command: stop
+
+  - name: Windows 10 VM
+    unique_id: proxmox_win10_vm
+    state: "{{ is_state('binary_sensor.alpaca_win10_running', 'on') }}"
+    turn_on:
+      - action: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 201
+          command: start
+    turn_off:
+      - action: shell_command.proxmox_control_vm
+        data:
+          type: qemu
+          vm: 201
+          command: stop

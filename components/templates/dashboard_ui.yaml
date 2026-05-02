@@ -1,0 +1,17 @@
+#####
+# Dashboard UI visibility sensors
+#
+#####
+
+- sensor:
+  - name: Show Weather Forecast
+    unique_id: show_weather_forecast
+    state: >-
+      {% set hour = now().hour %}
+      {{ (hour >= 6 and hour < 10) or (hour >= 19 and hour < 22) }}
+
+  - name: Show Covers Close Buttons
+    unique_id: show_covers_close
+    state: >-
+      {% set hour = now().hour %}
+      {{ hour >= 17 or hour < 5 }}
