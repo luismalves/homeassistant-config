@@ -10,6 +10,9 @@ elements:
       - condition: state
         state_not: unknown
         entity: binary_sensor.p2s_ams_active
+      - condition: state
+        entity: binary_sensor.p2s_ams_drying
+        state: "off"
     elements:
       - type: state-label
         entity: binary_sensor.p2s_ams_active
@@ -25,6 +28,39 @@ elements:
           border-radius: 10px
           pointer-events: none
           color: "#FFFFFF"
+
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: binary_sensor.p2s_ams_drying
+        state: "on"
+    elements:
+      - type: custom:button-card
+        entity: sensor.p2s_ams_remaining_drying_time
+        show_icon: false
+        show_name: false
+        show_state: false
+        show_label: true
+        label: >
+          [[[
+            return 'Drying · ' + helpers.localize(entity);
+          ]]]
+        tap_action:
+          action: none
+        style:
+          top: 60%
+          left: 50%
+        styles:
+          card:
+            - background-color: transparent
+            - padding: 2px
+            - border: none
+            - box-shadow: none
+            - width: fit-content
+          label:
+            - color: "#FFFFFF"
+            - font-size: 0.75em
+            - font-weight: 400
 
   # Tray 1
   - type: conditional
@@ -48,6 +84,37 @@ elements:
           box-shadow: 0 0 5px 5px var(--tray_1_bg)
           border-radius: 50px
           "--mdc-icon-size": 2.4em
+      - type: custom:button-card
+        entity: sensor.p2s_ams_tray_1
+        show_icon: false
+        show_name: false
+        show_state: false
+        show_label: true
+        label: >
+          [[[
+            const remain = entity.attributes.remain;
+            const weight = parseInt(entity.attributes.tray_weight) || 1000;
+            return Math.round((remain - 0.5) * weight / 100) + 'g';
+          ]]]
+        tap_action:
+          action: none
+        style:
+          top: 17%
+          left: 21.4%
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.85)
+            - border-radius: 50px
+            - padding: 2px 6px
+            - min-width: 35px
+            - border: none
+            - box-shadow: none
+          label:
+            - color: "#FFFFFF"
+            - font-size: 0.65em
+            - font-weight: 400
+            - line-height: 0.9
+            - overflow: visible
   - type: conditional
     conditions:
       - condition: state
@@ -106,6 +173,37 @@ elements:
           box-shadow: 0 0 5px 5px var(--tray_2_bg)
           border-radius: 50px
           "--mdc-icon-size": 2.4em
+      - type: custom:button-card
+        entity: sensor.p2s_ams_tray_2
+        show_icon: false
+        show_name: false
+        show_state: false
+        show_label: true
+        label: >
+          [[[
+            const remain = entity.attributes.remain;
+            const weight = parseInt(entity.attributes.tray_weight) || 1000;
+            return Math.round((remain - 0.5) * weight / 100) + 'g';
+          ]]]
+        tap_action:
+          action: none
+        style:
+          top: 17%
+          left: 39.7%
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.85)
+            - border-radius: 50px
+            - padding: 2px 6px
+            - min-width: 35px
+            - border: none
+            - box-shadow: none
+          label:
+            - color: "#FFFFFF"
+            - font-size: 0.65em
+            - font-weight: 400
+            - line-height: 0.9
+            - overflow: visible
   - type: conditional
     conditions:
       - condition: state
@@ -164,6 +262,37 @@ elements:
           box-shadow: 0 0 5px 5px var(--tray_3_bg)
           border-radius: 50px
           "--mdc-icon-size": 2.4em
+      - type: custom:button-card
+        entity: sensor.p2s_ams_tray_3
+        show_icon: false
+        show_name: false
+        show_state: false
+        show_label: true
+        label: >
+          [[[
+            const remain = entity.attributes.remain;
+            const weight = parseInt(entity.attributes.tray_weight) || 1000;
+            return Math.round((remain - 0.5) * weight / 100) + 'g';
+          ]]]
+        tap_action:
+          action: none
+        style:
+          top: 17%
+          left: 59.7%
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.85)
+            - border-radius: 50px
+            - padding: 2px 6px
+            - min-width: 35px
+            - border: none
+            - box-shadow: none
+          label:
+            - color: "#FFFFFF"
+            - font-size: 0.65em
+            - font-weight: 400
+            - line-height: 0.9
+            - overflow: visible
   - type: conditional
     conditions:
       - condition: state
@@ -222,6 +351,37 @@ elements:
           box-shadow: 0 0 5px 5px var(--tray_4_bg)
           border-radius: 50px
           "--mdc-icon-size": 2.4em
+      - type: custom:button-card
+        entity: sensor.p2s_ams_tray_4
+        show_icon: false
+        show_name: false
+        show_state: false
+        show_label: true
+        label: >
+          [[[
+            const remain = entity.attributes.remain;
+            const weight = parseInt(entity.attributes.tray_weight) || 1000;
+            return Math.round((remain - 0.5) * weight / 100) + 'g';
+          ]]]
+        tap_action:
+          action: none
+        style:
+          top: 17%
+          left: 79.6%
+        styles:
+          card:
+            - background-color: rgba(0,0,0,0.85)
+            - border-radius: 50px
+            - padding: 2px 6px
+            - min-width: 35px
+            - border: none
+            - box-shadow: none
+          label:
+            - color: "#FFFFFF"
+            - font-size: 0.65em
+            - font-weight: 400
+            - line-height: 0.9
+            - overflow: visible
   - type: conditional
     conditions:
       - condition: state
