@@ -16,7 +16,7 @@
         {% else %}
           unavailable
         {% endif %}
-      unit_of_measurement: "dias"
+      unit_of_measurement: "d"
       icon: mdi:delete-variant
       device_class: duration
 
@@ -32,7 +32,7 @@
         {% else %}
           unavailable
         {% endif %}
-      unit_of_measurement: "dias"
+      unit_of_measurement: "d"
       icon: mdi:delete-variant
       device_class: duration
 
@@ -64,7 +64,7 @@
           {% set days_diff = (now() - last_changed).days %}
           {{ days_diff }}
         {% endif %}
-      unit_of_measurement: "dias"
+      unit_of_measurement: "d"
       device_class: duration
       icon: "mdi:calendar-clock"
 
