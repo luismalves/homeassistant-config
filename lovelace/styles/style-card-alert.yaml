@@ -1,4 +1,5 @@
 >
+  ha-card.type-markdown,
   :host(.type-markdown) ha-card {
     height: min-content;
     background: var(--ha-card-background-alert);

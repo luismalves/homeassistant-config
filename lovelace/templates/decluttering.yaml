@@ -2157,13 +2157,14 @@ pet-litter:
           view_layout:
             grid-area: sensor-top
           content: |
-            {% set days = states.sensor.days_since_cat_litter_change.state %}
+            {% set days = states('sensor.days_since_cat_litter_change') %}
 
             <b>{{ days }} dias</b>
             desde a última revisão
           card_mod:
             style:
               .: |
+                ha-card.type-markdown,
                 :host(.type-markdown) ha-card {
                   background: transparent;
                 }
@@ -2208,7 +2209,7 @@ pet-litter-dashboard:
           background-image: url('/local/images/pets/litter-1.png');
           background-size: 125%;
           z-index: 0;
-          {% set days = states.sensor.days_since_cat_litter_change.state | int(0) %}
+          {% set days = states('sensor.days_since_cat_litter_change') | int(0) %}
           {% if days < 3 %}
           filter: grayscale(100%) brightness(0.6);
           {% endif %}
@@ -2220,13 +2221,14 @@ pet-litter-dashboard:
     card:
       type: markdown
       content: |
-        {% set days = states.sensor.days_since_cat_litter_change.state %}
+        {% set days = states('sensor.days_since_cat_litter_change') %}
 
         <b>{{ days }} dias</b>
         última troca
       card_mod:
         style:
           .: |
+            ha-card.type-markdown,
             :host(.type-markdown) ha-card {
               background: transparent;
             }
@@ -2314,6 +2316,7 @@ pet-fountain:
           card_mod:
             style:
               .: |
+                ha-card.type-markdown,
                 :host(.type-markdown) ha-card {
                   background: transparent;
                   overflow: visible;
@@ -2506,6 +2509,7 @@ pet-feeder:
           card_mod:
             style:
               .: |
+                ha-card.type-markdown,
                 :host(.type-markdown) ha-card {
                   background: transparent;
                 }
@@ -2569,6 +2573,7 @@ pet-feeder:
           card_mod:
             style:
               .: |
+                ha-card.type-markdown,
                 :host(.type-markdown) ha-card {
                   background: transparent;
                 }
