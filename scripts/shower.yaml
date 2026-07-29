@@ -24,12 +24,11 @@ set_suite_shower_conditions:
     # Handle WC cover with choose block
     - choose:
         - conditions:
-            - condition: state
-              entity_id: cover.estores_wc_suite
-              state: "open"
-            # - condition: state
-            #   entity_id: binary_sensor.
-            #   state: "off"
+            - condition: not
+              conditions:
+                - condition: state
+                  entity_id: cover.estores_wc_suite
+                  state: "closed"
           sequence:
             - action: cover.set_cover_position
               target:

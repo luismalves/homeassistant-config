@@ -100,6 +100,9 @@ open_bedroom_cover_morning:
   icon: mdi:window-shutter
 
 # Privacy positions
+# NOTE: the "position > 23 and <= X" checks below must stay in sync with
+# binary_sensor.estores_*_privacy_mode in components/templates/cover.yaml,
+# and the lower bound (23) must match the breeze scripts' position further down.
 set_cover_suite_privacy:
   sequence:
     - choose:
@@ -134,14 +137,14 @@ set_cover_suite_privacy:
   alias: Open suite cover to privacy position
   icon: mdi:window-shutter
 
-set_cover_living_room_privacy:
+set_cover_sala_privacy:
   sequence:
     - choose:
         - conditions:
             - condition: template
               value_template: >
                 {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
-                {{ position > 23 and position <= 65 }}
+                {{ position > 23 and position <= 55 }}
             - condition: sun
               after: sunset
               before: sunrise
@@ -152,7 +155,7 @@ set_cover_living_room_privacy:
             - condition: template
               value_template: >
                 {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
-                {{ position > 23 and position <= 65 }}
+                {{ position > 23 and position <= 55 }}
             - condition: sun
               after: sunrise
               before: sunset
@@ -169,6 +172,8 @@ set_cover_living_room_privacy:
   icon: mdi:window-shutter
 
 # Night breeze positions
+# NOTE: the "position: 23" values below must stay in sync with the upper
+# bound of binary_sensor.estores_*_breeze_mode in components/templates/cover.yaml.
 set_cover_suite_breeze:
   sequence:
     - action: cover.set_cover_position
@@ -179,7 +184,7 @@ set_cover_suite_breeze:
   alias: Open suite cover to breeze position
   icon: mdi:window-shutter
 
-set_cover_living_room_breeze:
+set_cover_sala_breeze:
   sequence:
     - action: cover.set_cover_position
       entity_id: cover.estores_sala
