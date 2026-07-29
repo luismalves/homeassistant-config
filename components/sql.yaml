@@ -5,7 +5,6 @@
 
 - name: homeassistant_db Size
   db_url: !secret recorder_db_url
-  scan_interval: 300
   query: "SELECT table_schema AS 'homeassistant', ROUND(SUM( data_length + index_length ) / 1024 / 1024, 1) AS 'size_mb' FROM information_schema.TABLES WHERE table_schema='homeassistant'"
   column: "size_mb"
   unit_of_measurement: MB

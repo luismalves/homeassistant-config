@@ -7,30 +7,24 @@
 - sensor:
     - unique_id: "days_since_cat_litter_change"
       name: "Dias desde a última revisão da areia"
+      availability: "{{ states('input_datetime.last_cat_litter_change') not in ['unknown', 'unavailable'] }}"
       state: >
         {% set last_change = states('input_datetime.last_cat_litter_change') %}
-        {% if last_change not in ['unknown', 'unavailable'] %}
-          {% set last_datetime = last_change | as_datetime | as_local %}
-          {% set hours_diff = (now() - last_datetime).total_seconds() / 3600 %}
-          {{ (hours_diff / 24) | round(0, 'floor') | int }}
-        {% else %}
-          unavailable
-        {% endif %}
+        {% set last_datetime = last_change | as_datetime | as_local %}
+        {% set hours_diff = (now() - last_datetime).total_seconds() / 3600 %}
+        {{ (hours_diff / 24) | round(0, 'floor') | int }}
       unit_of_measurement: "d"
       icon: mdi:delete-variant
 
 - sensor:
     - unique_id: "days_since_cat_litter_full_change"
       name: "Dias desde a última troca total da areia"
+      availability: "{{ states('input_datetime.last_full_cat_litter_change') not in ['unknown', 'unavailable'] }}"
       state: >
         {% set last_change = states('input_datetime.last_full_cat_litter_change') %}
-        {% if last_change not in ['unknown', 'unavailable'] %}
-          {% set last_datetime = last_change | as_datetime | as_local %}
-          {% set hours_diff = (now() - last_datetime).total_seconds() / 3600 %}
-          {{ (hours_diff / 24) | round(0, 'floor') | int }}
-        {% else %}
-          unavailable
-        {% endif %}
+        {% set last_datetime = last_change | as_datetime | as_local %}
+        {% set hours_diff = (now() - last_datetime).total_seconds() / 3600 %}
+        {{ (hours_diff / 24) | round(0, 'floor') | int }}
       unit_of_measurement: "d"
       icon: mdi:delete-variant
 
@@ -64,14 +58,11 @@
 - sensor:
     - unique_id: "days_since_last_tank_disconnection"
       name: "Days since last tank disconnection"
+      availability: "{{ states('binary_sensor.petlibro_plwf105_tank_removed') not in ['unavailable', 'unknown'] }}"
       state: >
-        {% if states('binary_sensor.petlibro_plwf105_tank_removed') in ['unavailable', 'unknown'] %}
-          unavailable
-        {% else %}
-          {% set last_changed = states.binary_sensor.petlibro_plwf105_tank_removed.last_changed %}
-          {% set days_diff = (now() - last_changed).days %}
-          {{ days_diff }}
-        {% endif %}
+        {% set last_changed = states.binary_sensor.petlibro_plwf105_tank_removed.last_changed %}
+        {% set days_diff = (now() - last_changed).days %}
+        {{ days_diff }}
       unit_of_measurement: "d"
       icon: "mdi:calendar-clock"
 

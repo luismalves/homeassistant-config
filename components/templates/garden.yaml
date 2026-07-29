@@ -7,12 +7,9 @@
 - sensor:
     - unique_id: "days_since_irrigation"
       name: "Horas desde a última rega"
+      availability: "{{ states('switch.water_valve') not in ['unknown', 'unavailable'] }}"
       state: >
-        {% if states('switch.water_valve') not in ['unknown', 'unavailable'] %}
-          {% set last_datetime = states.switch.water_valve.last_changed | as_local %}
-          {{ ((now() - last_datetime).total_seconds() / 3600) | round(0, 'floor') | int }}
-        {% else %}
-          unavailable
-        {% endif %}
+        {% set last_datetime = states.switch.water_valve.last_changed | as_local %}
+        {{ ((now() - last_datetime).total_seconds() / 3600) | round(0, 'floor') | int }}
       unit_of_measurement: "h"
       icon: mdi:sprinkler
