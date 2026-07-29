@@ -181,27 +181,22 @@ cards:
         view_layout:
           grid-column: span 6
 
-      # - template: subsubtitle
-      #   type: "custom:decluttering-card"
-      #   view_layout:
-      #     grid-column: span 6
-      #   variables:
-      #     - content: Scenes
+      - template: subsubtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Ações
 
-      # - template: scene
-      #   type: "custom:decluttering-card"
-      #   view_layout:
-      #     grid-column: span 3
-      #   variables:
-      #     - template: scene-hobby
-      #     - scene: scene.hooby_time
-      #     - entity: scene.hooby_time
-
-      # - template: scene
-      #   type: "custom:decluttering-card"
-      #   view_layout:
-      #     grid-column: span 3
-      #   variables:
-      #     - template: scene-gamming
-      #     - scene: scene.gamming_time
-      #     - entity: scene.gamming_time
+      - template: btn-small
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: ac
+          - service: button.press
+          - entity: button.start_office_climate_bedroom_left
+          - name: "A climatizar"
+          - name-active: "Climatizar"
+          - entity-state: climate.quarto_esquerda
+          - state-active: "off"

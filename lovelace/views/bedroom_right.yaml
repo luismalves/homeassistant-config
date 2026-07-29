@@ -200,7 +200,20 @@ cards:
         view_layout:
           grid-column: span 6
         variables:
-          - content: Scenes
+          - content: Ações
+
+      - template: btn-small
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: ac
+          - service: button.press
+          - entity: button.start_office_climate_bedroom_right
+          - name: "A climatizar"
+          - name-active: "Climatizar"
+          - entity-state: climate.quarto_direita
+          - state-active: "off"
 
       - template: scene
         type: "custom:decluttering-card"
