@@ -18,7 +18,6 @@
         {% endif %}
       unit_of_measurement: "d"
       icon: mdi:delete-variant
-      device_class: duration
 
 - sensor:
     - unique_id: "days_since_cat_litter_full_change"
@@ -34,7 +33,16 @@
         {% endif %}
       unit_of_measurement: "d"
       icon: mdi:delete-variant
-      device_class: duration
+
+# Alerts
+- sensor:
+    - unique_id: "pet_alerts"
+      name: "Alertas do gato"
+      state: >
+        {% set litter_alert = states('sensor.days_since_cat_litter_change') | int(0) >= 3 %}
+        {% set water_alert = states('sensor.petlibro_plwf105_water_level') | float(100) < 15 %}
+        {{ [litter_alert, water_alert] | select('equalto', true) | list | count }}
+      icon: mdi:alert-circle
 
 # Fountain
 - sensor:
@@ -65,7 +73,6 @@
           {{ days_diff }}
         {% endif %}
       unit_of_measurement: "d"
-      device_class: duration
       icon: "mdi:calendar-clock"
 
 # Feeder

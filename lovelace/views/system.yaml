@@ -10,7 +10,7 @@ layout:
   max_width: 700
 cards:
   - type: "custom:gap-card"
-    height: 20
+    height: 5
 
   - template: title
     type: "custom:decluttering-card"

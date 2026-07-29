@@ -2,7 +2,8 @@
 # Living room
 #####
 
-- name: Movie time
+- id: movie_time
+  name: Movie time
   icon: mdi:theater
   entities:
     light.luz_cozinha_1: "off"
@@ -17,7 +18,8 @@
 # Kitchen
 #####
 
-- name: Meal time
+- id: meal_time
+  name: Meal time
   icon: mdi:food-fork-drink
   entities:
     light.luz_cozinha_1: "off"
@@ -39,7 +41,8 @@
     light.luz_suite: "off"
     light.led_bed: "off"
 
-- name: Cooking time
+- id: cooking_time
+  name: Cooking time
   icon: mdi:pasta
   entities:
     light.luz_cozinha_1:
@@ -54,7 +57,8 @@
 # Bedroom right
 #####
 
-- name: Hooby time
+- id: hobby_time
+  name: Hooby time
   icon: mdi:gamepad-variant-outline
   entities:
     light.wled_standingdesk:
@@ -67,7 +71,8 @@
       color_temp: 270
     light.luz_quarto_direita: "off"
 
-- name: Gamming time
+- id: gaming_time
+  name: Gamming time
   icon: mdi:gamepad-variant-outline
   entities:
     light.wled_standingdesk:
@@ -84,7 +89,8 @@
 # Bedroom
 #####
 
-- name: Reading
+- id: reading
+  name: Reading
   icon: mdi:gamepad-variant-outline
   entities:
     light.bedroom_2:
@@ -95,7 +101,8 @@
       brightness: 255
     light.luz_suite: "off"
 
-- name: S-FM
+- id: s_fm
+  name: S-FM
   icon: mdi:radio
   entities:
     light.bedroom_2:
@@ -106,3 +113,27 @@
       state: "on"
       rgb_color: [0, 190, 255]
       brightness: 255
+
+- id: sleeping_left
+  name: Sleeping left
+  icon: mdi:sleep
+  entities:
+    select.wled_bed_preset:
+      state: "Low Light Right"
+    light.bedroom_1:
+      state: "off"
+    light.bedroom_2:
+      state: "on"
+      brightness: 90
+
+- id: sleeping_right
+  name: Sleeping right
+  icon: mdi:sleep
+  entities:
+    select.wled_bed_preset:
+      state: "Low Light Left"
+    light.bedroom_1:
+      state: "on"
+      brightness: 90
+    light.bedroom_2:
+      state: "off"

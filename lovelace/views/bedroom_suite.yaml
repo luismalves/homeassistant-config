@@ -13,7 +13,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 15
+    height: 5
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -228,16 +228,6 @@ cards:
           grid-column: span 2
         variables:
           - template: switch
-          - entity: switch.plug_2
-          - name: Tomada porta
-          - info-attribute: states['sensor.plug_2_power'].state
-
-      - template: es-switch
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 2
-        variables:
-          - template: switch
           - entity: switch.plug_1
           - name: Tomada janela
           - info-attribute: states['sensor.plug_1_power'].state
@@ -263,9 +253,41 @@ cards:
         view_layout:
           grid-column: span 3
         variables:
-          - template: scene-reading
+          - template: night
           - script: script.goodnight
           - entity: script.goodnight
+
+      - template: scene
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: bed-right
+          - scene: scene.sleeping_left
+          - entity: scene.sleeping_left
+          - name: "Lu a dormir"
+
+      - template: scene
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: bed-left
+          - scene: scene.sleeping_right
+          - entity: scene.sleeping_right
+          - name: "Ma a dormir"
+
+      - template: script-as-select
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: bed-mood
+          - entity: select.wled_bed_preset
+          - option: "S-FM"
+          - name: "Mood"
+          - hold-service: light.turn_off
+          - hold-entity: light.led_bed
 
       - type: "custom:gap-card"
         height: 20

@@ -32,5 +32,7 @@
 
         - !include ../../views_items/living_room/light.wled_sideboard.yaml
 
+        - !include ../../views_items/living_room/light.light_bulb.yaml
+
         # After christmas, comment ligth code
         # - !include ../../views_items/living_room/light.wled_xmas.yaml

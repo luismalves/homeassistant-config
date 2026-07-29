@@ -4,5 +4,5 @@ view_layout:
   grid-column: span 2
 variables:
   - template: light-strip
-  - entity: light.wled_sideboard
+  - entity: light.led_sideboard
   - name: "LED Aparador"

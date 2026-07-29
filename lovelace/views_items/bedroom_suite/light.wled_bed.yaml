@@ -4,5 +4,6 @@ view_layout:
   grid-column: span 2
 variables:
   - template: light-strip
-  - entity: light.led_bed
+  - entity: light.wled_bed_main
+  - popup-entity: light.led_bed
   - name: "Luz Cama"

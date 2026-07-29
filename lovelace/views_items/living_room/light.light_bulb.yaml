@@ -3,6 +3,6 @@ type: "custom:decluttering-card"
 view_layout:
   grid-column: span 2
 variables:
-  - template: light-strip
-  - entity: light.led_entrance
-  - name: "LED Entrada"
+  - template: light-bulb
+  - entity: light.wiz_big_bulb
+  - name: "Carinhas"

@@ -78,7 +78,7 @@ cards:
             view_layout:
               grid-column: span 6
             variables:
-              - template: scene-reading
+              - template: night
               - script: script.goodnight
               - entity: script.goodnight
               - name: Ativar modo de dormir
@@ -165,11 +165,24 @@ cards:
           - rows-on: 1.5fr 1fr
           - rows-off: 1fr 0.35fr
 
-      # Path Storage
+      # Path Varanda
       - type: "custom:decluttering-card"
         template: path-division
         view_layout:
           grid-column: span 3
+        variables:
+          - template: path-balcony
+          - entity: sensor.lights_on_storage
+          - name: "Varanda"
+          - path: /dashboard-mobile/balcony
+          - rows-on: 1.5fr 1fr
+          - rows-off: 1fr 0.35fr
+
+      # Path Storage
+      - type: "custom:decluttering-card"
+        template: path-division-small
+        view_layout:
+          grid-column: span 6
         variables:
           - template: path-storage
           - entity: sensor.lights_on_storage
@@ -178,23 +191,38 @@ cards:
           - script: script.turn_off_storage
           - rows-on: 1.5fr 1fr
           - rows-off: 1fr 0.35fr
+          - card-height: 50px
 
-      # Path car
-      - type: custom:state-switch
+      # Path Cat
+      - type: "custom:decluttering-card"
+        template: path-division-small
         view_layout:
           grid-column: span 6
-        entity: user
-        states:
-          Luís:
-            type: "custom:decluttering-card"
-            view_layout:
-              grid-column: span 6
-            template: path-car
-            variables:
-              - template: path-car
-              - entity: binary_sensor.id3_doors_locked
-              - name: "Carro"
-              - navigation_path: /dashboard-mobile/ev
+        variables:
+          - template: path-cat
+          - entity: sensor.pet_alerts
+          - name: "Moon"
+          - path: /dashboard-mobile/pet
+          - rows-on: 1.5fr 1fr
+          - rows-off: 1.5fr 1fr
+          - card-height: 50px
+
+      # # Path car
+      # - type: custom:state-switch
+      #   view_layout:
+      #     grid-column: span 6
+      #   entity: user
+      #   states:
+      #     Luís:
+      #       type: "custom:decluttering-card"
+      #       view_layout:
+      #         grid-column: span 6
+      #       template: path-car
+      #       variables:
+      #         - template: path-car
+      #         - entity: binary_sensor.id3_doors_locked
+      #         - name: "Carro"
+      #         - navigation_path: /dashboard-mobile/ev
 
       - type: "custom:gap-card"
         height: 5

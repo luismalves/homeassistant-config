@@ -1,0 +1,12 @@
+---
+# Garden/Irrigation scripts
+#
+
+start_irrigation:
+  alias: "Start Irrigation"
+  description: "Pushes the button to start the irrigation system"
+  sequence:
+    - action: button.press
+      target:
+        entity_id: button.start_irrigation_system
+  mode: single

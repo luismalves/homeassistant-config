@@ -11,7 +11,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 20
+    height: 5
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -104,7 +104,7 @@ cards:
         view_layout:
           grid-column: span 6
         variables:
-          - content: Automation Helpers
+          - content: Helpers - Estores
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -131,6 +131,18 @@ cards:
           - state-2: "off"
           - align-self-name: center
           - grid-template-rows: 1fr
+
+      - type: "custom:gap-card"
+        height: 25
+        view_layout:
+          grid-column: span 6
+
+      - template: subtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Helpers - Luzes
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -241,9 +253,9 @@ cards:
         view_layout:
           grid-column: span 3
         variables:
-          - template: alert
-          - entity: input_boolean.enable_ev_battery_alerts
-          - name: "Alertas bateria carro"
+          - template: toggle-auto-brightness
+          - entity: input_boolean.enable_storage_lights_automation
+          - name: "Automação luz Arrecadação"
           - state-1: "on"
           - state-2: "off"
           - align-self-name: center
@@ -259,7 +271,84 @@ cards:
         view_layout:
           grid-column: span 6
         variables:
-          - content: Helpers
+          - content: Helpers - Geral
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: alert
+          - entity: input_boolean.enable_drip_schedule_automation
+          - name: "Automação sistema rega"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: alert
+          - entity: input_boolean.enable_ev_battery_alerts
+          - name: "Alertas bateria carro"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-night-state
+          - entity: input_boolean.tv_auto_turn_off
+          - name: "TV Auto-off"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: alert
+          - entity: input_boolean.storage_alarm_automation
+          - name: "Alarme arrecadação"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - type: "custom:gap-card"
+        height: 25
+        view_layout:
+          grid-column: span 6
+
+      - template: subtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Flags
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-night-state
+          - entity: input_boolean.night_state
+          - name: "Modo noite"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
 
       - template: es-config
         type: "custom:decluttering-card"
@@ -313,6 +402,11 @@ cards:
           - align-self-name: center
           - grid-template-rows: 1fr
 
+      - type: "custom:gap-card"
+        height: 25
+        view_layout:
+          grid-column: span 3
+
       - template: es-light
         type: "custom:decluttering-card"
         view_layout:
@@ -351,6 +445,16 @@ cards:
           - template: switch
           - entity: switch.zigbee2mqtt_bridge_permit_join_2
           - name: Repairing arrec.
+
+      - template: es-switch-confirmation
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+        variables:
+          - template: switch
+          - entity: switch.plug_2
+          - name: JUNG Home
+          - info-attribute: states['sensor.plug_2_power'].state
 
       - type: "custom:gap-card"
         height: 25

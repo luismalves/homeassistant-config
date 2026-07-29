@@ -40,9 +40,9 @@ turn_off_kitchen:
     - choose:
         - conditions:
             - condition: state
-              entity_id: light.wled_entrance
+              entity_id: light.led_entrance
               state: "on"
           sequence:
             - action: light.turn_off
-              entity_id: light.wled_entrance
+              entity_id: light.led_entrance
   mode: single

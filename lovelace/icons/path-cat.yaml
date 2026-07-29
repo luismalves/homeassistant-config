@@ -1,0 +1,22 @@
+# Dummy placeholder icon — swap icon_hue for a hand-crafted SVG later to match
+# the other room icons' style.
+icon_hue: >
+  [[[
+    return `<ha-icon icon="mdi:cat" style="width: 100%; color: var(--ha-card-color-state-on);"></ha-icon>`;
+  ]]]
+
+sd1: >
+  [[[
+    return `<div class="pill"><ha-icon
+      icon="mdi:emoticon-poop"
+      style="width: 10px;">
+      </ha-icon><span>${states['sensor.days_since_cat_litter_change'].state}d</span></div>`
+  ]]]
+
+sd2: >
+  [[[
+    return `<div class="pill"><ha-icon
+      icon="mdi:water-percent"
+      style="width: 10px;">
+      </ha-icon><span>${Math.round(states['sensor.petlibro_plwf105_water_level'].state)}%</span></div>`
+  ]]]

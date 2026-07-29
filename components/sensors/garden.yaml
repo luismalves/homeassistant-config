@@ -1,0 +1,11 @@
+#####
+# Garden/Balcony
+#####
+
+- platform: history_stats
+  name: "Tempo de rega hoje"
+  entity_id: switch.water_valve
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"

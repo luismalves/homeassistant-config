@@ -1,0 +1,13 @@
+icon_hue: >
+  [[[
+    const variant = variables.variant;
+    const lightColor = variant === 'left' ? '#f4b8c8' : variant === 'mood' ? '#b8d4f4' : '#98d3bc';
+    const darkColor = variant === 'left' ? '#e896aa' : variant === 'mood' ? '#8ab8e8' : '#65c3ab';
+    const mixWithWhite = (hex, ratio) => { const n = parseInt(hex.slice(1), 16); const r = Math.round((n >> 16) * ratio + 255 * (1 - ratio)); const g = Math.round(((n >> 8) & 0xff) * ratio + 255 * (1 - ratio)); const b = Math.round((n & 0xff) * ratio + 255 * (1 - ratio)); return '#' + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1); };
+    const midColor = mixWithWhite(lightColor, 0.5);
+    const showLeft = variant !== 'left';
+    const showRight = variant !== 'right';
+    const leftPillow = showLeft ? `<path class="prefix__cubies_zesentwintig" d="M14 9H2V3a1 1 0 011-1h10a1 1 0 011 1v6z"/><path class="prefix__cubies_zevenentwintig" d="M13 9H2V3a1 1 0 011-1h9a1 1 0 011 1v6z"/>` : '';
+    const rightPillow = showRight ? `<path class="prefix__cubies_zesentwintig" d="M28 3a1 1 0 00-1-1H17a1 1 0 00-1 1v6h12V3z"/><path class="prefix__cubies_zevenentwintig" d="M27 3a1 1 0 00-1-1h-9a1 1 0 00-1 1v6h11V3z"/>` : '';
+    return `<svg version="1.1" id="prefix__Uploaded_to_svgrepo_com" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" xml:space="preserve"><style>.prefix__cubies_zesentwintig{fill:${darkColor}}.prefix__cubies_zevenentwintig{fill:${lightColor}}</style><path class="prefix__cubies_zevenentwintig" d="M0 9h32v6H0z"/><path d="M29 0H3a3 3 0 00-3 3v6h32V3a3 3 0 00-3-3z" fill="#e3d4c0"/><path d="M27 0H3a3 3 0 00-3 3v6h30V3a3 3 0 00-3-3z" fill="#fff2df"/><path class="prefix__cubies_zesentwintig" d="M29 32H3a3 3 0 01-3-3V15h32v14a3 3 0 01-3 3z"/><path class="prefix__cubies_zevenentwintig" d="M27 32H3a3 3 0 01-3-3V15h30v14a3 3 0 01-3 3z"/><path fill="${midColor}" d="M0 9h30v6H0z"/>${leftPillow}${rightPillow}</svg>`;
+  ]]]

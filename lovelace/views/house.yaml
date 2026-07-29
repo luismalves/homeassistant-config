@@ -10,7 +10,7 @@ layout:
   max_width: 350
 cards:
   - type: "custom:gap-card"
-    height: 15
+    height: 5
 
   - type: "custom:layout-card"
     layout_type: "custom:grid-layout"
@@ -19,37 +19,6 @@ cards:
       grid-template-rows: auto
       margin: 0px
     cards:
-      - template: title
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 6
-        variables:
-          - content: Rega gota-a-gota
-
-      - template: btn-small-confirmation
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: btn-irrigation
-          - service: button.press
-          - entity: button.start_irrigation_system
-          - name: "Ligar rega"
-          - name-active: "Desligar rega"
-          - entity-state: switch.water_valve
-          - state-active: "on"
-
-      - template: sensor-number
-        type: "custom:decluttering-card"
-        view_layout:
-          grid-column: span 3
-        variables:
-          - template: sensors-version
-          - entity: sensor.days_since_irrigation
-          - name: "dias última rega"
-          - height: 62px
-          - font_state: 20px
-
       # - template: title
       #   type: "custom:decluttering-card"
       #   view_layout:
@@ -67,10 +36,10 @@ cards:
       #   calibration_source:
       #     camera: true
 
-      - type: "custom:gap-card"
-        height: 20
-        view_layout:
-          grid-column: span 6
+      # - type: "custom:gap-card"
+      #   height: 15
+      #   view_layout:
+      #     grid-column: span 6
 
       - template: title
         type: "custom:decluttering-card"
@@ -163,8 +132,15 @@ cards:
                 - state-2: "OK"
                 - show-name: true
                 - name: Grande
-            - type: "custom:gap-card"
-              height: 10
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor_7
+                - icon: mdi:water-alert
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: Arrec.
 
       - template: es-dummy
         type: "custom:decluttering-card"
@@ -352,6 +328,62 @@ cards:
                 - icon: mdi:door-open
                 - show-name: true
                 - name: WC Suite
+
+      # Vibration
+      ############
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 3
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.vibration_1_vibration
+                - icon: mdi:arrange-bring-to-front
+                - show-name: true
+                - name: Arrecadação
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 3
+        card_mod:
+          style:
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 2
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.vibration_2_vibration
+                - icon: mdi:arrange-bring-to-front
+                - show-name: true
+                - name: Office Lu
 
       - type: "custom:gap-card"
         height: 20

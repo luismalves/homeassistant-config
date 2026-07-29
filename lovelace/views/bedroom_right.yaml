@@ -12,7 +12,7 @@ layout:
   margin: 0px
   max_width: 350
 cards:
-  - height: 15
+  - height: 5
     type: "custom:gap-card"
 
   - type: "custom:layout-card"

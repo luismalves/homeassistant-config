@@ -20,7 +20,7 @@ name:
 custom_fields:
   icon1:
     - align-self: center
-    - justify-self: end
+    - justify-self: start
   text1:
     - align-self: center
     - font-size: 20px

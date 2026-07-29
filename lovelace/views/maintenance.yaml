@@ -17,7 +17,7 @@ cards:
       column_widths: 98%
     cards:
       - type: "custom:gap-card"
-        height: 20
+        height: 5
 
       - type: custom:layout-card
         layout_type: custom:grid-layout

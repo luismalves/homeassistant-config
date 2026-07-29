@@ -62,3 +62,15 @@
         {% else %}
           Erro
         {% endif %}
+
+- sensor:
+    - name: "Water leak 7 status"
+      unique_id: sensor.water_sensor_7
+      state: >-
+        {% if is_state('binary_sensor.alarm_7_water_leak', 'off') or is_state('binary_sensor.alarm_7_water_leak', 'unknown') %}
+          OK
+        {% elif is_state('binary_sensor.alarm_7_water_leak', 'on') %}
+          ALERTA
+        {% else %}
+          Erro
+        {% endif %}

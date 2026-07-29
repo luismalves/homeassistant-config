@@ -8,10 +8,15 @@ sensors: >
       style="width: 10px;">
       </ha-icon><span>${states['sensor.environment_3_temperature'].state}º</span></div>`
 
-    let sensor2 = "";
+    const sensor2 = `<div class="pill"><ha-icon
+      icon="mdi:thermometer-low"
+      style="width: 10px;">
+      </ha-icon><span>${states['sensor.environment_3_humidity'].state}º</span></div>`
+
+    let sensor3 = "";
     let numlight = states['sensor.lights_on_bedroom_suite'].state;
     if (numlight == 1) return `<div class="pill"><span> ${states['sensor.lights_on_bedroom_suite'].state} luz</span></div>`;
     else if (numlight > 1) return `<div class="pill"><span> ${states['sensor.lights_on_bedroom_suite'].state} luzes</span></div>`;
 
-    return sensor1 + sensor2;
+    return sensor1 + sensor2 + sensor3;
   ]]]

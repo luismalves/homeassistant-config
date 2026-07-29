@@ -1,5 +1,5 @@
 card:
-  - height: 95px
+  - height: "[[card-height]]"
   - font-weight: bold
   - font-size: 12px
   - background: "var(--ha-card-background-path)"

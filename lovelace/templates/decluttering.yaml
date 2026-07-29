@@ -406,6 +406,7 @@ es-light:
     name: "[[name]]"
     hold_action:
       action: more-info
+      entity: "[[[ return variables.popup_entity || entity.entity_id; ]]]"
     tap_action:
       action: toggle
     show_icon: false
@@ -415,6 +416,8 @@ es-light:
     styles: !include ../styles/style-card.yaml
     template: "[[template]]"
     type: "custom:button-card"
+    variables:
+      popup_entity: "[[popup-entity]]"
   default:
     - background-on: --yellow-gradient, var(--ha-card-background-es-on)
     - color-name-on: --ha-card-color-name-on
@@ -427,6 +430,36 @@ es-light:
     - info-max: (254 / 100)
     - info-unit: "%"
     - info-state: "on"
+    - popup-entity: null
+
+# Compact version of es-light, sized like script-sensor. No brightness pill.
+es-light-small:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    hold_action:
+      action: more-info
+      entity: "[[[ return variables.popup_entity || entity.entity_id; ]]]"
+    tap_action:
+      action: toggle
+    show_icon: false
+    show_state: true
+    state_display: !include ../helpers/state_display-empty.yaml
+    state: !include ../states/state-x.yaml
+    styles: !include ../styles/style-card-sensor-script.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+    variables:
+      popup_entity: "[[popup-entity]]"
+  default:
+    - background-on: --yellow-gradient, var(--ha-card-background-es-on)
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
+    - popup-entity: null
 
 # Lights which support speed and itensity as WLED. Changes in hold action.
 es-light-wled:
@@ -940,8 +973,10 @@ path-division:
     template: "[[template]]"
     type: "custom:button-card"
   default:
+    - card-height: 95px
     - rows-on: 1.2fr min-content min-content
     - rows-off: 1.5fr 1fr
+    - grid-template-areas: "[[[return '\\u0022icon_hue n n\\u0022 \\u0022sensors sensors .\\u0022 \\u0022sensors sensors .\\u0022';]]]"
 
 # Navigation card for car
 path-car:
@@ -957,7 +992,25 @@ path-car:
     styles: !include ../styles/style-card-path-car.yaml
     template: "[[template]]"
     type: "custom:button-card"
-  default: null
+  default:
+    - grid-template-areas: "[[[if(states['switch.id3_charging'].state=='on'){return '\\u0022icon_hue n sd1 sd2 sd3\\u0022 \\u0022icon_hue n sd4 sd4 sd4\\u0022';}else{return '\\u0022icon_hue n sd1 sd4 sd4\\u0022 \\u0022icon_hue n sd1 sd4 sd4\\u0022';}]]]"
+
+# Small navigation card for divisions/areas
+path-division-small:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: navigate
+      navigation_path: "[[path]]"
+    show_icon: false
+    show_state: false
+    state: !include ../states/state-path-division.yaml
+    styles: !include ../styles/style-card-path-car.yaml
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - grid-template-areas: "[[[return '\\u0022icon_hue n sd1 sd2 sd3\\u0022 \\u0022icon_hue n sd4 sd4 sd4\\u0022';]]]"
 
 #---------------------#
 # Scene, Scripts cards
@@ -974,12 +1027,15 @@ scene:
         entity_id: "[[scene]]"
     show_icon: false
     show_state: false
+    variables:
+      height: "[[height]]"
     state: !include ../states/state-btn.yaml
     styles: !include ../styles/style-card-scene.yaml
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - height: 60px
 
 button:
   card:
@@ -1060,6 +1116,60 @@ script-as-scene:
     - font-size: 12px
     - columns: 1fr 2fr
     - justify-self: center
+
+# Renders a scene-style button that calls a configurable service on tap.
+# Shows as active (highlighted) when entity.state matches active-value (defaults to option).
+# Works with select entities (service: select.select_option) or any other service (e.g. light.turn_off).
+script-as-select:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    tap_action:
+      action: call-service
+      service: "[[service]]"
+      data:
+        entity_id: "[[entity]]"
+        option: "[[option]]"
+    hold_action:
+      action: call-service
+      service: "[[hold-service]]"
+      data:
+        entity_id: "[[hold-entity]]"
+    show_icon: false
+    show_state: false
+    variables:
+      font_size: "[[font-size]]"
+      columns: "[[columns]]"
+      justify_self: "[[justify-self]]"
+      option: "[[option]]"
+      active_value: "[[active-value]]"
+    state: !include ../states/state-btn.yaml
+    styles: !include ../styles/style-card-scene.yaml
+    extra_styles: >
+      [[[
+        const target = variables.active_value || variables.option;
+        const isSelected = entity.state === target;
+        if (isSelected) { return `
+          ha-card {
+            background: var(--ha-card-background-es-on) !important;
+          }
+          ha-card .card-content span.name {
+            color: var(--ha-card-color-name-on) !important;
+          }
+        `; }
+        return '';
+      ]]]
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - name: "[[[ return entity.attributes.friendly_name ]]]"
+    - font-size: 12px
+    - columns: 1fr 2fr
+    - justify-self: center
+    - service: select.select_option
+    - active-value: null
+    - hold-service: none
+    - hold-entity: null
 
 # Shows the state of an script executor with sensor state
 script-sensor:
@@ -1276,12 +1386,15 @@ sensor-climate-temp:
       action: more-info
     styles: !include ../styles/style-card-climate-state.yaml
     template: "[[template]]"
+    variables:
+      outside_entity: "[[outside_entity]]"
     type: "custom:button-card"
   default:
     - template: sensors-climate-temp
     - height: 40px
     - show_name: false
     - name: ""
+    - outside_entity: ""
 
 sensor-climate-humidity:
   card:
@@ -1294,12 +1407,15 @@ sensor-climate-humidity:
       action: more-info
     styles: !include ../styles/style-card-climate-state.yaml
     template: "[[template]]"
+    variables:
+      outside_entity: "[[outside_entity]]"
     type: "custom:button-card"
   default:
     - template: sensors-climate-humidity
     - height: 40px
     - show_name: false
     - name: ""
+    - outside_entity: ""
 
 sensor-number:
   card:
@@ -1318,12 +1434,17 @@ sensor-number:
       [[[
         if (entity && (entity.state === 'unknown' || entity.state === undefined || entity.state === 'unavailable'))
           return "-";
-        else
-          if ([[localize]]) {
-            return helpers.localize(entity, undefined, undefined, [[show_units]], variables.unit);
-          } else {
-            return entity.state + variables.unit;
-          }
+        // conditional_unit: shows hours (h) when < 24, otherwise days (d)
+        if ([[conditional_unit]]) {
+          const hours = Math.floor(parseFloat(entity.state));
+          if (hours < 24) return hours + "h";
+          return Math.floor(hours / 24) + "d";
+        }
+        if ([[localize]]) {
+          return helpers.localize(entity, undefined, undefined, [[show_units]], variables.unit);
+        } else {
+          return entity.state + variables.unit;
+        }
       ]]]
     styles: !include ../styles/style-card-number.yaml
     template: "[[template]]"
@@ -1339,6 +1460,7 @@ sensor-number:
     - numeric_precision: undefined
     - localize: true
     - unit: undefined
+    - conditional_unit: false
 
 sensor-number-ext:
   card:
@@ -1684,6 +1806,42 @@ btn-small-confirmation:
     - align-self-name: center
     - align-self-state: center
     - margin-name: 0
+
+btn-day:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: false
+    tap_action:
+      action: toggle
+    state: !include ../states/state-x.yaml
+    type: "custom:button-card"
+    styles:
+      card:
+        - height: 50px
+        - font-size: 13px
+        - font-weight: bold
+        - padding: 0
+        - font-family: "var(--paper-ha-card_-_font-family)"
+      grid:
+        - grid-template-areas: '"n"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 1fr
+      name:
+        - align-self: center
+        - text-align: center
+        - font-weight: bold
+        - font-size: 13px
+        - line-height: 1
+  default:
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+    - state-1: "on"
+    - state-2: "off"
 
 btn-icon-text:
   card:
@@ -2201,6 +2359,7 @@ pet-fountain:
                 - entity: sensor.days_since_last_tank_disconnection
                 - icon: mdi:repeat-variant
                 - numeric_precision: 0
+                - show-units: true
                 - color-state-on: --ha-card-color-name-on
                 - show-overflow: true
 
@@ -2261,7 +2420,20 @@ pet-fountain-dashboard:
           - align-self: start
           - justify-self: start
           - width: 100%
+        glow:
+          - position: absolute
+          - top: 4px
+          - right: 4px
+          - width: 28px
+          - height: 28px
     custom_fields:
+      glow: >
+        [[[
+          if (states['switch.petlibro_plwf105_pump'].state !== 'on') return null;
+          const level = parseInt(states['sensor.petlibro_plwf105_water_level'].state) || 0;
+          const color = level < 20 ? 'white' : 'var(--info-color)';
+          return `<?xml version="1.0" encoding="UTF-8"?><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><defs><filter id="a" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur result="coloredBlur" stdDeviation="1.5"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><circle cx="12" cy="12" r="10" fill="none" opacity=".5" stroke="${color}"><animate attributeName="r" dur="2s" repeatCount="indefinite" values="6;11;6"/><animate attributeName="opacity" dur="2s" repeatCount="indefinite" values="0.6;0;0.6"/></circle><circle cx="12" cy="12" r="3" fill="${color}" filter="url(#a)"><animate attributeName="opacity" dur="1.5s" repeatCount="indefinite" values="1;0.7;1"/></circle></svg>`;
+        ]]]
       content:
         card:
           type: markdown

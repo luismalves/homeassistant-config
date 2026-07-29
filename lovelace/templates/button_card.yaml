@@ -18,6 +18,24 @@ alert:
 house:
   custom_fields: !include ../icons/house.yaml
 
+bed:
+  custom_fields: !include ../icons/bed.yaml
+
+bed-left:
+  template: bed
+  variables:
+    variant: left
+
+bed-right:
+  template: bed
+  variables:
+    variant: right
+
+bed-mood:
+  template: bed
+  variables:
+    variant: mood
+
 fire:
   custom_fields: !include ../icons/fire.yaml
 
@@ -29,6 +47,9 @@ healthchecks:
 
 lxc:
   custom_fields: !include ../icons/lxc.yaml
+
+night:
+  custom_fields: !include ../icons/night.yaml
 
 vm:
   custom_fields: !include ../icons/vm.yaml
@@ -50,6 +71,12 @@ shutter:
 
 shutter-temp:
   custom_fields: !include ../icons/shutter-temp.yaml
+
+shower:
+  custom_fields: !include ../icons/shower.yaml
+
+water-pump:
+  custom_fields: !include ../icons/water-pump.yaml
 
 wardrobe:
   custom_fields: !include ../icons/wardrobe.yaml
@@ -93,6 +120,9 @@ toggle-brightness:
 toggle-debug-code:
   custom_fields: !include ../icons/toggle-debug-code.yaml
 
+toggle-night-state:
+  custom_fields: !include ../icons/toggle-night-state.yaml
+
 #---------------------#
 # Lights
 #---------------------#
@@ -131,6 +161,9 @@ light-strip-2-var:
 
 light-strip-3:
   custom_fields: !include ../icons/light-strip-3.yaml
+
+light-bulb:
+  custom_fields: !include ../icons/light-bulb.yaml
 
 light-desk:
   custom_fields: !include ../icons/light-desk.yaml
@@ -171,8 +204,14 @@ path-bedroom-left:
 path-bedroom-suite:
   custom_fields: !include ../icons/path-bedroom-suite.yaml
 
+path-balcony:
+  custom_fields: !include ../icons/path-balcony.yaml
+
 path-storage:
   custom_fields: !include ../icons/path-storage.yaml
+
+path-cat:
+  custom_fields: !include ../icons/path-cat.yaml
 
 path-car:
   custom_fields: !include ../icons/path-car.yaml

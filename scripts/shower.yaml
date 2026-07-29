@@ -35,5 +35,14 @@ set_suite_shower_conditions:
               target:
                 entity_id: cover.estores_wc_suite
               data:
-                position: 10
+                position: 20
+    # Turn on extractor fan if not already on after a delay
+    - delay:
+        seconds: 20
+    - condition: state
+      entity_id: light.extrator_wc_suite
+      state: "off"
+    - action: light.turn_on
+      target:
+        entity_id: light.extrator_wc_suite
   mode: single

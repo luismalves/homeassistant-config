@@ -16,5 +16,15 @@ text1: >
     const temp = parseFloat(entity.state);
     const val = isNaN(temp) ? '-' : temp.toFixed(1);
     const unit = entity.attributes.unit_of_measurement || '°C';
-    return `<span>${val}${unit}</span>`;
+    const outsideEntity = variables.outside_entity ? states[variables.outside_entity] : null;
+    let outsideHtml = '';
+    if (outsideEntity) {
+      const outTemp = parseFloat(outsideEntity.state);
+      const outVal = isNaN(outTemp) ? '-' : outTemp + '°C';
+      outsideHtml = `<span style="font-size:15px; font-weight:normal; color: var(--contrast12);">| ${outVal}</span>`;
+    }
+    return `<div style="display:flex; flex-direction:row; align-items:center; gap:6px;">
+      <span style="font-size:16px;">${val}${unit}</span>
+      ${outsideHtml}
+    </div>`;
   ]]]

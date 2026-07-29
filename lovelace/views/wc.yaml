@@ -131,7 +131,7 @@ cards:
         view_layout:
           grid-column: span 3
         variables:
-          - template: scene-reading
+          - template: shower
           - script: script.set_suite_shower_conditions
           - entity: script.set_suite_shower_conditions
           - name: "Shower time"

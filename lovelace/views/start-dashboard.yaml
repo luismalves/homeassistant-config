@@ -40,6 +40,8 @@ cards:
 
       - !include ../views_items/kitchen/light.luz_mesa.yaml
 
+      - !include ../views_items/living_room/light.light_bulb.yaml
+
       # - type: "custom:decluttering-card"
       #   template: section-header
       #   view_layout:
@@ -125,10 +127,12 @@ cards:
                 template: sensor-climate-temp
                 variables:
                   - entity: sensor.environment_1_temperature
+                  - outside_entity: sensor.gw2000a_outdoor_temperature
               - type: "custom:decluttering-card"
                 template: sensor-climate-humidity
                 variables:
                   - entity: sensor.environment_1_humidity
+                  - outside_entity: sensor.gw2000a_humidity
 
       - type: "custom:vertical-stack-in-card"
         view_layout:
@@ -197,6 +201,7 @@ cards:
           template: sensor-climate-temp
           variables:
             - entity: sensor.environment_1_temperature
+            - outside_entity: sensor.gw2000a_outdoor_temperature
 
       - type: conditional
         view_layout:
@@ -210,6 +215,7 @@ cards:
           template: sensor-climate-humidity
           variables:
             - entity: sensor.environment_1_humidity
+            - outside_entity: sensor.gw2000a_humidity
 
       - template: pet-litter-dashboard
         type: "custom:decluttering-card"
@@ -260,3 +266,18 @@ cards:
             - service: button.press
             - template: shutter
             - show_type: true
+
+      # Scene meal time (shown 12-14h and 19:30-22h)
+      - type: custom:state-switch
+        view_layout:
+          grid-column: 4 / span 3
+        entity: template
+        template: "{{ 'show' if (now().hour >= 12 and now().hour < 14) or (now().hour == 19 and now().minute >= 30) or (now().hour >= 20 and now().hour < 22) else 'hide' }}"
+        states:
+          show:
+            template: scene
+            type: "custom:decluttering-card"
+            variables:
+              - template: scene-meal
+              - scene: scene.meal_time
+              - height: 90px

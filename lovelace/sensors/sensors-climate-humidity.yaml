@@ -15,5 +15,15 @@ text1: >
     const hum = parseFloat(entity.state);
     const val = isNaN(hum) ? '-' : hum.toFixed(0);
     const unit = entity.attributes.unit_of_measurement || '%';
-    return `<span>${val}${unit}</span>`;
+    const outsideEntity = variables.outside_entity ? states[variables.outside_entity] : null;
+    let outsideHtml = '';
+    if (outsideEntity) {
+      const outHum = parseFloat(outsideEntity.state);
+      const outVal = isNaN(outHum) ? '-' : Math.floor(outHum) + '%';
+      outsideHtml = `<span style="font-size:15px; font-weight:normal; color: var(--contrast12);">| ${outVal}</span>`;
+    }
+    return `<div style="display:flex; flex-direction:row; align-items:center; gap:6px;">
+      <span style="font-size:16px;">${val}${unit}</span>
+      ${outsideHtml}
+    </div>`;
   ]]]

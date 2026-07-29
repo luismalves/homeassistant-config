@@ -1,0 +1,55 @@
+#####
+# Style for mini-graph-card
+# With titles inside - weather variant with larger min/max labels
+#####
+|
+  ha-card {
+    background: var(--ha-card-background-es-static);
+    padding-top: 8px !important;
+  }
+  .header {
+    padding: 0px 4px 0px 8px;
+  }
+  .header .name > span {
+    color: var(--el-graph-title-color);
+    font-size: 14px;
+    font-weight: 600;
+    opacity: unset;
+  }
+  .icon {
+    color: var(--ha-card-color-state-off) !important;
+  }
+  .states {
+    color: var(--el-graph-state-color);
+    font-size: 12px;
+    padding-bottom: 12px;
+    padding-left: 8px;
+  }
+  .graph__container .graph__labels {
+    color: var(--el-text-color);
+    font-size: 12px;
+    padding: 1em 0.6em;
+    top: -15px;
+    opacity: 1;
+  }
+  .graph__container .graph__labels > span {
+    background: var(--el-text-color-inverted);
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px, rgba(0, 0, 0, 0.12) 0px 1px 2px;
+    padding: 0px 4px;
+    line-height: 14px;
+  }
+  .info {
+    line-height: 1.25;
+    padding: 0px 8px 12px;
+  }
+  .info__item__type {
+    font-size: 10px;
+  }
+  .info__item__value {
+    font-size: 13px;
+  }
+  .info__item__time {
+    font-size: 10px;
+    opacity: 0.6 !important;
+  }

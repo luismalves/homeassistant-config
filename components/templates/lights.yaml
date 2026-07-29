@@ -1,0 +1,262 @@
+#####
+# Lights that unify multiple underlying entities
+#
+#####
+
+# WLED Entrance: relies on the WLED integration's "Keep master light"
+# option (Settings > Devices & Services > WLED Entrance > Configure)
+# being enabled, so light.cozinha_wled_entrance_main always exists and
+# is always available, regardless of which preset/segment count is
+# active - that's the actual fix for main going unavailable, instead of
+# working around it in this template.
+#
+# Enabling that option made WLED regenerate identifiers: segment 0 is
+# now light.cozinha_wled_entrance (the old light.wled_entrance / legacy
+# "wled_entrance_*" entities are permanently dead, kept only in the
+# registry). Segments 1-6 kept their existing entity_ids.
+#
+# Color/effect still need a fallback across segments: main only
+# controls overall power/brightness, color always lives on individual
+# segments, and different presets use different segment combinations.
+#
+# Deliberately NOT trigger-based: a trigger-based block only (re)renders
+# when one of its triggers fires, so after every config reload (or if
+# restore-state ever fails to kick in) it would sit at "unknown" until
+# the next real state change on the device - happened repeatedly while
+# authoring this. Plain templates render immediately from current
+# states on load, so there's no blank window.
+- light:
+    - name: "Led Entrance"
+      unique_id: wled_entrance_group
+      state: "{{ is_state('light.cozinha_wled_entrance_main', 'on') }}"
+      level: "{{ state_attr('light.cozinha_wled_entrance_main', 'brightness') }}"
+      rgbw: >-
+        {% set segs = ['light.cozinha_wled_entrance', 'light.cozinha_wled_entrance_segment_1',
+           'light.cozinha_wled_entrance_segment_2', 'light.cozinha_wled_entrance_segment_3',
+           'light.cozinha_wled_entrance_segment_4', 'light.cozinha_wled_entrance_segment_5',
+           'light.cozinha_wled_entrance_segment_6'] %}
+        {% set color_entity = segs | select('has_value') | list | first | default('light.cozinha_wled_entrance', true) %}
+        {{ state_attr(color_entity, 'rgbw_color') }}
+      effect_list: "{{ state_attr('select.wled_entrance_preset', 'options') | default([], true) }}"
+      effect: >-
+        {% set preset = states('select.wled_entrance_preset') %}
+        {{ preset if preset not in ['unknown', 'unavailable'] else None }}
+      availability: "{{ has_value('light.cozinha_wled_entrance_main') }}"
+      supports_transition: true
+      turn_on:
+        - action: select.select_option
+          target:
+            entity_id: select.wled_entrance_preset
+          data:
+            option: "Cosy"
+        - action: light.turn_on
+          target:
+            entity_id: light.cozinha_wled_entrance_main
+      turn_off:
+        - action: light.turn_off
+          target:
+            entity_id: light.cozinha_wled_entrance_main
+      set_level:
+        - action: light.turn_on
+          target:
+            entity_id: light.cozinha_wled_entrance_main
+          data:
+            brightness: "{{ brightness }}"
+      set_rgbw:
+        - variables:
+            wled_entrance_segments:
+              - light.cozinha_wled_entrance
+              - light.cozinha_wled_entrance_segment_1
+              - light.cozinha_wled_entrance_segment_2
+              - light.cozinha_wled_entrance_segment_3
+              - light.cozinha_wled_entrance_segment_4
+              - light.cozinha_wled_entrance_segment_5
+              - light.cozinha_wled_entrance_segment_6
+            wled_entrance_color_entity: >-
+              {{ wled_entrance_segments | select('has_value') | list | first
+                 | default('light.cozinha_wled_entrance', true) }}
+        - action: light.turn_on
+          target:
+            entity_id: "{{ wled_entrance_color_entity }}"
+          data:
+            rgbw_color: "[{{ r }}, {{ g }}, {{ b }}, {{ w }}]"
+            effect: "Solid"
+        - action: light.turn_on
+          target:
+            entity_id: light.cozinha_wled_entrance_main
+      set_effect:
+        - action: select.select_option
+          target:
+            entity_id: select.wled_entrance_preset
+          data:
+            option: "{{ effect }}"
+
+    # WLED Bed: same pattern as WLED Entrance above. keep_master_light
+    # was already enabled on this device, so light.wled_bed_main is
+    # already always available - no fallback needed for state/level.
+    # Color still lives on individual segments (light.wled_bed is
+    # segment 0, same legacy-unique_id situation as light.wled_entrance
+    # was), so rgbw/set_rgbw still walk the segment list.
+    - name: "Led Bed"
+      unique_id: led_bed
+      state: "{{ is_state('light.wled_bed_main', 'on') }}"
+      level: "{{ state_attr('light.wled_bed_main', 'brightness') }}"
+      rgbw: >-
+        {% set segs = ['light.wled_bed', 'light.wled_bed_segment_1', 'light.wled_bed_segment_2'] %}
+        {% set color_entity = segs | select('has_value') | list | first | default('light.wled_bed', true) %}
+        {{ state_attr(color_entity, 'rgbw_color') }}
+      effect_list: "{{ state_attr('select.wled_bed_preset', 'options') | default([], true) }}"
+      effect: >-
+        {% set preset = states('select.wled_bed_preset') %}
+        {{ preset if preset not in ['unknown', 'unavailable'] else None }}
+      availability: "{{ has_value('light.wled_bed_main') }}"
+      supports_transition: true
+      turn_on:
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_bed_main
+      turn_off:
+        - action: light.turn_off
+          target:
+            entity_id: light.wled_bed_main
+      set_level:
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_bed_main
+          data:
+            brightness: "{{ brightness }}"
+      set_rgbw:
+        - variables:
+            wled_bed_segments:
+              - light.wled_bed
+              - light.wled_bed_segment_1
+              - light.wled_bed_segment_2
+            wled_bed_color_entity: >-
+              {{ wled_bed_segments | select('has_value') | list | first
+                 | default('light.wled_bed', true) }}
+        - action: light.turn_on
+          target:
+            entity_id: "{{ wled_bed_color_entity }}"
+          data:
+            rgbw_color: "[{{ r }}, {{ g }}, {{ b }}, {{ w }}]"
+            effect: "Solid"
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_bed_main
+      set_effect:
+        - action: select.select_option
+          target:
+            entity_id: select.wled_bed_preset
+          data:
+            option: "{{ effect }}"
+
+    # WLED TV: same pattern. keep_master_light just enabled on this
+    # device too - entity_ids stayed stable this time (only diagnostic
+    # sensors got duplicated, not the lights), so no remapping needed.
+    - name: "Led TV"
+      unique_id: led_tv
+      state: "{{ is_state('light.wled_tv_main', 'on') }}"
+      level: "{{ state_attr('light.wled_tv_main', 'brightness') }}"
+      rgbw: >-
+        {% set segs = ['light.wled_tv', 'light.wled_tv_segment_1', 'light.wled_tv_segment_2'] %}
+        {% set color_entity = segs | select('has_value') | list | first | default('light.wled_tv', true) %}
+        {{ state_attr(color_entity, 'rgbw_color') }}
+      effect_list: "{{ state_attr('select.wled_tv_preset', 'options') | default([], true) }}"
+      effect: >-
+        {% set preset = states('select.wled_tv_preset') %}
+        {{ preset if preset not in ['unknown', 'unavailable'] else None }}
+      availability: "{{ has_value('light.wled_tv_main') }}"
+      supports_transition: true
+      turn_on:
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_tv_main
+      turn_off:
+        - action: light.turn_off
+          target:
+            entity_id: light.wled_tv_main
+      set_level:
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_tv_main
+          data:
+            brightness: "{{ brightness }}"
+      set_rgbw:
+        - variables:
+            wled_tv_segments:
+              - light.wled_tv
+              - light.wled_tv_segment_1
+              - light.wled_tv_segment_2
+            wled_tv_color_entity: >-
+              {{ wled_tv_segments | select('has_value') | list | first
+                 | default('light.wled_tv', true) }}
+        - action: light.turn_on
+          target:
+            entity_id: "{{ wled_tv_color_entity }}"
+          data:
+            rgbw_color: "[{{ r }}, {{ g }}, {{ b }}, {{ w }}]"
+            effect: "Solid"
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_tv_main
+      set_effect:
+        - action: select.select_option
+          target:
+            entity_id: select.wled_tv_preset
+          data:
+            option: "{{ effect }}"
+
+    # WLED Sideboard: same pattern, but only 1 segment total (no
+    # segment_1/2), so the color fallback is really just "the segment,
+    # or itself if unavailable" - kept in the same list form for
+    # consistency with the other lights.
+    - name: "Led Sideboard"
+      unique_id: led_sideboard
+      state: "{{ is_state('light.wled_sideboard_main', 'on') }}"
+      level: "{{ state_attr('light.wled_sideboard_main', 'brightness') }}"
+      rgbw: >-
+        {% set segs = ['light.wled_sideboard'] %}
+        {% set color_entity = segs | select('has_value') | list | first | default('light.wled_sideboard', true) %}
+        {{ state_attr(color_entity, 'rgbw_color') }}
+      effect_list: "{{ state_attr('select.wled_sideboard_preset', 'options') | default([], true) }}"
+      effect: >-
+        {% set preset = states('select.wled_sideboard_preset') %}
+        {{ preset if preset not in ['unknown', 'unavailable'] else None }}
+      availability: "{{ has_value('light.wled_sideboard_main') }}"
+      supports_transition: true
+      turn_on:
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_sideboard_main
+      turn_off:
+        - action: light.turn_off
+          target:
+            entity_id: light.wled_sideboard_main
+      set_level:
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_sideboard_main
+          data:
+            brightness: "{{ brightness }}"
+      set_rgbw:
+        - variables:
+            wled_sideboard_segments:
+              - light.wled_sideboard
+            wled_sideboard_color_entity: >-
+              {{ wled_sideboard_segments | select('has_value') | list | first
+                 | default('light.wled_sideboard', true) }}
+        - action: light.turn_on
+          target:
+            entity_id: "{{ wled_sideboard_color_entity }}"
+          data:
+            rgbw_color: "[{{ r }}, {{ g }}, {{ b }}, {{ w }}]"
+            effect: "Solid"
+        - action: light.turn_on
+          target:
+            entity_id: light.wled_sideboard_main
+      set_effect:
+        - action: select.select_option
+          target:
+            entity_id: select.wled_sideboard_preset
+          data:
+            option: "{{ effect }}"

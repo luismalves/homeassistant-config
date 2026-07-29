@@ -39,3 +39,11 @@
   .icon-image > * {
     flex: unset !important;
   }
+
+  [class*="very-very-narrow"] .content {
+    padding: 0 3px;
+  }
+
+  [class*="very-very-narrow"] .info {
+    max-width: 100%;
+  }
