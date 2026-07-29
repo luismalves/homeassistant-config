@@ -110,6 +110,12 @@ cards:
           grid-column: span 2
         card_mod:
           style:
+            .: |
+              ha-card {
+                background: none;
+                box-shadow: none;
+                border: none;
+              }
             layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
         card:
           type: "custom:layout-card"
@@ -149,6 +155,12 @@ cards:
           grid-column: span 2
         card_mod:
           style:
+            .: |
+              ha-card {
+                background: none;
+                box-shadow: none;
+                border: none;
+              }
             layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
         card:
           type: "custom:layout-card"

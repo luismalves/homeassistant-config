@@ -8,7 +8,7 @@
     padding: 8px 12px 4px 6px !important;
   }
 
-  ha-card.short {
+  :host(.short) ha-card {
     height: 110px;
   }
 

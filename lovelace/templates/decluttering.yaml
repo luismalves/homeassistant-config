@@ -1543,13 +1543,13 @@ sensor-number-image:
           image: "[[image-url]]"
           card_mod:
             style: |
-              ha-card.type-picture {
+              :host(.type-picture) ha-card {
                 background: transparent;
                 border-radius: var(--ha-card-border-radius) var(--ha-card-border-radius) 0 0 !important;
                 height: 40px;
                 position: relative;
               }
-              ha-card.type-picture:before {
+              :host(.type-picture) ha-card:before {
                 content: ' ';
                 position: absolute;
                 top: 0;
@@ -1602,7 +1602,7 @@ sensor-bill:
       company: "[[company]]"
     card_mod:
       style: |-
-        ha-card.type-custom-apexcharts-card {
+        :host(.type-custom-apexcharts-card) ha-card {
           background: transparent;
         }
         .pill {
@@ -1876,7 +1876,7 @@ map-card:
         content: "Quilómetros"
         card_mod:
           style: |
-            ha-card.type-markdown {
+            :host(.type-markdown) ha-card {
               background: transparent;
               height: 0px;
             }
@@ -1896,7 +1896,7 @@ map-card:
           {{ states.sensor.my_id_odometer.state }} KMs
         card_mod:
           style: |
-            ha-card.type-markdown {
+            :host(.type-markdown) ha-card {
               background: transparent;
               height: 0px;
             }
@@ -2164,7 +2164,7 @@ pet-litter:
           card_mod:
             style:
               .: |
-                ha-card.type-markdown {
+                :host(.type-markdown) ha-card {
                   background: transparent;
                 }
                 ha-markdown {
@@ -2227,7 +2227,7 @@ pet-litter-dashboard:
       card_mod:
         style:
           .: |
-            ha-card.type-markdown {
+            :host(.type-markdown) ha-card {
               background: transparent;
             }
             ha-markdown {
@@ -2314,7 +2314,7 @@ pet-fountain:
           card_mod:
             style:
               .: |
-                ha-card.type-markdown {
+                :host(.type-markdown) ha-card {
                   background: transparent;
                   overflow: visible;
                 }
@@ -2445,7 +2445,7 @@ pet-fountain-dashboard:
           card_mod:
             style:
               .: |
-                ha-card.type-markdown {
+                :host(.type-markdown) ha-card {
                   background: transparent;
                   overflow-y: hidden;
                 }
@@ -2506,7 +2506,7 @@ pet-feeder:
           card_mod:
             style:
               .: |
-                ha-card.type-markdown {
+                :host(.type-markdown) ha-card {
                   background: transparent;
                 }
                 ha-markdown {
@@ -2569,7 +2569,7 @@ pet-feeder:
           card_mod:
             style:
               .: |
-                ha-card.type-markdown {
+                :host(.type-markdown) ha-card {
                   background: transparent;
                 }
                 ha-markdown {
@@ -2636,7 +2636,7 @@ car-state:
     type: custom:vertical-stack-in-card
     card_mod:
       style: |
-        ha-card.type-custom-vertical-stack-in-card {
+        :host(.type-custom-vertical-stack-in-card) ha-card {
           background: transparent;
         }
         layout-card {
@@ -2650,7 +2650,7 @@ car-state:
         image: /local/images/cars/side.png
         card_mod:
           style: |
-            ha-card.type-picture {
+            :host(.type-picture) ha-card {
               background: transparent;
               min-height: 160px;
             }
@@ -2669,7 +2669,7 @@ car-state:
           {% endif %}
         card_mod:
           style: |
-            ha-card.type-markdown {
+            :host(.type-markdown) ha-card {
               background: transparent;
               margin-bottom: -45px;
               overflow: visible;
@@ -2693,7 +2693,7 @@ car-state:
               <ha-icon icon="mdi:lock-open-alert-outline"></ha-icon> Aberto
             card_mod:
               style: |
-                ha-card.type-markdown {
+                :host(.type-markdown) ha-card {
                   background: transparent;
                   display: flex;
                   justify-content: center;
@@ -2774,7 +2774,7 @@ car-state:
                   value: inside
                 card_mod:
                   style: |-
-                    ha-card.type-custom-bar-card {
+                    :host(.type-custom-bar-card) ha-card {
                       background: transparent;
                     }
                     .card-content {
@@ -2809,7 +2809,7 @@ car-state:
                   {% endif %}
                 card_mod:
                   style: |
-                    ha-card.type-markdown {
+                    :host(.type-markdown) ha-card {
                       background: transparent;
                     }
                     ha-markdown {

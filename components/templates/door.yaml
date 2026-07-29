@@ -48,7 +48,7 @@
   - name: Show door times in frontend
     unique_id: door_show_time
     state: >-
-      {% if now().timestamp() - as_timestamp(states('sensor.uptime')) > 3600.0 and (states('sensor.door_open_last') | int < 60 and states('sensor.door_open_last') | int >= 0) or states('sensor.door_open_for') | int > 0%}
+      {% if now().timestamp() - as_timestamp(states('sensor.uptime'), 0) > 3600.0 and (states('sensor.door_open_last') | int(0) < 60 and states('sensor.door_open_last') | int(0) >= 0) or states('sensor.door_open_for') | int(0) > 0%}
         on
       {% else %}
         off

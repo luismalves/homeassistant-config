@@ -80,10 +80,10 @@ cards:
           grid-column: span 2
         card_mod:
           style: |
-            ha-card.type-custom-vertical-stack-in-card {
+            :host(.type-custom-vertical-stack-in-card) ha-card {
               background-color: var(--ha-card-background-es-static);
             }
-            ha-card.type-custom-vertical-stack-in-card > div {
+            :host(.type-custom-vertical-stack-in-card) ha-card > div {
               padding: 0px 15px 15px;
             }
         cards:
@@ -150,11 +150,11 @@ cards:
           grid-column: span 2
         card_mod:
           style: |
-            ha-card.type-custom-vertical-stack-in-card {
+            :host(.type-custom-vertical-stack-in-card) ha-card {
               background-color: var(--ha-card-background-es-static);
             }
             apexcharts-card { --primary-text-color: var(--el-graph-bar-color); }
-            ha-card.type-custom-vertical-stack-in-card > div {
+            :host(.type-custom-vertical-stack-in-card) ha-card > div {
               padding: 0px 15px 5px;
             }
         cards:
@@ -228,7 +228,7 @@ cards:
                     fontSize: "10px"
             card_mod:
               style: |-
-                ha-card.type-custom-apexcharts-card {
+                :host(.type-custom-apexcharts-card) ha-card {
                   background: transparent;
                 }
 
@@ -248,6 +248,12 @@ cards:
       - type: custom:mod-card
         card_mod:
           style:
+            .: |
+              ha-card {
+                background: none;
+                box-shadow: none;
+                border: none;
+              }
             layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
         card:
           type: "custom:layout-card"

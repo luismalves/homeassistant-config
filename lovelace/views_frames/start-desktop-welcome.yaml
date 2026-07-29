@@ -163,7 +163,7 @@
       horizontal: false
       card_mod:
         style: |-
-          ha-card.type-custom-vertical-stack-in-card {
+          :host(.type-custom-vertical-stack-in-card) ha-card {
             background: var(--ha-card-background-es-static);
             border-radius: 10px;
           }
@@ -201,7 +201,7 @@
           apex_config: !include ../graphs/energy-bill-apexconfig.yaml
           card_mod:
             style: |-
-              ha-card.type-custom-apexcharts-card {
+              :host(.type-custom-apexcharts-card) ha-card {
                 background: transparent;
               }
 

@@ -109,6 +109,12 @@ cards:
           type: custom:mod-card
           card_mod:
             style:
+              .: |
+                ha-card {
+                  background: none;
+                  box-shadow: none;
+                  border: none;
+                }
               layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
           card:
             type: "custom:layout-card"
@@ -140,7 +146,7 @@ cards:
         horizontal: false
         card_mod:
           style: |-
-            ha-card.type-custom-vertical-stack-in-card {
+            :host(.type-custom-vertical-stack-in-card) ha-card {
               background: var(--ha-card-background-es-static);
               border-radius: 10px;
             }
@@ -177,7 +183,7 @@ cards:
             apex_config: !include ../graphs/energy-bill-apexconfig.yaml
             card_mod:
               style: |-
-                ha-card.type-custom-apexcharts-card {
+                :host(.type-custom-apexcharts-card) ha-card {
                   background: transparent;
                 }
 
