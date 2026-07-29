@@ -134,6 +134,40 @@ set_cover_suite_privacy:
   alias: Open suite cover to privacy position
   icon: mdi:window-shutter
 
+set_cover_living_room_privacy:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
+                {{ position > 23 and position <= 65 }}
+            - condition: sun
+              after: sunset
+              before: sunrise
+          sequence:
+            - action: cover.close_cover
+              entity_id: cover.estores_sala
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
+                {{ position > 23 and position <= 65 }}
+            - condition: sun
+              after: sunrise
+              before: sunset
+          sequence:
+            - action: cover.open_cover
+              entity_id: cover.estores_sala
+      default:
+        - action: cover.set_cover_position
+          entity_id: cover.estores_sala
+          data:
+            position: 55
+  mode: single
+  alias: Open living room cover to privacy position
+  icon: mdi:window-shutter
+
 # Night breeze positions
 set_cover_suite_breeze:
   sequence:
