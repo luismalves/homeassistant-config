@@ -290,6 +290,15 @@ cards:
           - entity-state: vacuum.roborock_qrevo_edge
           - name: "Limpar divisão"
 
+      - template: scene
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: scene-bright-room
+          - scene: scene.bright_room
+          - entity: scene.bright_room
+
       - type: "custom:gap-card"
         height: 10
         view_layout:

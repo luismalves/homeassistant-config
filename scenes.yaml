@@ -14,6 +14,24 @@
     light.led_tv:
       state: "on"
 
+- id: bright_room
+  name: Bright room
+  icon: mdi:white-balance-sunny
+  entities:
+    select.wled_sideboard_preset:
+      state: "Cosy"
+    select.wled_tv_preset:
+      state: "Solid"
+    light.wiz_big_bulb:
+      state: "on"
+      brightness: 179
+    light.light_2:
+      state: "on"
+      brightness: 255
+    light.luz_mesa:
+      state: "on"
+      brightness: 204
+
 #####
 # Kitchen
 #####
