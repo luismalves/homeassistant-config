@@ -2448,6 +2448,7 @@ pet-fountain-dashboard:
           card_mod:
             style:
               .: |
+                ha-card.type-markdown,
                 :host(.type-markdown) ha-card {
                   background: transparent;
                   overflow-y: hidden;

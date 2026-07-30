@@ -187,6 +187,21 @@ cards:
                   background: transparent;
                 }
 
+      # Scene meal time (shown 12-14h and 19:30-22h)
+      - type: custom:state-switch
+        view_layout:
+          grid-column: 4 / span 3
+        entity: template
+        template: "{{ 'show' if (now().hour >= 12 and now().hour < 14) or (now().hour == 19 and now().minute >= 30) or (now().hour >= 20 and now().hour < 22) else 'hide' }}"
+        states:
+          show:
+            template: scene
+            type: "custom:decluttering-card"
+            variables:
+              - template: scene-meal
+              - scene: scene.meal_time
+              - height: 90px
+
   ### Column 3
   - type: custom:layout-card
     layout_type: custom:grid-layout
@@ -273,17 +288,19 @@ cards:
             - template: shutter
             - show_type: true
 
-      # Scene meal time (shown 12-14h and 19:30-22h)
-      - type: custom:state-switch
+      - type: conditional
         view_layout:
-          grid-column: 4 / span 3
-        entity: template
-        template: "{{ 'show' if (now().hour >= 12 and now().hour < 14) or (now().hour == 19 and now().minute >= 30) or (now().hour >= 20 and now().hour < 22) else 'hide' }}"
-        states:
-          show:
-            template: scene
-            type: "custom:decluttering-card"
-            variables:
-              - template: scene-meal
-              - scene: scene.meal_time
-              - height: 90px
+          grid-column: span 3
+        conditions:
+          - condition: state
+            entity: sensor.show_covers_close
+            state: "True"
+        card:
+          type: "custom:decluttering-card"
+          template: btn
+          variables:
+            - entity: script.set_cover_sala_privacy
+            - name: Privacidade sala
+            - service: script.turn_on
+            - template: shutter
+            - show_type: true
