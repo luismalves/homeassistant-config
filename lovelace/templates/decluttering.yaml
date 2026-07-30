@@ -1683,12 +1683,14 @@ btn:
     styles: !include ../styles/style-card-centered.yaml
     variables:
       show_type: "[[show_type]]"
+      height: "[[height]]"
     template: "[[template]]"
     type: "custom:button-card"
   default:
     - action: call-service
     - name: "[[[ return entity.attributes.friendly_name ]]]"
     - show_type: false
+    - height: 110px
 
 btn-small:
   card:
@@ -2452,6 +2454,7 @@ pet-fountain-dashboard:
                 :host(.type-markdown) ha-card {
                   background: transparent;
                   overflow-y: hidden;
+                  z-index:0;
                 }
                 ha-markdown {
                   color: var(--white1);

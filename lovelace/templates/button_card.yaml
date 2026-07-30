@@ -329,6 +329,9 @@ scene-reading:
 scene-christmas:
   custom_fields: !include ../icons/scene-christmas.yaml
 
+scene-bright-room:
+  custom_fields: !include ../icons/sun.yaml
+
 #---------------------#
 # Scripts
 #---------------------#

@@ -1,7 +1,10 @@
 card:
   - background-color: var(--ha-card-background-es-static)
   - color: "var(--el-es-static-text-color-light)"
-  - height: 110px
+  - height: >
+      [[[
+        return variables["height"] || "110px";
+      ]]]
   - font-size: 12px
   - font-weight: bold
   - padding: 10px 0 0 0

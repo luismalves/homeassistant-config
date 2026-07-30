@@ -200,7 +200,7 @@ cards:
             variables:
               - template: scene-meal
               - scene: scene.meal_time
-              - height: 90px
+              - height: 85px
 
   ### Column 3
   - type: custom:layout-card
@@ -267,6 +267,7 @@ cards:
             - service: script.turn_on
             - template: shutter
             - show_type: true
+            - height: 95px
 
       - type: conditional
         view_layout:
@@ -287,6 +288,7 @@ cards:
             - service: button.press
             - template: shutter
             - show_type: true
+            - height: 95px
 
       - type: conditional
         view_layout:
@@ -304,3 +306,4 @@ cards:
             - service: script.turn_on
             - template: shutter
             - show_type: true
+            - height: 95px
