@@ -1,0 +1,15 @@
+#####
+# Door activity
+# Counts openings rather than duration, so the daily value is a plain
+# number. Reset daily; the daily total survives the recorder purge as
+# the long-term statistics "max" for each day.
+#####
+
+- platform: history_stats
+  name: "Front door opens today"
+  unique_id: front_door_opens_today
+  entity_id: binary_sensor.openclose_main_contact
+  state: "on"
+  type: count
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"

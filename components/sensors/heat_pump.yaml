@@ -1,0 +1,19 @@
+#####
+# Water heat pump runtime
+# On-time comes from the "Water heat pump running" threshold helper
+# (compressor power > 0) rather than matching the compressor power
+# directly, so it stays correct if the compressor ever modulates
+# below 100%.
+# Reset daily. The daily total survives the recorder purge as the
+# long-term statistics "max" for each day, so monthly totals stay
+# available.
+#####
+
+- platform: history_stats
+  name: "Water heat pump on today"
+  unique_id: water_heat_pump_on_today
+  entity_id: binary_sensor.baxi_heat_pump_controller_water_heat_pump_running
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"

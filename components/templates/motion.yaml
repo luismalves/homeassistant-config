@@ -31,9 +31,9 @@
     - name: "Hall motion status"
       unique_id: presence_hall
       state: >-
-        {% if is_state('binary_sensor.presence_1_motion', 'on') %}
+        {% if is_state('binary_sensor.presence_1_occupancy', 'on') %}
           Detetado
-        {% elif is_state('binary_sensor.presence_1_motion', 'off') %}
+        {% elif is_state('binary_sensor.presence_1_occupancy', 'off') %}
           Vazio
         {% else %}
           Erro

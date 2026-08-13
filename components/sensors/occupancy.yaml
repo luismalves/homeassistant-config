@@ -1,0 +1,65 @@
+#####
+# Room occupancy runtime
+# Time each room's presence sensor spent "on", reset daily.
+# Sources mirror components/templates/motion.yaml.
+# The daily total survives the recorder purge as the long-term
+# statistics "max" for each day, so monthly totals stay available.
+#####
+
+# NOTE: source device (Everything Presence Lite 2) is currently
+# unavailable — this records 0 until it is back online.
+- platform: history_stats
+  name: "Living room occupied today"
+  unique_id: living_room_occupied_today
+  entity_id: binary_sensor.everything_presence_lite_5d1fc0_occupancy
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: "Kitchen occupied today"
+  unique_id: kitchen_occupied_today
+  entity_id: binary_sensor.presence_2_occupancy
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: "Hall occupied today"
+  unique_id: hall_occupied_today
+  entity_id: binary_sensor.presence_1_occupancy
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: "Bedroom left occupied today"
+  unique_id: bedroom_left_occupied_today
+  entity_id: binary_sensor.athom_presence_sensor_1_occupancy
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: "Bedroom right occupied today"
+  unique_id: bedroom_right_occupied_today
+  entity_id: binary_sensor.human_presence_1_presence
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+# Zone 1 is the suite bedroom; zone 2 is the WC (tracked separately
+# in motion.yaml as "WC suite motion status").
+- platform: history_stats
+  name: "Bedroom suite occupied today"
+  unique_id: bedroom_suite_occupied_today
+  entity_id: binary_sensor.everything_presence_lite_675740_zone_1_occupancy
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"

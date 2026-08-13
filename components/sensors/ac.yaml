@@ -1,0 +1,62 @@
+#####
+# Air Conditioning runtime
+# Time each AC spent in any HVAC mode other than "off", reset daily.
+# The daily total survives the recorder purge as the long-term
+# statistics "max" for each day, so monthly totals stay available.
+#####
+
+- platform: history_stats
+  name: "AC Sala ligado hoje"
+  unique_id: ac_sala_ligado_hoje
+  entity_id: climate.sala
+  state:
+    - "cool"
+    - "heat"
+    - "dry"
+    - "fan_only"
+    - "auto"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: "AC Suite ligado hoje"
+  unique_id: ac_suite_ligado_hoje
+  entity_id: climate.suite
+  state:
+    - "cool"
+    - "heat"
+    - "dry"
+    - "fan_only"
+    - "auto"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: "AC Quarto Esquerda ligado hoje"
+  unique_id: ac_quarto_esquerda_ligado_hoje
+  entity_id: climate.quarto_esquerda
+  state:
+    - "cool"
+    - "heat"
+    - "dry"
+    - "fan_only"
+    - "auto"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
+
+- platform: history_stats
+  name: "AC Quarto Direita ligado hoje"
+  unique_id: ac_quarto_direita_ligado_hoje
+  entity_id: climate.quarto_direita
+  state:
+    - "cool"
+    - "heat"
+    - "dry"
+    - "fan_only"
+    - "auto"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"
