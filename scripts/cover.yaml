@@ -100,9 +100,13 @@ open_bedroom_cover_morning:
   icon: mdi:window-shutter
 
 # Privacy positions
-# NOTE: the "position > 23 and <= X" checks below must stay in sync with
+# NOTE: the "position > X and <= Y" checks below must stay in sync with
 # binary_sensor.estores_*_privacy_mode in components/templates/cover.yaml,
-# and the lower bound (23) must match the breeze scripts' position further down.
+# and the lower bound must match the breeze upper bound further down
+# (23 for sala, 30 for suite/bedroom_right/bedroom_left).
+# Suite, bedroom_right, and bedroom_left target a lower position (60, same
+# drift compensation as the breeze scripts above) when the cover is already
+# closed vs. a higher one (76) when it isn't.
 set_cover_suite_privacy:
   sequence:
     - choose:
@@ -110,7 +114,7 @@ set_cover_suite_privacy:
             - condition: template
               value_template: >
                 {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
-                {{ position > 23 and position <= 65 }}
+                {{ position > 30 and position <= 76 }}
             - condition: sun
               after: sunset
               before: sunrise
@@ -121,7 +125,7 @@ set_cover_suite_privacy:
             - condition: template
               value_template: >
                 {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
-                {{ position > 23 and position <= 65 }}
+                {{ position > 30 and position <= 76 }}
             - condition: sun
               after: sunrise
               before: sunset
@@ -129,10 +133,21 @@ set_cover_suite_privacy:
             - action: cover.open_cover
               entity_id: cover.estores_suite
       default:
-        - action: cover.set_cover_position
-          entity_id: cover.estores_suite
-          data:
-            position: 60
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: cover.estores_suite
+                  state: "closed"
+              sequence:
+                - action: cover.set_cover_position
+                  entity_id: cover.estores_suite
+                  data:
+                    position: 60
+          default:
+            - action: cover.set_cover_position
+              entity_id: cover.estores_suite
+              data:
+                position: 76
   mode: single
   alias: Open suite cover to privacy position
   icon: mdi:window-shutter
@@ -171,15 +186,121 @@ set_cover_sala_privacy:
   alias: Open living room cover to privacy position
   icon: mdi:window-shutter
 
+set_cover_bedroom_right_privacy:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_quarto_direita', 'current_position') | int(0) %}
+                {{ position > 30 and position <= 76 }}
+            - condition: sun
+              after: sunset
+              before: sunrise
+          sequence:
+            - action: cover.close_cover
+              entity_id: cover.estores_quarto_direita
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_quarto_direita', 'current_position') | int(0) %}
+                {{ position > 30 and position <= 76 }}
+            - condition: sun
+              after: sunrise
+              before: sunset
+          sequence:
+            - action: cover.open_cover
+              entity_id: cover.estores_quarto_direita
+      default:
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: cover.estores_quarto_direita
+                  state: "closed"
+              sequence:
+                - action: cover.set_cover_position
+                  entity_id: cover.estores_quarto_direita
+                  data:
+                    position: 60
+          default:
+            - action: cover.set_cover_position
+              entity_id: cover.estores_quarto_direita
+              data:
+                position: 76
+  mode: single
+  alias: Open bedroom right cover to privacy position
+  icon: mdi:window-shutter
+
+set_cover_bedroom_left_privacy:
+  sequence:
+    - choose:
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_quarto_esquerda', 'current_position') | int(0) %}
+                {{ position > 30 and position <= 76 }}
+            - condition: sun
+              after: sunset
+              before: sunrise
+          sequence:
+            - action: cover.close_cover
+              entity_id: cover.estores_quarto_esquerda
+        - conditions:
+            - condition: template
+              value_template: >
+                {% set position = state_attr('cover.estores_quarto_esquerda', 'current_position') | int(0) %}
+                {{ position > 30 and position <= 76 }}
+            - condition: sun
+              after: sunrise
+              before: sunset
+          sequence:
+            - action: cover.open_cover
+              entity_id: cover.estores_quarto_esquerda
+      default:
+        - choose:
+            - conditions:
+                - condition: state
+                  entity_id: cover.estores_quarto_esquerda
+                  state: "closed"
+              sequence:
+                - action: cover.set_cover_position
+                  entity_id: cover.estores_quarto_esquerda
+                  data:
+                    position: 60
+          default:
+            - action: cover.set_cover_position
+              entity_id: cover.estores_quarto_esquerda
+              data:
+                position: 76
+  mode: single
+  alias: Open bedroom left cover to privacy position
+  icon: mdi:window-shutter
+
 # Night breeze positions
-# NOTE: the "position: 23" values below must stay in sync with the upper
-# bound of binary_sensor.estores_*_breeze_mode in components/templates/cover.yaml.
+# NOTE: the breeze-mode upper bound in binary_sensor.estores_*_breeze_mode
+# (components/templates/cover.yaml) must stay >= the highest position used
+# below (23 for sala, 30 for suite/bedroom_right/bedroom_left).
+# Suite, bedroom_right, and bedroom_left target a lower position (14) when
+# the cover is already closed vs. a higher one (30) when it isn't, to
+# compensate for position-tracking drift that differs depending on whether
+# the motor is moving up from closed or down from open.
 set_cover_suite_breeze:
   sequence:
-    - action: cover.set_cover_position
-      entity_id: cover.estores_suite
-      data:
-        position: 23
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_suite
+              state: "closed"
+          sequence:
+            - action: cover.set_cover_position
+              entity_id: cover.estores_suite
+              data:
+                position: 14
+      default:
+        - action: cover.set_cover_position
+          entity_id: cover.estores_suite
+          data:
+            position: 30
   mode: single
   alias: Open suite cover to breeze position
   icon: mdi:window-shutter
@@ -196,20 +317,42 @@ set_cover_sala_breeze:
 
 set_cover_bedroom_right_breeze:
   sequence:
-    - action: cover.set_cover_position
-      entity_id: cover.estores_quarto_direita
-      data:
-        position: 23
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_quarto_direita
+              state: "closed"
+          sequence:
+            - action: cover.set_cover_position
+              entity_id: cover.estores_quarto_direita
+              data:
+                position: 14
+      default:
+        - action: cover.set_cover_position
+          entity_id: cover.estores_quarto_direita
+          data:
+            position: 30
   mode: single
   alias: Open bedroom right cover to breeze position
   icon: mdi:window-shutter
 
 set_cover_bedroom_left_breeze:
   sequence:
-    - action: cover.set_cover_position
-      entity_id: cover.estores_quarto_esquerda
-      data:
-        position: 23
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_quarto_esquerda
+              state: "closed"
+          sequence:
+            - action: cover.set_cover_position
+              entity_id: cover.estores_quarto_esquerda
+              data:
+                position: 14
+      default:
+        - action: cover.set_cover_position
+          entity_id: cover.estores_quarto_esquerda
+          data:
+            position: 30
   mode: single
   alias: Open bedroom left cover to breeze position
   icon: mdi:window-shutter

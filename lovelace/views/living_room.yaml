@@ -199,7 +199,7 @@ cards:
               variables:
                 - template: privacy
                 - entity: binary_sensor.estores_sala_privacy_mode
-                - script: script.set_cover_living_room_privacy
+                - script: script.set_cover_sala_privacy
                 - name: Privacy
                 - state-1: "on"
                 - state-2: "off"

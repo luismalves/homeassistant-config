@@ -6,14 +6,15 @@
 # Privacy sensors
 # NOTE: thresholds must mirror the "already in privacy position" template
 # condition inside the matching script in scripts/cover.yaml (set_cover_*_privacy),
-# and must not overlap the breeze sensors below (breeze ends at 23, privacy
-# starts above 23) or both modes can report "on" at once.
+# and must not overlap the breeze sensors below (breeze ends at 23 for sala /
+# 30 for suite+bedrooms, privacy starts just above that) or both modes can
+# report "on" at once.
 - binary_sensor:
     - unique_id: "estores_suite_privacy_mode"
       name: "Estores Suite privacy mode"
       state: >
         {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
-        {{ position > 23 and position <= 65 }}
+        {{ position > 30 and position <= 76 }}
 
 - binary_sensor:
     - unique_id: "estores_sala_privacy_mode"
@@ -22,9 +23,24 @@
         {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
         {{ position > 23 and position <= 55 }}
 
+- binary_sensor:
+    - unique_id: "estores_bedroom_right_privacy_mode"
+      name: "Estores Bedroom Right privacy mode"
+      state: >
+        {% set position = state_attr('cover.estores_quarto_direita', 'current_position') | int(0) %}
+        {{ position > 30 and position <= 76 }}
+
+- binary_sensor:
+    - unique_id: "estores_bedroom_left_privacy_mode"
+      name: "Estores Bedroom Left privacy mode"
+      state: >
+        {% set position = state_attr('cover.estores_quarto_esquerda', 'current_position') | int(0) %}
+        {{ position > 30 and position <= 76 }}
+
 # Breeze sensors
-# NOTE: upper bound must match the "position" set by the matching
-# set_cover_*_breeze script in scripts/cover.yaml (currently 23 for all covers).
+# NOTE: upper bound must be just above the "position" set by the matching
+# set_cover_*_breeze script in scripts/cover.yaml (23 for sala, 29 for
+# suite/bedroom_right/bedroom_left, with upper bounds of 23 and 30 respectively).
 - binary_sensor:
     - unique_id: "estores_sala_breeze_mode"
       name: "Estores Sala breeze mode"
@@ -37,21 +53,21 @@
       name: "Estores Suite breeze mode"
       state: >
         {% set position = state_attr('cover.estores_suite', 'current_position') | int(0) %}
-        {{ position > 1 and position <= 23 }}
+        {{ position > 1 and position <= 30 }}
 
 - binary_sensor:
     - unique_id: "estores_bedroom_left_breeze_mode"
       name: "Estores Bedroom Left breeze mode"
       state: >
         {% set position = state_attr('cover.estores_quarto_esquerda', 'current_position') | int(0) %}
-        {{ position > 1 and position <= 23 }}
+        {{ position > 1 and position <= 30 }}
 
 - binary_sensor:
     - unique_id: "estores_bedroom_right_breeze_mode"
       name: "Estores Bedroom Right breeze mode"
       state: >
         {% set position = state_attr('cover.estores_quarto_direita', 'current_position') | int(0) %}
-        {{ position > 1 and position <= 23 }}
+        {{ position > 1 and position <= 30 }}
 
 - sensor:
     - name: Shutters status
