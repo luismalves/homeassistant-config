@@ -13,3 +13,22 @@
         {{ ((now() - last_datetime).total_seconds() / 3600) | round(0, 'floor') | int }}
       unit_of_measurement: "h"
       icon: mdi:sprinkler
+
+# Mirrors the Zigbee2MQTT valve's daily volume, adding the state_class that
+# Z2M's discovery payload omits — without it the sensor gets no long-term
+# statistics at all, so monthly totals are impossible.
+#
+# total_increasing rather than measurement: the source resets to 0 when
+# irrigation starts (~10:00) and then holds its last value all day, so a daily
+# "max" would report a full day's volume on days the valve never ran.
+# total_increasing reads a drop as a reset and sums the increments, so a skipped
+# day correctly contributes nothing.
+- sensor:
+    - unique_id: "irrigation_volume_daily"
+      name: "Volume de rega diário"
+      availability: "{{ states('sensor.water_valve_daily_irrigation_volume') not in ['unknown', 'unavailable'] }}"
+      state: "{{ states('sensor.water_valve_daily_irrigation_volume') | float(0) }}"
+      unit_of_measurement: "L"
+      device_class: water
+      state_class: total_increasing
+      icon: mdi:water

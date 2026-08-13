@@ -1,0 +1,21 @@
+#####
+# 3D printer
+# AMS filament-drying runtime, reset daily.
+# The printer's own sensor.p2s_total_usage already covers print time as a
+# cumulative counter; drying is only exposed as a binary_sensor, which can
+# never have long-term statistics of its own, so it needs history_stats.
+# The daily total survives the recorder purge as the long-term statistics
+# "max" for each day, so monthly totals stay available.
+#####
+
+# The printer goes unavailable whenever it is powered off, so this counts only
+# time explicitly reported as drying — unavailable stretches count as neither
+# on nor off.
+- platform: history_stats
+  name: "AMS drying today"
+  unique_id: ams_drying_today
+  entity_id: binary_sensor.p2s_ams_drying
+  state: "on"
+  type: time
+  start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
+  end: "{{ now() }}"

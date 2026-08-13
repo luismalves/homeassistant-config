@@ -1,0 +1,21 @@
+#####
+# Vacuum
+#
+#####
+
+# Mirrors the Roborock lifetime cleaning-time counter, adding the state_class
+# the integration omits — without it the sensor gets no long-term statistics,
+# so monthly totals are impossible.
+#
+# The source is strictly cumulative (verified: 128.36 -> 130.10 h over a week,
+# never decreasing), so total_increasing is the right class and a monthly
+# "change" gives hours actually cleaned in that month.
+- sensor:
+    - unique_id: "vacuum_total_cleaning_time"
+      name: "Aspirador tempo de limpeza"
+      availability: "{{ states('sensor.roborock_qrevo_edge_total_cleaning_time') not in ['unknown', 'unavailable'] }}"
+      state: "{{ states('sensor.roborock_qrevo_edge_total_cleaning_time') | float(0) }}"
+      unit_of_measurement: "h"
+      device_class: duration
+      state_class: total_increasing
+      icon: mdi:robot-vacuum

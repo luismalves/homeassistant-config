@@ -5,19 +5,15 @@
 
 # WLED Entrance: relies on the WLED integration's "Keep master light"
 # option (Settings > Devices & Services > WLED Entrance > Configure)
-# being enabled, so light.cozinha_wled_entrance_main always exists and
-# is always available, regardless of which preset/segment count is
-# active - that's the actual fix for main going unavailable, instead of
-# working around it in this template.
-#
-# Enabling that option made WLED regenerate identifiers: segment 0 is
-# now light.cozinha_wled_entrance (the old light.wled_entrance / legacy
-# "wled_entrance_*" entities are permanently dead, kept only in the
-# registry). Segments 1-6 kept their existing entity_ids.
-#
+# being enabled, so light.wled_entrance_main always exists and is always
+# available, regardless of which preset/segment count is active - that's
+# the actual fix for main going unavailable, instead of working around it
+# in this template.
 # Color/effect still need a fallback across segments: main only
 # controls overall power/brightness, color always lives on individual
 # segments, and different presets use different segment combinations.
+# Segments 2-6 are listed but usually don't exist - they're only created
+# while a preset uses them, and has_value skips what doesn't resolve.
 #
 # Deliberately NOT trigger-based: a trigger-based block only (re)renders
 # when one of its triggers fires, so after every config reload (or if
@@ -28,20 +24,20 @@
 - light:
     - name: "Led Entrance"
       unique_id: wled_entrance_group
-      state: "{{ is_state('light.cozinha_wled_entrance_main', 'on') }}"
-      level: "{{ state_attr('light.cozinha_wled_entrance_main', 'brightness') }}"
+      state: "{{ is_state('light.wled_entrance_main', 'on') }}"
+      level: "{{ state_attr('light.wled_entrance_main', 'brightness') }}"
       rgbw: >-
-        {% set segs = ['light.cozinha_wled_entrance', 'light.cozinha_wled_entrance_segment_1',
-           'light.cozinha_wled_entrance_segment_2', 'light.cozinha_wled_entrance_segment_3',
-           'light.cozinha_wled_entrance_segment_4', 'light.cozinha_wled_entrance_segment_5',
-           'light.cozinha_wled_entrance_segment_6'] %}
-        {% set color_entity = segs | select('has_value') | list | first | default('light.cozinha_wled_entrance', true) %}
+        {% set segs = ['light.wled_entrance', 'light.wled_entrance_segment_1',
+           'light.wled_entrance_segment_2', 'light.wled_entrance_segment_3',
+           'light.wled_entrance_segment_4', 'light.wled_entrance_segment_5',
+           'light.wled_entrance_segment_6'] %}
+        {% set color_entity = segs | select('has_value') | list | first | default('light.wled_entrance', true) %}
         {{ state_attr(color_entity, 'rgbw_color') }}
       effect_list: "{{ state_attr('select.wled_entrance_preset', 'options') | default([], true) }}"
       effect: >-
         {% set preset = states('select.wled_entrance_preset') %}
         {{ preset if preset not in ['unknown', 'unavailable'] else None }}
-      availability: "{{ has_value('light.cozinha_wled_entrance_main') }}"
+      availability: "{{ has_value('light.wled_entrance_main') }}"
       supports_transition: true
       turn_on:
         - action: select.select_option
@@ -51,30 +47,30 @@
             option: "Cosy"
         - action: light.turn_on
           target:
-            entity_id: light.cozinha_wled_entrance_main
+            entity_id: light.wled_entrance_main
       turn_off:
         - action: light.turn_off
           target:
-            entity_id: light.cozinha_wled_entrance_main
+            entity_id: light.wled_entrance_main
       set_level:
         - action: light.turn_on
           target:
-            entity_id: light.cozinha_wled_entrance_main
+            entity_id: light.wled_entrance_main
           data:
             brightness: "{{ brightness }}"
       set_rgbw:
         - variables:
             wled_entrance_segments:
-              - light.cozinha_wled_entrance
-              - light.cozinha_wled_entrance_segment_1
-              - light.cozinha_wled_entrance_segment_2
-              - light.cozinha_wled_entrance_segment_3
-              - light.cozinha_wled_entrance_segment_4
-              - light.cozinha_wled_entrance_segment_5
-              - light.cozinha_wled_entrance_segment_6
+              - light.wled_entrance
+              - light.wled_entrance_segment_1
+              - light.wled_entrance_segment_2
+              - light.wled_entrance_segment_3
+              - light.wled_entrance_segment_4
+              - light.wled_entrance_segment_5
+              - light.wled_entrance_segment_6
             wled_entrance_color_entity: >-
               {{ wled_entrance_segments | select('has_value') | list | first
-                 | default('light.cozinha_wled_entrance', true) }}
+                 | default('light.wled_entrance', true) }}
         - action: light.turn_on
           target:
             entity_id: "{{ wled_entrance_color_entity }}"
@@ -83,7 +79,7 @@
             effect: "Solid"
         - action: light.turn_on
           target:
-            entity_id: light.cozinha_wled_entrance_main
+            entity_id: light.wled_entrance_main
       set_effect:
         - action: select.select_option
           target:
