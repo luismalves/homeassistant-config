@@ -6,7 +6,7 @@
 # Privacy sensors
 # NOTE: thresholds must mirror the "already in privacy position" template
 # condition inside the matching script in scripts/cover.yaml (set_cover_*_privacy),
-# and must not overlap the breeze sensors below (breeze ends at 23 for sala /
+# and must not overlap the breeze sensors below (breeze ends at 29 for sala /
 # 30 for suite+bedrooms, privacy starts just above that) or both modes can
 # report "on" at once.
 - binary_sensor:
@@ -21,7 +21,7 @@
       name: "Estores Sala privacy mode"
       state: >
         {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
-        {{ position > 23 and position <= 55 }}
+        {{ position > 29 and position <= 55 }}
 
 - binary_sensor:
     - unique_id: "estores_bedroom_right_privacy_mode"
@@ -38,15 +38,15 @@
         {{ position > 30 and position <= 76 }}
 
 # Breeze sensors
-# NOTE: upper bound must be just above the "position" set by the matching
-# set_cover_*_breeze script in scripts/cover.yaml (23 for sala, 29 for
-# suite/bedroom_right/bedroom_left, with upper bounds of 23 and 30 respectively).
+# NOTE: upper bound must be >= the highest "position" set by the matching
+# set_cover_*_breeze script in scripts/cover.yaml (29 for sala, 30 for
+# suite/bedroom_right/bedroom_left).
 - binary_sensor:
     - unique_id: "estores_sala_breeze_mode"
       name: "Estores Sala breeze mode"
       state: >
         {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
-        {{ position > 1 and position <= 23 }}
+        {{ position > 1 and position <= 29 }}
 
 - binary_sensor:
     - unique_id: "estores_suite_breeze_mode"

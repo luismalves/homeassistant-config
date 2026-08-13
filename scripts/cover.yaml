@@ -103,7 +103,7 @@ open_bedroom_cover_morning:
 # NOTE: the "position > X and <= Y" checks below must stay in sync with
 # binary_sensor.estores_*_privacy_mode in components/templates/cover.yaml,
 # and the lower bound must match the breeze upper bound further down
-# (23 for sala, 30 for suite/bedroom_right/bedroom_left).
+# (29 for sala, 30 for suite/bedroom_right/bedroom_left).
 # Suite, bedroom_right, and bedroom_left target a lower position (60, same
 # drift compensation as the breeze scripts above) when the cover is already
 # closed vs. a higher one (76) when it isn't.
@@ -159,7 +159,7 @@ set_cover_sala_privacy:
             - condition: template
               value_template: >
                 {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
-                {{ position > 23 and position <= 55 }}
+                {{ position > 29 and position <= 55 }}
             - condition: sun
               after: sunset
               before: sunrise
@@ -170,7 +170,7 @@ set_cover_sala_privacy:
             - condition: template
               value_template: >
                 {% set position = state_attr('cover.estores_sala', 'current_position') | int(0) %}
-                {{ position > 23 and position <= 55 }}
+                {{ position > 29 and position <= 55 }}
             - condition: sun
               after: sunrise
               before: sunset
@@ -279,11 +279,11 @@ set_cover_bedroom_left_privacy:
 # Night breeze positions
 # NOTE: the breeze-mode upper bound in binary_sensor.estores_*_breeze_mode
 # (components/templates/cover.yaml) must stay >= the highest position used
-# below (23 for sala, 30 for suite/bedroom_right/bedroom_left).
-# Suite, bedroom_right, and bedroom_left target a lower position (14) when
-# the cover is already closed vs. a higher one (30) when it isn't, to
-# compensate for position-tracking drift that differs depending on whether
-# the motor is moving up from closed or down from open.
+# below (29 for sala, 30 for suite/bedroom_right/bedroom_left).
+# All covers target a lower position when already closed vs. a higher one
+# when they aren't (14/30 for suite+bedrooms, 13/29 for sala), to compensate
+# for position-tracking drift that differs depending on whether the motor is
+# moving up from closed or down from open.
 set_cover_suite_breeze:
   sequence:
     - choose:
@@ -307,10 +307,21 @@ set_cover_suite_breeze:
 
 set_cover_sala_breeze:
   sequence:
-    - action: cover.set_cover_position
-      entity_id: cover.estores_sala
-      data:
-        position: 23
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: cover.estores_sala
+              state: "closed"
+          sequence:
+            - action: cover.set_cover_position
+              entity_id: cover.estores_sala
+              data:
+                position: 13
+      default:
+        - action: cover.set_cover_position
+          entity_id: cover.estores_sala
+          data:
+            position: 29
   mode: single
   alias: Open living room cover to breeze position
   icon: mdi:window-shutter
