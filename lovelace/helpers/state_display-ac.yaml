@@ -1,7 +1,9 @@
 >
   [[[
     if (entity) {
-      if (entity.attributes.current_temperature) {
+      if (entity.state != "off" && entity.attributes.temperature) {
+        return `${helpers.localize(entity)} - ${entity.attributes.temperature}ºC`;
+      } else if (entity.attributes.current_temperature) {
         const temp = entity.attributes.current_temperature - 1.5;
         return `${helpers.localize(entity)} - ${temp}ºC`;
       } else {
