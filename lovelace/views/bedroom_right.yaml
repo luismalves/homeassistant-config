@@ -234,6 +234,15 @@ cards:
                 - icon: mdi:vibrate
                 - color-state-on: --ha-card-color-name-on
 
+      - template: es-light-small
+        view_layout:
+          grid-column: span 2
+        type: "custom:decluttering-card"
+        variables:
+          - template: light-strip
+          - entity: switch.busy_bar_display
+          - name: "Relógio"
+
       - type: "custom:gap-card"
         height: 10
         view_layout:
