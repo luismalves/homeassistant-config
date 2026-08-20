@@ -103,6 +103,19 @@ switch:
   custom_fields: !include ../icons/switch.yaml
 
 #---------------------#
+# Fan
+#---------------------#
+fan:
+  custom_fields: !include ../icons/fan.yaml
+  variables:
+    state: "[[[ return entity ? entity.state : 'unavailable'; ]]]"
+    state_on: "[[[ return entity && entity.state === 'on'; ]]]"
+    timeout: >
+      [[[
+        return entity ? Date.now() - new Date(entity.last_changed).getTime() : 999999;
+      ]]]
+
+#---------------------#
 # Toggles
 #---------------------#
 toggle:

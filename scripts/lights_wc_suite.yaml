@@ -15,13 +15,13 @@ turn_off_wc_suite:
     - choose:
         - conditions:
             - condition: state
-              entity_id: light.extrator_wc_suite
+              entity_id: light.luz_wc_suite
               state: "on"
             - condition: template
               value_template: "{{ not (presence_mode | default(false)) }}"
           sequence:
             - action: light.turn_off
-              entity_id: light.extrator_wc_suite
+              entity_id: light.luz_wc_suite
     - choose:
         - conditions:
             - condition: state
@@ -38,11 +38,11 @@ turn_on_wc_suite:
     - choose:
         - conditions:
             - condition: state
-              entity_id: light.extrator_wc_suite
+              entity_id: light.luz_wc_suite
               state: "off"
           sequence:
             - action: light.turn_on
-              entity_id: light.extrator_wc_suite
+              entity_id: light.luz_wc_suite
     - choose:
         - conditions:
             - condition: state

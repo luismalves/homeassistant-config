@@ -142,6 +142,7 @@ section-header:
     variables:
       sensor_entity: "[[sensor_entity]]"
       is_small: "[[is_small]]"
+      font_size: "[[font_size]]"
     triggers_update:
       - "[[sensor_entity]]"
     styles:
@@ -169,6 +170,7 @@ section-header:
         - font-weight: 700
         - font-size: >
             [[[
+              if (variables["font_size"]) return variables["font_size"];
               return variables["is_small"] ? "18px" :  "24px";
             ]]]
         - margin-bottom: 4px
@@ -211,6 +213,7 @@ section-header:
     type: "custom:button-card"
   default:
     - is_small: false
+    - font_size: null
 
 banner:
   card:
@@ -836,7 +839,9 @@ es-speaker:
     custom_fields: !include ../circles/circle-x.yaml
     entity: "[[entity]]"
     name: "[[name]]"
-    tap_action: !include ../holds/hold-action-es-speaker.yaml
+    #tap_action: !include ../holds/hold-action-es-speaker.yaml
+    tap_action:
+      action: more-info
     show_icon: false
     show_state: true
     state: !include ../states/state-es-speaker.yaml

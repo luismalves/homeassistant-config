@@ -23,4 +23,4 @@
 
         - !include ../../views_items/wc_suite/light.led_wc_suite.yaml
 
-        - !include ../../views_items/wc_suite/light.extrator_wc_suite.yaml
+        - !include ../../views_items/wc_suite/light.luz_wc_suite.yaml

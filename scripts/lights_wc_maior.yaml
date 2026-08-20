@@ -1,0 +1,61 @@
+---
+# Lights group control - WC (Maior)
+#
+
+turn_off_wc_maior:
+  alias: Turn off lights of WC (Maior)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_wc_maior
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.luz_wc_maior
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_maior_dir
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.led_wc_maior_dir
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_maior_esq
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.led_wc_maior_esq
+  mode: single
+
+turn_on_wc_maior:
+  alias: Turn on lights of WC (Maior)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_wc_maior
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.luz_wc_maior
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_maior_dir
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.led_wc_maior_dir
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_maior_esq
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.led_wc_maior_esq
+  mode: single

@@ -49,8 +49,29 @@
       unit_of_measurement: "on"
       state: >
         {% set lights = [
-          states.light.led_wc_suite,
-          states.light.extrator_wc_suite
+          states.light.luz_wc_suite,
+          states.light.led_wc_suite
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+    - name: Luzes ligadas no WC (Social)
+      unique_id: lights_on_wc_social
+      unit_of_measurement: "on"
+      state: >
+        {% set lights = [
+          states.light.luz_wc_social,
+          states.light.led_wc_social
+          ] %}
+        {{ lights | selectattr('state','eq','on') | list | count }}
+
+    - name: Luzes ligadas no WC (Maior)
+      unique_id: lights_on_wc_maior
+      unit_of_measurement: "on"
+      state: >
+        {% set lights = [
+          states.light.luz_wc_maior,
+          states.light.led_wc_maior_dir,
+          states.light.led_wc_maior_esq
           ] %}
         {{ lights | selectattr('state','eq','on') | list | count }}
 
@@ -99,4 +120,4 @@
       unique_id: lights_on_house
       unit_of_measurement: "on"
       state: >
-        {{ states('sensor.lights_on_bedroom_left')|int(0) + states('sensor.lights_on_kitchen')|int(0) + states('sensor.lights_on_living_room')|int(0) + states('sensor.lights_on_bedroom_suite')|int(0) + states('sensor.lights_on_bedroom_right')|int(0) }}
+        {{ states('sensor.lights_on_bedroom_left')|int(0) + states('sensor.lights_on_kitchen')|int(0) + states('sensor.lights_on_living_room')|int(0) + states('sensor.lights_on_bedroom_suite')|int(0) + states('sensor.lights_on_bedroom_right')|int(0) + states('sensor.lights_on_wc_suite')|int(0) + states('sensor.lights_on_wc_social')|int(0) + states('sensor.lights_on_wc_maior')|int(0) }}

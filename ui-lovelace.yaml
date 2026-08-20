@@ -20,6 +20,7 @@ views:
   - !include lovelace/views/wc.yaml
   - !include lovelace/views/bedroom_right.yaml
   - !include lovelace/views/bedroom_left.yaml
+  - !include lovelace/views/wc-geral.yaml
   - !include lovelace/views/balcony.yaml
   #- !include lovelace/views/ev.yaml
   - !include lovelace/views/pet.yaml
