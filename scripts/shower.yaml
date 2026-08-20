@@ -4,44 +4,74 @@
 
 set_suite_shower_conditions:
   alias: "Prepares Suite for a shower"
-  description: "Sets cover position to privacy only if cover is open and privacy mode is off"
+  description: >-
+    Moves the suite and WC covers to their shower positions, starts the
+    extractor fan, and turns on the WC light and mirror - waiting for the WC
+    cover only when it actually has to move.
   sequence:
-    # Handle room cover with choose block
-    - choose:
-        - conditions:
-            - condition: state
-              entity_id: cover.estores_suite
-              state: "open"
-            - condition: state
-              entity_id: binary_sensor.estores_suite_privacy_mode
-              state: "off"
-          sequence:
-            - action: cover.set_cover_position
-              target:
-                entity_id: cover.estores_suite
-              data:
-                position: 60
-    # Handle WC cover with choose block
-    - choose:
-        - conditions:
-            - condition: not
-              conditions:
-                - condition: state
-                  entity_id: cover.estores_wc_suite
-                  state: "closed"
-          sequence:
-            - action: cover.set_cover_position
-              target:
-                entity_id: cover.estores_wc_suite
-              data:
-                position: 20
-    # Turn on extractor fan if not already on after a delay
-    - delay:
-        seconds: 20
-    - condition: state
-      entity_id: light.extrator_wc_suite
-      state: "off"
-    - action: light.turn_on
-      target:
-        entity_id: light.extrator_wc_suite
+    # Extractor fan first, it should run for the whole shower.
+    - if:
+        - condition: state
+          entity_id: switch.extrator_wc_suite
+          state: "off"
+      then:
+        - action: switch.turn_on
+          target:
+            entity_id: switch.extrator_wc_suite
+
+    # Suite cover: only when fully open. Privacy (31-76) and breeze (2-30)
+    # positions are already low enough, and 60 would open a breeze cover up.
+    - if:
+        - condition: state
+          entity_id: cover.estores_suite
+          state: "open"
+        - condition: state
+          entity_id: binary_sensor.estores_suite_privacy_mode
+          state: "off"
+        - condition: state
+          entity_id: binary_sensor.estores_suite_breeze_mode
+          state: "off"
+      then:
+        - action: cover.set_cover_position
+          target:
+            entity_id: cover.estores_suite
+          data:
+            position: 60
+
+    # WC cover: only when it sits above the shower position. Closed or already
+    # at a breeze position (<= 20) means nothing to do, so the lights below do
+    # not have to wait for it.
+    - if:
+        - condition: numeric_state
+          entity_id: cover.estores_wc_suite
+          attribute: current_position
+          above: 20
+      then:
+        - action: cover.set_cover_position
+          target:
+            entity_id: cover.estores_wc_suite
+          data:
+            position: 20
+        # Let the cover reach the position before lighting the WC up.
+        - delay:
+            seconds: 20
+
+    # WC light and mirror, once the cover is in place.
+    - if:
+        - condition: state
+          entity_id: light.luz_wc_suite
+          state: "off"
+      then:
+        - action: light.turn_on
+          target:
+            entity_id: light.luz_wc_suite
+
+    - if:
+        - condition: state
+          entity_id: switch.espelho_wc_suite
+          state: "off"
+      then:
+        - action: switch.turn_on
+          target:
+            entity_id: switch.espelho_wc_suite
   mode: single
