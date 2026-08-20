@@ -6,12 +6,10 @@
 # statistics "max" for each day, so monthly totals stay available.
 #####
 
-# NOTE: source device (Everything Presence Lite 2) is currently
-# unavailable — this records 0 until it is back online.
 - platform: history_stats
   name: "Living room occupied today"
   unique_id: living_room_occupied_today
-  entity_id: binary_sensor.everything_presence_lite_5d1fc0_occupancy
+  entity_id: binary_sensor.everything_presence_pro_occupancy
   state: "on"
   type: time
   start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
@@ -53,8 +51,9 @@
   start: "{{ now().replace(hour=0, minute=0, second=0, microsecond=0) }}"
   end: "{{ now() }}"
 
-# Zone 1 is the suite bedroom; zone 2 is the WC (tracked separately
-# in motion.yaml as "WC suite motion status").
+# Zone 1 is the suite bedroom. The WC suite is tracked separately in
+# motion.yaml ("WC suite motion status"), sourced from Everything
+# Presence Lite 2 zone 1.
 - platform: history_stats
   name: "Bedroom suite occupied today"
   unique_id: bedroom_suite_occupied_today

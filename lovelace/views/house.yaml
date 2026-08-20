@@ -203,7 +203,7 @@ cards:
             - template: sensor-pill
               type: "custom:decluttering-card"
               variables:
-                - entity: binary_sensor.everything_presence_lite_5d1fc0_occupancy
+                - entity: binary_sensor.everything_presence_pro_occupancy
                 - icon: mdi:motion-sensor
                 - show-name: true
                 - name: Sala
@@ -268,6 +268,20 @@ cards:
                 - icon: mdi:motion-sensor
                 - show-name: true
                 - name: Suite
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.everything_presence_lite_5d1fc0_zone_1_occupancy
+                - icon: mdi:motion-sensor
+                - show-name: true
+                - name: WC Suite
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: binary_sensor.shelly_blu_motion_1_motion
+                - icon: mdi:motion-sensor
+                - show-name: true
+                - name: WC Social
 
       # Doors
       ############

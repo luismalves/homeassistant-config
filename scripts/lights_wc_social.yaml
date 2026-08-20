@@ -1,0 +1,45 @@
+---
+# Lights group control - WC (Social)
+#
+
+turn_off_wc_social:
+  alias: Turn off lights of WC (Social)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_wc_social
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.luz_wc_social
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_social
+              state: "on"
+          sequence:
+            - action: light.turn_off
+              entity_id: light.led_wc_social
+  mode: single
+
+turn_on_wc_social:
+  alias: Turn on lights of WC (Social)
+  sequence:
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.luz_wc_social
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.luz_wc_social
+    - choose:
+        - conditions:
+            - condition: state
+              entity_id: light.led_wc_social
+              state: "off"
+          sequence:
+            - action: light.turn_on
+              entity_id: light.led_wc_social
+  mode: single
