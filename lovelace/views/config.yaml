@@ -94,6 +94,15 @@ cards:
           - name: "Zigbee updates"
           - url-1: /config/dashboard
 
+      - template: sensor-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: sensors-empty
+          - entity: sensor.homeassistant_db_size
+          - name: "HA DB size"
+
       - type: "custom:gap-card"
         height: 25
         view_layout:
@@ -217,6 +226,32 @@ cards:
           - template: toggle-auto-brightness
           - entity: input_boolean.enable_wc_suite_lights_automation
           - name: "Automação luz WC suite"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity: input_boolean.enable_wc_maior_lights_automation
+          - name: "Automação luz WC Maior"
+          - state-1: "on"
+          - state-2: "off"
+          - align-self-name: center
+          - grid-template-rows: 1fr
+
+      - template: es-config
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: toggle-auto-brightness
+          - entity: input_boolean.enable_wc_social_lights_automation
+          - name: "Automação luz WC Social"
           - state-1: "on"
           - state-2: "off"
           - align-self-name: center
@@ -497,5 +532,57 @@ cards:
           - service: button.press
           - entity: button.pi_screen_reboot
           - name: "Reboot pi screen"
+
+      - type: "custom:gap-card"
+        height: 25
+        view_layout:
+          grid-column: span 6
+
+      - template: subtitle
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
+          - content: Configurações
+
+      - template: es-config-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: lxc
+          - entity: input_number.energy_access_cost_per_day
+          - name: "Preço"
+          - description: "Acesso diário energia"
+
+      - template: es-config-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: lxc
+          - entity: input_number.energy_power_cost_per_day
+          - name: "Preço"
+          - description: "Potência contratada"
+
+      - template: es-config-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: lxc
+          - entity: input_number.energy_cost_per_kwh_full_hours
+          - name: "Preço"
+          - description: "KWh Cheias"
+
+      - template: es-config-number
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: lxc
+          - entity: input_number.energy_cost_per_kwh_empty_hours
+          - name: "Preço"
+          - description: "KWh Vazias"
 
       - !include ../views_frames/config-devices.yaml

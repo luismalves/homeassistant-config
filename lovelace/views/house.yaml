@@ -457,6 +457,49 @@ cards:
         view_layout:
           grid-column: span 6
         variables:
+          - content: Baterias
+
+      - type: "custom:gap-card"
+        height: 5
+        view_layout:
+          grid-column: span 6
+
+      - template: es-battery-pack
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: battery-pack
+          - entity: sensor.ecoflow_status_data
+          - name: "River 3 Plus"
+          - entity-power: sensor.river_3_plus_ac_out_power
+          - entity-battery: sensor.river_3_plus_battery_level
+          - entity-remaining: sensor.river_3_plus_discharge_remaining_time
+          - entity-cycles: sensor.river_3_plus_cycles
+
+      - template: es-battery-pack
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 3
+        variables:
+          - template: unifi-tower
+          - entity: sensor.ecoflow_status_data
+          - name: "River 3 Plus"
+          - entity-power: sensor.river_3_plus_ac_out_power
+          - entity-battery: sensor.river_3_plus_battery_level
+          - entity-remaining: sensor.river_3_plus_discharge_remaining_time
+          - entity-cycles: sensor.river_3_plus_cycles
+
+      - type: "custom:gap-card"
+        height: 20
+        view_layout:
+          grid-column: span 6
+
+      - template: title
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 6
+        variables:
           - content: Faturas
 
       - type: "custom:gap-card"

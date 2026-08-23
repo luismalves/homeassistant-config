@@ -78,8 +78,20 @@ shower:
 water-pump:
   custom_fields: !include ../icons/water-pump.yaml
 
+water-pump-2:
+  custom_fields: !include ../icons/water-pump-2.yaml
+
 wardrobe:
   custom_fields: !include ../icons/wardrobe.yaml
+
+mirror:
+  custom_fields: !include ../icons/mirror.yaml
+
+battery-pack:
+  custom_fields: !include ../icons/battery-pack.yaml
+
+unifi-tower:
+  custom_fields: !include ../icons/unifi-tower.yaml
 
 #---------------------#
 # Media

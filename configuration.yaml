@@ -108,8 +108,8 @@ spotcast:
 
 device_tracker:
   - platform: bluetooth_le_tracker
-    new_device_defaults:
-      track_new_devices: true
+    track_new_devices: false
+    interval_seconds: 30
 
 # ########################################
 # ###              LOGGING             ###

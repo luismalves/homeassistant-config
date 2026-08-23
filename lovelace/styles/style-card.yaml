@@ -2,6 +2,7 @@ card:
   - height: 110px
   - font-size: 12px
   - font-family: "var(--paper-ha-card_-_font-family)"
+  - padding: 4px 0
 
 custom_fields:
   icon_hue:

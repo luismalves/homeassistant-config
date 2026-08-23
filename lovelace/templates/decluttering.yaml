@@ -926,6 +926,304 @@ es-number:
     default: null
 
 #---------------------#
+# One-off entity state cards
+#---------------------#
+
+# Heat pump unit. Two rows tall, everything centred.
+es-water-pump:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: true
+    tap_action:
+      action: more-info
+    state_display: >
+      [[[
+        const p = parseFloat(entity.state);
+        if (isNaN(p)) return 'Unavailable';
+        return p > 0 ? `On (${p}%)` : 'Off';
+      ]]]
+    custom_fields:
+      pills: >
+        [[[
+          const num = (e, d) => { const v = parseFloat(e && e.state); return isNaN(v) ? '-' : v.toFixed(d); };
+          const t = states['sensor.baxi_heat_pump_controller_current_water_temperature'];
+          const m = states['select.baxi_heat_pump_controller_work_mode'];
+          const c = states['sensor.baxi_max_cop_24h'];
+          const mode = (m && m.state) ? m.state.split(' (')[0] : '-';
+          return `<div class="hp-pills"><div class="hp-pill"><span>Temp. água</span><b>${num(t, 1)}&deg;</b></div><div class="hp-pill"><span>Modo</span><b>${mode}</b></div><div class="hp-pill"><span>COP máx 24h</span><b>${num(c, 1)}</b></div></div>`;
+        ]]]
+    extra_styles: |
+      .hp-pills {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .hp-pill {
+        align-items: center;
+        background: var(--ha-card-background-es-off);
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        min-width: 78px;
+        padding: 3px 8px 4px;
+      }
+      .hp-pill span {
+        font-size: 8px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        line-height: 9px;
+        opacity: 0.7;
+        text-transform: uppercase;
+      }
+      .hp-pill b {
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 13px;
+      }
+    state:
+      - operator: template
+        value: "[[[ return parseFloat(entity.state) > 0; ]]]"
+        styles:
+          card:
+            - background: "var([[background-on]])"
+            - overflow: hidden
+          name:
+            - color: "var([[color-name-on]])"
+          state:
+            - color: "var([[color-state-on]])"
+      - operator: default
+        styles:
+          card:
+            - background: "var(--ha-card-background-es-off)"
+          name:
+            - color: "var([[color-name-off]])"
+          state:
+            - color: "var([[color-state-off]])"
+    styles:
+      card:
+        - background-color: var(--ha-card-background-es-static)
+        - color: "var(--el-es-static-text-color-light)"
+        - font-size: 12px
+        - font-weight: bold
+        - height: "[[card-height]]"
+        - padding: 4px 6px
+      grid:
+        - grid-template-areas: '"icon_hue" "n" "s" "pills"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 65px min-content min-content 1fr
+      custom_fields:
+        icon_hue:
+          - align-self: center
+          - justify-self: center
+          - width: 45px
+        pills:
+          - justify-self: center
+          - margin-top: 8px
+      name:
+        - align-self: center
+        - color: "var(--el-scene-name-color)"
+        - font-size: 12px
+        - font-weight: bold
+        - text-align: center
+      state:
+        - align-self: center
+        - font-size: 12px
+        - line-height: 1
+        - margin-bottom: 12px
+        - text-align: center
+    template: "[[template]]"
+    type: "custom:button-card"
+  default:
+    - card-height: 228px
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+
+# Portable battery pack / power station. Two rows tall, centred
+# OL / OL CHRG means the pack is running on mains, which is the idle case.
+es-battery-pack:
+  card:
+    entity: "[[entity]]"
+    name: "[[name]]"
+    show_icon: false
+    show_state: true
+    tap_action:
+      action: none
+    state_display: >
+      [[[
+        const s = entity ? entity.state : '';
+        if (!s || s === 'unavailable' || s === 'unknown') return 'Off';
+        if (!new RegExp('[[state-off]]').test(s)) return 'On';
+        return s === '[[state-charging]]' ? 'Off · charging' : 'Off';
+      ]]]
+    custom_fields:
+      graph:
+        card:
+          type: custom:mini-graph-card
+          entities:
+            - "[[entity-power]]"
+          hours_to_show: 24
+          line_width: 3
+          lower_bound: 15
+          show:
+            icon: false
+            name: false
+            state: false
+            average: true
+            extrema: true
+            labels: false
+            fill: true
+          card_mod:
+            style: >
+              ha-card {
+                background: transparent;
+                border-radius: 0 0 var(--ha-card-border-radius) var(--ha-card-border-radius);
+                padding-top: 0 !important;
+              }
+              ha-card[fill] .info { padding-bottom: 15px !important; }
+              ha-card > div.info {
+                color: var(--el-es-static-text-color-light);
+                padding: 0 10px 5px;
+              }
+              .info__item__type { color: var(--el-es-static-text-color-light); font-size: 12px; }
+              .info__item__time { color: var(--el-es-static-text-color-light); font-size: 9px; }
+              .info__item__value { color: var(--el-es-static-text-color-light); font-size: 12px; }
+      pills: >
+        [[[
+          const num = (id, d, suffix) => {
+            const v = parseFloat(states[id] && states[id].state);
+            return isNaN(v) ? '-' : v.toFixed(d) + (suffix || '');
+          };
+          const mins = (id) => {
+            const v = parseFloat(states[id] && states[id].state);
+            if (isNaN(v)) return '-';
+            const h = Math.floor(v / 60), m = Math.round(v % 60);
+            return h > 0 ? `${h}h ${m}m` : `${m}m`;
+          };
+          const pill = (label, value) => `<div class="bp-pill"><span>${label}</span><b>${value}</b></div>`;
+          return `<div class="bp-pills">${pill('[[label-battery]]', num('[[entity-battery]]', 0, '%'))}${pill('[[label-remaining]]', mins('[[entity-remaining]]'))}${pill('[[label-cycles]]', num('[[entity-cycles]]', 0))}</div>`;
+        ]]]
+    extra_styles: |
+      .bp-pills {
+        align-items: stretch;
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+        justify-content: center;
+        width: 100%;
+      }
+      .bp-pill {
+        align-items: center;
+        background: var(--ha-card-background-es-off);
+        border-radius: 30px;
+        display: flex;
+        flex: 1 1 0;
+        flex-direction: column;
+        min-width: 0;
+        padding: 3px 4px 4px;
+      }
+      .bp-pill span {
+        font-size: 8px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        line-height: 9px;
+        max-width: 100%;
+        opacity: 0.7;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+      .bp-pill b {
+        font-size: 11px;
+        font-weight: bold;
+        line-height: 13px;
+      }
+    state:
+      - operator: template
+        value: >
+          [[[
+            const s = entity ? entity.state : '';
+            if (!s || s === 'unavailable' || s === 'unknown') return false;
+            return !new RegExp('[[state-off]]').test(s);
+          ]]]
+        styles:
+          card:
+            - background: "var([[background-on]])"
+            - overflow: hidden
+          name:
+            - color: "var([[color-name-on]])"
+          state:
+            - color: "var([[color-state-on]])"
+      - operator: default
+        styles:
+          card:
+            - background: "var(--ha-card-background-es-off)"
+          name:
+            - color: "var([[color-name-off]])"
+          state:
+            - color: "var([[color-state-off]])"
+    styles:
+      card:
+        - background-color: var(--ha-card-background-es-static)
+        - color: "var(--el-es-static-text-color-light)"
+        - font-size: 12px
+        - font-weight: bold
+        - height: "[[card-height]]"
+        - padding: 4px 0 0
+      grid:
+        - grid-template-areas: '"icon_hue" "n" "s" "pills" "graph"'
+        - grid-template-columns: 1fr
+        - grid-template-rows: 65px min-content min-content min-content 1fr
+      custom_fields:
+        icon_hue:
+          - align-self: center
+          - justify-self: center
+          - width: "[[icon-width]]"
+        pills:
+          - justify-self: center
+          - margin: 4px 0 12px
+          - padding: 0 6px
+          - width: 100%
+        graph:
+          - align-self: end
+          - font-weight: normal
+      name:
+        - align-self: center
+        - color: "var(--el-scene-name-color)"
+        - font-size: 12px
+        - font-weight: bold
+        - text-align: center
+      state:
+        - align-self: center
+        - font-size: 12px
+        - line-height: 1
+        - margin-bottom: 6px
+        - text-align: center
+    template: "[[template]]"
+    type: "custom:button-card"
+    variables:
+      battery_entity: "[[entity-battery]]"
+  default:
+    - card-height: 228px
+    - icon-width: 45px
+    - state-off: "^(OL|OL CHRG)$"
+    - state-charging: "OL CHRG"
+    - label-battery: "Bateria"
+    - label-remaining: "Restante"
+    - label-cycles: "Ciclos"
+    - background-on: --ha-card-background-es-on
+    - color-name-on: --ha-card-color-name-on
+    - color-name-off: --ha-card-color-name-off
+    - color-state-on: --ha-card-color-state-on
+    - color-state-off: --ha-card-color-state-off
+
+#---------------------#
 # Path cards
 #---------------------#
 
@@ -1464,7 +1762,7 @@ sensor-number:
     - show_units: true
     - numeric_precision: undefined
     - localize: true
-    - unit: undefined
+    - unit: ""
     - conditional_unit: false
 
 sensor-number-ext:

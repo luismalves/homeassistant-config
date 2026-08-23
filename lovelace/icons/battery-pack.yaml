@@ -1,0 +1,11 @@
+icon_hue: >
+  [[[
+    const src = (variables && variables.battery_entity) ? variables.battery_entity : (entity ? entity.entity_id : null);
+    const raw = (src && states[src]) ? parseFloat(states[src].state) : NaN;
+    const ok = !isNaN(raw);
+    const pct = ok ? Math.min(100, Math.max(0, raw)) : 0;
+    const lit = !ok ? 'var(--contrast8)' : (pct > 50 ? '#3fae5a' : (pct > 20 ? '#e8a33d' : '#e2574c'));
+    const w = (17.5 * pct / 100).toFixed(1);
+    const bar = (ok && pct > 0) ? `<rect x="23.25" y="11.25" width="${w}" height="8.5" fill="${lit}"/>` : '';
+    return `<svg viewBox="0 0 64 40" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="64" height="40" rx="3" fill="var(--contrast10)"/><rect x="0" y="5.6" width="64" height="0.9" fill="var(--contrast8)"/><circle cx="11" cy="19.5" r="6.6" fill="var(--contrast12)"/><circle cx="11" cy="19.5" r="4.4" fill="var(--contrast14)"/><rect x="4.5" y="30" width="13" height="3" rx="1.5" fill="var(--contrast12)"/><rect x="22" y="10" width="20" height="11" rx="1.5" fill="var(--contrast14)"/>${bar}<rect x="23" y="23.5" width="4.6" height="2.6" rx="1.1" fill="var(--contrast12)"/><rect x="29.7" y="23.5" width="4.6" height="2.6" rx="1.1" fill="var(--contrast12)"/><rect x="36.4" y="23.5" width="4.6" height="2.6" rx="1.1" fill="var(--contrast12)"/><circle cx="32" cy="31.5" r="2.4" fill="var(--contrast12)"/><circle cx="52.8" cy="19.5" r="7.2" fill="var(--contrast12)"/><circle cx="52.8" cy="19.5" r="5.1" fill="var(--contrast14)"/><circle cx="50.6" cy="19.5" r="1.15" fill="var(--contrast10)"/><circle cx="55" cy="19.5" r="1.15" fill="var(--contrast10)"/><rect x="46.3" y="30" width="13" height="3" rx="1.5" fill="var(--contrast12)"/></svg>`;
+  ]]]

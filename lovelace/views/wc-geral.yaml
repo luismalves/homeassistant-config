@@ -36,6 +36,52 @@ cards:
 
       - !include ../views_items/wc_maior/light.led_wc_maior.yaml
 
+      - template: es-water-pump
+        type: "custom:decluttering-card"
+        view_layout:
+          grid-column: span 2
+          grid-row: span 2
+        variables:
+          - template: water-pump-2
+          - entity: sensor.baxi_heat_pump_controller_compressor_power
+          - name: "Bomba Água"
+          - background-on: --purple-gradient, var(--ha-card-background-es-on)
+
+      - type: custom:mod-card
+        view_layout:
+          grid-column: span 2
+        card_mod:
+          style:
+            .: |
+              ha-card {
+                background: none;
+                box-shadow: none;
+                border: none;
+              }
+            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
+        card:
+          type: "custom:layout-card"
+          view_layout:
+            grid-column: span 1
+          layout_type: "custom:grid-layout"
+          layout:
+            card_margin: 0px
+            grid-template-columns: 1fr
+            grid-template-rows: 1fr
+            height: 100%
+            margin: 0
+            padding: 0
+          cards:
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor_2
+                - icon: mdi:toilet
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: Fuga
+
       - type: custom:mod-card
         view_layout:
           grid-column: span 2
@@ -79,7 +125,7 @@ cards:
         view_layout:
           grid-column: span 2
         variables:
-          - template: light-spot-v2
+          - template: mirror
           - entity: switch.espelho_wc_maior
           - name: Espelho
 
@@ -122,7 +168,7 @@ cards:
           layout:
             card_margin: 0px
             grid-template-columns: 1fr
-            grid-template-rows: 1fr
+            grid-template-rows: 1fr 1fr
             height: 100%
             margin: 0
             padding: 0
@@ -135,6 +181,15 @@ cards:
                 - state-2: "off"
                 - icon: mdi:motion-sensor
                 - color-state-on: --ha-card-color-name-on
+            - template: sensor-pill
+              type: "custom:decluttering-card"
+              variables:
+                - entity: sensor.water_sensor
+                - icon: mdi:toilet
+                - state-1: "ALERTA"
+                - state-2: "OK"
+                - show-name: true
+                - name: Fuga
 
       - type: "custom:gap-card"
         height: 20

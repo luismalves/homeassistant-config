@@ -207,52 +207,6 @@ cards:
       # After christmas, comment ligth code and change back shutters card to one half in ui-lovelace.yaml
       # - !include ../views_items/living_room/light.wled_xmas.yaml
 
-      - type: custom:mod-card
-        view_layout:
-          grid-column: span 2
-        card_mod:
-          style:
-            .: |
-              ha-card {
-                background: none;
-                box-shadow: none;
-                border: none;
-              }
-            layout-card $ grid-layout $: "#root { --masonry-view-card-margin: 3.3px 0; align-items: center;}"
-        card:
-          type: "custom:layout-card"
-          view_layout:
-            grid-column: span 2
-          layout_type: "custom:grid-layout"
-          layout:
-            card_margin: 0px
-            grid-template-columns: 1fr
-            grid-template-rows: 1fr 1fr 1fr
-            height: 100%
-            margin: 0
-            padding: 0
-          cards:
-            - template: sensor-pill
-              type: "custom:decluttering-card"
-              variables:
-                - entity: sensor.water_sensor
-                - icon: mdi:toilet
-                - state-1: "ALERTA"
-                - state-2: "OK"
-                - show-name: true
-                - name: Social
-            - template: sensor-pill
-              type: "custom:decluttering-card"
-              variables:
-                - entity: sensor.water_sensor_2
-                - icon: mdi:toilet
-                - state-1: "ALERTA"
-                - state-2: "OK"
-                - show-name: true
-                - name: Grande
-            - type: "custom:gap-card"
-              height: 10
-
       - template: es-light-small
         view_layout:
           grid-column: span 2

@@ -87,7 +87,7 @@ cards:
     #   double_tap_action:
     #     action: none
     card_mod:
-      style: !include ../styles/style-card-entities-img.yaml
+      style: !include ../../styles/style-card-entities-img.yaml
 
   # - type: "custom:mini-graph-card"
   #   view_layout:
@@ -166,7 +166,7 @@ cards:
     series:
       - entity: sensor.cpu_temperature
         type: "line"
-        color_threshold: !include ../graphs/temp-server-cpu-thresholds.yaml
+        color_threshold: !include ../../graphs/temp-server-cpu-thresholds.yaml
         group_by:
           duration: 2h
           func: avg
@@ -177,7 +177,7 @@ cards:
     header:
       show: true
       title: "Temperatura CPU"
-    apex_config: !include ../graphs/temp-server-apexconfig.yaml
+    apex_config: !include ../../graphs/temp-server-apexconfig.yaml
     card_mod:
       style: |-
         #header #header__title {
@@ -203,7 +203,7 @@ cards:
     series:
       - entity: sensor.disk_vanilla_dev_nvme1n1_temperature
         type: "line"
-        color_threshold: !include ../graphs/temp-server-disk-thresholds.yaml
+        color_threshold: !include ../../graphs/temp-server-disk-thresholds.yaml
         group_by:
           duration: 2h
           func: avg
@@ -214,7 +214,7 @@ cards:
     header:
       show: true
       title: "Temperatura disco"
-    apex_config: !include ../graphs/temp-server-apexconfig.yaml
+    apex_config: !include ../../graphs/temp-server-apexconfig.yaml
     card_mod:
       style: |-
         #header #header__title {

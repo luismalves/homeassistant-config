@@ -1,0 +1,14 @@
+icon_hue: >
+  [[[
+    const src = (variables && variables.battery_entity) ? variables.battery_entity : (entity ? entity.entity_id : null);
+    const raw = (src && states[src]) ? parseFloat(states[src].state) : NaN;
+    const ok = !isNaN(raw);
+    const pct = ok ? Math.min(100, Math.max(0, raw)) : 0;
+    const lit = ok ? Math.ceil(pct / 20) : 0;
+    const blue = '#3797F2';
+    const dim = 'var(--contrast6)';
+    const leds = [37.6, 42.8, 48, 53.2, 58.4].map((x, i) =>
+      `<circle cx="${x}" cy="26.5" r="1.8" fill="${i < lit ? blue : dim}"/>`).join('');
+    const ring = ok ? blue : 'var(--contrast8)';
+    return `<svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg"><rect x="31.4" y="0.55" width="33.2" height="94.9" rx="3.5" fill="var(--contrast4)" stroke="var(--contrast8)" stroke-width="1.1"/><rect x="31.9" y="6.2" width="2.2" height="26" rx="1.1" fill="var(--contrast14)"/><rect x="61.9" y="6.2" width="2.2" height="26" rx="1.1" fill="var(--contrast14)"/><rect x="31.9" y="34.6" width="2.2" height="55.6" rx="1.1" fill="var(--contrast14)"/><rect x="61.9" y="34.6" width="2.2" height="55.6" rx="1.1" fill="var(--contrast14)"/><rect x="34" y="33" width="28" height="1" fill="var(--contrast6)"/><circle cx="48" cy="16.6" r="2.9" fill="var(--contrast6)"/><circle cx="48" cy="16.6" r="3.6" fill="none" stroke="${ring}" stroke-width="1.6"/><path d="M48 14.6v2.4" stroke="var(--contrast10)" stroke-width="1" stroke-linecap="round"/>${leds}<path d="M43.6 59.5v4.2a4.4 4.4 0 008.8 0v-4.2" fill="none" stroke="var(--contrast6)" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+  ]]]

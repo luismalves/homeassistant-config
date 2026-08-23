@@ -1,0 +1,97 @@
+#####
+# Suite wake up sensors
+#
+# Both sensors only live inside the morning window: from one hour before
+# sunrise until solar noon. Outside of it they are always off, so a stale
+# or replayed value coming from the phones during the rest of the day can
+# never move them.
+#
+# Inside the window, a person has a "pending morning alarm" when the next
+# alarm of their phone is set for today (local time) at a time that also
+# falls inside the window. This filters out the other alarms and routines
+# that are scheduled during the rest of the day.
+#
+# The next alarm sensor of Android reports whatever the next AlarmManager
+# entry is, so it also carries calendar reminders and Samsung routines.
+# Only the clock app of each phone counts, checked on the Package
+# attribute: without it a calendar reminder later in the morning keeps the
+# sensor on long after the person already woke up.
+# People that are not home are ignored.
+#
+# They are true while the alarm has NOT rung yet, so they are on from the
+# start of the window and turn off the moment the alarm goes off:
+#   - pending all -> off = the first person of the suite woke up
+#   - pending any -> off = the last person of the suite woke up
+# The latched "awake" state is kept in input_boolean.suite_full_awake and
+# input_boolean.suite_any_awake, driven from Node-RED.
+#####
+
+- binary_sensor:
+    - name: "Suite alarm pending all"
+      unique_id: suite_alarm_pending_all
+      icon: mdi:alarm-multiple
+      state: >-
+        {% set people = [
+             ('input_boolean.luis_home', 'sensor.s26_ultra_next_alarm', 'com.sec.android.app.clockpackage'),
+             ('input_boolean.margarida_home', 'sensor.oneplus_7_next_alarm', 'com.oneplus.deskclock')
+           ] %}
+        {% set sunrise = as_datetime(state_attr('sun.sun', 'next_rising')) %}
+        {% set noon = as_datetime(state_attr('sun.sun', 'next_noon')) %}
+        {% if sunrise is none or noon is none %}
+          false
+        {% else %}
+          {% set from = (as_local(sunrise) - timedelta(minutes=60)).time() %}
+          {% set until = as_local(noon).time() %}
+          {% if not (from <= now().time() <= until) %}
+            false
+          {% else %}
+            {% set ns = namespace(home=0, pending=0) %}
+            {% for home, alarm, package in people %}
+              {% if is_state(home, 'on') %}
+                {% set ns.home = ns.home + 1 %}
+                {% set next = as_datetime(states(alarm)) %}
+                {% if next is not none and state_attr(alarm, 'Package') == package %}
+                  {% set next = as_local(next) %}
+                  {% if next.date() == now().date() and from <= next.time() <= until %}
+                    {% set ns.pending = ns.pending + 1 %}
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {{ ns.home > 0 and ns.pending == ns.home }}
+          {% endif %}
+        {% endif %}
+
+    - name: "Suite alarm pending any"
+      unique_id: suite_alarm_pending_any
+      icon: mdi:alarm
+      state: >-
+        {% set people = [
+             ('input_boolean.luis_home', 'sensor.s26_ultra_next_alarm', 'com.sec.android.app.clockpackage'),
+             ('input_boolean.margarida_home', 'sensor.oneplus_7_next_alarm', 'com.oneplus.deskclock')
+           ] %}
+        {% set sunrise = as_datetime(state_attr('sun.sun', 'next_rising')) %}
+        {% set noon = as_datetime(state_attr('sun.sun', 'next_noon')) %}
+        {% if sunrise is none or noon is none %}
+          false
+        {% else %}
+          {% set from = (as_local(sunrise) - timedelta(minutes=60)).time() %}
+          {% set until = as_local(noon).time() %}
+          {% if not (from <= now().time() <= until) %}
+            false
+          {% else %}
+            {% set ns = namespace(pending=0) %}
+            {% for home, alarm, package in people %}
+              {% if is_state(home, 'on') %}
+                {% set next = as_datetime(states(alarm)) %}
+                {% if next is not none and state_attr(alarm, 'Package') == package %}
+                  {% set next = as_local(next) %}
+                  {% if next.date() == now().date() and from <= next.time() <= until %}
+                    {% set ns.pending = ns.pending + 1 %}
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {{ ns.pending > 0 }}
+          {% endif %}
+        {% endif %}

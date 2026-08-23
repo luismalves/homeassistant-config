@@ -1,0 +1,7 @@
+icon_hue: >
+  [[[
+    const uid = 'esp' + (entity ? entity.entity_id.replace(/[^a-z0-9]/gi, '') : 'x');
+    if (entity && entity.state === 'on')
+      return `<svg viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="${uid}a" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#ff2d16"/><stop offset=".55" stop-color="#ff5f1f"/><stop offset="1" stop-color="#ffab41"/></linearGradient><radialGradient id="${uid}b" cx=".5" cy=".55" r=".62"><stop offset="0" stop-color="#fff0a8" stop-opacity=".9"/><stop offset="1" stop-color="#ff5f1f" stop-opacity="0"/></radialGradient></defs><rect x="1" y="1" width="54" height="74" fill="#F7B239"/><rect x="4" y="4" width="48" height="68" fill="#7d1a09"/><rect x="4" y="4" width="48" height="68" fill="url(#${uid}a)"><animate attributeName="opacity" values=".45;1;.45" dur="2.6s" repeatCount="indefinite"/></rect><rect x="4" y="4" width="48" height="68" fill="url(#${uid}b)"><animate attributeName="opacity" values=".15;.75;.15" dur="1.7s" repeatCount="indefinite"/></rect><path d="M52 4h-7.1L4 26.1V62l48-26z" fill="#fff" opacity=".18"/><path d="M52 56.3L22.9 72H52z" fill="#fff" opacity=".12"/></svg>`;
+    return `<svg viewBox="0 0 56 76" xmlns="http://www.w3.org/2000/svg"><rect x="1" y="1" width="54" height="74" fill="var(--contrast10)"/><rect x="4" y="4" width="48" height="68" fill="var(--contrast6)"/><path d="M52 4h-7.1L4 26.1V62l48-26z" fill="var(--contrast4)"/><path d="M52 56.3L22.9 72H52z" fill="var(--contrast4)"/></svg>`;
+  ]]]

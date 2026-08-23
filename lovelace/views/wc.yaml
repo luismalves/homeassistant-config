@@ -86,7 +86,7 @@ cards:
               view_layout:
                 grid-column: span 2
               variables:
-                - template: light-spot-v2
+                - template: mirror
                 - entity: switch.espelho_wc_suite
                 - name: Espelho
             - template: sensor-pill
